@@ -5,8 +5,65 @@
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <link rel="stylesheet" href="assets/brand-tokens.css" />
-    <link rel="stylesheet" href="assets/apexx-overlay.css" />
     <style>
+/* Team Apexx keyword-graphics kit — shared look across talking-head reels.
+   Copied per project (portable). Pairs with brand-tokens.css. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; color: var(--brand-text); }
+#face-wrap { position: absolute; inset: 0; }
+#face-video { width: 1080px; height: 1920px; object-fit: cover; }
+
+/* Graphics zone: below the burned-in captions, above the Reels bottom UI */
+.zone { position: absolute; left: 110px; top: var(--zone-top, 1450px); width: 860px; height: var(--zone-h, 270px); display: flex; align-items: center; justify-content: center; }
+.card {
+  position: relative; width: 100%; border-radius: 30px; overflow: hidden; padding: 28px 44px 28px 48px;
+  background: linear-gradient(160deg, rgba(22,20,20,.86) 0%, rgba(10,10,10,.82) 60%, rgba(26,18,18,.86) 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.16);
+  backdrop-filter: blur(14px) saturate(1.1);
+}
+.card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--brand-accent); box-shadow: 0 0 24px var(--brand-accent-glow); }
+.display { font-family: "Bebas Neue", sans-serif; font-weight: 400; letter-spacing: .01em; line-height: .92; display: inline-block; transform: skewX(-8deg); white-space: nowrap; }
+.label { font-family: Inter, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: .16em; text-transform: uppercase; color: var(--brand-text-dim); white-space: nowrap; }
+.red { color: var(--brand-accent); text-shadow: 0 0 18px var(--brand-accent-glow), 0 0 42px rgba(216,6,9,.35); }
+.dim { color: #bdbdbd; }
+.glow { color: #fff; text-shadow: 0 0 22px rgba(255,255,255,.35), 0 6px 30px rgba(0,0,0,.8); }
+.strike { position: absolute; left: -8px; right: -8px; top: 50%; height: 12px; margin-top: -6px; background: var(--brand-accent); box-shadow: 0 0 20px var(--brand-accent-glow); transform-origin: left center; transform: scaleX(0); }
+.rel { position: relative; display: inline-block; }
+
+/* tag pills + chips */
+.tag { height: 54px; padding: 0 22px; border-radius: 12px; display: inline-flex; align-items: center; font-size: 42px; white-space: nowrap; }
+.tag.white { background: rgba(255,255,255,.92); color: #0a0a0a; }
+.tag.redbg { background: var(--brand-accent); color: #fff; box-shadow: 0 0 30px var(--brand-accent-glow); }
+.chip { height: 46px; padding: 0 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,.28); display: inline-flex; align-items: center; font-family: Inter, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: .08em; color: #fff; background: rgba(255,255,255,.06); white-space: nowrap; flex: none; }
+.corner { position: absolute; right: 40px; top: 26px; }
+
+/* meter rows */
+.rows { display: flex; flex-direction: column; gap: 18px; }
+.row { display: flex; align-items: center; gap: 22px; height: 42px; }
+.row .name { width: 300px; font-family: "Bebas Neue", sans-serif; font-size: 44px; line-height: 42px; letter-spacing: .04em; white-space: nowrap; }
+.track { position: relative; flex: 1; height: 22px; border-radius: 11px; background: rgba(255,255,255,.1); overflow: hidden; }
+.fill { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 11px; background: #f6f6f6; box-shadow: 0 0 16px rgba(255,255,255,.45); transform-origin: left center; transform: scaleX(0); }
+.row .val { width: 90px; text-align: right; font-family: "Bebas Neue", sans-serif; font-size: 40px; line-height: 42px; color: #fff; text-shadow: 0 0 14px rgba(216,6,9,.9); }
+
+/* checklist */
+.checks { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.check { display: flex; align-items: center; gap: 26px; height: 62px; }
+.box { position: relative; width: 56px; height: 56px; border-radius: 14px; border: 3px solid rgba(255,255,255,.4); flex: none; }
+.tick { position: absolute; inset: -3px; border-radius: 14px; background: var(--brand-accent); box-shadow: 0 0 22px var(--brand-accent-glow); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 44px; color: #fff; }
+.tick svg { width: 36px; height: 36px; }
+.check .txt { font-size: 62px; color: #fff; }
+.check .sub { font-family: Inter, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .14em; color: var(--brand-text-dim); margin-left: auto; white-space: nowrap; }
+
+/* big equation line */
+.eqline { display: flex; align-items: center; justify-content: center; gap: 30px; }
+
+/* numbered reason cards */
+.rhead { display: flex; align-items: center; gap: 22px; }
+.badge { width: 96px; height: 70px; border-radius: 14px; background: var(--brand-accent); box-shadow: 0 0 26px var(--brand-accent-glow); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 56px; color: #fff; flex: none; }
+.rtitle { font-size: 66px; color: #fff; }
+
       :root { --zone-top: 1450px; --zone-h: 270px; }
 
       .rtitle { font-size: 60px; }
@@ -100,8 +157,8 @@
               <div class="track"><div class="fill" id="r4-fill"></div></div>
               <div class="mk" id="mk1" style="left:24%">RINSE</div>
               <div class="mk" id="mk2" style="left:38%">REPEAT</div>
-              <div class="mk" id="mk3" style="left:56%">BASICS</div>
-              <div class="mk" id="mk4" style="left:78%">DAY IN, DAY OUT</div>
+              <div class="mk" id="mk3" style="left:57%">BASICS</div>
+              <div class="mk" id="mk4" style="left:83%">DAY IN, DAY OUT</div>
             </div>
             <div id="r4-grow" class="display red">GROW</div>
           </div>
