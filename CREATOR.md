@@ -1,12 +1,6 @@
-<!-- HYPERFRAMES_SETUP_INCOMPLETE -->
-<!-- ^ Leave this marker until /setup is complete. It tells Claude to greet a new user
-     and run onboarding before any video work. The setup skill removes it when finished. -->
-
 # Creator Profile — Ash | Team Apexx
 
 Your identity, positioning, and workflow for video work in this workspace. **Read this before every video task** (alongside `PREFERENCES.md`). Use it for on-screen text, niche framing, and workflow assumptions.
-
-> 🚧 **This file is a blank template.** Run `/setup` (or just tell Claude "help me get set up") and it will fill these sections in from a short interview. You can also edit it by hand any time.
 
 ## Identity
 
@@ -42,11 +36,19 @@ When putting handles on-screen (lower-thirds, outros, end-cards), use the platfo
 
 ## Brand identity
 
-_(Colors, fonts, logo. Often a blank slate at the start — `assets/brand-tokens.css` fills in over time. Set initial values during /setup.)_
+- **Logo**: `assets/brand/team-apexx-logo.svg` (source) + `assets/brand/team-apexx-logo.png` (trimmed, transparent). Red distressed brush-stroke X behind a gritty silver-white "TEAM APEX" wordmark. Copy into a project's `assets/` when used.
+- **Palette** (in `assets/brand-tokens.css`): near-black `#0a0a0a` background, logo red `#d80609` accent (dark side `#922a2b`), white `#f6f6f6` text, silver `#a19f9f` secondary.
+- **Feel**: gritty, hardcore, competition-stage. Red is the single hero accent — use it for emphasis words, stamps, and the X motif, not as a fill everywhere.
+- **Display font**: bold condensed (Anton / Bebas Neue); bundle the font file per project.
 
 ## Inspiration creators
 
-_(Studied creators live in [`_reference/creator-library/`](_reference/creator-library/). Paste a TikTok / Instagram Reel / YouTube Short URL and run `/study-creator <url>` to add one. At build time, name a creator — "build this like @handle" — to apply their style fingerprint to the visual layer. /setup seeds your first few here.)_
+See [`_reference/creator-library/INDEX.md`](_reference/creator-library/INDEX.md) for the full list. Add new creators via `/study-creator <url>`.
+
+**Pending — not yet studied** (Instagram was blocked by the cloud environment's network policy during setup; allow `instagram.com`, `cdninstagram.com`, `fbcdn.net` and run `/study-creator` on these):
+- https://www.instagram.com/reel/DYgwBAUMZgE/
+- https://www.instagram.com/reel/DcEbEF8sL-g/
+- https://www.instagram.com/reel/DeIGbZypIUb/
 
 ## Posting cadence & length defaults
 
