@@ -2,7 +2,7 @@
 <!-- ^ Leave this marker until /setup is complete. It tells Claude to greet a new user
      and run onboarding before any video work. The setup skill removes it when finished. -->
 
-# Creator Profile — _(your name)_
+# Creator Profile — Ash | Team Apexx
 
 Your identity, positioning, and workflow for video work in this workspace. **Read this before every video task** (alongside `PREFERENCES.md`). Use it for on-screen text, niche framing, and workflow assumptions.
 
@@ -10,7 +10,7 @@ Your identity, positioning, and workflow for video work in this workspace. **Rea
 
 ## Identity
 
-- **Name on-screen**: _(your display name)_
+- **Name on-screen**: Ash | Team Apexx
 - **Instagram**: _(@handle or "—")_
 - **TikTok**: _(handle or "—")_
 - **YouTube**: _(handle or "—")_
@@ -20,22 +20,22 @@ When putting handles on-screen (lower-thirds, outros, end-cards), use the platfo
 
 ## Platform priority
 
-_(Which platform(s) matter most, and the default aspect ratio. Most short-form creators default to **9:16 vertical, 1080×1920**. Set during /setup.)_
+**Instagram Reels first** (cross-post to TikTok / Shorts optional). Default format: **9:16 vertical, 1080×1920**, 30fps. Design for the Reels UI safe zones (keep key text out of the bottom ~20% and right-edge icon column).
 
 ## Content niche
 
-_(What you make videos about — e.g. AI tools, fitness, cooking, finance, comedy. Set during /setup. When planning a new video, the assistant assumes this niche unless told otherwise.)_
+**Bodybuilding, contest prep, physique coaching, and training.** Ash coaches under the Team Apexx brand. Assume this niche for every new video unless told otherwise. Typical topics: prep-phase updates, training breakdowns, posing, nutrition/peak week, client transformations, coaching tips.
 
 ## On-camera mix
 
-_(Do you appear on camera, go faceless, or both? Set during /setup.)_
+**Both.** Some videos are face-cam (Ash on camera / in the gym), others are faceless (motion graphics, B-roll, client footage). Ask which mode at the start of each video if it isn't obvious.
 
 - **Face-cam** → use `/short-form-video` face-mode choreography (BOTTOM / FULLSCREEN modes).
 - **Faceless** → motion graphics + AI TTS narration (`npx hyperframes tts`) or screen-recordings.
 
 ## Workflow — division of labor
 
-_(Set during /setup. Two common modes:)_
+**Mix of both.** Pick per video:
 
 - **You record + pre-edit your own speaking video** → it's the source of truth; the assistant builds the visual layer on top and does NOT cut your audio, remove pauses, or change your pacing.
 - **You build from scratch with the assistant** → motion graphics, TTS narration, screen-recordings assembled together.
