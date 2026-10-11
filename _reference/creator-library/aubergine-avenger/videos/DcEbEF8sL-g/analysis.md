@@ -8,7 +8,7 @@
 **Studied:** 2026-10-11
 **Engagement (at time of study):** 2,185 likes · 144 comments (views not exposed) · posted 2026-08-15
 **Sample rate:** 119 frames extracted at 2fps; every frame reviewed via 5x4 contact sheets (+ full-res spot checks).
-**Transcript:** not generated — Whisper model download (huggingface.co) was blocked by the environment network policy. Spoken words reconstructed from the on-screen captions, which track speech word-for-word.
+**Transcript:** `transcript.json` (Whisper small.en, word-level). Frame review was done before transcription; captions matched speech.
 
 ## Hook (0–2s)
 - 0.0–3.0s: talking head on a grey sofa, magenta/purple neon room, heavy vignette. The frame is **dimmed** behind a big **glowing yellow title** "GHK-Cu" (heavy italic display, yellow with a soft yellow bloom) and a white subtitle "Better Than a Hair Transplant?" sitting mid-frame over his chest.
@@ -82,4 +82,4 @@ Every key noun in the explanation gets **its own visual** — a glowing-yellow c
 - His face/likeness and specific product claims
 
 ## Transcript
-Not available (transcription model download blocked). Captions above reconstruct the speech.
+See `transcript.json` in this folder.

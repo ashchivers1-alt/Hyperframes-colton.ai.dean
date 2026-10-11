@@ -8,7 +8,7 @@
 **Studied:** 2026-10-11
 **Engagement (at time of study):** 5,888 likes · 8,647 comments (comment-keyword CTA "AI") · posted 2026-10-05
 **Sample rate:** 99 frames extracted at 2fps; every frame reviewed via 5x4 contact sheets.
-**Transcript:** not generated — Whisper model download (huggingface.co) was blocked by the environment network policy. Speech reconstructed from the word-synced captions.
+**Transcript:** `transcript.json` (Whisper small.en, word-level). Frame review was done before transcription; captions matched speech.
 
 ## Hook (0–2s)
 - 0.0s: single locked-off face-cam, subject seated in a gaming chair, holding a lav mic, against a sage-green wall with a teal/orange abstract painting.
@@ -79,4 +79,4 @@ A single unbroken face-cam with **Apple-style frosted-glass UI mockups animating
 - The exact "Comment AI" wording
 
 ## Transcript
-Not available (transcription model download blocked). Captions above reconstruct the speech.
+See `transcript.json` in this folder.

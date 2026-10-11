@@ -8,7 +8,7 @@
 **Studied:** 2026-10-11
 **Engagement (at time of study):** 68 likes · 9 comments · posted 2026-05-19
 **Sample rate:** 85 frames extracted at 1fps (video >60s); every frame reviewed via 5x4 contact sheets.
-**Transcript:** not generated — Whisper model download (huggingface.co) was blocked by the environment network policy. Speech reconstructed from the word-synced captions.
+**Transcript:** `transcript.json` (Whisper small.en, word-level). Frame review was done before transcription; captions matched speech.
 **Note:** this is the user's own video — studied as a baseline of their *current* edit style, not as an outside inspiration. Use it to keep continuity with what their audience already sees.
 
 ## Hook (0–2s)
@@ -77,4 +77,4 @@ Raw, honest prep-coach talk with **glowing cut-out stickers of real bodybuilders
 - This is Ash's own identity — handles, face, set, story. Fine to reuse everything.
 
 ## Transcript
-Not available (transcription model download blocked). Captions above reconstruct the speech.
+See `transcript.json` in this folder.
