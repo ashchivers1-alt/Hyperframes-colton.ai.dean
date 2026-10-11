@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <link rel="stylesheet" href="assets/apexx-overlay.css" />
+    <style>
+      :root { --zone-top: 1450px; --zone-h: 270px; }
+
+      .rtitle { font-size: 60px; }
+      .rcard { height: 250px; }
+      .r2 { display: flex; align-items: center; gap: 22px; margin-top: 30px; }
+      #b0 .card { height: 240px; display: flex; align-items: center; gap: 34px; }
+      #b0-4 { font-size: 220px; line-height: .8; }
+      #b0 .big { font-size: 112px; color: #fff; margin-top: 8px; }
+      #r1-q { font-size: 56px; }
+      .arrow { font-family: Inter, sans-serif; font-weight: 900; font-size: 44px; color: var(--brand-accent); }
+      .hero { font-size: 76px; }
+      #r2-sets { font-size: 64px; }
+      .days { display: flex; gap: 10px; }
+      .day { position: relative; width: 58px; height: 58px; border-radius: 12px; border: 3px solid rgba(255,255,255,.3); display: flex; align-items: center; justify-content: center; font-family: "Bebas Neue", sans-serif; font-size: 34px; color: #cfcfcf; }
+      .day .on, .day .off { position: absolute; inset: -3px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-weight: 900; font-size: 34px; }
+      .day .on { background: var(--brand-accent); color: #fff; box-shadow: 0 0 18px var(--brand-accent-glow); }
+      .day .off { background: #1a1414; border: 3px solid var(--brand-accent); color: var(--brand-accent); }
+      .chipbox { position: relative; width: 210px; height: 54px; }
+      .chipbox .tag { position: absolute; left: 0; top: 0; font-size: 30px; height: 54px; }
+      #r4-nqf { font-size: 30px; height: 46px; }
+      #r4 .r2 { margin-top: 34px; align-items: flex-start; }
+      #r4-time { font-size: 40px; margin-top: -8px; }
+      .tw { position: relative; flex: 1; height: 86px; }
+      .tw .track { position: absolute; left: 0; right: 0; top: 0; height: 26px; border-radius: 13px; }
+      #r4-fill { background: linear-gradient(90deg, #7a0204, #d80609); box-shadow: 0 0 18px rgba(216,6,9,.7); }
+      .mk { position: absolute; top: 34px; transform: translateX(-50%); font-family: Inter, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: .1em; color: #fff; white-space: nowrap; }
+      .mk::before { content: ""; position: absolute; left: 50%; top: -12px; width: 2px; height: 10px; background: rgba(255,255,255,.7); }
+      #r4-grow { font-size: 84px; margin-top: -24px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="56.1" data-width="1080" data-height="1920">
+      <!-- Source footage: Ash's finished edit (captions burned in). Audio untouched. -->
+      <div id="face-wrap">
+        <video id="face-video" src="assets/not-growing.mp4" data-start="0" data-duration="56.1" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/not-growing.mp4" data-start="0" data-duration="56.1" data-track-index="1" data-volume="1"></audio>
+
+      <!-- B0 · 0.2–3.5 · "4 reasons why you're not growing" -->
+      <div id="b0" class="zone clip" data-start="0.2" data-duration="3.3" data-track-index="2">
+        <div class="card">
+          <div id="b0-4" class="display red">4</div>
+          <div><div class="label" id="b0-l">Reasons you're</div><div id="b0-big" class="big display">NOT GROWING</div></div>
+        </div>
+      </div>
+
+      <!-- R1 · 3.6–14.5 · not eating enough → eat more -->
+      <div id="r1" class="zone clip" data-start="3.6" data-duration="10.9" data-track-index="2">
+        <div class="card rcard">
+          <div class="rhead"><div class="badge" id="r1-b">01</div><div id="r1-t" class="rtitle display">NOT EATING ENOUGH</div></div>
+          <div class="r2">
+            <div class="rel"><div id="r1-q" class="display dim">“I'M EATING LOADS”</div><div class="strike" id="r1-s"></div></div>
+            <div class="arrow" id="r1-a">→</div>
+            <div id="r1-m" class="hero display red">EAT MORE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- R2 · 14.55–23.7 · not training hard enough → it's how you do it -->
+      <div id="r2" class="zone clip" data-start="14.55" data-duration="9.15" data-track-index="2">
+        <div class="card rcard">
+          <div class="rhead"><div class="badge" id="r2-b">02</div><div id="r2-t" class="rtitle display">NOT TRAINING HARD ENOUGH</div></div>
+          <div class="r2">
+            <div class="rel"><div id="r2-sets" class="display dim">3 × 10–15</div><div class="strike" id="r2-s"></div></div>
+            <div class="arrow" id="r2-a">→</div>
+            <div id="r2-how" class="hero display red">HOW YOU DO IT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- R3 · 23.8–37.75 · not consistent: Mon–Fri on, weekend blow-out → day in, day out -->
+      <div id="r3" class="zone clip" data-start="23.8" data-duration="13.95" data-track-index="2">
+        <div class="card rcard">
+          <div class="rhead"><div class="badge" id="r3-b">03</div><div id="r3-t" class="rtitle display">NOT CONSISTENT ENOUGH</div></div>
+          <div class="r2">
+            <div class="days"><div class="day" id="d0">M<div class="on">✓</div></div><div class="day" id="d1">T<div class="on">✓</div></div><div class="day" id="d2">W<div class="on">✓</div></div><div class="day" id="d3">T<div class="on">✓</div></div><div class="day" id="d4">F<div class="on">✓</div></div><div class="day" id="d5">S<div class="off">✕</div><div class="on">✓</div></div><div class="day" id="d6">S<div class="off">✕</div><div class="on">✓</div></div></div>
+            <div class="chipbox"><div id="r3-c1" class="tag white display">WEEKEND BLOW-OUT</div><div id="r3-c2" class="tag redbg display">DAY IN, DAY OUT</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- R4 · 37.85–56.1 · not patient enough: no quick fixes, time + basics → grow -->
+      <div id="r4" class="zone clip" data-start="37.85" data-duration="18.25" data-track-index="2">
+        <div class="card rcard">
+          <div class="rhead"><div class="badge" id="r4-b">04</div><div id="r4-t" class="rtitle display">NOT PATIENT ENOUGH</div></div>
+          <div id="r4-nqf" class="corner tag redbg display">NO QUICK FIXES</div>
+          <div class="r2">
+            <div id="r4-time" class="display dim">TIME</div>
+            <div class="tw">
+              <div class="track"><div class="fill" id="r4-fill"></div></div>
+              <div class="mk" id="mk1" style="left:24%">RINSE</div>
+              <div class="mk" id="mk2" style="left:38%">REPEAT</div>
+              <div class="mk" id="mk3" style="left:56%">BASICS</div>
+              <div class="mk" id="mk4" style="left:78%">DAY IN, DAY OUT</div>
+            </div>
+            <div id="r4-grow" class="display red">GROW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SFX — subtle, well under the voice -->
+      <audio id="sx1" src="assets/sfx/whoosh.mp3" data-start="0.2" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx2" src="assets/sfx/slam.mp3" data-start="0.76" data-duration="1.2" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="sx3" src="assets/sfx/swipe.mp3" data-start="3.55" data-duration="1.05" data-track-index="10" data-volume="0.15"></audio>
+      <audio id="sx4" src="assets/sfx/pop.mp3" data-start="3.72" data-duration="0.7" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sx5" src="assets/sfx/hard-cut.mp3" data-start="12.45" data-duration="0.24" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx6" src="assets/sfx/slam.mp3" data-start="13.84" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx7" src="assets/sfx/swipe.mp3" data-start="14.5" data-duration="1.05" data-track-index="11" data-volume="0.15"></audio>
+      <audio id="sx8" src="assets/sfx/pop.mp3" data-start="14.77" data-duration="0.7" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="sx9" src="assets/sfx/hard-cut.mp3" data-start="22.08" data-duration="0.24" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx10" src="assets/sfx/slam.mp3" data-start="22.8" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx11" src="assets/sfx/swipe.mp3" data-start="23.75" data-duration="1.05" data-track-index="11" data-volume="0.15"></audio>
+      <audio id="sx12" src="assets/sfx/pop.mp3" data-start="24.04" data-duration="0.7" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx13" src="assets/sfx/click.wav" data-start="29.22" data-duration="0.45" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx14" src="assets/sfx/bass-drop.mp3" data-start="30.33" data-duration="1.15" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx15" src="assets/sfx/click.wav" data-start="36.36" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx16" src="assets/sfx/swipe.mp3" data-start="37.8" data-duration="1.05" data-track-index="10" data-volume="0.15"></audio>
+      <audio id="sx17" src="assets/sfx/pop.mp3" data-start="38.7" data-duration="0.7" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sx18" src="assets/sfx/hard-cut.mp3" data-start="43.5" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx19" src="assets/sfx/zap.mp3" data-start="47.6" data-duration="0.9" data-track-index="10" data-volume="0.12"></audio>
+      <audio id="sx20" src="assets/sfx/slam.mp3" data-start="55.5" data-duration="0.6" data-track-index="10" data-volume="0.28"></audio>
+    </div>
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 56.1;
+        // shared moves
+        const IN = (s, t, from = { y: 120 }, ease = "expo.out") => tl.fromTo(s, { ...from, opacity: 0, filter: "blur(18px)" }, { x: 0, y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease }, t);
+        const OUT = (s, t, to = { y: 90 }) => tl.to(s, { ...to, opacity: 0, filter: "blur(16px)", duration: 0.3, ease: "power2.in" }, t);
+        const SLAM = (s, t, origin = "50% 50%") => tl.fromTo(s, { scale: 1.9, opacity: 0, transformOrigin: origin }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, t);
+        const POP = (s, t) => tl.fromTo(s, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, t);
+        const RISE = (s, t, ease = "power3.out") => tl.fromTo(s, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease }, t);
+        const SLIDE = (s, t, ease = "power2.out") => tl.fromTo(s, { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease }, t);
+        const STRIKE = (s, t) => tl.fromTo(s, { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power4.out" }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -14, duration: 0.04 }, { x: 11, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, t);
+        const BREATHE = (s, t, d = 1.0) => tl.to(s, { scale: 1.04, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
+
+        // B0
+        IN("#b0 .card", 0.2);
+        SLAM("#b0-4", 0.76);
+        RISE("#b0-l", 1.0);
+        tl.fromTo("#b0-big", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 2.3);
+        SHAKE("#b0 .card", 2.9);
+        OUT("#b0 .card", 3.25, { x: -140 });
+
+        // R1
+        IN("#r1 .card", 3.6, { x: 140 });
+        POP("#r1-b", 3.72);
+        tl.set(["#r1-t", "#r1-a", "#r1-m"], { opacity: 0 }, 3.6);
+        tl.to("#r1-t", { opacity: 1, duration: 0.01 }, 5.4);
+        RISE("#r1-t", 5.42, "expo.out");
+        SLIDE("#r1-q", 8.6);
+        STRIKE("#r1-s", 12.45);
+        tl.to("#r1-q", { opacity: 0.45, duration: 0.25 }, 12.6);
+        tl.to("#r1-a", { opacity: 1, duration: 0.2 }, 13.55);
+        tl.to("#r1-m", { opacity: 1, duration: 0.01 }, 13.82);
+        SLAM("#r1-m", 13.84, "0% 60%");
+        OUT("#r1 .card", 14.25, { x: -140 });
+
+        // R2
+        IN("#r2 .card", 14.55, { x: 140 });
+        POP("#r2-b", 14.77);
+        tl.set(["#r2-t", "#r2-a", "#r2-how", "#r2-sets"], { opacity: 0 }, 14.55);
+        tl.to("#r2-t", { opacity: 1, duration: 0.01 }, 15.33);
+        RISE("#r2-t", 15.35, "expo.out");
+        tl.to("#r2-sets", { opacity: 1, duration: 0.01 }, 18.98);
+        SLIDE("#r2-sets", 19.0);
+        STRIKE("#r2-s", 22.08);
+        tl.to("#r2-sets", { opacity: 0.45, duration: 0.25 }, 22.2);
+        tl.to("#r2-a", { opacity: 1, duration: 0.2 }, 22.5);
+        tl.to("#r2-how", { opacity: 1, duration: 0.01 }, 22.78);
+        SLAM("#r2-how", 22.8, "0% 60%");
+        OUT("#r2 .card", 23.4, { x: -140 });
+
+        // R3
+        IN("#r3 .card", 23.8, { x: 140 });
+        POP("#r3-b", 24.04);
+        tl.set(["#r3-t", "#r3-c1", "#r3-c2"], { opacity: 0 }, 23.8);
+        tl.set(".day .on, .day .off", { scale: 0, opacity: 0 }, 23.8);
+        tl.to("#r3-t", { opacity: 1, duration: 0.01 }, 25.13);
+        RISE("#r3-t", 25.15, "expo.out");
+        tl.fromTo(".day", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: "power2.out", stagger: 0.05 }, 27.6);
+        tl.to(["#d0 .on", "#d1 .on", "#d2 .on", "#d3 .on", "#d4 .on"], { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(2.5)", stagger: 0.09 }, 29.22);
+        tl.to(["#d5 .off", "#d6 .off"], { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(2.5)", stagger: 0.12 }, 30.33);
+        tl.to("#r3-c1", { opacity: 1, duration: 0.01 }, 31.08);
+        SLAM("#r3-c1", 31.1, "0% 50%");
+        SHAKE("#r3 .card", 31.32);
+        tl.to(["#d5 .on", "#d6 .on"], { scale: 1, opacity: 1, duration: 0.22, ease: "back.out(2.5)", stagger: 0.12 }, 36.36);
+        tl.to("#r3-c1", { y: -30, opacity: 0, duration: 0.16, ease: "power2.in" }, 36.36);
+        tl.to("#r3-c2", { opacity: 1, duration: 0.01 }, 36.5);
+        POP("#r3-c2", 36.52);
+        tl.to(".day .on", { boxShadow: "0 0 30px rgba(216,6,9,.95)", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut", stagger: 0.04 }, 36.8);
+        OUT("#r3 .card", 37.5, { x: -140 });
+
+        // R4
+        IN("#r4 .card", 37.85, { x: 140 });
+        POP("#r4-b", 38.7);
+        tl.set(["#r4-t", "#r4-nqf", "#r4-grow", ".mk"], { opacity: 0 }, 37.85);
+        tl.to("#r4-t", { opacity: 1, duration: 0.01 }, 41.13);
+        RISE("#r4-t", 41.15, "expo.out");
+        tl.to("#r4-nqf", { opacity: 1, duration: 0.01 }, 43.48);
+        SLAM("#r4-nqf", 43.5, "100% 50%");
+        tl.fromTo("#r4-time", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 47.4);
+        tl.to("#r4-fill", { scaleX: 1, duration: 7.9, ease: "none" }, 47.6);
+        tl.fromTo("#mk1", { y: 10 }, { y: 0, opacity: 1, duration: 0.25, ease: "power2.out" }, 49.45);
+        tl.fromTo("#mk2", { y: 10 }, { y: 0, opacity: 1, duration: 0.25, ease: "power2.out" }, 50.33);
+        tl.fromTo("#mk3", { y: 10 }, { y: 0, opacity: 1, duration: 0.25, ease: "power2.out" }, 51.78);
+        tl.fromTo("#mk4", { y: 10 }, { y: 0, opacity: 1, duration: 0.25, ease: "power2.out" }, 52.97);
+        tl.to("#r4-grow", { opacity: 1, duration: 0.01 }, 55.48);
+        SLAM("#r4-grow", 55.5, "0% 60%");
+        SHAKE("#r4 .card", 55.72);
+
+        tl.to({}, { duration: DUR }, 0); // Law #11 anchor
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

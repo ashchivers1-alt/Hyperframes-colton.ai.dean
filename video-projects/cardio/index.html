@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <link rel="stylesheet" href="assets/apexx-overlay.css" />
+    <style>
+      :root { --zone-top: 1475px; --zone-h: 265px; }
+
+      #b1 .card { height: 225px; }
+      #b1 .line { display: flex; align-items: flex-end; gap: 28px; margin-top: 10px; }
+      #b1-30 { font-size: 150px; color: #fff; }
+      #b1-x5 { font-size: 110px; }
+      #b1-wk { font-size: 54px; margin-bottom: 14px; }
+      #b2 .card { height: 255px; }
+      #b2 .rows { margin-top: 20px; }
+      #b3 .card { height: 235px; }
+      #b3-big { font-size: 118px; margin-top: 12px; }
+      #b3 .foot { display: flex; align-items: center; gap: 18px; margin-top: 14px; }
+      #b3-min { font-size: 44px; }
+      #b4 .card { height: 262px; display: flex; padding: 0; }
+      #b4 .half { flex: 1; padding: 26px 34px 0 48px; position: relative; }
+      #b4 .half + .half { border-left: 1px solid rgba(255,255,255,.12); padding-left: 38px; }
+      #b4 .kg { font-size: 104px; color: #fff; margin-top: 6px; }
+      #b4 .sub { font-family: Inter, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .1em; color: #cfcfcf; margin-top: 8px; white-space: nowrap; }
+      #b4 .track { margin-top: 16px; flex: none; width: 100%; }
+      #b4-less { position: absolute; right: 30px; top: 24px; font-size: 34px; height: 44px; padding: 0 14px; }
+      #b5 .card { height: 262px; }
+      #b5 .check .txt { font-size: 56px; }
+      #b5 .tick { font-size: 46px; padding-top: 4px; }
+      #b6 .card { height: 262px; padding-top: 24px; }
+      #b6 .chart { position: relative; height: 150px; margin-top: 14px; display: flex; align-items: flex-end; gap: 30px; padding-left: 12px; }
+      #b6 .bar { width: 66px; height: 112px; border-radius: 10px 10px 4px 4px; background: linear-gradient(180deg, #ff2a2d, #b00407); box-shadow: 0 0 18px rgba(216,6,9,.55); transform-origin: 50% 100%; position: relative; }
+      #b6 .bar span { position: absolute; bottom: -34px; left: 0; right: 0; text-align: center; font-family: Inter, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: .1em; color: #cfcfcf; }
+      #b6-target { position: absolute; left: 0; right: 0; bottom: 112px; height: 0; border-top: 4px dashed rgba(255,255,255,.85); transform-origin: left center; }
+      #b6-tl { position: absolute; right: 0; bottom: 120px; font-family: Inter, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: .14em; color: #fff; }
+      #b6 .top { display: flex; align-items: center; justify-content: space-between; }
+      #b6-same { font-size: 52px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="48.43" data-width="1080" data-height="1920">
+      <!-- Source footage: Ash's finished edit (captions burned in). Audio untouched. -->
+      <div id="face-wrap">
+        <video id="face-video" src="assets/cardio.mp4" data-start="0" data-duration="48.43" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/cardio.mp4" data-start="0" data-duration="48.43" data-track-index="1" data-volume="1"></audio>
+
+      <!-- B1 · 4.5–8.4 · "set our cardio in minutes … 30 minutes, five times a week" -->
+      <div id="b1" class="zone clip" data-start="4.5" data-duration="3.9" data-track-index="2">
+        <div class="card">
+          <div class="label">The usual way</div>
+          <div class="line">
+            <div id="b1-30" class="display">30 MIN</div>
+            <div id="b1-x5" class="display red">× 5</div>
+            <div id="b1-wk" class="display dim">/ WEEK</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B2 · 9.5–16.95 · deeper into prep: eating less, depleted, burning less -->
+      <div id="b2" class="zone clip" data-start="9.5" data-duration="7.45" data-track-index="2">
+        <div class="card">
+          <div id="b2-tag" class="tag redbg display">DEEP INTO PREP</div>
+          <div class="rows">
+            <div class="row" id="b2r1"><div class="name">FOOD</div><div class="track"><div class="fill" id="b2f1"></div></div><div class="val" id="b2v1">LOW</div></div>
+            <div class="row" id="b2r2"><div class="name">ENERGY</div><div class="track"><div class="fill" id="b2f2"></div></div><div class="val" id="b2v2">LOW</div></div>
+            <div class="row" id="b2r3"><div class="name">CALORIES BURNED</div><div class="track"><div class="fill" id="b2f3"></div></div><div class="val" id="b2v3">LOW</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B3 · 19.4–24.5 · tip: set a calorie burn target rather than minutes -->
+      <div id="b3" class="zone clip" data-start="19.4" data-duration="5.1" data-track-index="2">
+        <div class="card">
+          <div class="label">What I do with my clients</div>
+          <div id="b3-big" class="display red">CALORIE TARGET</div>
+          <div class="foot">
+            <div id="b3-not" class="label">Not</div>
+            <div class="rel"><div id="b3-min" class="display dim">MINUTES</div><div class="strike" id="b3-s"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B4 · 25.0–34.75 · same 20 min on level 7 at 100 kg vs 90 kg -->
+      <div id="b4" class="zone clip" data-start="25.0" data-duration="9.75" data-track-index="2">
+        <div class="card">
+          <div class="half" id="b4L">
+            <div class="label">Start of prep</div>
+            <div id="b4-100" class="kg display">100 KG</div>
+            <div id="b4-s1" class="sub">20 MIN · LEVEL 7</div>
+            <div class="track"><div class="fill" id="b4f1"></div></div>
+          </div>
+          <div class="half" id="b4R">
+            <div class="label" id="b4-rl">10 kg lighter</div>
+            <div id="b4-90" class="kg display">90 KG</div>
+            <div id="b4-s2" class="sub">20 MIN · LEVEL 7</div>
+            <div class="track"><div class="fill" id="b4f2"></div></div>
+            <div id="b4-less" class="tag redbg display">LESS BURNED</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B5 · 34.9–42.5 · why: fitter → lower heart rate, less body weight, less burned -->
+      <div id="b5" class="zone clip" data-start="34.9" data-duration="7.6" data-track-index="2">
+        <div class="card">
+          <div class="checks">
+            <div class="check" id="b5c1"><div class="box"><div class="tick">↓</div></div><div class="txt display">HEART RATE</div><div class="sub">YOU'RE FITTER</div></div>
+            <div class="check" id="b5c2"><div class="box"><div class="tick">↓</div></div><div class="txt display">BODY WEIGHT</div><div class="sub">LESS TO MOVE</div></div>
+            <div class="check" id="b5c3"><div class="box"><div class="tick">↓</div></div><div class="txt display red">CALORIES BURNED</div><div class="sub">SAME TIME + LEVEL</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B6 · 42.6–48.43 · set a session calorie target → consistent burn every day -->
+      <div id="b6" class="zone clip" data-start="42.6" data-duration="5.83" data-track-index="2">
+        <div class="card">
+          <div class="top"><div class="label">Session target</div><div id="b6-same" class="display red">SAME BURN, EVERY DAY</div></div>
+          <div class="chart">
+            <div id="b6-target"></div><div id="b6-tl">TARGET</div>
+            <div class="bar"><span>MON</span></div><div class="bar"><span>TUE</span></div><div class="bar"><span>WED</span></div><div class="bar"><span>THU</span></div><div class="bar"><span>FRI</span></div><div class="bar"><span>SAT</span></div><div class="bar"><span>SUN</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SFX — subtle, well under the voice -->
+      <audio id="sx1" src="assets/sfx/whoosh.mp3" data-start="4.45" data-duration="0.57" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx2" src="assets/sfx/slam.mp3" data-start="5.86" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx3" src="assets/sfx/pop.mp3" data-start="6.62" data-duration="0.7" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="sx4" src="assets/sfx/swipe.mp3" data-start="9.45" data-duration="1.05" data-track-index="10" data-volume="0.16"></audio>
+      <audio id="sx5" src="assets/sfx/hard-cut.mp3" data-start="11.5" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx6" src="assets/sfx/hard-cut.mp3" data-start="12.4" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx7" src="assets/sfx/bass-drop.mp3" data-start="14.12" data-duration="1.15" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx8" src="assets/sfx/whoosh.mp3" data-start="19.35" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx9" src="assets/sfx/slam.mp3" data-start="20.57" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx10" src="assets/sfx/hard-cut.mp3" data-start="23.72" data-duration="0.24" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx11" src="assets/sfx/whoosh.mp3" data-start="24.95" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx12" src="assets/sfx/pop.mp3" data-start="26.27" data-duration="0.7" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx13" src="assets/sfx/pop.mp3" data-start="30.19" data-duration="0.7" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx14" src="assets/sfx/bass-drop.mp3" data-start="33.3" data-duration="1.15" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx15" src="assets/sfx/click.wav" data-start="36.85" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx16" src="assets/sfx/click.wav" data-start="38.32" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx17" src="assets/sfx/click.wav" data-start="41.4" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx18" src="assets/sfx/whoosh.mp3" data-start="42.55" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx19" src="assets/sfx/zap.mp3" data-start="45.9" data-duration="0.9" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="sx20" src="assets/sfx/slam.mp3" data-start="47.2" data-duration="1.2" data-track-index="10" data-volume="0.24"></audio>
+    </div>
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 48.43;
+        // shared moves
+        const IN = (s, t, from = { y: 120 }, ease = "expo.out") => tl.fromTo(s, { ...from, opacity: 0, filter: "blur(18px)" }, { x: 0, y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease }, t);
+        const OUT = (s, t, to = { y: 90 }) => tl.to(s, { ...to, opacity: 0, filter: "blur(16px)", duration: 0.3, ease: "power2.in" }, t);
+        const SLAM = (s, t, origin = "50% 50%") => tl.fromTo(s, { scale: 1.9, opacity: 0, transformOrigin: origin }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, t);
+        const POP = (s, t) => tl.fromTo(s, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, t);
+        const RISE = (s, t, ease = "power3.out") => tl.fromTo(s, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease }, t);
+        const SLIDE = (s, t, ease = "power2.out") => tl.fromTo(s, { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease }, t);
+        const STRIKE = (s, t) => tl.fromTo(s, { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power4.out" }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -14, duration: 0.04 }, { x: 11, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, t);
+        const BREATHE = (s, t, d = 1.0) => tl.to(s, { scale: 1.04, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
+
+        // B1
+        IN("#b1 .card", 4.5);
+        RISE("#b1 .label", 4.62);
+        SLAM("#b1-30", 5.86, "0% 60%");
+        POP("#b1-x5", 6.62);
+        SLIDE("#b1-wk", 7.1);
+        BREATHE("#b1-x5", 7.3, 0.8);
+        OUT("#b1 .card", 8.1);
+
+        // B2
+        IN("#b2 .card", 9.5, { x: 140 });
+        POP("#b2-tag", 9.62);
+        tl.fromTo(["#b2r1", "#b2r2", "#b2r3"], { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out", stagger: 0.1 }, 9.75);
+        tl.set(["#b2v1", "#b2v2", "#b2v3"], { opacity: 0 }, 9.5);
+        tl.to(["#b2f1", "#b2f2", "#b2f3"], { scaleX: 0.92, duration: 0.6, ease: "power3.out", stagger: 0.1 }, 10.0);
+        tl.to("#b2f1", { scaleX: 0.28, backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,.7)", duration: 0.5, ease: "expo.out" }, 11.5);
+        SLAM("#b2v1", 11.75);
+        tl.to("#b2f2", { scaleX: 0.3, backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,.7)", duration: 0.5, ease: "expo.out" }, 12.4);
+        SLAM("#b2v2", 12.65);
+        tl.to("#b2f3", { scaleX: 0.22, backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,.7)", duration: 0.6, ease: "expo.out" }, 14.12);
+        SLAM("#b2v3", 14.45);
+        SHAKE("#b2 .card", 14.7);
+        tl.to(["#b2f1", "#b2f2", "#b2f3"], { opacity: 0.55, duration: 0.18, yoyo: true, repeat: 3, ease: "steps(1)" }, 15.4);
+        OUT("#b2 .card", 16.65);
+
+        // B3
+        IN("#b3 .card", 19.4, { y: 120 }, "back.out(1.2)");
+        RISE("#b3 .label", 19.52);
+        SLAM("#b3-big", 20.57, "0% 60%");
+        BREATHE("#b3-big", 21.4, 1.2);
+        SLIDE("#b3-not", 23.35);
+        SLIDE("#b3-min", 23.45);
+        STRIKE("#b3-s", 23.72);
+        OUT("#b3 .card", 24.2);
+
+        // B4
+        IN("#b4 .card", 25.0, { scale: 0.88 }, "back.out(1.3)");
+        RISE("#b4L .label", 25.15);
+        tl.set(["#b4R .label", "#b4-90", "#b4-s2", "#b4R .track", "#b4-less"], { opacity: 0 }, 25.0);
+        SLAM("#b4-100", 26.27, "0% 60%");
+        RISE("#b4-s1", 27.5);
+        tl.to("#b4f1", { scaleX: 1, duration: 0.6, ease: "power3.out" }, 28.45);
+        tl.to("#b4R .label", { opacity: 1, duration: 0.25 }, 29.78);
+        tl.to("#b4-90", { opacity: 1, duration: 0.01 }, 30.18);
+        SLAM("#b4-90", 30.19, "0% 60%");
+        tl.to(["#b4-s2", "#b4R .track"], { opacity: 1, duration: 0.3 }, 31.4);
+        tl.to("#b4f2", { scaleX: 1, duration: 0.5, ease: "power3.out" }, 31.7);
+        tl.to("#b4f2", { scaleX: 0.55, backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,.7)", duration: 0.5, ease: "expo.out" }, 33.3);
+        tl.to("#b4-less", { opacity: 1, duration: 0.01 }, 33.85);
+        POP("#b4-less", 33.86);
+        OUT("#b4 .card", 34.45);
+
+        // B5
+        IN("#b5 .card", 34.9, { y: 140 });
+        tl.set("#b5 .tick", { scale: 0, opacity: 0 }, 34.9);
+        tl.set(["#b5c2", "#b5c3"], { opacity: 0 }, 34.9);
+        tl.fromTo("#b5c1 .txt, #b5c1 .sub", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 35.05);
+        tl.to("#b5c1 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 36.85);
+        tl.to("#b5c2", { opacity: 1, duration: 0.25 }, 38.2);
+        tl.to("#b5c2 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 38.32);
+        tl.to("#b5c3", { opacity: 1, duration: 0.25 }, 40.6);
+        tl.to("#b5c3 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 41.4);
+        SHAKE("#b5 .card", 41.6);
+        OUT("#b5 .card", 42.2);
+
+        // B6
+        IN("#b6 .card", 42.6);
+        RISE("#b6 .label", 42.72);
+        tl.fromTo("#b6-target", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.inOut" }, 43.4);
+        RISE("#b6-tl", 43.6);
+        tl.fromTo("#b6 .bar", { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "back.out(1.6)", stagger: 0.12 }, 45.9);
+        SLAM("#b6-same", 47.2, "100% 50%");
+        tl.to("#b6 .bar", { boxShadow: "0 0 34px rgba(216,6,9,.95)", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", stagger: 0.05 }, 47.8);
+
+        tl.to({}, { duration: DUR }, 0); // Law #11 anchor
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

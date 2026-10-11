@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <link rel="stylesheet" href="assets/apexx-overlay.css" />
+    <style>
+      :root { --zone-top: 1500px; --zone-h: 250px; }
+
+      #b1 .card { height: 236px; padding-top: 24px; }
+      #b1 .head { display: flex; align-items: center; gap: 14px; }
+      #b1 .av { width: 40px; height: 40px; border-radius: 50%; background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75); padding: 3px; }
+      #b1 .av div { width: 100%; height: 100%; border-radius: 50%; background: #2a2626; }
+      #b1 .who { font-family: Inter, sans-serif; font-weight: 800; font-size: 22px; color: #fff; letter-spacing: .02em; }
+      #b1 .lbl2 { margin-left: auto; font-size: 18px; }
+      #b1 .quote { margin-top: 16px; font-family: Inter, sans-serif; font-weight: 600; font-size: 31px; line-height: 1.3; color: #f2f2f2; width: 740px; }
+      #b1 .quote span { display: inline-block; margin-right: 9px; }
+      #b1-stamp { position: absolute; right: 36px; top: 64px; padding: 8px 20px; border: 6px solid var(--brand-accent); border-radius: 12px; color: var(--brand-accent); font-size: 78px; transform: rotate(-9deg); background: rgba(10,10,10,.82); box-shadow: 0 0 34px rgba(216,6,9,.45); text-shadow: 0 0 16px rgba(216,6,9,.6); white-space: nowrap; }
+      #b2 .w { font-size: 128px; }
+      #b2 .eq { font-size: 128px; }
+      #b3 .card { height: 230px; }
+      #b3 .split { display: flex; height: 112px; margin-top: 18px; border-radius: 16px; overflow: hidden; }
+      #b3 .seg { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 74px; }
+      #b3-phys { background: #f2f2f2; color: #0a0a0a; transform-origin: left center; }
+      #b3-ment { background: var(--brand-accent); color: #fff; box-shadow: inset 0 0 30px rgba(0,0,0,.25); transform-origin: right center; }
+      #b3 .pct { display: flex; justify-content: space-between; margin-top: 10px; }
+      #b4 .card { height: 220px; }
+      #b4 .three { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; padding-right: 10px; }
+      #b4 .w { font-size: 66px; color: #fff; }
+      #b4 .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--brand-accent); box-shadow: 0 0 14px var(--brand-accent-glow); }
+      #b5 .card { height: 220px; }
+      #b5 .two { display: flex; gap: 56px; margin-top: 24px; }
+      #b5 .w { font-size: 92px; color: #fff; }
+      #b5-ch { right: 40px; top: 24px; font-size: 34px; height: 46px; }
+      #b6 .card { height: 238px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="41.96" data-width="1080" data-height="1920">
+      <!-- Source footage: Ash's finished edit (captions burned in). Audio untouched. -->
+      <div id="face-wrap">
+        <video id="face-video" src="assets/mtvideo.mp4" data-start="0" data-duration="41.96" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/mtvideo.mp4" data-start="0" data-duration="41.96" data-track-index="1" data-volume="1"></audio>
+
+      <!-- B1 · 3.9–15.6 · the Instagram caption he saw → WRONG MINDSET stamp -->
+      <div id="b1" class="zone clip" data-start="3.9" data-duration="11.7" data-track-index="2">
+        <div class="card">
+          <div class="head"><div class="av"><div></div></div><div class="who">Instagram caption</div><div class="label lbl2">Seen while scrolling</div></div>
+          <div class="quote"><span id="w0">It's</span><span id="w1">not</span><span id="w2">how</span><span id="w3">hard</span><span id="w4">you</span><span id="w5">work,</span><span id="w6">it's</span><span id="w7">about</span><span id="w8">how</span><span id="w9">little</span><span id="w10">you</span><span id="w11">can</span><span id="w12">do</span><span id="w13">and</span><span id="w14">get</span><span id="w15">the</span><span id="w16">body</span><span id="w17">to</span><span id="w18">respond.</span></div>
+          <div id="b1-stamp" class="display">WRONG MINDSET</div>
+        </div>
+      </div>
+
+      <!-- B2 · 15.7–19.6 · anything worth having will not come easy -->
+      <div id="b2" class="zone clip" data-start="15.7" data-duration="3.9" data-track-index="2">
+        <div class="eqline">
+          <div id="b2-a" class="w display glow">WORTH IT</div>
+          <div id="b2-eq" class="eq display red">≠</div>
+          <div id="b2-b" class="w display glow">EASY</div>
+        </div>
+      </div>
+
+      <!-- B3 · 19.7–23.05 · as much a physical challenge as a mental one -->
+      <div id="b3" class="zone clip" data-start="19.7" data-duration="3.35" data-track-index="2">
+        <div class="card">
+          <div class="label">Bodybuilding is</div>
+          <div class="split"><div id="b3-phys" class="seg"><span class="display">PHYSICAL</span></div><div id="b3-ment" class="seg"><span class="display">MENTAL</span></div></div>
+        </div>
+      </div>
+
+      <!-- B4 · 26.8–31.65 · it should be hard, a challenge, you should question yourself -->
+      <div id="b4" class="zone clip" data-start="26.8" data-duration="4.85" data-track-index="2">
+        <div class="card">
+          <div class="label">It should be</div>
+          <div class="three">
+            <div id="b4-1" class="w display">HARD</div><div class="dot" id="b4-d1"></div>
+            <div id="b4-2" class="w display">CHALLENGING</div><div class="dot" id="b4-d2"></div>
+            <div id="b4-3" class="w display red">SELF-DOUBT</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B5 · 31.8–37.0 · no cookie-cutter shortcuts or easy ways -->
+      <div id="b5" class="zone clip" data-start="31.8" data-duration="5.2" data-track-index="2">
+        <div class="card">
+          <div class="label">No cookie-cutter</div>
+          <div class="two">
+            <div class="rel"><div id="b5-1" class="w display">SHORTCUTS</div><div class="strike" id="b5-s1"></div></div>
+            <div class="rel"><div id="b5-2" class="w display">EASY WAYS</div><div class="strike" id="b5-s2"></div></div>
+          </div>
+          <div id="b5-ch" class="corner tag redbg display">IT SHOULD CHALLENGE YOU</div>
+        </div>
+      </div>
+
+      <!-- B6 · 37.1–41.96 · time, consistency, hard work — not for everybody -->
+      <div id="b6" class="zone clip" data-start="37.1" data-duration="4.86" data-track-index="2">
+        <div class="card">
+          <div class="checks">
+            <div class="check" id="c1"><div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="txt display">TIME</div></div>
+            <div class="check" id="c2"><div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="txt display">CONSISTENCY</div></div>
+            <div class="check" id="c3"><div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="txt display">HARD WORK</div></div>
+          </div>
+          <div id="b6-nfe" class="corner tag redbg display">NOT FOR EVERYBODY</div>
+        </div>
+      </div>
+
+      <!-- SFX — subtle, well under the voice -->
+      <audio id="sx1" src="assets/sfx/whoosh.mp3" data-start="3.85" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx2" src="assets/sfx/slam.mp3" data-start="12.06" data-duration="1.2" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx3" src="assets/sfx/hard-cut.mp3" data-start="12.08" data-duration="0.24" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="sx4" src="assets/sfx/hard-cut.mp3" data-start="16.85" data-duration="0.24" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx5" src="assets/sfx/slam.mp3" data-start="18.2" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx6" src="assets/sfx/whoosh.mp3" data-start="19.65" data-duration="0.57" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="sx7" src="assets/sfx/pop.mp3" data-start="20.98" data-duration="0.7" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx8" src="assets/sfx/pop.mp3" data-start="22.45" data-duration="0.7" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx9" src="assets/sfx/whoosh.mp3" data-start="26.75" data-duration="0.57" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="sx10" src="assets/sfx/hard-cut.mp3" data-start="27.66" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx11" src="assets/sfx/hard-cut.mp3" data-start="29.05" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="sx12" src="assets/sfx/slam.mp3" data-start="30.27" data-duration="1.2" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx13" src="assets/sfx/swipe.mp3" data-start="31.75" data-duration="1.05" data-track-index="10" data-volume="0.15"></audio>
+      <audio id="sx14" src="assets/sfx/hard-cut.mp3" data-start="33.05" data-duration="0.24" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx15" src="assets/sfx/hard-cut.mp3" data-start="33.76" data-duration="0.24" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="sx16" src="assets/sfx/zap.mp3" data-start="35.42" data-duration="0.9" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="sx17" src="assets/sfx/whoosh.mp3" data-start="37.05" data-duration="0.57" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="sx18" src="assets/sfx/click.wav" data-start="38.02" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx19" src="assets/sfx/click.wav" data-start="38.4" data-duration="0.45" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="sx20" src="assets/sfx/click.wav" data-start="39.75" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx21" src="assets/sfx/bass-drop.mp3" data-start="40.38" data-duration="1.15" data-track-index="10" data-volume="0.28"></audio>
+    </div>
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 41.96;
+        // shared moves
+        const IN = (s, t, from = { y: 120 }, ease = "expo.out") => tl.fromTo(s, { ...from, opacity: 0, filter: "blur(18px)" }, { x: 0, y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease }, t);
+        const OUT = (s, t, to = { y: 90 }) => tl.to(s, { ...to, opacity: 0, filter: "blur(16px)", duration: 0.3, ease: "power2.in" }, t);
+        const SLAM = (s, t, origin = "50% 50%") => tl.fromTo(s, { scale: 1.9, opacity: 0, transformOrigin: origin }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, t);
+        const POP = (s, t) => tl.fromTo(s, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.32, ease: "back.out(2)" }, t);
+        const RISE = (s, t, ease = "power3.out") => tl.fromTo(s, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease }, t);
+        const SLIDE = (s, t, ease = "power2.out") => tl.fromTo(s, { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease }, t);
+        const STRIKE = (s, t) => tl.fromTo(s, { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power4.out" }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -14, duration: 0.04 }, { x: 11, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, t);
+        const BREATHE = (s, t, d = 1.0) => tl.to(s, { scale: 1.04, duration: d / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
+
+        // B1
+        IN("#b1 .card", 3.9);
+        RISE("#b1 .head", 4.05);
+        tl.fromTo("#w0", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 6.4);
+        tl.fromTo("#w1", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 6.66);
+        tl.fromTo("#w2", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 6.85);
+        tl.fromTo("#w3", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 7.04);
+        tl.fromTo("#w4", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 7.3);
+        tl.fromTo("#w5", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 7.49);
+        tl.fromTo("#w6", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 7.88);
+        tl.fromTo("#w7", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 8.14);
+        tl.fromTo("#w8", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 8.47);
+        tl.fromTo("#w9", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 8.65);
+        tl.fromTo("#w10", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.04);
+        tl.fromTo("#w11", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.23);
+        tl.fromTo("#w12", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.42);
+        tl.fromTo("#w13", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.6);
+        tl.fromTo("#w14", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.76);
+        tl.fromTo("#w15", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 9.97);
+        tl.fromTo("#w16", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 10.0);
+        tl.fromTo("#w17", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 10.16);
+        tl.fromTo("#w18", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.18, ease: "power2.out" }, 10.53);
+        tl.to("#b1 .quote", { opacity: 0.55, duration: 0.3 }, 11.8);
+        tl.fromTo("#b1-stamp", { scale: 2.4, opacity: 0, rotation: -20 }, { scale: 1, opacity: 1, rotation: -9, duration: 0.2, ease: "power4.in" }, 12.06);
+        SHAKE("#b1 .card", 12.26);
+        OUT("#b1 .card", 15.3);
+
+        // B2 (card-less, glow type)
+        tl.fromTo("#b2-a", { scale: 2.2, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.22, ease: "power4.in" }, 16.85);
+        tl.fromTo("#b2-eq", { scale: 0, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 17.85);
+        tl.fromTo("#b2-b", { scale: 2.2, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, 18.2);
+        SHAKE("#b2 .eqline", 18.42);
+        tl.to("#b2 .eqline", { scale: 0.85, opacity: 0, filter: "blur(14px)", duration: 0.24, ease: "power2.in" }, 19.3);
+
+        // B3
+        IN("#b3 .card", 19.7, { x: -140 });
+        RISE("#b3 .label", 19.82);
+        tl.fromTo("#b3-phys", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "expo.out" }, 20.98);
+        tl.fromTo("#b3-ment", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "expo.out" }, 22.45);
+        OUT("#b3 .card", 22.75);
+
+        // B4 — rule of three
+        IN("#b4 .card", 26.8, { y: 140 });
+        RISE("#b4 .label", 26.92);
+        tl.set(["#b4-d1", "#b4-d2"], { scale: 0 }, 26.8);
+        SLAM("#b4-1", 27.66, "50% 60%");
+        tl.to("#b4-d1", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 28.6);
+        SLAM("#b4-2", 29.05, "50% 60%");
+        tl.to("#b4-d2", { scale: 1, duration: 0.2, ease: "back.out(3)" }, 29.9);
+        SLAM("#b4-3", 30.27, "50% 60%");
+        SHAKE("#b4 .card", 30.5);
+        OUT("#b4 .card", 31.35);
+
+        // B5
+        IN("#b5 .card", 31.8, { x: 140 });
+        RISE("#b5 .label", 31.92);
+        SLIDE("#b5-1", 32.6);
+        STRIKE("#b5-s1", 33.05);
+        SLIDE("#b5-2", 33.38);
+        STRIKE("#b5-s2", 33.76);
+        tl.to(["#b5-1", "#b5-2"], { opacity: 0.45, duration: 0.3 }, 34.1);
+        SLAM("#b5-ch", 35.42, "100% 50%");
+        OUT("#b5 .card", 36.7);
+
+        // B6
+        IN("#b6 .card", 37.1);
+        tl.set("#b6 .tick", { scale: 0, opacity: 0 }, 37.1);
+        tl.set(["#c2", "#c3"], { opacity: 0 }, 37.1);
+        SLIDE("#c1 .txt", 37.25);
+        tl.to("#c1 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 38.02);
+        tl.to("#c2", { opacity: 1, duration: 0.2 }, 38.25);
+        tl.to("#c2 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 38.4);
+        tl.to("#c3", { opacity: 1, duration: 0.2 }, 39.0);
+        tl.to("#c3 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 39.75);
+        SLAM("#b6-nfe", 40.38, "100% 50%");
+        SHAKE("#b6 .card", 40.6);
+        tl.to("#b6 .tick", { boxShadow: "0 0 40px rgba(216,6,9,0.95)", duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut", stagger: 0.1 }, 41.0);
+
+        tl.to({}, { duration: DUR }, 0); // Law #11 anchor
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>
