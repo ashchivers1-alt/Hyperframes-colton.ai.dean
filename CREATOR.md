@@ -11,10 +11,10 @@ Your identity, positioning, and workflow for video work in this workspace. **Rea
 ## Identity
 
 - **Name on-screen**: Ash | Team Apexx
-- **Instagram**: _(@handle or "—")_
-- **TikTok**: _(handle or "—")_
-- **YouTube**: _(handle or "—")_
-- **X / other**: _(handle or "—")_
+- **Instagram**: @ash_teamapexx
+- **TikTok**: @ash_teamapexx
+- **YouTube**: @thebodybuildingcoach_ash
+- **X / other**: —
 
 When putting handles on-screen (lower-thirds, outros, end-cards), use the platform-appropriate handle.
 
