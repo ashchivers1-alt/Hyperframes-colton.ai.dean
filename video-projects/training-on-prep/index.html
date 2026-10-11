@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        font-family: Inter, sans-serif;
+        color: var(--brand-text);
+      }
+
+      /* ---------- source footage (already captioned + cut by Ash) ---------- */
+      #face-wrap {
+        position: absolute;
+        inset: 0;
+      }
+      #face-video {
+        width: 1080px;
+        height: 1920px;
+        object-fit: cover;
+      }
+
+      /* ---------- graphics zone: over the legs, below Ash's burned-in captions
+         (captions live at y≈1180–1380) and above the Reels bottom UI ---------- */
+      .zone {
+        position: absolute;
+        left: 90px;
+        top: 1410px;
+        width: 860px;
+        height: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card {
+        position: relative;
+        width: 100%;
+        border-radius: 30px;
+        background: linear-gradient(
+          160deg,
+          rgba(22, 20, 20, 0.86) 0%,
+          rgba(10, 10, 10, 0.82) 60%,
+          rgba(26, 18, 18, 0.86) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.55),
+          inset 0 1px 0 rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(14px) saturate(1.1);
+        overflow: hidden;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 8px;
+        background: var(--brand-accent);
+        box-shadow: 0 0 24px var(--brand-accent-glow);
+      }
+      .display {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 0.92;
+        display: inline-block;
+        transform: skewX(-8deg);
+      }
+      .label {
+        font-family: Inter, sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--brand-text-dim);
+      }
+      .red {
+        color: var(--brand-accent);
+        text-shadow:
+          0 0 18px var(--brand-accent-glow),
+          0 0 42px rgba(216, 6, 9, 0.35);
+      }
+
+      /* ---------- B1: LOGIC → OBSESSION ---------- */
+      #b1 .card {
+        height: 230px;
+        padding: 30px 48px;
+      }
+      #b1 .stack {
+        position: relative;
+        height: 150px;
+        margin-top: 8px;
+      }
+      #b1 .word {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 150px;
+      }
+      #b1-logic {
+        color: #cfcfcf;
+      }
+      #b1-strike {
+        position: absolute;
+        left: -8px;
+        top: 66px;
+        width: 330px;
+        height: 14px;
+        background: var(--brand-accent);
+        box-shadow: 0 0 20px var(--brand-accent-glow);
+        transform-origin: left center;
+      }
+
+      /* ---------- B2: MORE ✕ / LESS ---------- */
+      #b2 .card {
+        height: 230px;
+        display: flex;
+      }
+      #b2 .half {
+        position: relative;
+        flex: 1;
+        padding: 30px 0 0 48px;
+      }
+      #b2 .half + .half {
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      #b2 .big {
+        font-size: 150px;
+        margin-top: 6px;
+      }
+      #b2-more {
+        color: #bdbdbd;
+      }
+      #b2-x {
+        position: absolute;
+        left: 40px;
+        top: 70px;
+        width: 290px;
+        height: 150px;
+      }
+      #b2-x line {
+        stroke: var(--brand-accent);
+        stroke-width: 14;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 10px rgba(216, 6, 9, 0.7));
+      }
+
+      /* ---------- B3/B4: OFF SEASON → CONTEST PREP meter panel ---------- */
+      #b3 .zone,
+      #b3.zone {
+        top: 1395px;
+        height: 320px;
+      }
+      #b3 .card {
+        height: 300px;
+        padding: 26px 44px 26px 48px;
+      }
+      #b3 .head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        height: 54px;
+      }
+      .tag {
+        position: relative;
+        height: 54px;
+        padding: 0 22px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        font-size: 44px;
+      }
+      #b3-tag {
+        flex: none;
+        min-width: 300px;
+        background: rgba(255, 255, 255, 0.92);
+        color: #0a0a0a;
+      }
+      #b3-tag span {
+        position: absolute;
+        left: 22px;
+        top: 7px;
+        white-space: nowrap;
+      }
+      .chip {
+        flex: none;
+        white-space: nowrap;
+        height: 46px;
+        padding: 0 16px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        display: flex;
+        align-items: center;
+        font-family: Inter, sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        color: #fff;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .rows {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        height: 42px;
+      }
+      .row .name {
+        position: relative;
+        width: 250px;
+        height: 42px;
+      }
+      .row .name span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 44px;
+        line-height: 42px;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      .row .name .b {
+        color: #fff;
+      }
+      .track {
+        position: relative;
+        flex: 1;
+        height: 22px;
+        border-radius: 11px;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+      }
+      .fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        border-radius: 11px;
+        background: #f6f6f6;
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.45);
+        transform-origin: left center;
+        transform: scaleX(0);
+      }
+      .row .val {
+        width: 96px;
+        text-align: right;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 40px;
+        line-height: 42px;
+        position: relative;
+        height: 42px;
+      }
+      .row .val .b {
+        color: #fff;
+        text-shadow: 0 0 14px rgba(216, 6, 9, 0.9);
+      }
+      .row .val span {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      #b3-warn {
+        position: absolute;
+        right: 44px;
+        top: 26px;
+        height: 54px;
+        padding: 0 20px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        background: var(--brand-accent);
+        color: #fff;
+        font-size: 40px;
+        box-shadow: 0 0 30px var(--brand-accent-glow);
+      }
+      #b3-flash {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 60%, rgba(216, 6, 9, 0.55), transparent 70%);
+        opacity: 0;
+      }
+
+      /* ---------- B5: LESS = MORE ---------- */
+      #b5 .line {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+      }
+      #b5 .w {
+        font-size: 210px;
+        color: #fff;
+        text-shadow:
+          0 0 22px rgba(255, 255, 255, 0.35),
+          0 6px 30px rgba(0, 0, 0, 0.8);
+      }
+      #b5 .eq {
+        font-size: 210px;
+      }
+
+      /* ---------- B6: checklist ---------- */
+      #b6.zone {
+        top: 1395px;
+        height: 320px;
+      }
+      #b6 .card {
+        height: 300px;
+        padding: 30px 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .check {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        height: 64px;
+      }
+      .box {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        border: 3px solid rgba(255, 255, 255, 0.4);
+        flex: none;
+      }
+      .tick {
+        position: absolute;
+        inset: -3px;
+        border-radius: 14px;
+        background: var(--brand-accent);
+        box-shadow: 0 0 22px var(--brand-accent-glow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tick svg {
+        width: 36px;
+        height: 36px;
+      }
+      .check .txt {
+        font-size: 64px;
+        color: #fff;
+      }
+      .check .sub {
+        font-family: Inter, sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.14em;
+        color: var(--brand-text-dim);
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="38.86"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- Source footage: Ash's finished edit (captions burned in). Audio untouched. -->
+      <div id="face-wrap">
+        <video
+          id="face-video"
+          src="assets/training-on-prep.mp4"
+          data-start="0"
+          data-duration="38.86"
+          data-track-index="0"
+          muted
+          playsinline
+        ></video>
+      </div>
+      <audio
+        id="face-audio"
+        src="assets/training-on-prep.mp4"
+        data-start="0"
+        data-duration="38.86"
+        data-track-index="1"
+        data-volume="1"
+      ></audio>
+
+      <!-- B1 · 3.0–6.6 · "logic can go out the window and obsession takes over" -->
+      <div id="b1" class="zone clip" data-start="3.0" data-duration="3.6" data-track-index="2">
+        <div class="card">
+          <div class="label">In contest prep</div>
+          <div class="stack">
+            <div id="b1-logic" class="word display">LOGIC</div>
+            <div id="b1-strike"></div>
+            <div id="b1-obs" class="word display red">OBSESSION</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B2 · 8.7–11.9 · "doing more … when you actually need less" -->
+      <div id="b2" class="zone clip" data-start="8.7" data-duration="3.2" data-track-index="2">
+        <div class="card">
+          <div class="half">
+            <div class="label">What you do</div>
+            <div id="b2-more" class="big display">MORE</div>
+            <svg id="b2-x" viewBox="0 0 290 150">
+              <line id="b2-x1" x1="20" y1="20" x2="270" y2="130" />
+              <line id="b2-x2" x1="270" y1="20" x2="20" y2="130" />
+            </svg>
+          </div>
+          <div class="half">
+            <div class="label">What you need</div>
+            <div id="b2-less" class="big display red">LESS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B3/B4 · 12.5–28.6 · OFF SEASON panel recolors into CONTEST PREP (same DOM, no cut) -->
+      <div id="b3" class="zone clip" data-start="12.5" data-duration="16.1" data-track-index="2">
+        <div class="card">
+          <div id="b3-flash"></div>
+          <div class="head">
+            <div id="b3-tag" class="tag display">
+              <span id="b3-tag-a">OFF SEASON</span>
+              <span id="b3-tag-b">CONTEST PREP</span>
+            </div>
+            <div id="b3-chip1" class="chip">+ INTENSIFIERS</div>
+            <div id="b3-chip2" class="chip">+ EXTRA SETS</div>
+          </div>
+          <div id="b3-warn" class="display">INTO THE FLOOR</div>
+          <div class="rows">
+            <div class="row" id="r1">
+              <div class="name"><span class="a">FOOD</span><span class="b">FATIGUE</span></div>
+              <div class="track"><div class="fill" id="f1"></div></div>
+              <div class="val"><span class="a">HIGH</span><span class="b">HIGH</span></div>
+            </div>
+            <div class="row" id="r2">
+              <div class="name"><span class="a">CALORIES</span><span class="b">BODY FAT</span></div>
+              <div class="track"><div class="fill" id="f2"></div></div>
+              <div class="val"><span class="a">HIGH</span><span class="b">LOW</span></div>
+            </div>
+            <div class="row" id="r3">
+              <div class="name"><span class="a">RECOVERY</span><span class="b">FOOD</span></div>
+              <div class="track"><div class="fill" id="f3"></div></div>
+              <div class="val"><span class="a">HIGH</span><span class="b">LOW</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B5 · 29.5–32.3 · "less actually equals more" (callback to B2) -->
+      <div id="b5" class="zone clip" data-start="29.5" data-duration="2.8" data-track-index="2">
+        <div class="line">
+          <div id="b5-less" class="w display">LESS</div>
+          <div id="b5-eq" class="eq display red">=</div>
+          <div id="b5-more" class="w display">MORE</div>
+        </div>
+      </div>
+
+      <!-- B6 · 32.3–38.86 · volume ↓ / performance ✓ / recovery ✓ -->
+      <div id="b6" class="zone clip" data-start="32.3" data-duration="6.56" data-track-index="2">
+        <div class="card">
+          <div class="check" id="c1">
+            <div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="txt display">VOLUME <span class="red">↓</span></div>
+            <div class="sub">A LITTLE</div>
+          </div>
+          <div class="check" id="c2">
+            <div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="txt display">PERFORMANCE</div>
+            <div class="sub">MAINTAINED</div>
+          </div>
+          <div class="check" id="c3">
+            <div class="box"><div class="tick"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+            <div class="txt display">RECOVERY</div>
+            <div class="sub">PROTECTED</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SFX — subtle, sit well under the voice -->
+      <audio id="sx1" src="assets/sfx/whoosh.mp3" data-start="2.95" data-duration="0.57" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx2" src="assets/sfx/zap.mp3" data-start="4.02" data-duration="0.6" data-track-index="11" data-volume="0.14"></audio>
+      <audio id="sx3" src="assets/sfx/slam.mp3" data-start="4.62" data-duration="1.2" data-track-index="12" data-volume="0.28"></audio>
+      <audio id="sx4" src="assets/sfx/whoosh.mp3" data-start="8.65" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx5" src="assets/sfx/hard-cut.mp3" data-start="10.6" data-duration="0.24" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sx6" src="assets/sfx/pop.mp3" data-start="11.0" data-duration="0.7" data-track-index="12" data-volume="0.24"></audio>
+      <audio id="sx7" src="assets/sfx/swipe.mp3" data-start="12.45" data-duration="1.05" data-track-index="13" data-volume="0.16"></audio>
+      <audio id="sx8" src="assets/sfx/click.wav" data-start="14.37" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="sx9" src="assets/sfx/click.wav" data-start="14.87" data-duration="0.45" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="sx10" src="assets/sfx/pop.mp3" data-start="16.02" data-duration="0.7" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="sx11" src="assets/sfx/pop.mp3" data-start="17.34" data-duration="0.7" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="sx12" src="assets/sfx/whoosh.mp3" data-start="20.6" data-duration="0.57" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sx13" src="assets/sfx/zap.mp3" data-start="21.78" data-duration="0.9" data-track-index="12" data-volume="0.16"></audio>
+      <audio id="sx14" src="assets/sfx/bass-drop.mp3" data-start="27.7" data-duration="1.15" data-track-index="13" data-volume="0.32"></audio>
+      <audio id="sx15" src="assets/sfx/hard-cut.mp3" data-start="29.66" data-duration="0.24" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="sx16" src="assets/sfx/slam.mp3" data-start="30.8" data-duration="1.2" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="sx17" src="assets/sfx/click.wav" data-start="32.58" data-duration="0.45" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="sx18" src="assets/sfx/click.wav" data-start="34.34" data-duration="0.45" data-track-index="13" data-volume="0.22"></audio>
+      <audio id="sx19" src="assets/sfx/click.wav" data-start="36.16" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 38.86;
+
+        // ---------- B1 · LOGIC → OBSESSION ----------
+        tl.fromTo("#b1 .card", { y: 120, opacity: 0, filter: "blur(18px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 3.0);
+        tl.fromTo("#b1 .label", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 3.15);
+        tl.fromTo("#b1-logic", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 3.14);
+        tl.fromTo("#b1-strike", { scaleX: 0 }, { scaleX: 1, duration: 0.22, ease: "power4.out" }, 4.05);
+        tl.to(["#b1-logic", "#b1-strike"], { y: 40, opacity: 0, filter: "blur(10px)", duration: 0.2, ease: "power2.in" }, 4.5);
+        tl.fromTo("#b1-obs", { scale: 1.9, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.in" }, 4.55);
+        tl.to("#b1 .card", { keyframes: [{ x: -14, duration: 0.04 }, { x: 11, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, 4.8);
+        tl.to("#b1-obs", { scale: 1.04, duration: 1.2, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, 5.0);
+        tl.to("#b1 .card", { y: 80, opacity: 0, filter: "blur(16px)", duration: 0.3, ease: "power2.in" }, 6.3);
+
+        // ---------- B2 · MORE ✕ → LESS ----------
+        tl.fromTo("#b2 .card", { scale: 0.85, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "back.out(1.4)" }, 8.7);
+        tl.fromTo("#b2 .half:first-child .label", { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 8.85);
+        tl.fromTo("#b2-more", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 9.1);
+        tl.fromTo("#b2 .half + .half .label", { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 9.6);
+        tl.fromTo(["#b2-x1", "#b2-x2"], { strokeDasharray: 280, strokeDashoffset: 280 }, { strokeDashoffset: 0, duration: 0.14, ease: "power4.out", stagger: 0.08 }, 10.6);
+        tl.to("#b2-more", { opacity: 0.35, duration: 0.2 }, 10.7);
+        tl.fromTo("#b2-less", { scale: 1.8, opacity: 0, transformOrigin: "0% 60%" }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, 10.98);
+        tl.to("#b2-less", { scale: 1.06, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0% 60%" }, 11.24);
+        tl.to("#b2 .card", { x: -120, opacity: 0, filter: "blur(14px)", duration: 0.28, ease: "power2.in" }, 11.62);
+
+        // ---------- B3 · OFF SEASON panel ----------
+        tl.fromTo("#b3 .card", { x: 140, opacity: 0, filter: "blur(16px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 12.5);
+        tl.set("#b3-tag-b", { opacity: 0 }, 12.5);
+        tl.set("#b3 .name .b, #b3 .val .b", { opacity: 0 }, 12.5);
+        tl.set("#b3-warn", { opacity: 0 }, 12.5);
+        tl.fromTo("#b3-tag", { scale: 0.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, 13.36);
+        tl.fromTo(["#r1", "#r2", "#r3"], { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out", stagger: 0.1 }, 12.75);
+        tl.set("#b3 .val .a", { opacity: 0 }, 12.5);
+        tl.fromTo("#f1", { scaleX: 0 }, { scaleX: 0.9, duration: 0.5, ease: "power3.out" }, 14.39);
+        tl.to("#r1 .val .a", { opacity: 1, duration: 0.2 }, 14.6);
+        tl.fromTo("#f2", { scaleX: 0 }, { scaleX: 0.94, duration: 0.5, ease: "power3.out" }, 14.89);
+        tl.to("#r2 .val .a", { opacity: 1, duration: 0.2 }, 15.1);
+        tl.fromTo("#b3-chip1", { y: -30, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 16.04);
+        tl.fromTo("#b3-chip2", { y: -30, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 17.36);
+        tl.fromTo("#f3", { scaleX: 0 }, { scaleX: 0.86, duration: 0.6, ease: "power2.out" }, 16.2);
+        tl.to("#r3 .val .a", { opacity: 1, duration: 0.2 }, 16.5);
+        // "you're gonna get something from it" — gentle glow pulse across all bars
+        tl.to(["#f1", "#f2", "#f3"], { boxShadow: "0 0 30px rgba(255,255,255,0.9)", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", stagger: 0.08 }, 18.9);
+
+        // ---------- B4 · recolor to CONTEST PREP (same DOM — the callback) ----------
+        tl.to(["#b3-chip1", "#b3-chip2"], { y: -24, opacity: 0, filter: "blur(8px)", duration: 0.25, ease: "power2.in", stagger: 0.05 }, 19.6);
+        tl.to("#b3-tag", { backgroundColor: "#d80609", color: "#ffffff", boxShadow: "0 0 30px rgba(216,6,9,0.6)", duration: 0.35, ease: "power2.inOut" }, 20.65);
+        tl.to("#b3-tag-a", { y: -40, opacity: 0, duration: 0.16, ease: "power2.in" }, 20.65);
+        tl.fromTo("#b3-tag-b", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 20.82);
+        tl.to("#b3 .name .a, #b3 .val .a", { y: -24, opacity: 0, duration: 0.2, ease: "power2.in", stagger: 0.03 }, 21.2);
+        tl.fromTo("#b3 .name .b", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "power3.out", stagger: 0.08 }, 21.35);
+        tl.to(["#f1", "#f2", "#f3"], { backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,0.7)", duration: 0.3, ease: "power1.inOut" }, 21.35);
+        // fatigue → maxed out
+        tl.to("#f1", { scaleX: 1, duration: 0.6, ease: "power2.out" }, 21.8);
+        tl.fromTo("#r1 .val .b", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, 22.9);
+        tl.to("#f1", { opacity: 0.55, duration: 0.18, yoyo: true, repeat: 5, ease: "steps(1)" }, 23.1);
+        // body fat → drains
+        tl.to("#f2", { scaleX: 0.16, duration: 0.7, ease: "expo.out" }, 23.38);
+        tl.fromTo("#r2 .val .b", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, 23.9);
+        // food → drains
+        tl.to("#f3", { scaleX: 0.12, duration: 0.7, ease: "expo.out" }, 24.39);
+        tl.fromTo("#r3 .val .b", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, 24.8);
+        // "running yourself into the floor" — warning tag, flash, panel crashes
+        tl.fromTo("#b3-warn", { x: 60, opacity: 0, scale: 0.8 }, { x: 0, opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 26.7);
+        tl.to("#b3-flash", { opacity: 1, duration: 0.1, yoyo: true, repeat: 3, ease: "none" }, 26.75);
+        tl.to("#b3 .card", { y: 24, rotation: 1.5, duration: 0.18, ease: "power4.in" }, 27.72);
+        tl.to("#b3 .card", { keyframes: [{ x: -16, duration: 0.04 }, { x: 13, duration: 0.04 }, { x: -8, duration: 0.04 }, { x: 0, duration: 0.05 }] }, 27.9);
+        tl.to("#b3 .card", { y: 220, opacity: 0, filter: "blur(18px)", duration: 0.4, ease: "power3.in" }, 28.2);
+
+        // ---------- B5 · LESS = MORE (callback to B2) ----------
+        tl.fromTo("#b5-less", { scale: 2.2, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, 29.62);
+        tl.fromTo("#b5-eq", { scale: 0, rotation: -90, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.3, ease: "back.out(2.2)" }, 30.4);
+        tl.fromTo("#b5-more", { scale: 2.2, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, 30.76);
+        tl.to("#b5 .line", { keyframes: [{ x: -14, duration: 0.04 }, { x: 10, duration: 0.04 }, { x: 0, duration: 0.05 }] }, 30.96);
+        tl.to("#b5 .line", { scale: 1.05, duration: 1.0, ease: "sine.out" }, 31.05);
+        tl.to("#b5 .line", { scale: 0.85, opacity: 0, filter: "blur(14px)", duration: 0.24, ease: "power2.in" }, 32.05);
+
+        // ---------- B6 · checklist ----------
+        tl.fromTo("#b6 .card", { y: 140, opacity: 0, filter: "blur(16px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 32.3);
+        tl.set("#b6 .tick", { scale: 0, opacity: 0 }, 32.3);
+        tl.fromTo("#c1 .txt, #c1 .sub", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 32.42);
+        tl.to("#c1 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 32.6);
+        tl.fromTo("#c2 .txt, #c2 .sub", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 33.86);
+        tl.to("#c2 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 34.36);
+        tl.fromTo("#c3 .txt, #c3 .sub", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 35.8);
+        tl.to("#c3 .tick", { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2.5)" }, 36.18);
+        // "so bear that in mind" — card breathes, ticks glow
+        tl.to("#b6 .tick", { boxShadow: "0 0 40px rgba(216,6,9,0.95)", duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut", stagger: 0.1 }, 37.5);
+        tl.to("#b6 .card", { y: 160, opacity: 0, filter: "blur(16px)", duration: 0.35, ease: "power2.in" }, 38.45);
+
+        tl.to({}, { duration: DUR }, 0); // Law #11 anchor
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>
