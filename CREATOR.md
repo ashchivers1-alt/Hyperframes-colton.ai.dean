@@ -45,10 +45,10 @@ When putting handles on-screen (lower-thirds, outros, end-cards), use the platfo
 
 See [`_reference/creator-library/INDEX.md`](_reference/creator-library/INDEX.md) for the full list. Add new creators via `/study-creator <url>`.
 
-**Pending — not yet studied** (Instagram was blocked by the cloud environment's network policy during setup; allow `instagram.com`, `cdninstagram.com`, `fbcdn.net` and run `/study-creator` on these):
-- https://www.instagram.com/reel/DYgwBAUMZgE/
-- https://www.instagram.com/reel/DcEbEF8sL-g/
-- https://www.instagram.com/reel/DeIGbZypIUb/
+Studied so far (2026-10-11, visual-only — transcription model download was blocked):
+- **@aubergine-avenger** — illustrate every key noun: yellow glow hero words, inset diagram cards, b-roll flashes, disclaimer box on PED topics
+- **@colton-ai-dean** — face-cam bottom half + self-assembling glass UI cards top half, numbered steps, "Comment <word>" CTA
+- **@ash-teamapexx** (own reel, baseline) — two-angle talking head, yellow hero-word captions, glowing cut-out stickers
 
 ## Posting cadence & length defaults
 
