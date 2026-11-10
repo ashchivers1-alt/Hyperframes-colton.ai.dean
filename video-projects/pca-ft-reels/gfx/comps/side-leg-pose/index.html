@@ -1,0 +1,455 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=2160, height=3840" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:2160px; height:3840px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:2160px; height:3840px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.bb { font-family:"Bebas Neue", sans-serif; line-height:0.92; letter-spacing:0.01em; white-space:nowrap; }
+.r { color:#d80609; }
+.kick { font-weight:800; font-size:22px; letter-spacing:0.28em; color:rgba(255,255,255,0.86); display:flex; align-items:center; gap:14px; }
+.kick i { display:inline-block; width:36px; height:4px; background:#d80609; }
+.clip { overflow:hidden; padding-bottom:4px; }
+/* captions */
+.cap { position:absolute; left:40px; right:40px; text-align:center; opacity:0; font-weight:900; font-size:62px; line-height:1.06;
+  letter-spacing:-0.005em; text-transform:uppercase; color:#fff;
+  text-shadow:-3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 4px 0 #000, 0 6px 22px rgba(0,0,0,0.85); }
+.cap span { display:inline-block; }
+/* hook */
+.hook { position:absolute; left:0; right:0; top:0; height:640px; opacity:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0) 100%); }
+.hook .in { position:absolute; left:64px; right:64px; top:150px; }
+.hook .pill { display:inline-block; background:#d80609; font-weight:800; font-size:22px; letter-spacing:0.24em; padding:8px 16px 7px; }
+.hook .bb { font-size:122px; margin-top:16px; }
+/* keyword card */
+.card { position:absolute; left:54px; right:54px; top:1290px; opacity:0; padding:24px 34px 26px 44px; border-radius:18px;
+  background:linear-gradient(135deg, rgba(18,18,18,0.86), rgba(8,8,8,0.78)); border:1px solid rgba(255,255,255,0.14);
+  box-shadow:0 18px 50px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.16); overflow:hidden; }
+.card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:10px; background:#d80609; }
+.card .bb { font-size:92px; margin-top:8px; }
+.card .sub { font-weight:700; font-size:28px; color:#cfcfcf; margin-top:8px; letter-spacing:0.02em; }
+.strike { position:absolute; height:9px; background:#d80609; transform-origin:0 50%; border-radius:3px; }
+.stamp { position:absolute; right:30px; top:50%; font-family:"Bebas Neue"; font-size:64px; color:#fff; background:#d80609;
+  padding:6px 18px 2px; opacity:0; letter-spacing:0.03em; }
+.chips { display:flex; gap:14px; margin-top:14px; flex-wrap:wrap; }
+.chip { display:flex; align-items:center; gap:12px; padding:12px 18px 9px; border-radius:10px; background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.18); font-family:"Bebas Neue"; font-size:50px; line-height:1; letter-spacing:0.02em; opacity:0; }
+.chip b { font-family:Montserrat; font-weight:900; font-size:30px; color:#d80609; }
+.chip.ok b { color:#2ecc71; }
+/* cover label (sits over the edit's burned-in labels) */
+.lbl { position:absolute; display:flex; align-items:center; gap:14px; padding:14px 22px 10px; opacity:0;
+  background:#0c0c0c; border-left:8px solid #d80609; font-family:"Bebas Neue"; letter-spacing:0.03em; line-height:1; }
+.flash { position:absolute; inset:0; background:#fff; opacity:0; }
+/* 3D breakdown insert */
+.br { position:absolute; inset:0; opacity:0; }
+.brbg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 55% at 50% 52%, #2a0a0b 0%, #0d0d0f 55%, #050506 100%); }
+.brgrid { position:absolute; inset:0; opacity:0.5; background-image:linear-gradient(rgba(255,255,255,0.06) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.06) 2px, transparent 2px);
+  background-size:120px 120px; -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 55%, #000 30%, transparent 80%); }
+.brttl { position:absolute; left:64px; right:40px; top:200px; }
+.brttl .t { font-size:96px; margin-top:12px; }
+.brwrap { position:absolute; left:160px; top:470px; width:760px; height:1064px; perspective:1600px; }
+.brcard { position:absolute; inset:0; border-radius:26px; overflow:hidden; transform-style:preserve-3d; border:2px solid rgba(255,255,255,0.18);
+  box-shadow:0 40px 90px rgba(0,0,0,0.75), 0 0 0 1px rgba(216,6,9,0.35), 0 0 60px rgba(216,6,9,0.25); background:#0b0b0c; opacity:0; }
+.brcard img { position:absolute; left:-507px; top:-760px; width:1351px; height:1824px; }
+.brcard .still { filter:brightness(0.32) saturate(0.4) blur(2px); }
+.brcard .fig { filter:contrast(1.08) saturate(1.05) drop-shadow(0 0 18px rgba(216,6,9,0.45)); }
+.glow { position:absolute; width:240px; height:240px; border-radius:50%; opacity:0; mix-blend-mode:screen;
+  background:radial-gradient(circle, rgba(255,40,40,0.55) 0%, rgba(216,6,9,0.25) 40%, rgba(216,6,9,0) 70%); }
+.brsvg { position:absolute; left:0; top:0; }
+.dot { position:absolute; width:26px; height:26px; border-radius:50%; background:#d80609; border:4px solid #fff; transform:scale(0); }
+.dot i { position:absolute; inset:-4px; border-radius:50%; border:3px solid #ff3b3b; }
+.cl { position:absolute; display:flex; align-items:center; gap:12px; opacity:0; padding:12px 18px 8px; border-radius:10px; background:rgba(10,10,10,0.88);
+  border:1px solid rgba(255,255,255,0.2); font-family:"Bebas Neue"; font-size:46px; line-height:1; letter-spacing:0.02em; white-space:nowrap; }
+.cl b { font-family:Montserrat; font-weight:900; font-size:24px; color:#fff; background:#d80609; border-radius:50%; width:40px; height:40px;
+  display:flex; align-items:center; justify-content:center; padding-top:2px; }
+.brsub { position:absolute; left:80px; right:80px; top:1566px; text-align:center; opacity:0; font-weight:800; font-size:32px; letter-spacing:0.04em; color:#fff;
+  padding:16px 20px 14px; border-radius:12px; background:#d80609; }
+/* live breakdown (marks drawn on the footage) */
+.mk { position:absolute; inset:0; opacity:0; }
+.mk .fz { position:absolute; left:0; top:0; width:1080px; height:1920px; filter:brightness(0.85) contrast(1.05); }
+.mkvig { position:absolute; inset:0; background:radial-gradient(ellipse 75% 50% at 60% 68%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%),
+  linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 38%, rgba(0,0,0,0) 55%); }
+.mkttl { position:absolute; left:50px; width:440px; top:520px; }
+.mkttl .kick { white-space:nowrap; }
+.mkttl .t { font-size:88px; margin-top:12px; white-space:normal; }
+.rg { position:absolute; left:0; top:0; width:0; height:0; }
+.rg .o, .rg .p { position:absolute; left:-46px; top:-46px; width:92px; height:92px; border-radius:50%; }
+.rg .o { border:6px solid #d80609; box-shadow:0 0 18px rgba(216,6,9,0.9), inset 0 0 14px rgba(216,6,9,0.6), 0 0 0 2px rgba(255,255,255,0.7); opacity:0; }
+.rg .p { border:4px solid #ff3b3b; opacity:0; }
+.arw { position:absolute; left:0; top:0; width:0; height:0; }
+.arw .sh2 { position:absolute; left:-170px; top:-9px; width:112px; height:18px; opacity:0; filter:drop-shadow(0 0 10px rgba(216,6,9,0.9)) drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+.arw .sh2 i { position:absolute; left:0; top:4px; width:84px; height:10px; background:#fff; border-radius:5px; }
+.arw .sh2 b { position:absolute; left:76px; top:-8px; width:0; height:0; border-top:17px solid transparent; border-bottom:17px solid transparent; border-left:34px solid #fff; }
+.mksub { position:absolute; left:60px; right:60px; top:96px; text-align:center; opacity:0; font-weight:800; font-size:32px; letter-spacing:0.04em; color:#fff;
+  padding:16px 20px 14px; border-radius:12px; background:#d80609; }
+
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="30.573" data-width="2160" data-height="3840"><div id="root"><div class="hook" id="h1"><div class="in sh" style="top:150px"><div class="pill">POSING TIP</div><div class="clip"><div class="bb l">THE SIDE LEG</div></div><div class="clip"><div class="bb l"><span class="r">HAMSTRING DROP</span></div></div></div></div>
+<div class="card" id="k1" style="top:1290px"><div class="kick"><i></i>THE PROBLEM</div><div class="clip"><div class="bb t" style="font-size:78px">HARD TO HOLD THE <span class="r">GLUTE</span></div></div><div class="sub">…and hit the pose at the same time</div></div>
+<div class="card" id="k2" style="top:1290px"><div class="kick"><i></i>THE FIX</div><div class="clip"><div class="bb t" style="font-size:92px">SQUEEZE <span class="r">THIS KNEE</span></div></div><div class="chips"><div class="chip" data-t="7.73"><b>=</b>HAMSTRING DROP</div></div></div>
+<div class="mk" id="b1"><div class="mkvig"></div>
+<div class="mkttl sh"><div class="kick"><i></i>WATCH THE LEG</div><div class="clip"><div class="bb t">THE <span class="r">HAMSTRING DROP</span></div></div></div>
+<svg class="brsvg" width="1080" height="1920"><line class="ln0" x1="388" y1="1336" x2="388" y2="1336" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/><line class="ln1" x1="430" y1="1216" x2="430" y2="1216" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/></svg><div class="rg m0"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(180deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="rg m1"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(90deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="cl c0 sh" style="left:40px; top:1300px; "><b>1</b><span>BACK KNEE IN</span></div><div class="cl c1 sh" style="left:40px; top:1180px; "><b>2</b><span>HAMSTRING DROP</span></div><div class="mksub sh">PUSH THE BACK KNEE INTO THE FRONT LEG</div></div>
+<div class="card" id="k3" style="top:1290px"><div class="kick"><i></i>THEN</div><div class="clip"><div class="bb t" style="font-size:92px">PLANT IT <span class="r">ON THERE</span></div></div></div>
+<div class="mk" id="b2"><div class="mkvig"></div>
+<div class="mkttl sh"><div class="kick"><i></i>THEN</div><div class="clip"><div class="bb t">DRIVE THE <span class="r">TOES</span></div></div></div>
+<svg class="brsvg" width="1080" height="1920"><line class="ln0" x1="430" y1="1596" x2="430" y2="1596" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/></svg><div class="rg m0"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(90deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="cl c0 sh" style="left:40px; top:1560px; "><b>3</b><span>DRIVE THE TOES</span></div><div class="mksub sh">LIKE THE START OF A LEG EXTENSION</div></div>
+<div class="card" id="k4" style="top:1290px"><div class="kick"><i></i>THEN</div><div class="clip"><div class="bb t" style="font-size:92px">LOCK IT <span class="r">ALL IN</span></div></div><div class="chips"><div class="chip ok" data-t="22.24"><b>✓</b>HAMSTRING</div><div class="chip ok" data-t="23.07"><b>✓</b>QUADS</div><div class="chip ok" data-t="25.06"><b>✓</b>GLUTE</div></div></div>
+<div class="mk" id="b3"><img class="fz" src="assets/recap.jpg"><div class="mkvig"></div>
+<div class="mkttl sh"><div class="kick"><i></i>LITTLE THINGS, BIG DIFFERENCE</div><div class="clip"><div class="bb t">THE <span class="r">SIDE LEG</span> CUES</div></div></div>
+<svg class="brsvg" width="1080" height="1920"><line class="ln0" x1="493" y1="936" x2="493" y2="936" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/><line class="ln1" x1="430" y1="1216" x2="430" y2="1216" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/><line class="ln2" x1="388" y1="1336" x2="388" y2="1336" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/><line class="ln3" x1="430" y1="1596" x2="430" y2="1596" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0"/></svg><div class="rg m0"><div class="o"></div><div class="p"></div></div><div class="rg m1"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(90deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="rg m2"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(180deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="rg m3"><div class="o"></div><div class="p"></div><div class="arw" style="transform:rotate(90deg)"><div class="sh2"><i></i><b></b></div></div></div><div class="cl c0 sh" style="left:40px; top:900px; "><b>4</b><span>SQUEEZE THE GLUTE</span></div><div class="cl c1 sh" style="left:40px; top:1180px; "><b>2</b><span>HAMSTRING DROP</span></div><div class="cl c2 sh" style="left:40px; top:1300px; "><b>1</b><span>BACK KNEE IN</span></div><div class="cl c3 sh" style="left:40px; top:1560px; "><b>3</b><span>DRIVE THE TOES</span></div></div>
+<div class="flash" id="fl8"></div>
+<div class="cap" id="c0" style="top:1110px"><span id="c0w0">into</span> <span id="c0w1">the</span> <span id="c0w2">side</span></div>
+<div class="cap" id="c1" style="top:1110px"><span id="c1w0">leg</span></div>
+<div class="cap" id="c2" style="top:1110px"><span id="c2w0">It&#x27;s</span> <span id="c2w1">a</span> <span id="c2w2">hard</span></div>
+<div class="cap" id="c3" style="top:1110px"><span id="c3w0">one</span> <span id="c3w1">to</span> <span id="c3w2">contract</span></div>
+<div class="cap" id="c4" style="top:1110px"><span id="c4w0">your</span> <span id="c4w1">glute</span></div>
+<div class="cap" id="c5" style="top:1110px"><span id="c5w0">isn&#x27;t</span> <span id="c5w1">it</span></div>
+<div class="cap" id="c6" style="top:1110px"><span id="c6w0">at</span> <span id="c6w1">the</span> <span id="c6w2">same</span></div>
+<div class="cap" id="c7" style="top:1110px"><span id="c7w0">time</span></div>
+<div class="cap" id="c8" style="top:1110px"><span id="c8w0">So</span> <span id="c8w1">you&#x27;re</span> <span id="c8w2">sort</span></div>
+<div class="cap" id="c9" style="top:1110px"><span id="c9w0">of</span> <span id="c9w1">squeezing</span> <span id="c9w2">this</span></div>
+<div class="cap" id="c10" style="top:1110px"><span id="c10w0">knee</span></div>
+<div class="cap" id="c11" style="top:1110px"><span id="c11w0">you&#x27;re</span> <span id="c11w1">basically</span></div>
+<div class="cap" id="c12" style="top:1110px"><span id="c12w0">creating</span> <span id="c12w1">a</span> <span id="c12w2">bit</span></div>
+<div class="cap" id="c13" style="top:1110px"><span id="c13w0">of</span> <span id="c13w1">a</span> <span id="c13w2">hamstring</span></div>
+<div class="cap" id="c14" style="top:1110px"><span id="c14w0">drop</span></div>
+<div class="cap" id="c15" style="top:1110px"><span id="c15w0">So</span> <span id="c15w1">if</span> <span id="c15w2">you</span></div>
+<div class="cap" id="c16" style="top:1110px"><span id="c16w0">look</span> <span id="c16w1">at</span> <span id="c16w2">that</span></div>
+<div class="cap" id="c17" style="top:1110px"><span id="c17w0">yeah</span></div>
+<div class="cap" id="c27" style="top:1110px"><span id="c27w0">like</span> <span id="c27w1">planted</span> <span id="c27w2">it</span></div>
+<div class="cap" id="c28" style="top:1110px"><span id="c28w0">on</span> <span id="c28w1">there</span></div>
+<div class="cap" id="c29" style="top:1110px"><span id="c29w0">and</span> <span id="c29w1">it&#x27;s</span> <span id="c29w2">just</span></div>
+<div class="cap" id="c30" style="top:1110px"><span id="c30w0">sort</span> <span id="c30w1">of</span> <span id="c30w2">like</span></div>
+<div class="cap" id="c39" style="top:1110px"><span id="c39w0">and</span> <span id="c39w1">then</span> <span id="c39w2">it&#x27;s</span></div>
+<div class="cap" id="c40" style="top:1110px"><span id="c40w0">sort</span> <span id="c40w1">of</span> <span id="c40w2">like</span></div>
+<div class="cap" id="c41" style="top:1110px"><span id="c41w0">your</span> <span id="c41w1">hamstring&#x27;s</span></div>
+<div class="cap" id="c42" style="top:1110px"><span id="c42w0">there</span></div>
+<div class="cap" id="c43" style="top:1110px"><span id="c43w0">quads</span></div>
+<div class="cap" id="c44" style="top:1110px"><span id="c44w0">and</span> <span id="c44w1">then</span> <span id="c44w2">it&#x27;s</span></div>
+<div class="cap" id="c45" style="top:1110px"><span id="c45w0">like</span> <span id="c45w1">you</span> <span id="c45w2">can</span></div>
+<div class="cap" id="c46" style="top:1110px"><span id="c46w0">kind</span> <span id="c46w1">of</span> <span id="c46w2">like</span></div>
+<div class="cap" id="c47" style="top:1110px"><span id="c47w0">squeeze</span> <span id="c47w1">your</span> <span id="c47w2">glute</span></div>
+<div class="cap" id="c48" style="top:1110px"><span id="c48w0">as</span> <span id="c48w1">well</span> <span id="c48w2">to</span></div>
+<div class="cap" id="c49" style="top:1110px"><span id="c49w0">get</span> <span id="c49w1">that</span></div>
+<div class="cap" id="c50" style="top:1110px"><span id="c50w0">It&#x27;s</span> <span id="c50w1">little</span> <span id="c50w2">things</span></div>
+<div class="cap" id="c51" style="top:1110px"><span id="c51w0">like</span> <span id="c51w1">that</span></div>
+<div class="cap" id="c52" style="top:1110px"><span id="c52w0">you</span> <span id="c52w1">learn</span> <span id="c52w2">that</span></div>
+<div class="cap" id="c53" style="top:1110px"><span id="c53w0">in</span> <span id="c53w1">time</span></div>
+<div class="flash" id="fl46"></div>
+<div class="flash" id="fl47"></div>
+<div class="flash" id="fl48"></div>
+<div class="flash" id="fl49"></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+tl.set("#h1", { opacity:1 }, 0.060);
+tl.fromTo("#h1 .pill", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.350, ease:"power3.out", immediateRender:false }, 0.110);
+tl.fromTo("#h1 .l", { yPercent:110 }, { yPercent:0, duration:0.549, ease:"expo.out", stagger:0.090, immediateRender:false }, 0.180);
+tl.to("#h1 .l", { scale:1.03, duration:0.500, ease:"none", transformOrigin:"0% 50%" }, 0.759);
+tl.to("#h1", { opacity:0, y:-24, duration:0.300, ease:"power2.in" }, 1.119);
+tl.fromTo("#k1", { opacity:0, y:40, scale:0.97 }, { opacity:1, y:0, scale:1, duration:0.400, ease:"back.out(1.6)", immediateRender:false }, 1.548);
+tl.fromTo("#k1 .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", immediateRender:false }, 1.628);
+tl.fromTo("#k1 .sub", { opacity:0, y:10 }, { opacity:1, y:0, duration:0.350, ease:"power2.out", immediateRender:false }, 1.848);
+tl.to("#k1", { y:-6, duration:2.567, ease:"sine.inOut" }, 1.998);
+tl.to("#k1", { opacity:0, y:-30, filter:"blur(6px)", duration:0.280, ease:"power2.in" }, 4.635);
+tl.fromTo("#k2", { opacity:0, y:40, scale:0.97 }, { opacity:1, y:0, scale:1, duration:0.400, ease:"back.out(1.6)", immediateRender:false }, 4.965);
+tl.fromTo("#k2 .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", immediateRender:false }, 5.045);
+tl.fromTo("#k2 .sub", { opacity:0, y:10 }, { opacity:1, y:0, duration:0.350, ease:"power2.out", immediateRender:false }, 5.265);
+tl.to("#k2", { y:-6, duration:3.856, ease:"sine.inOut" }, 5.415);
+tl.to("#k2", { opacity:0, y:-30, filter:"blur(6px)", duration:0.280, ease:"power2.in" }, 9.341);
+tl.fromTo("#k2 .chip:nth-child(1)", { opacity:0, y:18, scale:0.9 }, { opacity:1, y:0, scale:1, duration:0.300, ease:"back.out(2)", immediateRender:false }, 7.722);
+tl.set("#b1 .m0", { x:609, y:1367 }, 10.699); tl.set("#b1 .ln0", { attr:{ x2:609, y2:1367 } }, 10.699);
+tl.set("#b1 .m0", { x:609, y:1368 }, 10.783); tl.set("#b1 .ln0", { attr:{ x2:609, y2:1368 } }, 10.783);
+tl.set("#b1 .m0", { x:610, y:1369 }, 10.866); tl.set("#b1 .ln0", { attr:{ x2:610, y2:1369 } }, 10.866);
+tl.set("#b1 .m0", { x:610, y:1369 }, 10.949); tl.set("#b1 .ln0", { attr:{ x2:610, y2:1369 } }, 10.949);
+tl.set("#b1 .m0", { x:611, y:1370 }, 11.032); tl.set("#b1 .ln0", { attr:{ x2:611, y2:1370 } }, 11.032);
+tl.set("#b1 .m0", { x:612, y:1370 }, 11.116); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1370 } }, 11.116);
+tl.set("#b1 .m0", { x:612, y:1370 }, 11.199); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1370 } }, 11.199);
+tl.set("#b1 .m0", { x:615, y:1370 }, 11.282); tl.set("#b1 .ln0", { attr:{ x2:615, y2:1370 } }, 11.282);
+tl.set("#b1 .m0", { x:615, y:1370 }, 11.365); tl.set("#b1 .ln0", { attr:{ x2:615, y2:1370 } }, 11.365);
+tl.set("#b1 .m0", { x:615, y:1370 }, 11.449); tl.set("#b1 .ln0", { attr:{ x2:615, y2:1370 } }, 11.449);
+tl.set("#b1 .m0", { x:617, y:1371 }, 11.532); tl.set("#b1 .ln0", { attr:{ x2:617, y2:1371 } }, 11.532);
+tl.set("#b1 .m0", { x:620, y:1372 }, 11.615); tl.set("#b1 .ln0", { attr:{ x2:620, y2:1372 } }, 11.615);
+tl.set("#b1 .m0", { x:620, y:1372 }, 11.698); tl.set("#b1 .ln0", { attr:{ x2:620, y2:1372 } }, 11.698);
+tl.set("#b1 .m0", { x:622, y:1372 }, 11.782); tl.set("#b1 .ln0", { attr:{ x2:622, y2:1372 } }, 11.782);
+tl.set("#b1 .m0", { x:622, y:1369 }, 11.865); tl.set("#b1 .ln0", { attr:{ x2:622, y2:1369 } }, 11.865);
+tl.set("#b1 .m0", { x:623, y:1364 }, 11.948); tl.set("#b1 .ln0", { attr:{ x2:623, y2:1364 } }, 11.948);
+tl.set("#b1 .m0", { x:623, y:1362 }, 12.031); tl.set("#b1 .ln0", { attr:{ x2:623, y2:1362 } }, 12.031);
+tl.set("#b1 .m0", { x:623, y:1362 }, 12.115); tl.set("#b1 .ln0", { attr:{ x2:623, y2:1362 } }, 12.115);
+tl.set("#b1 .m0", { x:623, y:1364 }, 12.198); tl.set("#b1 .ln0", { attr:{ x2:623, y2:1364 } }, 12.198);
+tl.set("#b1 .m0", { x:612, y:1365 }, 12.281); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1365 } }, 12.281);
+tl.set("#b1 .m0", { x:612, y:1365 }, 12.364); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1365 } }, 12.364);
+tl.set("#b1 .m0", { x:612, y:1365 }, 12.448); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1365 } }, 12.448);
+tl.set("#b1 .m0", { x:612, y:1364 }, 12.531); tl.set("#b1 .ln0", { attr:{ x2:612, y2:1364 } }, 12.531);
+tl.set("#b1 .m0", { x:614, y:1364 }, 12.614); tl.set("#b1 .ln0", { attr:{ x2:614, y2:1364 } }, 12.614);
+tl.set("#b1 .m0", { x:614, y:1364 }, 12.697); tl.set("#b1 .ln0", { attr:{ x2:614, y2:1364 } }, 12.697);
+tl.set("#b1 .m0", { x:614, y:1364 }, 12.781); tl.set("#b1 .ln0", { attr:{ x2:614, y2:1364 } }, 12.781);
+tl.set("#b1 .m0", { x:614, y:1364 }, 12.864); tl.set("#b1 .ln0", { attr:{ x2:614, y2:1364 } }, 12.864);
+tl.set("#b1 .m0", { x:615, y:1364 }, 12.947); tl.set("#b1 .ln0", { attr:{ x2:615, y2:1364 } }, 12.947);
+tl.set("#b1 .m0", { x:616, y:1364 }, 13.030); tl.set("#b1 .ln0", { attr:{ x2:616, y2:1364 } }, 13.030);
+tl.set("#b1 .m0", { x:620, y:1367 }, 13.114); tl.set("#b1 .ln0", { attr:{ x2:620, y2:1367 } }, 13.114);
+tl.set("#b1 .m0", { x:624, y:1367 }, 13.197); tl.set("#b1 .ln0", { attr:{ x2:624, y2:1367 } }, 13.197);
+tl.set("#b1 .m0", { x:640, y:1400 }, 13.280); tl.set("#b1 .ln0", { attr:{ x2:640, y2:1400 } }, 13.280);
+tl.set("#b1 .m0", { x:640, y:1400 }, 13.363); tl.set("#b1 .ln0", { attr:{ x2:640, y2:1400 } }, 13.363);
+tl.set("#b1 .m0", { x:640, y:1400 }, 13.447); tl.set("#b1 .ln0", { attr:{ x2:640, y2:1400 } }, 13.447);
+tl.set("#b1 .m0", { x:641, y:1400 }, 13.530); tl.set("#b1 .ln0", { attr:{ x2:641, y2:1400 } }, 13.530);
+tl.set("#b1 .ln0", { attr:{ opacity:1 } }, 10.699);
+tl.fromTo("#b1 .m0 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 10.699);
+tl.fromTo("#b1 .m0 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:2, immediateRender:false }, 10.949);
+tl.fromTo("#b1 .c0", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 10.799);
+tl.fromTo("#b1 .m0 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 10.849);
+tl.to("#b1 .m0 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:5 }, 11.149);
+tl.set("#b1 .m1", { x:732, y:1199 }, 12.817); tl.set("#b1 .ln1", { attr:{ x2:732, y2:1199 } }, 12.817);
+tl.set("#b1 .m1", { x:732, y:1199 }, 12.900); tl.set("#b1 .ln1", { attr:{ x2:732, y2:1199 } }, 12.900);
+tl.set("#b1 .m1", { x:732, y:1200 }, 12.984); tl.set("#b1 .ln1", { attr:{ x2:732, y2:1200 } }, 12.984);
+tl.set("#b1 .m1", { x:733, y:1200 }, 13.067); tl.set("#b1 .ln1", { attr:{ x2:733, y2:1200 } }, 13.067);
+tl.set("#b1 .m1", { x:736, y:1202 }, 13.150); tl.set("#b1 .ln1", { attr:{ x2:736, y2:1202 } }, 13.150);
+tl.set("#b1 .m1", { x:738, y:1202 }, 13.233); tl.set("#b1 .ln1", { attr:{ x2:738, y2:1202 } }, 13.233);
+tl.set("#b1 .m1", { x:757, y:1220 }, 13.317); tl.set("#b1 .ln1", { attr:{ x2:757, y2:1220 } }, 13.317);
+tl.set("#b1 .m1", { x:757, y:1221 }, 13.400); tl.set("#b1 .ln1", { attr:{ x2:757, y2:1221 } }, 13.400);
+tl.set("#b1 .m1", { x:757, y:1223 }, 13.483); tl.set("#b1 .ln1", { attr:{ x2:757, y2:1223 } }, 13.483);
+tl.set("#b1 .m1", { x:757, y:1223 }, 13.566); tl.set("#b1 .ln1", { attr:{ x2:757, y2:1223 } }, 13.566);
+tl.set("#b1 .ln1", { attr:{ opacity:1 } }, 12.817);
+tl.fromTo("#b1 .m1 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 12.817);
+tl.fromTo("#b1 .m1 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:0, immediateRender:false }, 13.067);
+tl.fromTo("#b1 .c1", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 12.917);
+tl.fromTo("#b1 .m1 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 12.967);
+tl.to("#b1 .m1 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:1 }, 13.267);
+tl.set("#b1", { opacity:1 }, 9.670);
+tl.fromTo("#b1 .mkvig", { opacity:0 }, { opacity:1, duration:0.300, ease:"power1.out", immediateRender:false }, 9.670);
+tl.fromTo("#b1 .mkttl .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", stagger:0.080, immediateRender:false }, 9.770);
+tl.fromTo("#b1 .mkttl .kick", { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.350, ease:"power3.out", immediateRender:false }, 9.720);
+tl.fromTo("#b1 .mksub", { opacity:0, y:-20 }, { opacity:1, y:0, duration:0.350, ease:"back.out(1.8)", immediateRender:false }, 10.999);
+tl.to("#b1", { opacity:0, duration:0.220, ease:"power1.in" }, 13.347);
+tl.fromTo("#k3", { opacity:0, y:40, scale:0.97 }, { opacity:1, y:0, scale:1, duration:0.400, ease:"back.out(1.6)", immediateRender:false }, 13.616);
+tl.fromTo("#k3 .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", immediateRender:false }, 13.696);
+tl.fromTo("#k3 .sub", { opacity:0, y:10 }, { opacity:1, y:0, duration:0.350, ease:"power2.out", immediateRender:false }, 13.916);
+tl.to("#k3", { y:-6, duration:2.398, ease:"sine.inOut" }, 14.066);
+tl.to("#k3", { opacity:0, y:-30, filter:"blur(6px)", duration:0.280, ease:"power2.in" }, 16.533);
+tl.set("#b2 .m0", { x:671, y:1797 }, 17.792); tl.set("#b2 .ln0", { attr:{ x2:671, y2:1797 } }, 17.792);
+tl.set("#b2 .m0", { x:671, y:1797 }, 17.875); tl.set("#b2 .ln0", { attr:{ x2:671, y2:1797 } }, 17.875);
+tl.set("#b2 .m0", { x:669, y:1802 }, 17.959); tl.set("#b2 .ln0", { attr:{ x2:669, y2:1802 } }, 17.959);
+tl.set("#b2 .m0", { x:665, y:1802 }, 18.042); tl.set("#b2 .ln0", { attr:{ x2:665, y2:1802 } }, 18.042);
+tl.set("#b2 .m0", { x:665, y:1802 }, 18.125); tl.set("#b2 .ln0", { attr:{ x2:665, y2:1802 } }, 18.125);
+tl.set("#b2 .m0", { x:664, y:1801 }, 18.208); tl.set("#b2 .ln0", { attr:{ x2:664, y2:1801 } }, 18.208);
+tl.set("#b2 .m0", { x:659, y:1797 }, 18.292); tl.set("#b2 .ln0", { attr:{ x2:659, y2:1797 } }, 18.292);
+tl.set("#b2 .m0", { x:657, y:1797 }, 18.375); tl.set("#b2 .ln0", { attr:{ x2:657, y2:1797 } }, 18.375);
+tl.set("#b2 .m0", { x:653, y:1795 }, 18.458); tl.set("#b2 .ln0", { attr:{ x2:653, y2:1795 } }, 18.458);
+tl.set("#b2 .m0", { x:651, y:1795 }, 18.541); tl.set("#b2 .ln0", { attr:{ x2:651, y2:1795 } }, 18.541);
+tl.set("#b2 .m0", { x:651, y:1795 }, 18.625); tl.set("#b2 .ln0", { attr:{ x2:651, y2:1795 } }, 18.625);
+tl.set("#b2 .m0", { x:649, y:1795 }, 18.708); tl.set("#b2 .ln0", { attr:{ x2:649, y2:1795 } }, 18.708);
+tl.set("#b2 .m0", { x:642, y:1794 }, 18.791); tl.set("#b2 .ln0", { attr:{ x2:642, y2:1794 } }, 18.791);
+tl.set("#b2 .m0", { x:639, y:1789 }, 18.874); tl.set("#b2 .ln0", { attr:{ x2:639, y2:1789 } }, 18.874);
+tl.set("#b2 .m0", { x:635, y:1787 }, 18.958); tl.set("#b2 .ln0", { attr:{ x2:635, y2:1787 } }, 18.958);
+tl.set("#b2 .m0", { x:632, y:1786 }, 19.041); tl.set("#b2 .ln0", { attr:{ x2:632, y2:1786 } }, 19.041);
+tl.set("#b2 .m0", { x:631, y:1786 }, 19.124); tl.set("#b2 .ln0", { attr:{ x2:631, y2:1786 } }, 19.124);
+tl.set("#b2 .m0", { x:628, y:1786 }, 19.207); tl.set("#b2 .ln0", { attr:{ x2:628, y2:1786 } }, 19.207);
+tl.set("#b2 .m0", { x:628, y:1787 }, 19.291); tl.set("#b2 .ln0", { attr:{ x2:628, y2:1787 } }, 19.291);
+tl.set("#b2 .m0", { x:628, y:1791 }, 19.374); tl.set("#b2 .ln0", { attr:{ x2:628, y2:1791 } }, 19.374);
+tl.set("#b2 .m0", { x:632, y:1791 }, 19.457); tl.set("#b2 .ln0", { attr:{ x2:632, y2:1791 } }, 19.457);
+tl.set("#b2 .m0", { x:635, y:1791 }, 19.540); tl.set("#b2 .ln0", { attr:{ x2:635, y2:1791 } }, 19.540);
+tl.set("#b2 .m0", { x:676, y:1870 }, 19.624); tl.set("#b2 .ln0", { attr:{ x2:676, y2:1870 } }, 19.624);
+tl.set("#b2 .m0", { x:677, y:1870 }, 19.707); tl.set("#b2 .ln0", { attr:{ x2:677, y2:1870 } }, 19.707);
+tl.set("#b2 .m0", { x:681, y:1870 }, 19.790); tl.set("#b2 .ln0", { attr:{ x2:681, y2:1870 } }, 19.790);
+tl.set("#b2 .m0", { x:682, y:1870 }, 19.873); tl.set("#b2 .ln0", { attr:{ x2:682, y2:1870 } }, 19.873);
+tl.set("#b2 .m0", { x:682, y:1868 }, 19.957); tl.set("#b2 .ln0", { attr:{ x2:682, y2:1868 } }, 19.957);
+tl.set("#b2 .m0", { x:683, y:1866 }, 20.040); tl.set("#b2 .ln0", { attr:{ x2:683, y2:1866 } }, 20.040);
+tl.set("#b2 .m0", { x:683, y:1859 }, 20.123); tl.set("#b2 .ln0", { attr:{ x2:683, y2:1859 } }, 20.123);
+tl.set("#b2 .m0", { x:682, y:1859 }, 20.206); tl.set("#b2 .ln0", { attr:{ x2:682, y2:1859 } }, 20.206);
+tl.set("#b2 .m0", { x:667, y:1803 }, 20.290); tl.set("#b2 .ln0", { attr:{ x2:667, y2:1803 } }, 20.290);
+tl.set("#b2 .m0", { x:667, y:1803 }, 20.373); tl.set("#b2 .ln0", { attr:{ x2:667, y2:1803 } }, 20.373);
+tl.set("#b2 .m0", { x:667, y:1803 }, 20.456); tl.set("#b2 .ln0", { attr:{ x2:667, y2:1803 } }, 20.456);
+tl.set("#b2 .m0", { x:667, y:1803 }, 20.539); tl.set("#b2 .ln0", { attr:{ x2:667, y2:1803 } }, 20.539);
+tl.set("#b2 .m0", { x:666, y:1803 }, 20.623); tl.set("#b2 .ln0", { attr:{ x2:666, y2:1803 } }, 20.623);
+tl.set("#b2 .m0", { x:664, y:1803 }, 20.706); tl.set("#b2 .ln0", { attr:{ x2:664, y2:1803 } }, 20.706);
+tl.set("#b2 .m0", { x:664, y:1803 }, 20.789); tl.set("#b2 .ln0", { attr:{ x2:664, y2:1803 } }, 20.789);
+tl.set("#b2 .m0", { x:664, y:1802 }, 20.872); tl.set("#b2 .ln0", { attr:{ x2:664, y2:1802 } }, 20.872);
+tl.set("#b2 .m0", { x:663, y:1802 }, 20.956); tl.set("#b2 .ln0", { attr:{ x2:663, y2:1802 } }, 20.956);
+tl.set("#b2 .m0", { x:663, y:1802 }, 21.039); tl.set("#b2 .ln0", { attr:{ x2:663, y2:1802 } }, 21.039);
+tl.set("#b2 .m0", { x:663, y:1802 }, 21.122); tl.set("#b2 .ln0", { attr:{ x2:663, y2:1802 } }, 21.122);
+tl.set("#b2 .m0", { x:663, y:1799 }, 21.205); tl.set("#b2 .ln0", { attr:{ x2:663, y2:1799 } }, 21.205);
+tl.set("#b2 .ln0", { attr:{ opacity:1 } }, 17.792);
+tl.fromTo("#b2 .m0 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 17.792);
+tl.fromTo("#b2 .m0 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:3, immediateRender:false }, 18.042);
+tl.fromTo("#b2 .c0", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 17.892);
+tl.fromTo("#b2 .m0 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 17.942);
+tl.to("#b2 .m0 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:7 }, 18.242);
+tl.set("#b2", { opacity:1 }, 16.943);
+tl.fromTo("#b2 .mkvig", { opacity:0 }, { opacity:1, duration:0.300, ease:"power1.out", immediateRender:false }, 16.943);
+tl.fromTo("#b2 .mkttl .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", stagger:0.080, immediateRender:false }, 17.043);
+tl.fromTo("#b2 .mkttl .kick", { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.350, ease:"power3.out", immediateRender:false }, 16.993);
+tl.fromTo("#b2 .mksub", { opacity:0, y:-20 }, { opacity:1, y:0, duration:0.350, ease:"back.out(1.8)", immediateRender:false }, 19.261);
+tl.to("#b2", { opacity:0, duration:0.220, ease:"power1.in" }, 21.039);
+tl.fromTo("#k4", { opacity:0, y:40, scale:0.97 }, { opacity:1, y:0, scale:1, duration:0.400, ease:"back.out(1.6)", immediateRender:false }, 21.309);
+tl.fromTo("#k4 .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", immediateRender:false }, 21.389);
+tl.fromTo("#k4 .sub", { opacity:0, y:10 }, { opacity:1, y:0, duration:0.350, ease:"power2.out", immediateRender:false }, 21.608);
+tl.to("#k4", { y:-6, duration:6.094, ease:"sine.inOut" }, 21.758);
+tl.to("#k4", { opacity:0, y:-30, filter:"blur(6px)", duration:0.280, ease:"power2.in" }, 27.922);
+tl.fromTo("#k4 .chip:nth-child(1)", { opacity:0, y:18, scale:0.9 }, { opacity:1, y:0, scale:1, duration:0.300, ease:"back.out(2)", immediateRender:false }, 22.218);
+tl.fromTo("#k4 .chip:nth-child(2)", { opacity:0, y:18, scale:0.9 }, { opacity:1, y:0, scale:1, duration:0.300, ease:"back.out(2)", immediateRender:false }, 23.047);
+tl.fromTo("#k4 .chip:nth-child(3)", { opacity:0, y:18, scale:0.9 }, { opacity:1, y:0, scale:1, duration:0.300, ease:"back.out(2)", immediateRender:false }, 25.035);
+tl.set("#b3 .m0", { x:789, y:1034 }, 28.601); tl.set("#b3 .ln0", { attr:{ x2:789, y2:1034 } }, 28.601);
+tl.set("#b3 .ln0", { attr:{ opacity:1 } }, 28.601);
+tl.fromTo("#b3 .m0 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 28.601);
+tl.fromTo("#b3 .m0 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:1, immediateRender:false }, 28.851);
+tl.fromTo("#b3 .c0", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 28.701);
+tl.set("#b3 .m1", { x:730, y:1200 }, 28.851); tl.set("#b3 .ln1", { attr:{ x2:730, y2:1200 } }, 28.851);
+tl.set("#b3 .ln1", { attr:{ opacity:1 } }, 28.851);
+tl.fromTo("#b3 .m1 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 28.851);
+tl.fromTo("#b3 .m1 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:1, immediateRender:false }, 29.101);
+tl.fromTo("#b3 .c1", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 28.951);
+tl.fromTo("#b3 .m1 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 29.001);
+tl.to("#b3 .m1 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:3 }, 29.301);
+tl.set("#b3 .m2", { x:612, y:1365 }, 29.101); tl.set("#b3 .ln2", { attr:{ x2:612, y2:1365 } }, 29.101);
+tl.set("#b3 .ln2", { attr:{ opacity:1 } }, 29.101);
+tl.fromTo("#b3 .m2 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 29.101);
+tl.fromTo("#b3 .m2 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:0, immediateRender:false }, 29.351);
+tl.fromTo("#b3 .c2", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 29.201);
+tl.fromTo("#b3 .m2 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 29.251);
+tl.to("#b3 .m2 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:3 }, 29.550);
+tl.set("#b3 .m3", { x:574, y:1796 }, 29.351); tl.set("#b3 .ln3", { attr:{ x2:574, y2:1796 } }, 29.351);
+tl.set("#b3 .ln3", { attr:{ opacity:1 } }, 29.351);
+tl.fromTo("#b3 .m3 .o", { scale:2.2, opacity:0 }, { scale:1, opacity:1, duration:0.300, ease:"back.out(2.2)", immediateRender:false }, 29.351);
+tl.fromTo("#b3 .m3 .p", { scale:1, opacity:0.9 }, { scale:2.1, opacity:0, duration:0.849, ease:"power1.out", repeat:0, immediateRender:false }, 29.600);
+tl.fromTo("#b3 .c3", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.300, ease:"expo.out", immediateRender:false }, 29.451);
+tl.fromTo("#b3 .m3 .arw .sh2", { opacity:0, x:-40 }, { opacity:1, x:0, duration:0.300, ease:"power3.out", immediateRender:false }, 29.500);
+tl.to("#b3 .m3 .arw .sh2", { x:16, duration:0.400, ease:"sine.inOut", yoyo:true, repeat:1 }, 29.800);
+tl.set("#b3", { opacity:1 }, 28.302);
+tl.fromTo("#b3 .mkvig", { opacity:0 }, { opacity:1, duration:0.300, ease:"power1.out", immediateRender:false }, 28.302);
+tl.fromTo("#b3 .mkttl .t", { yPercent:105 }, { yPercent:0, duration:0.500, ease:"expo.out", stagger:0.080, immediateRender:false }, 28.402);
+tl.fromTo("#b3 .mkttl .kick", { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.350, ease:"power3.out", immediateRender:false }, 28.352);
+tl.fromTo("#b3 .fz", { scale:1.0 }, { scale:1.05, duration:2.271, ease:"none", transformOrigin:"50% 70%", immediateRender:false }, 28.302);
+tl.fromTo("#fl8", { opacity:0 }, { opacity:0.85, duration:0.060, ease:"none", immediateRender:false }, 28.242); tl.to("#fl8", { opacity:0, duration:0.220, ease:"power2.out" }, 28.302);
+tl.set("#c0", { opacity:1 }, 0.090); tl.fromTo("#c0", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 0.090); tl.set("#c0", { opacity:0 }, 1.179);
+tl.set("#c0w0", { color:"#d80609" }, 0.090); tl.fromTo("#c0w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 0.090); tl.set("#c0w0", { color:"#ffffff" }, 0.430);
+tl.set("#c0w1", { color:"#d80609" }, 0.430); tl.fromTo("#c0w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 0.430); tl.set("#c0w1", { color:"#ffffff" }, 0.749);
+tl.set("#c0w2", { color:"#d80609" }, 0.749); tl.fromTo("#c0w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 0.749); tl.set("#c0w2", { color:"#ffffff" }, 1.179);
+tl.set("#c1", { opacity:1 }, 1.179); tl.fromTo("#c1", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 1.179); tl.set("#c1", { opacity:0 }, 1.738);
+tl.set("#c1w0", { color:"#d80609" }, 1.179); tl.fromTo("#c1w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 1.179); tl.set("#c1w0", { color:"#ffffff" }, 1.738);
+tl.set("#c2", { opacity:1 }, 1.738); tl.fromTo("#c2", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 1.738); tl.set("#c2", { opacity:0 }, 2.288);
+tl.set("#c2w0", { color:"#d80609" }, 1.738); tl.fromTo("#c2w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 1.738); tl.set("#c2w0", { color:"#ffffff" }, 1.968);
+tl.set("#c2w1", { color:"#d80609" }, 1.968); tl.fromTo("#c2w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 1.968); tl.set("#c2w1", { color:"#ffffff" }, 2.028);
+tl.set("#c2w2", { color:"#d80609" }, 2.028); tl.fromTo("#c2w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 2.028); tl.set("#c2w2", { color:"#ffffff" }, 2.288);
+tl.set("#c3", { opacity:1 }, 2.288); tl.fromTo("#c3", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 2.288); tl.set("#c3", { opacity:0 }, 3.127);
+tl.set("#c3w0", { color:"#d80609" }, 2.288); tl.fromTo("#c3w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 2.288); tl.set("#c3w0", { color:"#ffffff" }, 2.478);
+tl.set("#c3w1", { color:"#d80609" }, 2.478); tl.fromTo("#c3w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 2.478); tl.set("#c3w1", { color:"#ffffff" }, 2.607);
+tl.set("#c3w2", { color:"#d80609" }, 2.607); tl.fromTo("#c3w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 2.607); tl.set("#c3w2", { color:"#ffffff" }, 3.127);
+tl.set("#c4", { opacity:1 }, 3.127); tl.fromTo("#c4", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 3.127); tl.set("#c4", { opacity:0 }, 3.786);
+tl.set("#c4w0", { color:"#d80609" }, 3.127); tl.fromTo("#c4w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 3.127); tl.set("#c4w0", { color:"#ffffff" }, 3.437);
+tl.set("#c4w1", { color:"#d80609" }, 3.437); tl.fromTo("#c4w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 3.437); tl.set("#c4w1", { color:"#ffffff" }, 3.786);
+tl.set("#c5", { opacity:1 }, 3.786); tl.fromTo("#c5", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 3.786); tl.set("#c5", { opacity:0 }, 4.026);
+tl.set("#c5w0", { color:"#d80609" }, 3.786); tl.fromTo("#c5w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 3.786); tl.set("#c5w0", { color:"#ffffff" }, 3.836);
+tl.set("#c5w1", { color:"#d80609" }, 3.836); tl.fromTo("#c5w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 3.836); tl.set("#c5w1", { color:"#ffffff" }, 4.026);
+tl.set("#c6", { opacity:1 }, 4.026); tl.fromTo("#c6", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 4.026); tl.set("#c6", { opacity:0 }, 4.396);
+tl.set("#c6w0", { color:"#d80609" }, 4.026); tl.fromTo("#c6w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 4.026); tl.set("#c6w0", { color:"#ffffff" }, 4.076);
+tl.set("#c6w1", { color:"#d80609" }, 4.076); tl.fromTo("#c6w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 4.076); tl.set("#c6w1", { color:"#ffffff" }, 4.156);
+tl.set("#c6w2", { color:"#d80609" }, 4.156); tl.fromTo("#c6w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 4.156); tl.set("#c6w2", { color:"#ffffff" }, 4.396);
+tl.set("#c7", { opacity:1 }, 4.396); tl.fromTo("#c7", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 4.396); tl.set("#c7", { opacity:0 }, 4.965);
+tl.set("#c7w0", { color:"#d80609" }, 4.396); tl.fromTo("#c7w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 4.396); tl.set("#c7w0", { color:"#ffffff" }, 4.965);
+tl.set("#c8", { opacity:1 }, 4.965); tl.fromTo("#c8", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 4.965); tl.set("#c8", { opacity:0 }, 5.305);
+tl.set("#c8w0", { color:"#d80609" }, 4.965); tl.fromTo("#c8w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 4.965); tl.set("#c8w0", { color:"#ffffff" }, 5.035);
+tl.set("#c8w1", { color:"#d80609" }, 5.035); tl.fromTo("#c8w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 5.035); tl.set("#c8w1", { color:"#ffffff" }, 5.205);
+tl.set("#c8w2", { color:"#d80609" }, 5.205); tl.fromTo("#c8w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 5.205); tl.set("#c8w2", { color:"#ffffff" }, 5.305);
+tl.set("#c9", { opacity:1 }, 5.305); tl.fromTo("#c9", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 5.305); tl.set("#c9", { opacity:0 }, 6.054);
+tl.set("#c9w0", { color:"#d80609" }, 5.305); tl.fromTo("#c9w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 5.305); tl.set("#c9w0", { color:"#ffffff" }, 5.395);
+tl.set("#c9w1", { color:"#d80609" }, 5.395); tl.fromTo("#c9w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 5.395); tl.set("#c9w1", { color:"#ffffff" }, 5.834);
+tl.set("#c9w2", { color:"#d80609" }, 5.834); tl.fromTo("#c9w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 5.834); tl.set("#c9w2", { color:"#ffffff" }, 6.054);
+tl.set("#c10", { opacity:1 }, 6.054); tl.fromTo("#c10", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 6.054); tl.set("#c10", { opacity:0 }, 6.304);
+tl.set("#c10w0", { color:"#d80609" }, 6.054); tl.fromTo("#c10w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 6.054); tl.set("#c10w0", { color:"#ffffff" }, 6.304);
+tl.set("#c11", { opacity:1 }, 6.304); tl.fromTo("#c11", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 6.304); tl.set("#c11", { opacity:0 }, 7.023);
+tl.set("#c11w0", { color:"#d80609" }, 6.304); tl.fromTo("#c11w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 6.304); tl.set("#c11w0", { color:"#ffffff" }, 6.703);
+tl.set("#c11w1", { color:"#d80609" }, 6.703); tl.fromTo("#c11w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 6.703); tl.set("#c11w1", { color:"#ffffff" }, 7.023);
+tl.set("#c12", { opacity:1 }, 7.023); tl.fromTo("#c12", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 7.023); tl.set("#c12", { opacity:0 }, 7.592);
+tl.set("#c12w0", { color:"#d80609" }, 7.023); tl.fromTo("#c12w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.023); tl.set("#c12w0", { color:"#ffffff" }, 7.413);
+tl.set("#c12w1", { color:"#d80609" }, 7.413); tl.fromTo("#c12w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.413); tl.set("#c12w1", { color:"#ffffff" }, 7.463);
+tl.set("#c12w2", { color:"#d80609" }, 7.453); tl.fromTo("#c12w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.453); tl.set("#c12w2", { color:"#ffffff" }, 7.592);
+tl.set("#c13", { opacity:1 }, 7.592); tl.fromTo("#c13", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 7.592); tl.set("#c13", { opacity:0 }, 8.182);
+tl.set("#c13w0", { color:"#d80609" }, 7.592); tl.fromTo("#c13w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.592); tl.set("#c13w0", { color:"#ffffff" }, 7.682);
+tl.set("#c13w1", { color:"#d80609" }, 7.682); tl.fromTo("#c13w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.682); tl.set("#c13w1", { color:"#ffffff" }, 7.732);
+tl.set("#c13w2", { color:"#d80609" }, 7.722); tl.fromTo("#c13w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 7.722); tl.set("#c13w2", { color:"#ffffff" }, 8.182);
+tl.set("#c14", { opacity:1 }, 8.182); tl.fromTo("#c14", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 8.182); tl.set("#c14", { opacity:0 }, 8.521);
+tl.set("#c14w0", { color:"#d80609" }, 8.182); tl.fromTo("#c14w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 8.182); tl.set("#c14w0", { color:"#ffffff" }, 8.521);
+tl.set("#c15", { opacity:1 }, 8.521); tl.fromTo("#c15", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 8.521); tl.set("#c15", { opacity:0 }, 9.201);
+tl.set("#c15w0", { color:"#d80609" }, 8.521); tl.fromTo("#c15w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 8.521); tl.set("#c15w0", { color:"#ffffff" }, 8.711);
+tl.set("#c15w1", { color:"#d80609" }, 8.711); tl.fromTo("#c15w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 8.711); tl.set("#c15w1", { color:"#ffffff" }, 9.031);
+tl.set("#c15w2", { color:"#d80609" }, 9.031); tl.fromTo("#c15w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 9.031); tl.set("#c15w2", { color:"#ffffff" }, 9.201);
+tl.set("#c16", { opacity:1 }, 9.201); tl.fromTo("#c16", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 9.201); tl.set("#c16", { opacity:0 }, 9.550);
+tl.set("#c16w0", { color:"#d80609" }, 9.201); tl.fromTo("#c16w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 9.201); tl.set("#c16w0", { color:"#ffffff" }, 9.261);
+tl.set("#c16w1", { color:"#d80609" }, 9.261); tl.fromTo("#c16w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 9.261); tl.set("#c16w1", { color:"#ffffff" }, 9.331);
+tl.set("#c16w2", { color:"#d80609" }, 9.331); tl.fromTo("#c16w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 9.331); tl.set("#c16w2", { color:"#ffffff" }, 9.550);
+tl.set("#c17", { opacity:1 }, 9.550); tl.fromTo("#c17", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 9.550); tl.set("#c17", { opacity:0 }, 9.670);
+tl.set("#c17w0", { color:"#d80609" }, 9.550); tl.fromTo("#c17w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 9.550); tl.set("#c17w0", { color:"#ffffff" }, 9.670);
+tl.set("#c27", { opacity:1 }, 14.136); tl.fromTo("#c27", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 14.136); tl.set("#c27", { opacity:0 }, 14.925);
+tl.set("#c27w0", { color:"#d80609" }, 14.136); tl.fromTo("#c27w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 14.136); tl.set("#c27w0", { color:"#ffffff" }, 14.376);
+tl.set("#c27w1", { color:"#d80609" }, 14.376); tl.fromTo("#c27w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 14.376); tl.set("#c27w1", { color:"#ffffff" }, 14.805);
+tl.set("#c27w2", { color:"#d80609" }, 14.805); tl.fromTo("#c27w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 14.805); tl.set("#c27w2", { color:"#ffffff" }, 14.925);
+tl.set("#c28", { opacity:1 }, 14.925); tl.fromTo("#c28", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 14.925); tl.set("#c28", { opacity:0 }, 15.465);
+tl.set("#c28w0", { color:"#d80609" }, 14.925); tl.fromTo("#c28w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 14.925); tl.set("#c28w0", { color:"#ffffff" }, 15.035);
+tl.set("#c28w1", { color:"#d80609" }, 15.035); tl.fromTo("#c28w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 15.035); tl.set("#c28w1", { color:"#ffffff" }, 15.465);
+tl.set("#c29", { opacity:1 }, 15.465); tl.fromTo("#c29", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 15.465); tl.set("#c29", { opacity:0 }, 16.124);
+tl.set("#c29w0", { color:"#d80609" }, 15.465); tl.fromTo("#c29w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 15.465); tl.set("#c29w0", { color:"#ffffff" }, 15.684);
+tl.set("#c29w1", { color:"#d80609" }, 15.684); tl.fromTo("#c29w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 15.684); tl.set("#c29w1", { color:"#ffffff" }, 15.874);
+tl.set("#c29w2", { color:"#d80609" }, 15.874); tl.fromTo("#c29w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 15.874); tl.set("#c29w2", { color:"#ffffff" }, 16.124);
+tl.set("#c30", { opacity:1 }, 16.124); tl.fromTo("#c30", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 16.124); tl.set("#c30", { opacity:0 }, 16.943);
+tl.set("#c30w0", { color:"#d80609" }, 16.124); tl.fromTo("#c30w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 16.124); tl.set("#c30w0", { color:"#ffffff" }, 16.464);
+tl.set("#c30w1", { color:"#d80609" }, 16.464); tl.fromTo("#c30w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 16.464); tl.set("#c30w1", { color:"#ffffff" }, 16.623);
+tl.set("#c30w2", { color:"#d80609" }, 16.623); tl.fromTo("#c30w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 16.623); tl.set("#c30w2", { color:"#ffffff" }, 16.943);
+tl.set("#c39", { opacity:1 }, 21.339); tl.fromTo("#c39", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 21.339); tl.set("#c39", { opacity:0 }, 21.658);
+tl.set("#c39w0", { color:"#d80609" }, 21.339); tl.fromTo("#c39w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.339); tl.set("#c39w0", { color:"#ffffff" }, 21.419);
+tl.set("#c39w1", { color:"#d80609" }, 21.419); tl.fromTo("#c39w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.419); tl.set("#c39w1", { color:"#ffffff" }, 21.578);
+tl.set("#c39w2", { color:"#d80609" }, 21.578); tl.fromTo("#c39w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.578); tl.set("#c39w2", { color:"#ffffff" }, 21.658);
+tl.set("#c40", { opacity:1 }, 21.658); tl.fromTo("#c40", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 21.658); tl.set("#c40", { opacity:0 }, 22.058);
+tl.set("#c40w0", { color:"#d80609" }, 21.658); tl.fromTo("#c40w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.658); tl.set("#c40w0", { color:"#ffffff" }, 21.818);
+tl.set("#c40w1", { color:"#d80609" }, 21.818); tl.fromTo("#c40w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.818); tl.set("#c40w1", { color:"#ffffff" }, 21.898);
+tl.set("#c40w2", { color:"#d80609" }, 21.898); tl.fromTo("#c40w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 21.898); tl.set("#c40w2", { color:"#ffffff" }, 22.058);
+tl.set("#c41", { opacity:1 }, 22.058); tl.fromTo("#c41", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 22.058); tl.set("#c41", { opacity:0 }, 22.677);
+tl.set("#c41w0", { color:"#d80609" }, 22.058); tl.fromTo("#c41w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 22.058); tl.set("#c41w0", { color:"#ffffff" }, 22.218);
+tl.set("#c41w1", { color:"#d80609" }, 22.218); tl.fromTo("#c41w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 22.218); tl.set("#c41w1", { color:"#ffffff" }, 22.677);
+tl.set("#c42", { opacity:1 }, 22.677); tl.fromTo("#c42", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 22.677); tl.set("#c42", { opacity:0 }, 23.047);
+tl.set("#c42w0", { color:"#d80609" }, 22.677); tl.fromTo("#c42w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 22.677); tl.set("#c42w0", { color:"#ffffff" }, 23.047);
+tl.set("#c43", { opacity:1 }, 23.047); tl.fromTo("#c43", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 23.047); tl.set("#c43", { opacity:0 }, 23.247);
+tl.set("#c43w0", { color:"#d80609" }, 23.047); tl.fromTo("#c43w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.047); tl.set("#c43w0", { color:"#ffffff" }, 23.247);
+tl.set("#c44", { opacity:1 }, 23.247); tl.fromTo("#c44", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 23.247); tl.set("#c44", { opacity:0 }, 23.696);
+tl.set("#c44w0", { color:"#d80609" }, 23.247); tl.fromTo("#c44w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.247); tl.set("#c44w0", { color:"#ffffff" }, 23.367);
+tl.set("#c44w1", { color:"#d80609" }, 23.367); tl.fromTo("#c44w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.367); tl.set("#c44w1", { color:"#ffffff" }, 23.526);
+tl.set("#c44w2", { color:"#d80609" }, 23.526); tl.fromTo("#c44w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.526); tl.set("#c44w2", { color:"#ffffff" }, 23.696);
+tl.set("#c45", { opacity:1 }, 23.696); tl.fromTo("#c45", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 23.696); tl.set("#c45", { opacity:0 }, 24.086);
+tl.set("#c45w0", { color:"#d80609" }, 23.696); tl.fromTo("#c45w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.696); tl.set("#c45w0", { color:"#ffffff" }, 23.846);
+tl.set("#c45w1", { color:"#d80609" }, 23.846); tl.fromTo("#c45w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.846); tl.set("#c45w1", { color:"#ffffff" }, 23.966);
+tl.set("#c45w2", { color:"#d80609" }, 23.966); tl.fromTo("#c45w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 23.966); tl.set("#c45w2", { color:"#ffffff" }, 24.086);
+tl.set("#c46", { opacity:1 }, 24.086); tl.fromTo("#c46", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 24.086); tl.set("#c46", { opacity:0 }, 24.595);
+tl.set("#c46w0", { color:"#d80609" }, 24.086); tl.fromTo("#c46w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 24.086); tl.set("#c46w0", { color:"#ffffff" }, 24.246);
+tl.set("#c46w1", { color:"#d80609" }, 24.246); tl.fromTo("#c46w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 24.246); tl.set("#c46w1", { color:"#ffffff" }, 24.426);
+tl.set("#c46w2", { color:"#d80609" }, 24.426); tl.fromTo("#c46w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 24.426); tl.set("#c46w2", { color:"#ffffff" }, 24.595);
+tl.set("#c47", { opacity:1 }, 24.595); tl.fromTo("#c47", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 24.595); tl.set("#c47", { opacity:0 }, 25.255);
+tl.set("#c47w0", { color:"#d80609" }, 24.595); tl.fromTo("#c47w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 24.595); tl.set("#c47w0", { color:"#ffffff" }, 24.945);
+tl.set("#c47w1", { color:"#d80609" }, 24.945); tl.fromTo("#c47w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 24.945); tl.set("#c47w1", { color:"#ffffff" }, 25.035);
+tl.set("#c47w2", { color:"#d80609" }, 25.035); tl.fromTo("#c47w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.035); tl.set("#c47w2", { color:"#ffffff" }, 25.255);
+tl.set("#c48", { opacity:1 }, 25.255); tl.fromTo("#c48", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 25.255); tl.set("#c48", { opacity:0 }, 25.614);
+tl.set("#c48w0", { color:"#d80609" }, 25.255); tl.fromTo("#c48w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.255); tl.set("#c48w0", { color:"#ffffff" }, 25.345);
+tl.set("#c48w1", { color:"#d80609" }, 25.345); tl.fromTo("#c48w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.345); tl.set("#c48w1", { color:"#ffffff" }, 25.514);
+tl.set("#c48w2", { color:"#d80609" }, 25.514); tl.fromTo("#c48w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.514); tl.set("#c48w2", { color:"#ffffff" }, 25.614);
+tl.set("#c49", { opacity:1 }, 25.614); tl.fromTo("#c49", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 25.614); tl.set("#c49", { opacity:0 }, 26.054);
+tl.set("#c49w0", { color:"#d80609" }, 25.614); tl.fromTo("#c49w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.614); tl.set("#c49w0", { color:"#ffffff" }, 25.754);
+tl.set("#c49w1", { color:"#d80609" }, 25.754); tl.fromTo("#c49w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 25.754); tl.set("#c49w1", { color:"#ffffff" }, 26.054);
+tl.set("#c50", { opacity:1 }, 26.054); tl.fromTo("#c50", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 26.054); tl.set("#c50", { opacity:0 }, 26.773);
+tl.set("#c50w0", { color:"#d80609" }, 26.054); tl.fromTo("#c50w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 26.054); tl.set("#c50w0", { color:"#ffffff" }, 26.234);
+tl.set("#c50w1", { color:"#d80609" }, 26.234); tl.fromTo("#c50w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 26.234); tl.set("#c50w1", { color:"#ffffff" }, 26.503);
+tl.set("#c50w2", { color:"#d80609" }, 26.503); tl.fromTo("#c50w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 26.503); tl.set("#c50w2", { color:"#ffffff" }, 26.773);
+tl.set("#c51", { opacity:1 }, 26.773); tl.fromTo("#c51", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 26.773); tl.set("#c51", { opacity:0 }, 27.263);
+tl.set("#c51w0", { color:"#d80609" }, 26.773); tl.fromTo("#c51w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 26.773); tl.set("#c51w0", { color:"#ffffff" }, 26.953);
+tl.set("#c51w1", { color:"#d80609" }, 26.953); tl.fromTo("#c51w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 26.953); tl.set("#c51w1", { color:"#ffffff" }, 27.263);
+tl.set("#c52", { opacity:1 }, 27.263); tl.fromTo("#c52", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 27.263); tl.set("#c52", { opacity:0 }, 27.762);
+tl.set("#c52w0", { color:"#d80609" }, 27.263); tl.fromTo("#c52w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 27.263); tl.set("#c52w0", { color:"#ffffff" }, 27.353);
+tl.set("#c52w1", { color:"#d80609" }, 27.353); tl.fromTo("#c52w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 27.353); tl.set("#c52w1", { color:"#ffffff" }, 27.582);
+tl.set("#c52w2", { color:"#d80609" }, 27.582); tl.fromTo("#c52w2", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 27.582); tl.set("#c52w2", { color:"#ffffff" }, 27.762);
+tl.set("#c53", { opacity:1 }, 27.762); tl.fromTo("#c53", { scale:0.86, y:14 }, { scale:1, y:0, duration:0.130, ease:"power3.out", immediateRender:false }, 27.762); tl.set("#c53", { opacity:0 }, 28.302);
+tl.set("#c53w0", { color:"#d80609" }, 27.762); tl.fromTo("#c53w0", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 27.762); tl.set("#c53w0", { color:"#ffffff" }, 27.852);
+tl.set("#c53w1", { color:"#d80609" }, 27.852); tl.fromTo("#c53w1", { scale:1.12 }, { scale:1, duration:0.160, ease:"power2.out", immediateRender:false }, 27.852); tl.set("#c53w1", { color:"#ffffff" }, 28.302);
+tl.fromTo("#fl46", { opacity:0 }, { opacity:0.85, duration:0.060, ease:"none", immediateRender:false }, 1.440); tl.to("#fl46", { opacity:0, duration:0.220, ease:"power2.out" }, 1.500);
+tl.fromTo("#fl47", { opacity:0 }, { opacity:0.85, duration:0.060, ease:"none", immediateRender:false }, 4.857); tl.to("#fl47", { opacity:0, duration:0.220, ease:"power2.out" }, 4.917);
+tl.fromTo("#fl48", { opacity:0 }, { opacity:0.85, duration:0.060, ease:"none", immediateRender:false }, 6.482); tl.to("#fl48", { opacity:0, duration:0.220, ease:"power2.out" }, 6.542);
+tl.fromTo("#fl49", { opacity:0 }, { opacity:0.85, duration:0.060, ease:"none", immediateRender:false }, 26.482); tl.to("#fl49", { opacity:0, duration:0.220, ease:"power2.out" }, 26.542);
+tl.to({}, { duration:30.573 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="5.495" data-width="3840" data-height="2160"><div id="root"><div class="back"></div><div id="L" class="sh" style="position:absolute; left:80px; bottom:96px;"><div class="k"><i></i>AMATEUR OLYMPIA ITALY</div><div class="clip"><div class="t" style="font-size:110px; margin-top:10px;">BIKINI</div></div><div class="s" style="margin-top:8px;">Milan · NPC Worldwide</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+const r="#L"; gsap.set([r+" .back", r+" .k", r+" .t", r+" .s", r+" .x"], { opacity:0 });
+tl.to(r+" .back", { opacity:1, duration:0.5*K }, 0);
+tl.fromTo(r+" .k", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.45*K, ease:"power3.out", immediateRender:false }, 0.1*K);
+tl.fromTo(r+" .t", { opacity:0, yPercent:105 }, { opacity:1, yPercent:0, duration:0.6*K, ease:"expo.out", immediateRender:false }, 0.2*K);
+tl.fromTo(r+" .s, "+r+" .x", { opacity:0, y:14 }, { opacity:1, y:0, duration:0.5*K, ease:"power2.out", stagger:0.08*K, immediateRender:false }, 0.5*K);
+tl.to([r+" .k", r+" .t", r+" .s", r+" .x"], { opacity:0, x:-24, duration:0.4*K, ease:"power2.in", stagger:0.04*K }, 5.050*K);
+tl.to(r+" .back", { opacity:0, duration:0.5*K }, 5.150*K);
+tl.to({}, { duration:5.495 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

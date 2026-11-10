@@ -1,0 +1,109 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,850"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1850
+			},
+			"text": "."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,850",
+				"to": "00:00:07,180"
+			},
+			"offsets": {
+				"from": 1850,
+				"to": 7180
+			},
+			"text": " 12."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:07,180",
+				"to": "00:00:12,570"
+			},
+			"offsets": {
+				"from": 7180,
+				"to": 12570
+			},
+			"text": " 12."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:12,570",
+				"to": "00:00:16,160"
+			},
+			"offsets": {
+				"from": 12570,
+				"to": 16160
+			},
+			"text": " 15"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:16,160",
+				"to": "00:00:20,360"
+			},
+			"offsets": {
+				"from": 16160,
+				"to": 20360
+			},
+			"text": " more."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:20,360",
+				"to": "00:00:22,990"
+			},
+			"offsets": {
+				"from": 20360,
+				"to": 22990
+			},
+			"text": " 15."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:22,990",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 22990,
+				"to": 30000
+			},
+			"text": " Nice."
+		}
+	]
+}

@@ -1,0 +1,2984 @@
+[
+  {
+    "text": "I'm",
+    "start": 0,
+    "end": 0.05,
+    "id": "w0"
+  },
+  {
+    "text": "going",
+    "start": 0.05,
+    "end": 0.14,
+    "id": "w1"
+  },
+  {
+    "text": "to",
+    "start": 0.14,
+    "end": 0.18,
+    "id": "w2"
+  },
+  {
+    "text": "put",
+    "start": 0.18,
+    "end": 0.24,
+    "id": "w3"
+  },
+  {
+    "text": "in",
+    "start": 0.24,
+    "end": 0.28,
+    "id": "w4"
+  },
+  {
+    "text": "a",
+    "start": 0.28,
+    "end": 0.3,
+    "id": "w5"
+  },
+  {
+    "text": "little",
+    "start": 0.3,
+    "end": 0.41,
+    "id": "w6"
+  },
+  {
+    "text": "bit",
+    "start": 0.41,
+    "end": 0.47,
+    "id": "w7"
+  },
+  {
+    "text": "of",
+    "start": 0.47,
+    "end": 0.51,
+    "id": "w8"
+  },
+  {
+    "text": "heat",
+    "start": 0.51,
+    "end": 0.58,
+    "id": "w9"
+  },
+  {
+    "text": "and",
+    "start": 0.58,
+    "end": 0.64,
+    "id": "w10"
+  },
+  {
+    "text": "heat",
+    "start": 0.64,
+    "end": 0.71,
+    "id": "w11"
+  },
+  {
+    "text": "up",
+    "start": 0.71,
+    "end": 0.75,
+    "id": "w12"
+  },
+  {
+    "text": "the",
+    "start": 0.75,
+    "end": 0.81,
+    "id": "w13"
+  },
+  {
+    "text": "heat.",
+    "start": 0.81,
+    "end": 1,
+    "id": "w14"
+  },
+  {
+    "text": "It's",
+    "start": 1,
+    "end": 1.12,
+    "id": "w15"
+  },
+  {
+    "text": "going",
+    "start": 1.12,
+    "end": 1.27,
+    "id": "w16"
+  },
+  {
+    "text": "to",
+    "start": 1.27,
+    "end": 1.33,
+    "id": "w17"
+  },
+  {
+    "text": "be",
+    "start": 1.33,
+    "end": 1.39,
+    "id": "w18"
+  },
+  {
+    "text": "a",
+    "start": 1.39,
+    "end": 1.42,
+    "id": "w19"
+  },
+  {
+    "text": "little",
+    "start": 1.42,
+    "end": 1.6,
+    "id": "w20"
+  },
+  {
+    "text": "bit",
+    "start": 1.6,
+    "end": 1.69,
+    "id": "w21"
+  },
+  {
+    "text": "too",
+    "start": 1.69,
+    "end": 1.78,
+    "id": "w22"
+  },
+  {
+    "text": "much.",
+    "start": 1.78,
+    "end": 2,
+    "id": "w23"
+  },
+  {
+    "text": "I'm",
+    "start": 2,
+    "end": 2.07,
+    "id": "w24"
+  },
+  {
+    "text": "going",
+    "start": 2.07,
+    "end": 2.21,
+    "id": "w25"
+  },
+  {
+    "text": "to",
+    "start": 2.21,
+    "end": 2.26,
+    "id": "w26"
+  },
+  {
+    "text": "put",
+    "start": 2.26,
+    "end": 2.34,
+    "id": "w27"
+  },
+  {
+    "text": "in",
+    "start": 2.34,
+    "end": 2.39,
+    "id": "w28"
+  },
+  {
+    "text": "a",
+    "start": 2.39,
+    "end": 2.41,
+    "id": "w29"
+  },
+  {
+    "text": "little",
+    "start": 2.41,
+    "end": 2.58,
+    "id": "w30"
+  },
+  {
+    "text": "bit",
+    "start": 2.58,
+    "end": 2.66,
+    "id": "w31"
+  },
+  {
+    "text": "of",
+    "start": 2.66,
+    "end": 2.71,
+    "id": "w32"
+  },
+  {
+    "text": "heat.",
+    "start": 2.71,
+    "end": 3,
+    "id": "w33"
+  },
+  {
+    "text": "I'm",
+    "start": 3,
+    "end": 3.07,
+    "id": "w34"
+  },
+  {
+    "text": "going",
+    "start": 3.07,
+    "end": 3.21,
+    "id": "w35"
+  },
+  {
+    "text": "to",
+    "start": 3.21,
+    "end": 3.26,
+    "id": "w36"
+  },
+  {
+    "text": "put",
+    "start": 3.26,
+    "end": 3.34,
+    "id": "w37"
+  },
+  {
+    "text": "in",
+    "start": 3.34,
+    "end": 3.39,
+    "id": "w38"
+  },
+  {
+    "text": "a",
+    "start": 3.39,
+    "end": 3.41,
+    "id": "w39"
+  },
+  {
+    "text": "little",
+    "start": 3.41,
+    "end": 3.58,
+    "id": "w40"
+  },
+  {
+    "text": "bit",
+    "start": 3.58,
+    "end": 3.66,
+    "id": "w41"
+  },
+  {
+    "text": "of",
+    "start": 3.66,
+    "end": 3.71,
+    "id": "w42"
+  },
+  {
+    "text": "heat.",
+    "start": 3.71,
+    "end": 4,
+    "id": "w43"
+  },
+  {
+    "text": "I'm",
+    "start": 4,
+    "end": 4.07,
+    "id": "w44"
+  },
+  {
+    "text": "going",
+    "start": 4.07,
+    "end": 4.21,
+    "id": "w45"
+  },
+  {
+    "text": "to",
+    "start": 4.21,
+    "end": 4.26,
+    "id": "w46"
+  },
+  {
+    "text": "put",
+    "start": 4.26,
+    "end": 4.34,
+    "id": "w47"
+  },
+  {
+    "text": "in",
+    "start": 4.34,
+    "end": 4.39,
+    "id": "w48"
+  },
+  {
+    "text": "a",
+    "start": 4.39,
+    "end": 4.41,
+    "id": "w49"
+  },
+  {
+    "text": "little",
+    "start": 4.41,
+    "end": 4.58,
+    "id": "w50"
+  },
+  {
+    "text": "bit",
+    "start": 4.58,
+    "end": 4.66,
+    "id": "w51"
+  },
+  {
+    "text": "of",
+    "start": 4.66,
+    "end": 4.71,
+    "id": "w52"
+  },
+  {
+    "text": "heat.",
+    "start": 4.71,
+    "end": 5,
+    "id": "w53"
+  },
+  {
+    "text": "I'm",
+    "start": 5,
+    "end": 5.07,
+    "id": "w54"
+  },
+  {
+    "text": "going",
+    "start": 5.07,
+    "end": 5.21,
+    "id": "w55"
+  },
+  {
+    "text": "to",
+    "start": 5.21,
+    "end": 5.26,
+    "id": "w56"
+  },
+  {
+    "text": "put",
+    "start": 5.26,
+    "end": 5.34,
+    "id": "w57"
+  },
+  {
+    "text": "in",
+    "start": 5.34,
+    "end": 5.39,
+    "id": "w58"
+  },
+  {
+    "text": "a",
+    "start": 5.39,
+    "end": 5.41,
+    "id": "w59"
+  },
+  {
+    "text": "little",
+    "start": 5.41,
+    "end": 5.58,
+    "id": "w60"
+  },
+  {
+    "text": "bit",
+    "start": 5.58,
+    "end": 5.66,
+    "id": "w61"
+  },
+  {
+    "text": "of",
+    "start": 5.66,
+    "end": 5.71,
+    "id": "w62"
+  },
+  {
+    "text": "heat.",
+    "start": 5.71,
+    "end": 6,
+    "id": "w63"
+  },
+  {
+    "text": "I'm",
+    "start": 6,
+    "end": 6.07,
+    "id": "w64"
+  },
+  {
+    "text": "going",
+    "start": 6.07,
+    "end": 6.21,
+    "id": "w65"
+  },
+  {
+    "text": "to",
+    "start": 6.21,
+    "end": 6.26,
+    "id": "w66"
+  },
+  {
+    "text": "put",
+    "start": 6.26,
+    "end": 6.34,
+    "id": "w67"
+  },
+  {
+    "text": "in",
+    "start": 6.34,
+    "end": 6.39,
+    "id": "w68"
+  },
+  {
+    "text": "a",
+    "start": 6.39,
+    "end": 6.41,
+    "id": "w69"
+  },
+  {
+    "text": "little",
+    "start": 6.41,
+    "end": 6.58,
+    "id": "w70"
+  },
+  {
+    "text": "bit",
+    "start": 6.58,
+    "end": 6.66,
+    "id": "w71"
+  },
+  {
+    "text": "of",
+    "start": 6.66,
+    "end": 6.71,
+    "id": "w72"
+  },
+  {
+    "text": "heat.",
+    "start": 6.71,
+    "end": 7,
+    "id": "w73"
+  },
+  {
+    "text": "I'm",
+    "start": 7,
+    "end": 7.07,
+    "id": "w74"
+  },
+  {
+    "text": "going",
+    "start": 7.07,
+    "end": 7.21,
+    "id": "w75"
+  },
+  {
+    "text": "to",
+    "start": 7.21,
+    "end": 7.26,
+    "id": "w76"
+  },
+  {
+    "text": "put",
+    "start": 7.26,
+    "end": 7.34,
+    "id": "w77"
+  },
+  {
+    "text": "in",
+    "start": 7.34,
+    "end": 7.39,
+    "id": "w78"
+  },
+  {
+    "text": "a",
+    "start": 7.39,
+    "end": 7.41,
+    "id": "w79"
+  },
+  {
+    "text": "little",
+    "start": 7.41,
+    "end": 7.58,
+    "id": "w80"
+  },
+  {
+    "text": "bit",
+    "start": 7.58,
+    "end": 7.66,
+    "id": "w81"
+  },
+  {
+    "text": "of",
+    "start": 7.66,
+    "end": 7.71,
+    "id": "w82"
+  },
+  {
+    "text": "heat.",
+    "start": 7.71,
+    "end": 8,
+    "id": "w83"
+  },
+  {
+    "text": "I'm",
+    "start": 8,
+    "end": 8.07,
+    "id": "w84"
+  },
+  {
+    "text": "going",
+    "start": 8.07,
+    "end": 8.21,
+    "id": "w85"
+  },
+  {
+    "text": "to",
+    "start": 8.21,
+    "end": 8.26,
+    "id": "w86"
+  },
+  {
+    "text": "put",
+    "start": 8.26,
+    "end": 8.34,
+    "id": "w87"
+  },
+  {
+    "text": "in",
+    "start": 8.34,
+    "end": 8.39,
+    "id": "w88"
+  },
+  {
+    "text": "a",
+    "start": 8.39,
+    "end": 8.41,
+    "id": "w89"
+  },
+  {
+    "text": "little",
+    "start": 8.41,
+    "end": 8.58,
+    "id": "w90"
+  },
+  {
+    "text": "bit",
+    "start": 8.58,
+    "end": 8.66,
+    "id": "w91"
+  },
+  {
+    "text": "of",
+    "start": 8.66,
+    "end": 8.71,
+    "id": "w92"
+  },
+  {
+    "text": "heat.",
+    "start": 8.71,
+    "end": 9,
+    "id": "w93"
+  },
+  {
+    "text": "I'm",
+    "start": 9,
+    "end": 9.07,
+    "id": "w94"
+  },
+  {
+    "text": "going",
+    "start": 9.07,
+    "end": 9.21,
+    "id": "w95"
+  },
+  {
+    "text": "to",
+    "start": 9.21,
+    "end": 9.26,
+    "id": "w96"
+  },
+  {
+    "text": "put",
+    "start": 9.26,
+    "end": 9.34,
+    "id": "w97"
+  },
+  {
+    "text": "in",
+    "start": 9.34,
+    "end": 9.39,
+    "id": "w98"
+  },
+  {
+    "text": "a",
+    "start": 9.39,
+    "end": 9.41,
+    "id": "w99"
+  },
+  {
+    "text": "little",
+    "start": 9.41,
+    "end": 9.58,
+    "id": "w100"
+  },
+  {
+    "text": "bit",
+    "start": 9.58,
+    "end": 9.66,
+    "id": "w101"
+  },
+  {
+    "text": "of",
+    "start": 9.66,
+    "end": 9.71,
+    "id": "w102"
+  },
+  {
+    "text": "heat.",
+    "start": 9.71,
+    "end": 10,
+    "id": "w103"
+  },
+  {
+    "text": "I'm",
+    "start": 10,
+    "end": 10.07,
+    "id": "w104"
+  },
+  {
+    "text": "going",
+    "start": 10.07,
+    "end": 10.21,
+    "id": "w105"
+  },
+  {
+    "text": "to",
+    "start": 10.21,
+    "end": 10.26,
+    "id": "w106"
+  },
+  {
+    "text": "put",
+    "start": 10.26,
+    "end": 10.34,
+    "id": "w107"
+  },
+  {
+    "text": "in",
+    "start": 10.34,
+    "end": 10.39,
+    "id": "w108"
+  },
+  {
+    "text": "a",
+    "start": 10.39,
+    "end": 10.41,
+    "id": "w109"
+  },
+  {
+    "text": "little",
+    "start": 10.41,
+    "end": 10.58,
+    "id": "w110"
+  },
+  {
+    "text": "bit",
+    "start": 10.58,
+    "end": 10.66,
+    "id": "w111"
+  },
+  {
+    "text": "of",
+    "start": 10.66,
+    "end": 10.71,
+    "id": "w112"
+  },
+  {
+    "text": "heat.",
+    "start": 10.71,
+    "end": 11,
+    "id": "w113"
+  },
+  {
+    "text": "I'm",
+    "start": 11,
+    "end": 11.07,
+    "id": "w114"
+  },
+  {
+    "text": "going",
+    "start": 11.07,
+    "end": 11.21,
+    "id": "w115"
+  },
+  {
+    "text": "to",
+    "start": 11.21,
+    "end": 11.26,
+    "id": "w116"
+  },
+  {
+    "text": "put",
+    "start": 11.26,
+    "end": 11.34,
+    "id": "w117"
+  },
+  {
+    "text": "in",
+    "start": 11.34,
+    "end": 11.39,
+    "id": "w118"
+  },
+  {
+    "text": "a",
+    "start": 11.39,
+    "end": 11.41,
+    "id": "w119"
+  },
+  {
+    "text": "little",
+    "start": 11.41,
+    "end": 11.58,
+    "id": "w120"
+  },
+  {
+    "text": "bit",
+    "start": 11.58,
+    "end": 11.66,
+    "id": "w121"
+  },
+  {
+    "text": "of",
+    "start": 11.66,
+    "end": 11.71,
+    "id": "w122"
+  },
+  {
+    "text": "heat.",
+    "start": 11.71,
+    "end": 12,
+    "id": "w123"
+  },
+  {
+    "text": "I'm",
+    "start": 12,
+    "end": 12.07,
+    "id": "w124"
+  },
+  {
+    "text": "going",
+    "start": 12.07,
+    "end": 12.21,
+    "id": "w125"
+  },
+  {
+    "text": "to",
+    "start": 12.21,
+    "end": 12.26,
+    "id": "w126"
+  },
+  {
+    "text": "put",
+    "start": 12.26,
+    "end": 12.34,
+    "id": "w127"
+  },
+  {
+    "text": "in",
+    "start": 12.34,
+    "end": 12.39,
+    "id": "w128"
+  },
+  {
+    "text": "a",
+    "start": 12.39,
+    "end": 12.41,
+    "id": "w129"
+  },
+  {
+    "text": "little",
+    "start": 12.41,
+    "end": 12.58,
+    "id": "w130"
+  },
+  {
+    "text": "bit",
+    "start": 12.58,
+    "end": 12.66,
+    "id": "w131"
+  },
+  {
+    "text": "of",
+    "start": 12.66,
+    "end": 12.71,
+    "id": "w132"
+  },
+  {
+    "text": "heat.",
+    "start": 12.71,
+    "end": 13,
+    "id": "w133"
+  },
+  {
+    "text": "I'm",
+    "start": 13,
+    "end": 13.07,
+    "id": "w134"
+  },
+  {
+    "text": "going",
+    "start": 13.07,
+    "end": 13.21,
+    "id": "w135"
+  },
+  {
+    "text": "to",
+    "start": 13.21,
+    "end": 13.26,
+    "id": "w136"
+  },
+  {
+    "text": "put",
+    "start": 13.26,
+    "end": 13.34,
+    "id": "w137"
+  },
+  {
+    "text": "in",
+    "start": 13.34,
+    "end": 13.39,
+    "id": "w138"
+  },
+  {
+    "text": "a",
+    "start": 13.39,
+    "end": 13.41,
+    "id": "w139"
+  },
+  {
+    "text": "little",
+    "start": 13.41,
+    "end": 13.58,
+    "id": "w140"
+  },
+  {
+    "text": "bit",
+    "start": 13.58,
+    "end": 13.66,
+    "id": "w141"
+  },
+  {
+    "text": "of",
+    "start": 13.66,
+    "end": 13.71,
+    "id": "w142"
+  },
+  {
+    "text": "heat.",
+    "start": 13.71,
+    "end": 14,
+    "id": "w143"
+  },
+  {
+    "text": "I'm",
+    "start": 14,
+    "end": 14.07,
+    "id": "w144"
+  },
+  {
+    "text": "going",
+    "start": 14.07,
+    "end": 14.21,
+    "id": "w145"
+  },
+  {
+    "text": "to",
+    "start": 14.21,
+    "end": 14.26,
+    "id": "w146"
+  },
+  {
+    "text": "put",
+    "start": 14.26,
+    "end": 14.34,
+    "id": "w147"
+  },
+  {
+    "text": "in",
+    "start": 14.34,
+    "end": 14.39,
+    "id": "w148"
+  },
+  {
+    "text": "a",
+    "start": 14.39,
+    "end": 14.41,
+    "id": "w149"
+  },
+  {
+    "text": "little",
+    "start": 14.41,
+    "end": 14.58,
+    "id": "w150"
+  },
+  {
+    "text": "bit",
+    "start": 14.58,
+    "end": 14.66,
+    "id": "w151"
+  },
+  {
+    "text": "of",
+    "start": 14.66,
+    "end": 14.71,
+    "id": "w152"
+  },
+  {
+    "text": "heat.",
+    "start": 14.71,
+    "end": 15,
+    "id": "w153"
+  },
+  {
+    "text": "I'm",
+    "start": 15,
+    "end": 17.37,
+    "id": "w154"
+  },
+  {
+    "text": "going",
+    "start": 17.37,
+    "end": 21.33,
+    "id": "w155"
+  },
+  {
+    "text": "to",
+    "start": 21.33,
+    "end": 22.92,
+    "id": "w156"
+  },
+  {
+    "text": "put",
+    "start": 22.92,
+    "end": 25.3,
+    "id": "w157"
+  },
+  {
+    "text": "in",
+    "start": 25.3,
+    "end": 26.89,
+    "id": "w158"
+  },
+  {
+    "text": "a",
+    "start": 26.89,
+    "end": 27.68,
+    "id": "w159"
+  },
+  {
+    "text": "little",
+    "start": 27.68,
+    "end": 32.43,
+    "id": "w160"
+  },
+  {
+    "text": "bit",
+    "start": 32.43,
+    "end": 34.81,
+    "id": "w161"
+  },
+  {
+    "text": "of",
+    "start": 34.81,
+    "end": 36.4,
+    "id": "w162"
+  },
+  {
+    "text": "heat.",
+    "start": 36.4,
+    "end": 42,
+    "id": "w163"
+  },
+  {
+    "text": "I'm",
+    "start": 42,
+    "end": 44.37,
+    "id": "w164"
+  },
+  {
+    "text": "going",
+    "start": 44.37,
+    "end": 48.33,
+    "id": "w165"
+  },
+  {
+    "text": "to",
+    "start": 48.33,
+    "end": 49.92,
+    "id": "w166"
+  },
+  {
+    "text": "put",
+    "start": 49.92,
+    "end": 52.3,
+    "id": "w167"
+  },
+  {
+    "text": "in",
+    "start": 52.3,
+    "end": 53.89,
+    "id": "w168"
+  },
+  {
+    "text": "a",
+    "start": 53.89,
+    "end": 54.68,
+    "id": "w169"
+  },
+  {
+    "text": "little",
+    "start": 54.68,
+    "end": 59.43,
+    "id": "w170"
+  },
+  {
+    "text": "bit",
+    "start": 59.43,
+    "end": 61.81,
+    "id": "w171"
+  },
+  {
+    "text": "of",
+    "start": 61.81,
+    "end": 63.4,
+    "id": "w172"
+  },
+  {
+    "text": "heat.",
+    "start": 63.4,
+    "end": 69,
+    "id": "w173"
+  },
+  {
+    "text": "I'm",
+    "start": 69,
+    "end": 71.55,
+    "id": "w174"
+  },
+  {
+    "text": "going",
+    "start": 71.55,
+    "end": 75.81,
+    "id": "w175"
+  },
+  {
+    "text": "to",
+    "start": 75.81,
+    "end": 77.51,
+    "id": "w176"
+  },
+  {
+    "text": "put",
+    "start": 77.51,
+    "end": 80.06,
+    "id": "w177"
+  },
+  {
+    "text": "in",
+    "start": 80.06,
+    "end": 81.76,
+    "id": "w178"
+  },
+  {
+    "text": "a",
+    "start": 81.76,
+    "end": 82.61,
+    "id": "w179"
+  },
+  {
+    "text": "little",
+    "start": 82.61,
+    "end": 87.72,
+    "id": "w180"
+  },
+  {
+    "text": "bit",
+    "start": 87.72,
+    "end": 90.27,
+    "id": "w181"
+  },
+  {
+    "text": "of",
+    "start": 90.27,
+    "end": 91.97,
+    "id": "w182"
+  },
+  {
+    "text": "heat.",
+    "start": 91.97,
+    "end": 98,
+    "id": "w183"
+  },
+  {
+    "text": "I'm",
+    "start": 98,
+    "end": 98.07,
+    "id": "w184"
+  },
+  {
+    "text": "going",
+    "start": 98.07,
+    "end": 98.21,
+    "id": "w185"
+  },
+  {
+    "text": "to",
+    "start": 98.21,
+    "end": 98.26,
+    "id": "w186"
+  },
+  {
+    "text": "put",
+    "start": 98.26,
+    "end": 98.34,
+    "id": "w187"
+  },
+  {
+    "text": "in",
+    "start": 98.34,
+    "end": 98.39,
+    "id": "w188"
+  },
+  {
+    "text": "a",
+    "start": 98.39,
+    "end": 98.41,
+    "id": "w189"
+  },
+  {
+    "text": "little",
+    "start": 98.41,
+    "end": 98.58,
+    "id": "w190"
+  },
+  {
+    "text": "bit",
+    "start": 98.58,
+    "end": 98.66,
+    "id": "w191"
+  },
+  {
+    "text": "of",
+    "start": 98.66,
+    "end": 98.71,
+    "id": "w192"
+  },
+  {
+    "text": "heat.",
+    "start": 98.71,
+    "end": 99,
+    "id": "w193"
+  },
+  {
+    "text": "I'm",
+    "start": 99,
+    "end": 99.07,
+    "id": "w194"
+  },
+  {
+    "text": "going",
+    "start": 99.07,
+    "end": 99.21,
+    "id": "w195"
+  },
+  {
+    "text": "to",
+    "start": 99.21,
+    "end": 99.26,
+    "id": "w196"
+  },
+  {
+    "text": "put",
+    "start": 99.26,
+    "end": 99.34,
+    "id": "w197"
+  },
+  {
+    "text": "in",
+    "start": 99.34,
+    "end": 99.39,
+    "id": "w198"
+  },
+  {
+    "text": "a",
+    "start": 99.39,
+    "end": 99.41,
+    "id": "w199"
+  },
+  {
+    "text": "little",
+    "start": 99.41,
+    "end": 99.58,
+    "id": "w200"
+  },
+  {
+    "text": "bit",
+    "start": 99.58,
+    "end": 99.66,
+    "id": "w201"
+  },
+  {
+    "text": "of",
+    "start": 99.66,
+    "end": 99.71,
+    "id": "w202"
+  },
+  {
+    "text": "heat.",
+    "start": 99.71,
+    "end": 100,
+    "id": "w203"
+  },
+  {
+    "text": "I'm",
+    "start": 100,
+    "end": 100.07,
+    "id": "w204"
+  },
+  {
+    "text": "going",
+    "start": 100.07,
+    "end": 100.21,
+    "id": "w205"
+  },
+  {
+    "text": "to",
+    "start": 100.21,
+    "end": 100.26,
+    "id": "w206"
+  },
+  {
+    "text": "put",
+    "start": 100.26,
+    "end": 100.34,
+    "id": "w207"
+  },
+  {
+    "text": "in",
+    "start": 100.34,
+    "end": 100.39,
+    "id": "w208"
+  },
+  {
+    "text": "a",
+    "start": 100.39,
+    "end": 100.41,
+    "id": "w209"
+  },
+  {
+    "text": "little",
+    "start": 100.41,
+    "end": 100.58,
+    "id": "w210"
+  },
+  {
+    "text": "bit",
+    "start": 100.58,
+    "end": 100.66,
+    "id": "w211"
+  },
+  {
+    "text": "of",
+    "start": 100.66,
+    "end": 100.71,
+    "id": "w212"
+  },
+  {
+    "text": "heat.",
+    "start": 100.71,
+    "end": 101,
+    "id": "w213"
+  },
+  {
+    "text": "I'm",
+    "start": 101,
+    "end": 101.07,
+    "id": "w214"
+  },
+  {
+    "text": "going",
+    "start": 101.07,
+    "end": 101.21,
+    "id": "w215"
+  },
+  {
+    "text": "to",
+    "start": 101.21,
+    "end": 101.26,
+    "id": "w216"
+  },
+  {
+    "text": "put",
+    "start": 101.26,
+    "end": 101.34,
+    "id": "w217"
+  },
+  {
+    "text": "in",
+    "start": 101.34,
+    "end": 101.39,
+    "id": "w218"
+  },
+  {
+    "text": "a",
+    "start": 101.39,
+    "end": 101.41,
+    "id": "w219"
+  },
+  {
+    "text": "little",
+    "start": 101.41,
+    "end": 101.58,
+    "id": "w220"
+  },
+  {
+    "text": "bit",
+    "start": 101.58,
+    "end": 101.66,
+    "id": "w221"
+  },
+  {
+    "text": "of",
+    "start": 101.66,
+    "end": 101.71,
+    "id": "w222"
+  },
+  {
+    "text": "heat.",
+    "start": 101.71,
+    "end": 102,
+    "id": "w223"
+  },
+  {
+    "text": "I'm",
+    "start": 102,
+    "end": 102.07,
+    "id": "w224"
+  },
+  {
+    "text": "going",
+    "start": 102.07,
+    "end": 102.21,
+    "id": "w225"
+  },
+  {
+    "text": "to",
+    "start": 102.21,
+    "end": 102.26,
+    "id": "w226"
+  },
+  {
+    "text": "put",
+    "start": 102.26,
+    "end": 102.34,
+    "id": "w227"
+  },
+  {
+    "text": "in",
+    "start": 102.34,
+    "end": 102.39,
+    "id": "w228"
+  },
+  {
+    "text": "a",
+    "start": 102.39,
+    "end": 102.41,
+    "id": "w229"
+  },
+  {
+    "text": "little",
+    "start": 102.41,
+    "end": 102.58,
+    "id": "w230"
+  },
+  {
+    "text": "bit",
+    "start": 102.58,
+    "end": 102.66,
+    "id": "w231"
+  },
+  {
+    "text": "of",
+    "start": 102.66,
+    "end": 102.71,
+    "id": "w232"
+  },
+  {
+    "text": "heat.",
+    "start": 102.71,
+    "end": 103,
+    "id": "w233"
+  },
+  {
+    "text": "I'm",
+    "start": 103,
+    "end": 103.07,
+    "id": "w234"
+  },
+  {
+    "text": "going",
+    "start": 103.07,
+    "end": 103.21,
+    "id": "w235"
+  },
+  {
+    "text": "to",
+    "start": 103.21,
+    "end": 103.26,
+    "id": "w236"
+  },
+  {
+    "text": "put",
+    "start": 103.26,
+    "end": 103.34,
+    "id": "w237"
+  },
+  {
+    "text": "in",
+    "start": 103.34,
+    "end": 103.39,
+    "id": "w238"
+  },
+  {
+    "text": "a",
+    "start": 103.39,
+    "end": 103.41,
+    "id": "w239"
+  },
+  {
+    "text": "little",
+    "start": 103.41,
+    "end": 103.58,
+    "id": "w240"
+  },
+  {
+    "text": "bit",
+    "start": 103.58,
+    "end": 103.66,
+    "id": "w241"
+  },
+  {
+    "text": "of",
+    "start": 103.66,
+    "end": 103.71,
+    "id": "w242"
+  },
+  {
+    "text": "heat.",
+    "start": 103.71,
+    "end": 104,
+    "id": "w243"
+  },
+  {
+    "text": "I'm",
+    "start": 104,
+    "end": 104.07,
+    "id": "w244"
+  },
+  {
+    "text": "going",
+    "start": 104.07,
+    "end": 104.21,
+    "id": "w245"
+  },
+  {
+    "text": "to",
+    "start": 104.21,
+    "end": 104.26,
+    "id": "w246"
+  },
+  {
+    "text": "put",
+    "start": 104.26,
+    "end": 104.34,
+    "id": "w247"
+  },
+  {
+    "text": "in",
+    "start": 104.34,
+    "end": 104.39,
+    "id": "w248"
+  },
+  {
+    "text": "a",
+    "start": 104.39,
+    "end": 104.41,
+    "id": "w249"
+  },
+  {
+    "text": "little",
+    "start": 104.41,
+    "end": 104.58,
+    "id": "w250"
+  },
+  {
+    "text": "bit",
+    "start": 104.58,
+    "end": 104.66,
+    "id": "w251"
+  },
+  {
+    "text": "of",
+    "start": 104.66,
+    "end": 104.71,
+    "id": "w252"
+  },
+  {
+    "text": "heat.",
+    "start": 104.71,
+    "end": 105,
+    "id": "w253"
+  },
+  {
+    "text": "I'm",
+    "start": 105,
+    "end": 105.07,
+    "id": "w254"
+  },
+  {
+    "text": "going",
+    "start": 105.07,
+    "end": 105.21,
+    "id": "w255"
+  },
+  {
+    "text": "to",
+    "start": 105.21,
+    "end": 105.26,
+    "id": "w256"
+  },
+  {
+    "text": "put",
+    "start": 105.26,
+    "end": 105.34,
+    "id": "w257"
+  },
+  {
+    "text": "in",
+    "start": 105.34,
+    "end": 105.39,
+    "id": "w258"
+  },
+  {
+    "text": "a",
+    "start": 105.39,
+    "end": 105.41,
+    "id": "w259"
+  },
+  {
+    "text": "little",
+    "start": 105.41,
+    "end": 105.58,
+    "id": "w260"
+  },
+  {
+    "text": "bit",
+    "start": 105.58,
+    "end": 105.66,
+    "id": "w261"
+  },
+  {
+    "text": "of",
+    "start": 105.66,
+    "end": 105.71,
+    "id": "w262"
+  },
+  {
+    "text": "heat.",
+    "start": 105.71,
+    "end": 106,
+    "id": "w263"
+  },
+  {
+    "text": "I'm",
+    "start": 106,
+    "end": 106.07,
+    "id": "w264"
+  },
+  {
+    "text": "going",
+    "start": 106.07,
+    "end": 106.21,
+    "id": "w265"
+  },
+  {
+    "text": "to",
+    "start": 106.21,
+    "end": 106.26,
+    "id": "w266"
+  },
+  {
+    "text": "put",
+    "start": 106.26,
+    "end": 106.34,
+    "id": "w267"
+  },
+  {
+    "text": "in",
+    "start": 106.34,
+    "end": 106.39,
+    "id": "w268"
+  },
+  {
+    "text": "a",
+    "start": 106.39,
+    "end": 106.41,
+    "id": "w269"
+  },
+  {
+    "text": "little",
+    "start": 106.41,
+    "end": 106.58,
+    "id": "w270"
+  },
+  {
+    "text": "bit",
+    "start": 106.58,
+    "end": 106.66,
+    "id": "w271"
+  },
+  {
+    "text": "of",
+    "start": 106.66,
+    "end": 106.71,
+    "id": "w272"
+  },
+  {
+    "text": "heat.",
+    "start": 106.71,
+    "end": 107,
+    "id": "w273"
+  },
+  {
+    "text": "I'm",
+    "start": 107,
+    "end": 107.07,
+    "id": "w274"
+  },
+  {
+    "text": "going",
+    "start": 107.07,
+    "end": 107.21,
+    "id": "w275"
+  },
+  {
+    "text": "to",
+    "start": 107.21,
+    "end": 107.26,
+    "id": "w276"
+  },
+  {
+    "text": "put",
+    "start": 107.26,
+    "end": 107.34,
+    "id": "w277"
+  },
+  {
+    "text": "in",
+    "start": 107.34,
+    "end": 107.39,
+    "id": "w278"
+  },
+  {
+    "text": "a",
+    "start": 107.39,
+    "end": 107.41,
+    "id": "w279"
+  },
+  {
+    "text": "little",
+    "start": 107.41,
+    "end": 107.58,
+    "id": "w280"
+  },
+  {
+    "text": "bit",
+    "start": 107.58,
+    "end": 107.66,
+    "id": "w281"
+  },
+  {
+    "text": "of",
+    "start": 107.66,
+    "end": 107.71,
+    "id": "w282"
+  },
+  {
+    "text": "heat.",
+    "start": 107.71,
+    "end": 108,
+    "id": "w283"
+  },
+  {
+    "text": "I'm",
+    "start": 108,
+    "end": 108.07,
+    "id": "w284"
+  },
+  {
+    "text": "going",
+    "start": 108.07,
+    "end": 108.21,
+    "id": "w285"
+  },
+  {
+    "text": "to",
+    "start": 108.21,
+    "end": 108.26,
+    "id": "w286"
+  },
+  {
+    "text": "put",
+    "start": 108.26,
+    "end": 108.34,
+    "id": "w287"
+  },
+  {
+    "text": "in",
+    "start": 108.34,
+    "end": 108.39,
+    "id": "w288"
+  },
+  {
+    "text": "a",
+    "start": 108.39,
+    "end": 108.41,
+    "id": "w289"
+  },
+  {
+    "text": "little",
+    "start": 108.41,
+    "end": 108.58,
+    "id": "w290"
+  },
+  {
+    "text": "bit",
+    "start": 108.58,
+    "end": 108.66,
+    "id": "w291"
+  },
+  {
+    "text": "of",
+    "start": 108.66,
+    "end": 108.71,
+    "id": "w292"
+  },
+  {
+    "text": "heat.",
+    "start": 108.71,
+    "end": 109,
+    "id": "w293"
+  },
+  {
+    "text": "I'm",
+    "start": 109,
+    "end": 109.07,
+    "id": "w294"
+  },
+  {
+    "text": "going",
+    "start": 109.07,
+    "end": 109.21,
+    "id": "w295"
+  },
+  {
+    "text": "to",
+    "start": 109.21,
+    "end": 109.26,
+    "id": "w296"
+  },
+  {
+    "text": "put",
+    "start": 109.26,
+    "end": 109.34,
+    "id": "w297"
+  },
+  {
+    "text": "in",
+    "start": 109.34,
+    "end": 109.39,
+    "id": "w298"
+  },
+  {
+    "text": "a",
+    "start": 109.39,
+    "end": 109.41,
+    "id": "w299"
+  },
+  {
+    "text": "little",
+    "start": 109.41,
+    "end": 109.58,
+    "id": "w300"
+  },
+  {
+    "text": "bit",
+    "start": 109.58,
+    "end": 109.66,
+    "id": "w301"
+  },
+  {
+    "text": "of",
+    "start": 109.66,
+    "end": 109.71,
+    "id": "w302"
+  },
+  {
+    "text": "heat.",
+    "start": 109.71,
+    "end": 110,
+    "id": "w303"
+  },
+  {
+    "text": "I'm",
+    "start": 110,
+    "end": 110.07,
+    "id": "w304"
+  },
+  {
+    "text": "going",
+    "start": 110.07,
+    "end": 110.21,
+    "id": "w305"
+  },
+  {
+    "text": "to",
+    "start": 110.21,
+    "end": 110.26,
+    "id": "w306"
+  },
+  {
+    "text": "put",
+    "start": 110.26,
+    "end": 110.34,
+    "id": "w307"
+  },
+  {
+    "text": "in",
+    "start": 110.34,
+    "end": 110.39,
+    "id": "w308"
+  },
+  {
+    "text": "a",
+    "start": 110.39,
+    "end": 110.41,
+    "id": "w309"
+  },
+  {
+    "text": "little",
+    "start": 110.41,
+    "end": 110.58,
+    "id": "w310"
+  },
+  {
+    "text": "bit",
+    "start": 110.58,
+    "end": 110.66,
+    "id": "w311"
+  },
+  {
+    "text": "of",
+    "start": 110.66,
+    "end": 110.71,
+    "id": "w312"
+  },
+  {
+    "text": "heat.",
+    "start": 110.71,
+    "end": 111,
+    "id": "w313"
+  },
+  {
+    "text": "I'm",
+    "start": 111,
+    "end": 111.07,
+    "id": "w314"
+  },
+  {
+    "text": "going",
+    "start": 111.07,
+    "end": 111.21,
+    "id": "w315"
+  },
+  {
+    "text": "to",
+    "start": 111.21,
+    "end": 111.26,
+    "id": "w316"
+  },
+  {
+    "text": "put",
+    "start": 111.26,
+    "end": 111.34,
+    "id": "w317"
+  },
+  {
+    "text": "in",
+    "start": 111.34,
+    "end": 111.39,
+    "id": "w318"
+  },
+  {
+    "text": "a",
+    "start": 111.39,
+    "end": 111.41,
+    "id": "w319"
+  },
+  {
+    "text": "little",
+    "start": 111.41,
+    "end": 111.58,
+    "id": "w320"
+  },
+  {
+    "text": "bit",
+    "start": 111.58,
+    "end": 111.66,
+    "id": "w321"
+  },
+  {
+    "text": "of",
+    "start": 111.66,
+    "end": 111.71,
+    "id": "w322"
+  },
+  {
+    "text": "heat.",
+    "start": 111.71,
+    "end": 112,
+    "id": "w323"
+  },
+  {
+    "text": "I'm",
+    "start": 112,
+    "end": 112.07,
+    "id": "w324"
+  },
+  {
+    "text": "going",
+    "start": 112.07,
+    "end": 112.21,
+    "id": "w325"
+  },
+  {
+    "text": "to",
+    "start": 112.21,
+    "end": 112.26,
+    "id": "w326"
+  },
+  {
+    "text": "put",
+    "start": 112.26,
+    "end": 112.34,
+    "id": "w327"
+  },
+  {
+    "text": "in",
+    "start": 112.34,
+    "end": 112.39,
+    "id": "w328"
+  },
+  {
+    "text": "a",
+    "start": 112.39,
+    "end": 112.41,
+    "id": "w329"
+  },
+  {
+    "text": "little",
+    "start": 112.41,
+    "end": 112.58,
+    "id": "w330"
+  },
+  {
+    "text": "bit",
+    "start": 112.58,
+    "end": 112.66,
+    "id": "w331"
+  },
+  {
+    "text": "of",
+    "start": 112.66,
+    "end": 112.71,
+    "id": "w332"
+  },
+  {
+    "text": "heat.",
+    "start": 112.71,
+    "end": 113,
+    "id": "w333"
+  },
+  {
+    "text": "I'm",
+    "start": 113,
+    "end": 115.55,
+    "id": "w334"
+  },
+  {
+    "text": "going",
+    "start": 115.55,
+    "end": 119.81,
+    "id": "w335"
+  },
+  {
+    "text": "to",
+    "start": 119.81,
+    "end": 121.51,
+    "id": "w336"
+  },
+  {
+    "text": "put",
+    "start": 121.51,
+    "end": 124.06,
+    "id": "w337"
+  },
+  {
+    "text": "in",
+    "start": 124.06,
+    "end": 125.76,
+    "id": "w338"
+  },
+  {
+    "text": "a",
+    "start": 125.76,
+    "end": 126.61,
+    "id": "w339"
+  },
+  {
+    "text": "little",
+    "start": 126.61,
+    "end": 131.72,
+    "id": "w340"
+  },
+  {
+    "text": "bit",
+    "start": 131.72,
+    "end": 134.27,
+    "id": "w341"
+  },
+  {
+    "text": "of",
+    "start": 134.27,
+    "end": 135.97,
+    "id": "w342"
+  },
+  {
+    "text": "heat.",
+    "start": 135.97,
+    "end": 142,
+    "id": "w343"
+  },
+  {
+    "text": "I'm",
+    "start": 142,
+    "end": 142.16,
+    "id": "w344"
+  },
+  {
+    "text": "going",
+    "start": 142.16,
+    "end": 142.45,
+    "id": "w345"
+  },
+  {
+    "text": "to",
+    "start": 142.45,
+    "end": 142.56,
+    "id": "w346"
+  },
+  {
+    "text": "put",
+    "start": 142.56,
+    "end": 142.73,
+    "id": "w347"
+  },
+  {
+    "text": "in",
+    "start": 142.73,
+    "end": 142.84,
+    "id": "w348"
+  },
+  {
+    "text": "a",
+    "start": 142.84,
+    "end": 142.89,
+    "id": "w349"
+  },
+  {
+    "text": "little",
+    "start": 142.89,
+    "end": 143.24,
+    "id": "w350"
+  },
+  {
+    "text": "bit",
+    "start": 143.24,
+    "end": 143.41,
+    "id": "w351"
+  },
+  {
+    "text": "of",
+    "start": 143.41,
+    "end": 143.52,
+    "id": "w352"
+  },
+  {
+    "text": "heat.",
+    "start": 143.52,
+    "end": 144,
+    "id": "w353"
+  },
+  {
+    "text": "I'm",
+    "start": 144,
+    "end": 144.07,
+    "id": "w354"
+  },
+  {
+    "text": "going",
+    "start": 144.07,
+    "end": 144.21,
+    "id": "w355"
+  },
+  {
+    "text": "to",
+    "start": 144.21,
+    "end": 144.26,
+    "id": "w356"
+  },
+  {
+    "text": "put",
+    "start": 144.26,
+    "end": 144.34,
+    "id": "w357"
+  },
+  {
+    "text": "in",
+    "start": 144.34,
+    "end": 144.39,
+    "id": "w358"
+  },
+  {
+    "text": "a",
+    "start": 144.39,
+    "end": 144.41,
+    "id": "w359"
+  },
+  {
+    "text": "little",
+    "start": 144.41,
+    "end": 144.58,
+    "id": "w360"
+  },
+  {
+    "text": "bit",
+    "start": 144.58,
+    "end": 144.66,
+    "id": "w361"
+  },
+  {
+    "text": "of",
+    "start": 144.66,
+    "end": 144.71,
+    "id": "w362"
+  },
+  {
+    "text": "heat.",
+    "start": 144.71,
+    "end": 145,
+    "id": "w363"
+  },
+  {
+    "text": "I'm",
+    "start": 145,
+    "end": 145.07,
+    "id": "w364"
+  },
+  {
+    "text": "going",
+    "start": 145.07,
+    "end": 145.21,
+    "id": "w365"
+  },
+  {
+    "text": "to",
+    "start": 145.21,
+    "end": 145.26,
+    "id": "w366"
+  },
+  {
+    "text": "put",
+    "start": 145.26,
+    "end": 145.34,
+    "id": "w367"
+  },
+  {
+    "text": "in",
+    "start": 145.34,
+    "end": 145.39,
+    "id": "w368"
+  },
+  {
+    "text": "a",
+    "start": 145.39,
+    "end": 145.41,
+    "id": "w369"
+  },
+  {
+    "text": "little",
+    "start": 145.41,
+    "end": 145.58,
+    "id": "w370"
+  },
+  {
+    "text": "bit",
+    "start": 145.58,
+    "end": 145.66,
+    "id": "w371"
+  },
+  {
+    "text": "of",
+    "start": 145.66,
+    "end": 145.71,
+    "id": "w372"
+  },
+  {
+    "text": "heat.",
+    "start": 145.71,
+    "end": 146,
+    "id": "w373"
+  },
+  {
+    "text": "I'm",
+    "start": 146,
+    "end": 146.07,
+    "id": "w374"
+  },
+  {
+    "text": "going",
+    "start": 146.07,
+    "end": 146.21,
+    "id": "w375"
+  },
+  {
+    "text": "to",
+    "start": 146.21,
+    "end": 146.26,
+    "id": "w376"
+  },
+  {
+    "text": "put",
+    "start": 146.26,
+    "end": 146.34,
+    "id": "w377"
+  },
+  {
+    "text": "in",
+    "start": 146.34,
+    "end": 146.39,
+    "id": "w378"
+  },
+  {
+    "text": "a",
+    "start": 146.39,
+    "end": 146.41,
+    "id": "w379"
+  },
+  {
+    "text": "little",
+    "start": 146.41,
+    "end": 146.58,
+    "id": "w380"
+  },
+  {
+    "text": "bit",
+    "start": 146.58,
+    "end": 146.66,
+    "id": "w381"
+  },
+  {
+    "text": "of",
+    "start": 146.66,
+    "end": 146.71,
+    "id": "w382"
+  },
+  {
+    "text": "heat.",
+    "start": 146.71,
+    "end": 147,
+    "id": "w383"
+  },
+  {
+    "text": "I'm",
+    "start": 147,
+    "end": 147.07,
+    "id": "w384"
+  },
+  {
+    "text": "going",
+    "start": 147.07,
+    "end": 147.21,
+    "id": "w385"
+  },
+  {
+    "text": "to",
+    "start": 147.21,
+    "end": 147.26,
+    "id": "w386"
+  },
+  {
+    "text": "put",
+    "start": 147.26,
+    "end": 147.34,
+    "id": "w387"
+  },
+  {
+    "text": "in",
+    "start": 147.34,
+    "end": 147.39,
+    "id": "w388"
+  },
+  {
+    "text": "a",
+    "start": 147.39,
+    "end": 147.41,
+    "id": "w389"
+  },
+  {
+    "text": "little",
+    "start": 147.41,
+    "end": 147.58,
+    "id": "w390"
+  },
+  {
+    "text": "bit",
+    "start": 147.58,
+    "end": 147.66,
+    "id": "w391"
+  },
+  {
+    "text": "of",
+    "start": 147.66,
+    "end": 147.71,
+    "id": "w392"
+  },
+  {
+    "text": "heat.",
+    "start": 147.71,
+    "end": 148,
+    "id": "w393"
+  },
+  {
+    "text": "I'm",
+    "start": 148,
+    "end": 148.07,
+    "id": "w394"
+  },
+  {
+    "text": "going",
+    "start": 148.07,
+    "end": 148.21,
+    "id": "w395"
+  },
+  {
+    "text": "to",
+    "start": 148.21,
+    "end": 148.26,
+    "id": "w396"
+  },
+  {
+    "text": "put",
+    "start": 148.26,
+    "end": 148.34,
+    "id": "w397"
+  },
+  {
+    "text": "in",
+    "start": 148.34,
+    "end": 148.39,
+    "id": "w398"
+  },
+  {
+    "text": "a",
+    "start": 148.39,
+    "end": 148.41,
+    "id": "w399"
+  },
+  {
+    "text": "little",
+    "start": 148.41,
+    "end": 148.58,
+    "id": "w400"
+  },
+  {
+    "text": "bit",
+    "start": 148.58,
+    "end": 148.66,
+    "id": "w401"
+  },
+  {
+    "text": "of",
+    "start": 148.66,
+    "end": 148.71,
+    "id": "w402"
+  },
+  {
+    "text": "heat.",
+    "start": 148.71,
+    "end": 149,
+    "id": "w403"
+  },
+  {
+    "text": "I'm",
+    "start": 149,
+    "end": 149.07,
+    "id": "w404"
+  },
+  {
+    "text": "going",
+    "start": 149.07,
+    "end": 149.21,
+    "id": "w405"
+  },
+  {
+    "text": "to",
+    "start": 149.21,
+    "end": 149.26,
+    "id": "w406"
+  },
+  {
+    "text": "put",
+    "start": 149.26,
+    "end": 149.34,
+    "id": "w407"
+  },
+  {
+    "text": "in",
+    "start": 149.34,
+    "end": 149.39,
+    "id": "w408"
+  },
+  {
+    "text": "a",
+    "start": 149.39,
+    "end": 149.41,
+    "id": "w409"
+  },
+  {
+    "text": "little",
+    "start": 149.41,
+    "end": 149.58,
+    "id": "w410"
+  },
+  {
+    "text": "bit",
+    "start": 149.58,
+    "end": 149.66,
+    "id": "w411"
+  },
+  {
+    "text": "of",
+    "start": 149.66,
+    "end": 149.71,
+    "id": "w412"
+  },
+  {
+    "text": "heat.",
+    "start": 149.71,
+    "end": 150,
+    "id": "w413"
+  },
+  {
+    "text": "I'm",
+    "start": 150,
+    "end": 150.07,
+    "id": "w414"
+  },
+  {
+    "text": "going",
+    "start": 150.07,
+    "end": 150.21,
+    "id": "w415"
+  },
+  {
+    "text": "to",
+    "start": 150.21,
+    "end": 150.26,
+    "id": "w416"
+  },
+  {
+    "text": "put",
+    "start": 150.26,
+    "end": 150.34,
+    "id": "w417"
+  },
+  {
+    "text": "in",
+    "start": 150.34,
+    "end": 150.39,
+    "id": "w418"
+  },
+  {
+    "text": "a",
+    "start": 150.39,
+    "end": 150.41,
+    "id": "w419"
+  },
+  {
+    "text": "little",
+    "start": 150.41,
+    "end": 150.58,
+    "id": "w420"
+  },
+  {
+    "text": "bit",
+    "start": 150.58,
+    "end": 150.66,
+    "id": "w421"
+  },
+  {
+    "text": "of",
+    "start": 150.66,
+    "end": 150.71,
+    "id": "w422"
+  },
+  {
+    "text": "heat.",
+    "start": 150.71,
+    "end": 151,
+    "id": "w423"
+  },
+  {
+    "text": "I'm",
+    "start": 151,
+    "end": 151.07,
+    "id": "w424"
+  },
+  {
+    "text": "going",
+    "start": 151.07,
+    "end": 151.21,
+    "id": "w425"
+  },
+  {
+    "text": "to",
+    "start": 151.21,
+    "end": 151.26,
+    "id": "w426"
+  },
+  {
+    "text": "put",
+    "start": 151.26,
+    "end": 151.34,
+    "id": "w427"
+  },
+  {
+    "text": "in",
+    "start": 151.34,
+    "end": 151.39,
+    "id": "w428"
+  },
+  {
+    "text": "a",
+    "start": 151.39,
+    "end": 151.41,
+    "id": "w429"
+  },
+  {
+    "text": "little",
+    "start": 151.41,
+    "end": 151.58,
+    "id": "w430"
+  },
+  {
+    "text": "bit",
+    "start": 151.58,
+    "end": 151.66,
+    "id": "w431"
+  },
+  {
+    "text": "of",
+    "start": 151.66,
+    "end": 151.71,
+    "id": "w432"
+  },
+  {
+    "text": "heat.",
+    "start": 151.71,
+    "end": 152,
+    "id": "w433"
+  },
+  {
+    "text": "I'm",
+    "start": 152,
+    "end": 152.07,
+    "id": "w434"
+  },
+  {
+    "text": "going",
+    "start": 152.07,
+    "end": 152.21,
+    "id": "w435"
+  },
+  {
+    "text": "to",
+    "start": 152.21,
+    "end": 152.26,
+    "id": "w436"
+  },
+  {
+    "text": "put",
+    "start": 152.26,
+    "end": 152.34,
+    "id": "w437"
+  },
+  {
+    "text": "in",
+    "start": 152.34,
+    "end": 152.39,
+    "id": "w438"
+  },
+  {
+    "text": "a",
+    "start": 152.39,
+    "end": 152.41,
+    "id": "w439"
+  },
+  {
+    "text": "little",
+    "start": 152.41,
+    "end": 152.58,
+    "id": "w440"
+  },
+  {
+    "text": "bit",
+    "start": 152.58,
+    "end": 152.66,
+    "id": "w441"
+  },
+  {
+    "text": "of",
+    "start": 152.66,
+    "end": 152.71,
+    "id": "w442"
+  },
+  {
+    "text": "heat.",
+    "start": 152.71,
+    "end": 153,
+    "id": "w443"
+  },
+  {
+    "text": "I'm",
+    "start": 153,
+    "end": 153.07,
+    "id": "w444"
+  },
+  {
+    "text": "going",
+    "start": 153.07,
+    "end": 153.21,
+    "id": "w445"
+  },
+  {
+    "text": "to",
+    "start": 153.21,
+    "end": 153.26,
+    "id": "w446"
+  },
+  {
+    "text": "put",
+    "start": 153.26,
+    "end": 153.34,
+    "id": "w447"
+  },
+  {
+    "text": "in",
+    "start": 153.34,
+    "end": 153.39,
+    "id": "w448"
+  },
+  {
+    "text": "a",
+    "start": 153.39,
+    "end": 153.41,
+    "id": "w449"
+  },
+  {
+    "text": "little",
+    "start": 153.41,
+    "end": 153.58,
+    "id": "w450"
+  },
+  {
+    "text": "bit",
+    "start": 153.58,
+    "end": 153.66,
+    "id": "w451"
+  },
+  {
+    "text": "of",
+    "start": 153.66,
+    "end": 153.71,
+    "id": "w452"
+  },
+  {
+    "text": "heat.",
+    "start": 153.71,
+    "end": 154,
+    "id": "w453"
+  },
+  {
+    "text": "I'm",
+    "start": 154,
+    "end": 154.07,
+    "id": "w454"
+  },
+  {
+    "text": "going",
+    "start": 154.07,
+    "end": 154.21,
+    "id": "w455"
+  },
+  {
+    "text": "to",
+    "start": 154.21,
+    "end": 154.26,
+    "id": "w456"
+  },
+  {
+    "text": "put",
+    "start": 154.26,
+    "end": 154.34,
+    "id": "w457"
+  },
+  {
+    "text": "in",
+    "start": 154.34,
+    "end": 154.39,
+    "id": "w458"
+  },
+  {
+    "text": "a",
+    "start": 154.39,
+    "end": 154.41,
+    "id": "w459"
+  },
+  {
+    "text": "little",
+    "start": 154.41,
+    "end": 154.58,
+    "id": "w460"
+  },
+  {
+    "text": "bit",
+    "start": 154.58,
+    "end": 154.66,
+    "id": "w461"
+  },
+  {
+    "text": "of",
+    "start": 154.66,
+    "end": 154.71,
+    "id": "w462"
+  },
+  {
+    "text": "heat.",
+    "start": 154.71,
+    "end": 155,
+    "id": "w463"
+  },
+  {
+    "text": "I'm",
+    "start": 155,
+    "end": 155.07,
+    "id": "w464"
+  },
+  {
+    "text": "going",
+    "start": 155.07,
+    "end": 155.21,
+    "id": "w465"
+  },
+  {
+    "text": "to",
+    "start": 155.21,
+    "end": 155.26,
+    "id": "w466"
+  },
+  {
+    "text": "put",
+    "start": 155.26,
+    "end": 155.34,
+    "id": "w467"
+  },
+  {
+    "text": "in",
+    "start": 155.34,
+    "end": 155.39,
+    "id": "w468"
+  },
+  {
+    "text": "a",
+    "start": 155.39,
+    "end": 155.41,
+    "id": "w469"
+  },
+  {
+    "text": "little",
+    "start": 155.41,
+    "end": 155.58,
+    "id": "w470"
+  },
+  {
+    "text": "bit",
+    "start": 155.58,
+    "end": 155.66,
+    "id": "w471"
+  },
+  {
+    "text": "of",
+    "start": 155.66,
+    "end": 155.71,
+    "id": "w472"
+  },
+  {
+    "text": "heat.",
+    "start": 155.71,
+    "end": 156,
+    "id": "w473"
+  },
+  {
+    "text": "I'm",
+    "start": 156,
+    "end": 156.07,
+    "id": "w474"
+  },
+  {
+    "text": "going",
+    "start": 156.07,
+    "end": 156.21,
+    "id": "w475"
+  },
+  {
+    "text": "to",
+    "start": 156.21,
+    "end": 156.26,
+    "id": "w476"
+  },
+  {
+    "text": "put",
+    "start": 156.26,
+    "end": 156.34,
+    "id": "w477"
+  },
+  {
+    "text": "in",
+    "start": 156.34,
+    "end": 156.39,
+    "id": "w478"
+  },
+  {
+    "text": "a",
+    "start": 156.39,
+    "end": 156.41,
+    "id": "w479"
+  },
+  {
+    "text": "little",
+    "start": 156.41,
+    "end": 156.58,
+    "id": "w480"
+  },
+  {
+    "text": "bit",
+    "start": 156.58,
+    "end": 156.66,
+    "id": "w481"
+  },
+  {
+    "text": "of",
+    "start": 156.66,
+    "end": 156.71,
+    "id": "w482"
+  },
+  {
+    "text": "heat.",
+    "start": 156.71,
+    "end": 157,
+    "id": "w483"
+  },
+  {
+    "text": "I'm",
+    "start": 157,
+    "end": 157.07,
+    "id": "w484"
+  },
+  {
+    "text": "going",
+    "start": 157.07,
+    "end": 157.21,
+    "id": "w485"
+  },
+  {
+    "text": "to",
+    "start": 157.21,
+    "end": 157.26,
+    "id": "w486"
+  },
+  {
+    "text": "put",
+    "start": 157.26,
+    "end": 157.34,
+    "id": "w487"
+  },
+  {
+    "text": "in",
+    "start": 157.34,
+    "end": 157.39,
+    "id": "w488"
+  },
+  {
+    "text": "a",
+    "start": 157.39,
+    "end": 157.41,
+    "id": "w489"
+  },
+  {
+    "text": "little",
+    "start": 157.41,
+    "end": 157.58,
+    "id": "w490"
+  },
+  {
+    "text": "bit",
+    "start": 157.58,
+    "end": 157.66,
+    "id": "w491"
+  },
+  {
+    "text": "of",
+    "start": 157.66,
+    "end": 157.71,
+    "id": "w492"
+  },
+  {
+    "text": "heat.",
+    "start": 157.71,
+    "end": 158,
+    "id": "w493"
+  },
+  {
+    "text": "Thanks",
+    "start": 158,
+    "end": 160,
+    "id": "w494"
+  },
+  {
+    "text": "for",
+    "start": 160,
+    "end": 160.3,
+    "id": "w495"
+  },
+  {
+    "text": "watching!",
+    "start": 160.3,
+    "end": 160.6,
+    "id": "w496"
+  }
+]

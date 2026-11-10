@@ -1,0 +1,707 @@
+[
+{
+"text": "people",
+"start": 0.038,
+"end": 0.571
+},
+{
+"text": "look",
+"start": 0.571,
+"end": 0.926
+},
+{
+"text": "at",
+"start": 0.926,
+"end": 1.103
+},
+{
+"text": "this",
+"start": 1.103,
+"end": 1.459
+},
+{
+"text": "as",
+"start": 1.459,
+"end": 1.636
+},
+{
+"text": "a",
+"start": 1.636,
+"end": 1.725
+},
+{
+"text": "phase",
+"start": 1.725,
+"end": 2.169
+},
+{
+"text": "where",
+"start": 2.169,
+"end": 2.613
+},
+{
+"text": "they",
+"start": 2.613,
+"end": 2.968
+},
+{
+"text": "try",
+"start": 2.968,
+"end": 3.234
+},
+{
+"text": "to",
+"start": 3.234,
+"end": 3.412
+},
+{
+"text": "hold",
+"start": 3.412,
+"end": 3.767
+},
+{
+"text": "on",
+"start": 3.767,
+"end": 3.945
+},
+{
+"text": "to",
+"start": 3.945,
+"end": 4.122
+},
+{
+"text": "a",
+"start": 4.122,
+"end": 4.211
+},
+{
+"text": "stage",
+"start": 4.211,
+"end": 4.655
+},
+{
+"text": "lean",
+"start": 4.655,
+"end": 4.963
+},
+{
+"text": "look",
+"start": 4.963,
+"end": 5.27
+},
+{
+"text": "forever,",
+"start": 5.27,
+"end": 5.885
+},
+{
+"text": "in",
+"start": 5.885,
+"end": 6.039
+},
+{
+"text": "reality,",
+"start": 6.039,
+"end": 6.654
+},
+{
+"text": "that",
+"start": 6.654,
+"end": 6.962
+},
+{
+"text": "ain't",
+"start": 6.962,
+"end": 7.347
+},
+{
+"text": "going",
+"start": 7.347,
+"end": 7.731
+},
+{
+"text": "to",
+"start": 7.731,
+"end": 7.885
+},
+{
+"text": "happen,",
+"start": 7.885,
+"end": 8.423
+},
+{
+"text": "right,",
+"start": 8.423,
+"end": 8.885
+},
+{
+"text": "the",
+"start": 8.885,
+"end": 9.115
+},
+{
+"text": "stage",
+"start": 9.115,
+"end": 9.5
+},
+{
+"text": "lean",
+"start": 9.5,
+"end": 9.807
+},
+{
+"text": "look",
+"start": 9.807,
+"end": 10.115
+},
+{
+"text": "is",
+"start": 10.115,
+"end": 10.264
+},
+{
+"text": "a",
+"start": 10.264,
+"end": 10.338
+},
+{
+"text": "temporary",
+"start": 10.338,
+"end": 11.006
+},
+{
+"text": "look",
+"start": 11.006,
+"end": 11.304
+},
+{
+"text": "for",
+"start": 11.304,
+"end": 11.526
+},
+{
+"text": "one",
+"start": 11.526,
+"end": 11.749
+},
+{
+"text": "day,",
+"start": 11.749,
+"end": 12.046
+},
+{
+"text": "yeah,",
+"start": 12.046,
+"end": 12.418
+},
+{
+"text": "which",
+"start": 12.418,
+"end": 12.789
+},
+{
+"text": "is",
+"start": 12.789,
+"end": 12.938
+},
+{
+"text": "your",
+"start": 12.938,
+"end": 13.235
+},
+{
+"text": "show",
+"start": 13.235,
+"end": 13.532
+},
+{
+"text": "day,",
+"start": 13.532,
+"end": 13.829
+},
+{
+"text": "right,",
+"start": 13.829,
+"end": 14.275
+},
+{
+"text": "that's",
+"start": 14.275,
+"end": 14.721
+},
+{
+"text": "not",
+"start": 14.721,
+"end": 14.944
+},
+{
+"text": "a",
+"start": 14.944,
+"end": 15.018
+},
+{
+"text": "year",
+"start": 15.018,
+"end": 15.315
+},
+{
+"text": "round",
+"start": 15.315,
+"end": 15.671
+},
+{
+"text": "look,",
+"start": 15.671,
+"end": 16.026
+},
+{
+"text": "right,",
+"start": 16.026,
+"end": 16.453
+},
+{
+"text": "so",
+"start": 16.453,
+"end": 16.595
+},
+{
+"text": "the",
+"start": 16.595,
+"end": 16.808
+},
+{
+"text": "goal",
+"start": 16.808,
+"end": 17.093
+},
+{
+"text": "for",
+"start": 17.093,
+"end": 17.306
+},
+{
+"text": "a",
+"start": 17.306,
+"end": 17.377
+},
+{
+"text": "recovery",
+"start": 17.377,
+"end": 17.946
+},
+{
+"text": "phase,",
+"start": 17.946,
+"end": 18.373
+},
+{
+"text": "especially",
+"start": 18.373,
+"end": 19.084
+},
+{
+"text": "if",
+"start": 19.084,
+"end": 19.226
+},
+{
+"text": "you're",
+"start": 19.226,
+"end": 19.653
+},
+{
+"text": "female,",
+"start": 19.653,
+"end": 20.151
+},
+{
+"text": "is",
+"start": 20.151,
+"end": 20.293
+},
+{
+"text": "to",
+"start": 20.293,
+"end": 20.435
+},
+{
+"text": "do",
+"start": 20.435,
+"end": 20.576
+},
+{
+"text": "just",
+"start": 20.576,
+"end": 20.858
+},
+{
+"text": "that,",
+"start": 20.858,
+"end": 21.21
+},
+{
+"text": "is",
+"start": 21.21,
+"end": 21.35
+},
+{
+"text": "to",
+"start": 21.35,
+"end": 21.491
+},
+{
+"text": "recover,",
+"start": 21.491,
+"end": 22.055
+},
+{
+"text": "right,",
+"start": 22.055,
+"end": 22.477
+},
+{
+"text": "and",
+"start": 22.477,
+"end": 22.689
+},
+{
+"text": "so",
+"start": 22.689,
+"end": 22.829
+},
+{
+"text": "what",
+"start": 22.829,
+"end": 23.111
+},
+{
+"text": "do",
+"start": 23.111,
+"end": 23.252
+},
+{
+"text": "you",
+"start": 23.252,
+"end": 23.463
+},
+{
+"text": "need",
+"start": 23.463,
+"end": 23.745
+},
+{
+"text": "to",
+"start": 23.745,
+"end": 23.886
+},
+{
+"text": "be",
+"start": 23.886,
+"end": 24.027
+},
+{
+"text": "able",
+"start": 24.027,
+"end": 24.308
+},
+{
+"text": "to",
+"start": 24.308,
+"end": 24.449
+},
+{
+"text": "recover,",
+"start": 24.449,
+"end": 25.012
+},
+{
+"text": "right,",
+"start": 25.012,
+"end": 25.435
+},
+{
+"text": "so",
+"start": 25.435,
+"end": 25.622
+},
+{
+"text": "that",
+"start": 25.622,
+"end": 25.996
+},
+{
+"text": "is",
+"start": 25.996,
+"end": 26.183
+},
+{
+"text": "a",
+"start": 26.183,
+"end": 26.277
+},
+{
+"text": "reduction",
+"start": 26.277,
+"end": 27.119
+},
+{
+"text": "in",
+"start": 27.119,
+"end": 27.306
+},
+{
+"text": "your",
+"start": 27.306,
+"end": 27.68
+},
+{
+"text": "output,",
+"start": 27.68,
+"end": 28.334
+},
+{
+"text": "that",
+"start": 28.334,
+"end": 28.709
+},
+{
+"text": "is",
+"start": 28.709,
+"end": 28.896
+},
+{
+"text": "an",
+"start": 28.896,
+"end": 29.083
+},
+{
+"text": "increase",
+"start": 29.083,
+"end": 29.831
+},
+{
+"text": "in",
+"start": 29.831,
+"end": 30.018
+},
+{
+"text": "your",
+"start": 30.018,
+"end": 30.392
+},
+{
+"text": "food,",
+"start": 30.392,
+"end": 30.86
+},
+{
+"text": "you",
+"start": 30.86,
+"end": 31.14
+},
+{
+"text": "know,",
+"start": 31.14,
+"end": 31.608
+},
+{
+"text": "to",
+"start": 31.608,
+"end": 31.795
+},
+{
+"text": "probably",
+"start": 31.795,
+"end": 32.216
+},
+{
+"text": "turn",
+"start": 32.216,
+"end": 32.426
+},
+{
+"text": "around",
+"start": 32.426,
+"end": 32.742
+},
+{
+"text": "maintenance,",
+"start": 32.742,
+"end": 33.373
+},
+{
+"text": "it's",
+"start": 33.373,
+"end": 33.583
+},
+{
+"text": "going",
+"start": 33.583,
+"end": 33.847
+},
+{
+"text": "to",
+"start": 33.847,
+"end": 33.952
+},
+{
+"text": "be",
+"start": 33.952,
+"end": 34.057
+},
+{
+"text": "the",
+"start": 34.057,
+"end": 34.215
+},
+{
+"text": "best",
+"start": 34.215,
+"end": 34.425
+},
+{
+"text": "place",
+"start": 34.425,
+"end": 34.688
+},
+{
+"text": "for",
+"start": 34.688,
+"end": 34.846
+},
+{
+"text": "you,",
+"start": 34.846,
+"end": 35.056
+},
+{
+"text": "So",
+"start": 35.229,
+"end": 35.388
+},
+{
+"text": "try",
+"start": 35.388,
+"end": 35.625
+},
+{
+"text": "and",
+"start": 35.625,
+"end": 35.863
+},
+{
+"text": "detach",
+"start": 35.863,
+"end": 36.337
+},
+{
+"text": "from",
+"start": 36.337,
+"end": 36.654
+},
+{
+"text": "that",
+"start": 36.654,
+"end": 37.002
+},
+{
+"text": "stage",
+"start": 37.002,
+"end": 37.436
+},
+{
+"text": "lean",
+"start": 37.436,
+"end": 37.784
+},
+{
+"text": "look,",
+"start": 37.784,
+"end": 38.219
+},
+{
+"text": "and",
+"start": 38.219,
+"end": 38.48
+},
+{
+"text": "embrace",
+"start": 38.48,
+"end": 39.088
+},
+{
+"text": "the",
+"start": 39.088,
+"end": 39.349
+},
+{
+"text": "post",
+"start": 39.349,
+"end": 39.697
+},
+{
+"text": "show,",
+"start": 39.697,
+"end": 40.131
+},
+{
+"text": "and",
+"start": 40.131,
+"end": 40.332
+},
+{
+"text": "rely",
+"start": 40.616,
+"end": 40.964
+},
+{
+"text": "on",
+"start": 40.964,
+"end": 41.138
+},
+{
+"text": "your",
+"start": 41.138,
+"end": 41.485
+},
+{
+"text": "coach,",
+"start": 41.485,
+"end": 42.007
+},
+{
+"text": "rely",
+"start": 42.007,
+"end": 42.188
+},
+{
+"text": "on",
+"start": 42.188,
+"end": 42.279
+},
+{
+"text": "the",
+"start": 42.279,
+"end": 42.415
+},
+{
+"text": "people",
+"start": 42.415,
+"end": 42.687
+},
+{
+"text": "close",
+"start": 42.687,
+"end": 42.914
+},
+{
+"text": "to",
+"start": 42.914,
+"end": 43.004
+},
+{
+"text": "you,",
+"start": 43.004,
+"end": 43.186
+}
+]

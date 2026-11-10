@@ -1,0 +1,329 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:07,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 7000
+			},
+			"text": " Good morning guys. So it is the morning after the day before. So I do apologise about my face."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:07,000",
+				"to": "00:00:15,000"
+			},
+			"offsets": {
+				"from": 7000,
+				"to": 15000
+			},
+			"text": " Diet is definitely starting to diet now. That carb reduction has definitely started to make my face eat itself."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:15,000",
+				"to": "00:00:23,000"
+			},
+			"offsets": {
+				"from": 15000,
+				"to": 23000
+			},
+			"text": " So yeah, yesterday was a good day. Obviously we had Nick and Mark on stage yesterday at PCA."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:23,000",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 23000,
+				"to": 30000
+			},
+			"text": " First-timers/UK Open. Very long day. Obviously with two shows back to back, essentially."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:38,000"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 38000
+			},
+			"text": " It was a pretty long day. I think I finished there maybe around 8.39, something like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:38,000",
+				"to": "00:00:42,000"
+			},
+			"offsets": {
+				"from": 38000,
+				"to": 42000
+			},
+			"text": " So yeah, a bit of a late one. But anyway, yeah, Nick done really, really well."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:42,000",
+				"to": "00:00:48,000"
+			},
+			"offsets": {
+				"from": 42000,
+				"to": 48000
+			},
+			"text": " P4 in his novice, sorry, first-timers bodybuilding tool class."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:48,000",
+				"to": "00:00:51,000"
+			},
+			"offsets": {
+				"from": 48000,
+				"to": 51000
+			},
+			"text": " Really, really happy with the look. Really, really happy with the process."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:51,000",
+				"to": "00:00:57,000"
+			},
+			"offsets": {
+				"from": 51000,
+				"to": 57000
+			},
+			"text": " Super happy with the, you know, the results that he pushed himself for throughout this prep."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:57,000",
+				"to": "00:00:59,000"
+			},
+			"offsets": {
+				"from": 57000,
+				"to": 59000
+			},
+			"text": " It's been very, very good and very inspiring to see."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:59,000",
+				"to": "00:01:05,000"
+			},
+			"offsets": {
+				"from": 59000,
+				"to": 65000
+			},
+			"text": " And then we had Mark in the men's physique masters category."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:05,000",
+				"to": "00:01:12,000"
+			},
+			"offsets": {
+				"from": 65000,
+				"to": 72000
+			},
+			"text": " And again, you know, considering, I was having a chat about it yesterday, it was about a five-week prep."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:12,000",
+				"to": "00:01:16,000"
+			},
+			"offsets": {
+				"from": 72000,
+				"to": 76000
+			},
+			"text": " And one of those weeks he had kind of backed out of it because he thought it was too much to do."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:16,000",
+				"to": "00:01:23,000"
+			},
+			"offsets": {
+				"from": 76000,
+				"to": 83000
+			},
+			"text": " And to be honest, it actually surprised me and what we managed to do. I think we pulled off about 10 kilos in about a five-week period."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:23,000",
+				"to": "00:01:28,000"
+			},
+			"offsets": {
+				"from": 83000,
+				"to": 88000
+			},
+			"text": " And luckily in one of those weeks he kind of backed off a little bit because his head wasn't in it."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:28,000",
+				"to": "00:01:33,000"
+			},
+			"offsets": {
+				"from": 88000,
+				"to": 93000
+			},
+			"text": " But then for the final three weeks he locked in and bought a pretty respectable package to stage."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:33,000",
+				"to": "00:01:41,000"
+			},
+			"offsets": {
+				"from": 93000,
+				"to": 101000
+			},
+			"text": " So yeah, happy with that. He finished P4. Another one, both of them got invites to the PCA Worlds."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:41,000",
+				"to": "00:01:50,000"
+			},
+			"offsets": {
+				"from": 101000,
+				"to": 110000
+			},
+			"text": " Well, this weekend coming in Seville in Spain. And so I'm just, go on then boy."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:50,000",
+				"to": "00:01:56,000"
+			},
+			"offsets": {
+				"from": 110000,
+				"to": 116000
+			},
+			"text": " So yeah, both of them got invites to the World Championship Finals at PCA. So overall it's been a pretty good day."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,000",
+				"to": "00:02:01,000"
+			},
+			"offsets": {
+				"from": 116000,
+				"to": 121000
+			},
+			"text": " So that is it for this week. There is nothing this weekend coming."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:01,000",
+				"to": "00:02:07,000"
+			},
+			"offsets": {
+				"from": 121000,
+				"to": 127000
+			},
+			"text": " So we've got a couple of weeks downtime now for me attending shows at least."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:07,000",
+				"to": "00:02:13,000"
+			},
+			"offsets": {
+				"from": 127000,
+				"to": 133000
+			},
+			"text": " Then we are at MPC Alicante for the Pro Qualifier at the end of this month."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:13,000",
+				"to": "00:02:27,000"
+			},
+			"offsets": {
+				"from": 133000,
+				"to": 147000
+			},
+			"text": " And then the week after we are flying off to Dallas in the USA, Texas, for the final show of the season, which I am very much looking forward to."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:27,000",
+				"to": "00:02:37,000"
+			},
+			"offsets": {
+				"from": 147000,
+				"to": 157000
+			},
+			"text": " So peace out. Hope you are enjoying these random vlogs that I'm trying to put together. I am definitely going to start making this."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:37,000",
+				"to": "00:02:44,000"
+			},
+			"offsets": {
+				"from": 157000,
+				"to": 164000
+			},
+			"text": " Once the show season starts to calm down a little bit, I am going to start making these a little bit more educational based."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:44,000",
+				"to": "00:02:51,000"
+			},
+			"offsets": {
+				"from": 164000,
+				"to": 171000
+			},
+			"text": " So there's some training cues, training tips, general education as a whole within the industry."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:51,000",
+				"to": "00:02:55,000"
+			},
+			"offsets": {
+				"from": 171000,
+				"to": 175000
+			},
+			"text": " So keep tuned. But yeah, have a good week guys."
+		}
+	]
+}

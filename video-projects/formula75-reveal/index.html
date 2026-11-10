@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <!--
+      Formula 75 reveal — behind-the-subject product graphics for the end of the
+      NPC - Youtube intro (last clip of "YouTube – Edit 01", source 89.9–98.0s, trimmed by Ash).
+      Layers, back to front: plate (Ash's footage) → stage darkening + light →
+      jar / ingredient panel / title → fg.webm (Ash cut out by the Vision person
+      matte, alpha) so every graphic sits behind him and his hands pass in front.
+      Graphics zone x 60–720: Ash's head never goes left of x≈770 in this clip.
+      Word timings (local s): "new product" 2.46, "JP" 3.0, "review" 6.1,
+      "insight" ~6.9, "shortly" ~7.4, clip ends 8.1 (243 frames).
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: Montserrat, sans-serif; }
+      #plate-wrap, #fg-wrap { position: absolute; inset: 0; }
+      #plate, #fg { width: 1920px; height: 1080px; object-fit: cover; }
+      #plate-wrap { z-index: 0; }
+      #fg-wrap { z-index: 20; }
+
+      /* stage: darkens the bright sky/park on the left so the product reads; Ash stays bright on top */
+      #dim {
+        position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        /* anchored on the left edge so it reads as a lit side-stage, not a grey blob in the sky */
+        background:
+          radial-gradient(ellipse 46% 95% at 0% 50%, rgba(5, 8, 12, 0.9) 0%, rgba(5, 8, 12, 0.72) 55%, rgba(5, 8, 12, 0) 100%),
+          radial-gradient(ellipse 40% 60% at 22% 100%, rgba(5, 8, 12, 0.5) 0%, rgba(5, 8, 12, 0) 100%);
+      }
+      #beam {
+        position: absolute; left: 150px; width: 480px; top: 0; bottom: 0; z-index: 2; pointer-events: none;
+        background: radial-gradient(ellipse 50% 92% at 50% 100%, rgba(111, 195, 238, 0.34) 0%, rgba(111, 195, 238, 0.12) 45%, rgba(111, 195, 238, 0) 75%);
+        mix-blend-mode: screen; transform-origin: 50% 100%;
+      }
+      #floorglow {
+        position: absolute; left: -60px; width: 900px; bottom: -150px; height: 330px; z-index: 2; pointer-events: none;
+        background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(111, 195, 238, 0.55) 0%, rgba(95, 211, 138, 0.22) 45%, rgba(95, 211, 138, 0) 72%);
+        mix-blend-mode: screen;
+      }
+      #slit {
+        position: absolute; left: 70px; width: 640px; bottom: 6px; height: 4px; z-index: 6; border-radius: 4px;
+        background: linear-gradient(90deg, rgba(111,195,238,0), #e9f7ff 30%, #ffffff 50%, #e9f7ff 70%, rgba(111,195,238,0));
+        box-shadow: 0 0 18px 4px rgba(111, 195, 238, 0.9), 0 0 60px 16px rgba(111, 195, 238, 0.45);
+      }
+      #ring {
+        position: absolute; left: 130px; width: 520px; bottom: 0; height: 110px; z-index: 3; border-radius: 50%;
+        border: 3px solid rgba(160, 220, 248, 0.9);
+        box-shadow: 0 0 24px rgba(111, 195, 238, 0.8), inset 0 0 24px rgba(111, 195, 238, 0.5);
+        transform: translateY(55px);
+      }
+      .spark {
+        position: absolute; bottom: 8px; width: 6px; height: 6px; border-radius: 50%; z-index: 4;
+        background: #dff4ff; box-shadow: 0 0 10px 2px rgba(111, 195, 238, 0.9);
+      }
+      .spark.g { background: #e3ffef; box-shadow: 0 0 10px 2px rgba(95, 211, 138, 0.9); }
+
+      /* title block — top of the graphics zone */
+      #title { position: absolute; left: 72px; top: 64px; width: 650px; height: 170px; z-index: 8; }
+      .kicker {
+        position: absolute; left: 4px; top: 0; white-space: nowrap;
+        font-weight: 600; font-size: 27px; letter-spacing: 0.34em; color: #e6f5fc;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 0 18px rgba(111, 195, 238, 0.55);
+      }
+      #wordmark { position: absolute; left: 0; top: 40px; white-space: nowrap; font-size: 96px; line-height: 1; letter-spacing: 0.02em; }
+      #wm-a {
+        display: inline-block; font-weight: 300;
+        background: linear-gradient(180deg, #ffffff 0%, #e8edf1 45%, #9aa3ab 78%, #d9dee2 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.22));
+      }
+      #wm-b {
+        display: inline-block; font-weight: 800; margin-left: 6px;
+        background: linear-gradient(180deg, #e9f7ff 0%, #8fd3f3 45%, #4ea9d8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 24px rgba(111, 195, 238, 0.7));
+      }
+      #rule {
+        position: absolute; left: 4px; top: 150px; width: 420px; height: 2px;
+        background: linear-gradient(90deg, #8fd3f3, rgba(95, 211, 138, 0.8) 60%, rgba(95, 211, 138, 0));
+        transform-origin: 0 50%;
+      }
+
+      /* ingredient panel — rises in beat 2, angled toward Ash */
+      #panel-stage { position: absolute; left: 118px; top: 262px; width: 560px; height: 574px; z-index: 5; perspective: 1400px; }
+      #panel {
+        position: absolute; inset: 0; transform-origin: 0% 50%; transform: rotateY(12deg);
+        border-radius: 30px; overflow: hidden;
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(160, 220, 248, 0.35), 0 0 50px rgba(111, 195, 238, 0.35);
+      }
+      #panel img { width: 100%; height: 100%; display: block; }
+      #scan {
+        position: absolute; left: 0; right: 0; top: 0; height: 90px; mix-blend-mode: screen;
+        background: linear-gradient(180deg, rgba(111, 195, 238, 0) 0%, rgba(160, 225, 250, 0.42) 50%, rgba(111, 195, 238, 0) 100%);
+      }
+
+      /* the jar — hero of beat 1, callback in front of the panel in beat 2 */
+      #jar-pos { position: absolute; left: 114px; top: 230px; width: 552px; height: 700px; z-index: 7; }
+      #jar-bob { position: absolute; inset: 0; }
+      #jar { position: absolute; inset: 0; width: 552px; height: 700px; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 30px rgba(111, 195, 238, 0.28)); }
+      #jar-shine {
+        position: absolute; inset: 0;
+        -webkit-mask-image: url(assets/jar.png); -webkit-mask-size: 100% 100%;
+        mask-image: url(assets/jar.png); mask-size: 100% 100%;
+        background: linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.55) 48%, rgba(190,235,255,0.25) 53%, rgba(255,255,255,0) 62%);
+        background-size: 300% 100%; background-position: 120% 0; mix-blend-mode: screen;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-jx88" id="root" data-composition-id="main" data-start="0" data-duration="8.1" data-width="1920" data-height="1080">
+      <div data-hf-id="hf-ifmw" id="plate-wrap">
+        <video data-hf-id="hf-kk0k" id="plate" src="assets/plate.mp4" data-start="0" data-duration="8.1" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio data-hf-id="hf-ugdx" id="plate-audio" src="assets/plate.mp4" data-start="0" data-duration="8.1" data-track-index="1" data-volume="1"></audio>
+
+      <div data-hf-id="hf-ko32" id="dim" class="clip" data-start="0" data-duration="8.1" data-track-index="2"></div>
+      <div data-hf-id="hf-7nqk" id="beam" class="clip" data-start="0" data-duration="8.1" data-track-index="3"></div>
+      <div data-hf-id="hf-9w0n" id="floorglow" class="clip" data-start="0" data-duration="8.1" data-track-index="4"></div>
+      <div data-hf-id="hf-qc5x" id="ring" class="clip" data-start="0" data-duration="8.1" data-track-index="5"></div>
+      <div data-hf-id="hf-8gdi" id="sparks" class="clip" data-start="0" data-duration="8.1" data-track-index="6"></div>
+
+      <div data-hf-id="hf-o1c0" id="panel-stage" class="clip" data-start="0" data-duration="8.1" data-track-index="7">
+        <div data-hf-id="hf-zk0l" id="panel"><img data-hf-id="hf-28o9" src="assets/panel.png" alt="" /><div data-hf-id="hf-vz0a" id="scan"></div></div>
+      </div>
+
+      <div data-hf-id="hf-ewoc" id="jar-pos" class="clip" data-start="0" data-duration="8.1" data-track-index="8">
+        <div data-hf-id="hf-qt1e" id="jar-bob"><img data-hf-id="hf-y5d9" id="jar" src="assets/jar.png" alt="" /><div data-hf-id="hf-h9cm" id="jar-shine"></div></div>
+      </div>
+
+      <div data-hf-id="hf-s3kr" id="title" class="clip" data-start="0" data-duration="8.1" data-track-index="9">
+        <div data-hf-id="hf-0xrs" class="kicker" id="k1">NEW FROM TRAIN BY JP</div>
+        <div data-hf-id="hf-s1xv" class="kicker" id="k2">WHAT'S INSIDE?</div>
+        <div data-hf-id="hf-rfvo" class="kicker" id="k3">FULL REVIEW COMING SOON</div>
+        <div data-hf-id="hf-64rm" id="wordmark"><span data-hf-id="hf-xeaq" id="wm-a">FORMULA</span><span data-hf-id="hf-07rv" id="wm-b">75</span></div>
+        <div data-hf-id="hf-8e4z" id="rule"></div>
+      </div>
+
+      <div data-hf-id="hf-gui3" id="slit" class="clip" data-start="0" data-duration="8.1" data-track-index="10"></div>
+
+      <div data-hf-id="hf-1yip" id="fg-wrap">
+        <video data-hf-id="hf-w8oo" id="fg" src="assets/fg.webm" data-start="0" data-duration="8.1" data-track-index="11" muted playsinline></video>
+      </div>
+    </div>
+
+    <script>
+      (() => {
+        // sparks: deterministic positions (harmonic hash, no Math.random)
+        const box = document.getElementById("sparks");
+        const SPARKS = 16;
+        for (let i = 0; i < SPARKS; i++) {
+          const s = document.createElement("div");
+          s.className = "spark" + (i % 3 === 0 ? " g" : "");
+          s.style.left = (110 + 560 * Math.abs(Math.sin(i * 2.17 + 0.4))).toFixed(0) + "px";
+          box.appendChild(s);
+        }
+
+        const tl = gsap.timeline({ paused: true });
+        const f = (s) => Math.round(s * 30) / 30; // snap to frame boundaries
+
+        // ---- start state: nothing on screen but the footage
+        gsap.set(["#dim", "#beam", "#floorglow", "#slit", "#ring", ".spark", ".kicker", "#wordmark", "#rule"], { opacity: 0 });
+        gsap.set("#jar-pos", { y: 900 });
+        gsap.set("#panel-stage", { y: 820 });
+
+        // ---- BEAT 1 — "new product" (2.46): stage drops, the floor lights, the jar rises out of it
+        tl.to("#dim", { opacity: 1, duration: f(0.6), ease: "power2.out" }, f(1.9));
+        // slit ignites at the bottom edge — this is the "floor" the product comes out of
+        tl.fromTo("#slit", { opacity: 0, scaleX: 0.1 }, { opacity: 1, scaleX: 1, duration: f(0.33), ease: "expo.out" }, f(2.0));
+        tl.fromTo("#floorglow", { opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, duration: f(0.5), ease: "power2.out" }, f(2.03));
+        tl.fromTo("#beam", { opacity: 0, scaleY: 0.2 }, { opacity: 1, scaleY: 1, duration: f(0.8), ease: "power3.out" }, f(2.1));
+        // ENTRY — jar rides up out of the slit with motion blur, settles with a little overshoot
+        tl.fromTo("#jar-pos",
+          { y: 900, rotation: -7, scale: 0.92 },
+          { y: 0, rotation: 0, scale: 1, duration: f(0.9), ease: "back.out(1.15)" }, f(2.27));
+        // blur on its own non-overshooting ease — back.out would push blur below 0px (invalid filter → stuck blur)
+        tl.fromTo("#jar-pos", { filter: "blur(18px)" }, { filter: "blur(0px)", duration: f(0.5), ease: "power2.out" }, f(2.27));
+        // ring bursts outward on the floor as the jar clears the slit
+        tl.fromTo("#ring", { opacity: 0.95, scale: 0.35 }, { opacity: 0, scale: 1.5, duration: f(0.9), ease: "power2.out" }, f(2.4));
+        // sparks drift up from the slit
+        gsap.utils.toArray(".spark").forEach((s, i) => {
+          const t = f(2.35 + (i % 8) * 0.12 + Math.floor(i / 8) * 0.5);
+          const rise = 180 + 260 * Math.abs(Math.cos(i * 1.3 + 0.7));
+          tl.fromTo(s, { y: 0, opacity: 0, scale: 1 }, { y: -rise, x: 30 * Math.sin(i * 1.9), opacity: 1, scale: 0.4, duration: f(1.4), ease: "power1.out" }, t);
+          tl.to(s, { opacity: 0, duration: f(0.5), ease: "power1.in" }, t + f(0.9));
+        });
+        // title: kicker slides, wordmark rises with blur, "75" punches on "JP"
+        tl.fromTo("#k1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: f(0.4), ease: "expo.out" }, f(2.6));
+        tl.fromTo("#wordmark", { opacity: 0, y: 50, filter: "blur(14px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: f(0.6), ease: "power3.out" }, f(2.7));
+        tl.fromTo("#wm-b", { scale: 1.6, transformOrigin: "0% 70%" }, { scale: 1, duration: f(0.45), ease: "back.out(2)" }, f(2.83));
+        tl.fromTo("#rule", { opacity: 1, scaleX: 0 }, { scaleX: 1, duration: f(0.6), ease: "power2.inOut" }, f(3.0));
+        // light glint across the jar once it has landed
+        tl.fromTo("#jar-shine", { backgroundPosition: "120% 0" }, { backgroundPosition: "-60% 0", duration: f(1.0), ease: "power2.inOut" }, f(3.3));
+        // gentle float for the rest of the piece (finite repeats)
+        tl.to("#jar-bob", { y: -12, duration: f(1.6), ease: "sine.inOut", yoyo: true, repeat: 2 }, f(3.2));
+        // beam breathes so the stage never sits still
+        tl.to("#beam", { opacity: 0.7, duration: f(1.8), ease: "sine.inOut", yoyo: true, repeat: 1 }, f(3.0));
+
+        // ---- BEAT 2 — "review on that" (6.1): jar steps aside, the ingredient panel rises behind it
+        tl.to("#k1", { opacity: 0, y: -14, duration: f(0.25), ease: "power2.in" }, f(5.83));
+        tl.fromTo("#k2", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: f(0.35), ease: "power2.out" }, f(6.03));
+        // jar shrinks into the bottom-left corner, in front of where the panel lands
+        tl.to("#jar-pos", { x: -205, y: 255, scale: 0.55, duration: f(0.7), ease: "power3.inOut" }, f(5.9));
+        tl.fromTo("#panel-stage",
+          { y: 820, filter: "blur(16px)" },
+          { y: 0, filter: "blur(0px)", duration: f(0.9), ease: "expo.out" }, f(6.0));
+        tl.fromTo("#panel", { rotationY: 26 }, { rotationY: 12, duration: f(1.2), ease: "power2.out" }, f(6.0));
+        tl.fromTo("#ring", { opacity: 0.8, scale: 0.4 }, { opacity: 0, scale: 1.5, duration: f(0.8), ease: "power2.out" }, f(6.1));
+        // "insight" (~6.9): a light scan reads down the ingredient rows
+        tl.fromTo("#scan", { y: -90 }, { y: 600, duration: f(1.0), ease: "power1.inOut" }, f(6.5));
+
+        // ---- BEAT 3 — "shortly" (7.4): kicker turns into the promise, the 75 flares
+        tl.to("#k2", { opacity: 0, y: -14, duration: f(0.2), ease: "power2.in" }, f(7.0));
+        tl.fromTo("#k3", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: f(0.3), ease: "power2.out" }, f(7.17));
+        tl.fromTo("#wm-b", { filter: "drop-shadow(0 0 24px rgba(111,195,238,0.7)) brightness(1)" },
+          { filter: "drop-shadow(0 0 40px rgba(111,195,238,1)) brightness(1.35)", duration: f(0.2), ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, f(7.2));
+
+        // ---- OUT (7.53–8.07): everything sinks back into the floor; frame is clean on the clip's last frame (8.1)
+        tl.to(["#panel-stage"], { y: 820, filter: "blur(14px)", duration: f(0.43), ease: "power2.in" }, f(7.53));
+        tl.to(["#jar-pos"], { y: 950, filter: "blur(14px)", duration: f(0.43), ease: "power2.in" }, f(7.57));
+        tl.to(["#k3", "#wordmark", "#rule"], { opacity: 0, y: 30, duration: f(0.33), ease: "power2.in", stagger: 0.033 }, f(7.5));
+        tl.to(["#slit", "#floorglow", "#beam"], { opacity: 0, duration: f(0.33), ease: "power1.in" }, f(7.7));
+        tl.to("#dim", { opacity: 0, duration: f(0.43), ease: "power1.inOut" }, f(7.63));
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

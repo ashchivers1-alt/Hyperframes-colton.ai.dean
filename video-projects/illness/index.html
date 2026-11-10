@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <!--
+      ILLNESS — @kingketo "top card" style (see _reference/creator-library/kingketo/style-distilled.md).
+      Face-cam full frame; one wide card in the headroom above Ash (y 70–640), swapping per point;
+      cream ↔ charcoal alternation; red pill tags; italic-serif accent + red highlight-box keyword;
+      ALL-CAPS 1–3 word captions with a yellow active word at chest height. Hard swaps, motion inside cards.
+      GENERATED: edit scripts/template.html, then run python3 -I scripts/build.py
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #face-wrap { position: absolute; inset: 0; transform-origin: 50% 58%; }
+      #face-video { width: 1080px; height: 1920px; object-fit: cover; filter: contrast(1.06) saturate(1.06); }
+      #cards { position: absolute; inset: 0; z-index: 5; }
+      #caps { position: absolute; inset: 0; z-index: 6; }
+      #topfade { z-index: 1; position: absolute; left: 0; right: 0; top: 0; height: 760px; pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0) 100%); }
+
+      /* ---------- cards ---------- */
+      .card {
+        position: absolute; left: 60px; top: 110px; width: 960px; height: 460px; border-radius: 34px; overflow: hidden; opacity: 0;
+        padding: 40px 48px; box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+      }
+      .cream { background: #F4EFE6; color: #141414; }
+      .cream::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(20,20,20,.045) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(20,20,20,.045) 0 1px, transparent 1px 44px); }
+      .dark { background: #141414; color: #fff; border: 1px solid rgba(255,255,255,0.08); }
+      .dark::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px); }
+      .card > * { position: relative; z-index: 1; }
+      .pill { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px; border-radius: 10px; background: var(--brand-accent);
+        color: #fff; font: 800 22px/1 Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+      .pill.ghost { background: transparent; border: 2px solid currentColor; }
+      .h { font: 900 92px/0.98 Montserrat, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+      .serif { font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; letter-spacing: 0; }
+      .box { display: inline-block; background: var(--brand-accent); color: #fff; padding: 0 16px; border-radius: 10px; }
+      .gold { color: #F2C230; }
+      .small { font: 700 30px/1.2 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; opacity: .62; white-space: nowrap; }
+
+      /* card 1 — everyone's sick */
+      #k1 .row { display: flex; gap: 26px; margin-top: 34px; }
+      .person { position: relative; width: 110px; height: 136px; }
+      .person i { position: absolute; left: 33px; top: 0; width: 46px; height: 46px; border-radius: 50%; background: #3a3a3a; }
+      .person b { position: absolute; left: 10px; top: 52px; width: 90px; height: 84px; border-radius: 40px 40px 12px 12px; background: #3a3a3a; }
+            #k1 { height: 380px; }
+      .person { transform-origin: 50% 100%; }
+
+      /* card 2 — the question */
+      #k2 { height: 400px; }
+      #k2 .bubble { margin-top: 34px; display: inline-block; max-width: 860px; padding: 28px 36px; border-radius: 34px 34px 34px 10px;
+        background: #E5E1DA; font: 600 54px/1.2 Inter, sans-serif; color: #141414; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+      #k2 .typing { margin-top: 34px; display: inline-flex; gap: 10px; padding: 26px 30px; border-radius: 34px; background: #E5E1DA; }
+      #k2 .typing i { width: 16px; height: 16px; border-radius: 50%; background: #8d8a84; }
+      #k2 .meta { margin-top: 18px; }
+
+      /* card 3 — two camps + me */
+      #k3 .camps { display: flex; gap: 22px; margin-top: 28px; }
+      #k3 { height: 560px; }
+      #k3 .camp { flex: 1; height: 300px; border-radius: 22px; padding: 24px 26px; background: #1f1f1f; border: 1px solid rgba(255,255,255,.1); }
+      #k3 .camp .t { font: 900 50px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k3 .camp ul { list-style: none; margin-top: 20px; font: 600 38px/1.45 Inter, sans-serif; color: #cfcfcf; }
+      #k3 .camp .serif { font-size: 40px; color: #9a9a9a; margin-top: 4px; display: block; }
+      #k3 .me { position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); height: 72px; font-size: 30px; padding: 0 26px;
+        box-shadow: 0 0 34px rgba(216,6,9,.6); }
+
+      /* card 4 — the simple test */
+      #k4 { height: 600px; }
+      #k4 .q { margin-top: 22px; font: 900 56px/1.05 Montserrat, sans-serif; white-space: nowrap; }
+      #k4 .bars { display: flex; align-items: flex-end; gap: 50px; height: 230px; margin-top: 70px; padding-left: 8px; }
+      #k4 .bar { position: relative; width: 190px; height: 220px; border-radius: 14px 14px 6px 6px; background: #141414; transform-origin: 50% 100%; }
+      #k4 .bar span { position: absolute; left: -20px; right: -20px; top: -46px; text-align: center; font: 800 34px/1 Inter, sans-serif; color: #141414; }
+      #k4 .bar em { position: absolute; left: 0; right: 0; bottom: -40px; text-align: center; font: 700 26px/1 Inter, sans-serif; letter-spacing: .1em; color: #6b6b6b; font-style: normal; white-space: nowrap; }
+      #k4 .bar.today { background: #F2C230; }
+      #k4 .verdict { position: absolute; right: 52px; bottom: 70px; height: 96px; padding: 0 30px; border-radius: 16px; background: #141414; color: #F2C230;
+        display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; white-space: nowrap; }
+
+      /* card 5 — dragging / RIR */
+      #k5 .batt { position: absolute; right: 52px; top: 44px; width: 150px; height: 70px; border: 5px solid #fff; border-radius: 14px; padding: 6px; }
+      #k5 .batt::after { content: ""; position: absolute; right: -16px; top: 20px; width: 10px; height: 22px; border-radius: 0 4px 4px 0; background: #fff; }
+      #k5 .batt i { display: block; height: 100%; width: 100%; border-radius: 6px; background: #F2C230; transform-origin: left center; }
+      #k5 { height: 500px; }
+      #k5 .lab { margin-top: 60px; }
+      #k5 .scale { position: relative; height: 40px; margin-top: 90px; border-radius: 15px; background: #2a2a2a; }
+      #k5 .zone { position: absolute; left: 0; top: 0; bottom: 0; width: 14%; border-radius: 15px; background: #F2C230; }
+      #k5 .ticks { display: flex; justify-content: space-between; margin-top: 16px; font: 700 30px/1 Inter, sans-serif; color: #8a8a8a; }
+      #k5 .needle { position: absolute; top: -20px; left: 7%; width: 8px; height: 80px; margin-left: -3px; border-radius: 3px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.7); }
+      #k5 .needle b { position: absolute; top: -64px; left: 50%; transform: translateX(-50%); font: 900 54px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k5 .verdict { position: absolute; right: 52px; bottom: 34px; height: 96px; padding: 0 30px; border-radius: 16px; background: var(--brand-accent); color: #fff;
+        display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; box-shadow: 0 0 36px rgba(216,6,9,.6); white-space: nowrap; }
+
+      /* card 6 — summary */
+      #k6 { height: 470px; }
+      #k6 .rule { display: flex; align-items: center; gap: 26px; height: 130px; margin-top: 22px; padding: 0 28px; border-radius: 22px; background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.07); }
+      #k6 .ic { width: 76px; height: 76px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font: 900 44px/1 Montserrat, sans-serif; color: #fff; flex: none; }
+      #k6 .ic.y { background: #141414; color: #F2C230; }
+      #k6 .ic.n { background: var(--brand-accent); }
+      #k6 .rt { font: 900 54px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k6 .rt span { color: #8a8a8a; font-size: 44px; }
+
+      /* ---------- captions (kingketo) ---------- */
+      .cap {
+        position: absolute; left: 40px; right: 40px; top: 1450px; text-align: center; opacity: 0; white-space: nowrap;
+        font: 900 78px/1 Montserrat, sans-serif; color: #fff; letter-spacing: -0.01em;
+        text-shadow: 0 0 2px #000, 0 3px 0 #000, 0 -3px 0 #000, 3px 0 0 #000, -3px 0 0 #000, 0 6px 22px rgba(0,0,0,.55);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="52.37" data-width="1080" data-height="1920">
+      <div id="face-wrap">
+        <video id="face-video" src="assets/illness.mp4" data-start="0" data-duration="52.37" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/illness.mp4" data-start="0" data-duration="52.37" data-track-index="1" data-volume="1"></audio>
+      <div id="topfade" class="clip" data-start="0" data-duration="52.37" data-track-index="2"></div>
+
+      <div id="cards" class="clip" data-start="0" data-duration="52.37" data-track-index="3">
+        <!-- 1 · 0.2–6.45 -->
+        <div class="card dark" id="k1">
+          <div class="pill" id="k1-p">● Going around</div>
+          <div class="h" id="k1-h" style="margin-top:22px">Everyone's <span class="box" id="k1-box">SICK</span></div>
+          <div class="row" id="k1-row">
+            <div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div>
+            <div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div>
+          </div>
+        </div>
+        <!-- 2 · 6.45–12.6 -->
+        <div class="card cream" id="k2">
+          <div class="pill" id="k2-p">Clients · this week</div>
+          <div style="position:relative;height:150px;margin-top:34px"><div class="typing" id="k2-typing" style="position:absolute;left:0;top:0;margin:0"><i></i><i></i><i></i></div><div class="bubble" id="k2-b" style="position:absolute;left:0;top:0;margin:0">“Should I <b>train</b>, Ash? I feel <b>sick</b>”</div></div>
+          <div class="small meta" id="k2-m">The question I keep getting</div>
+        </div>
+        <!-- 3 · 12.6–27.4 -->
+        <div class="card dark" id="k3">
+          <div style="display:flex;align-items:center;gap:22px"><div class="h" id="k3-h" style="font-size:72px">Two <span class="serif">camps</span></div><div class="pill ghost" id="k3-f" style="color:#F2C230">I sit on the fence</div></div>
+          <div class="camps">
+            <div class="camp" id="k3-a"><div class="t" id="k3-at">DON'T TRAIN</div><ul><li id="k3-a1">· Rest up</li><li id="k3-a2">· Recover</li><li id="k3-a3">· Fatigue management</li></ul></div>
+            <div class="camp" id="k3-b"><div class="t" id="k3-bt">TRAIN ANYWAY</div><ul><li id="k3-b1">· Push through</li></ul><span class="serif" id="k3-b2">no matter what</span></div>
+          </div>
+          <div class="pill me" id="k3-me">Me → assess the situation</div>
+        </div>
+        <!-- 4 · 27.4–38.55 -->
+        <div class="card cream" id="k4">
+          <div class="h" id="k4-h" style="font-size:72px">The <span class="serif">simple</span> test</div>
+          <div class="q" id="k4-q">Can you hit your <span class="box">numbers?</span></div>
+          <div class="bars">
+            <div class="bar" id="k4-b1"><span>100 KG × 8</span><em>NORMAL</em></div>
+            <div class="bar today" id="k4-b2"><span>100 KG × 8</span><em>TODAY</em></div>
+          </div>
+          <div class="verdict" id="k4-v">✓ GO TRAIN</div>
+        </div>
+        <!-- 5 · 38.55–48.6 -->
+        <div class="card dark" id="k5">
+          <div class="h" id="k5-h" style="font-size:72px">Dragging your <span class="serif">ass?</span></div>
+          <div class="batt"><i id="k5-bat"></i></div>
+          <div class="small lab" id="k5-l">Reps in reserve</div>
+          <div class="scale" id="k5-s"><div class="zone"></div><div class="needle" id="k5-n"><b id="k5-nb"><span id="k5-n1">1–2</span><span id="k5-n2" style="position:absolute;left:50%;transform:translateX(-50%);color:#ff3b3e;opacity:0">14</span></b></div></div>
+          <div class="ticks" id="k5-t"><span>0</span><span>5</span><span>10</span><span>15</span></div>
+          <div class="verdict" id="k5-v">✕ REST</div>
+        </div>
+        <!-- 6 · 48.6–end -->
+        <div class="card cream" id="k6">
+          <div class="h" style="font-size:66px">Ash's <span class="serif">rule</span> <span class="box">when sick</span></div>
+          <div class="rule" id="k6-r1"><div class="ic y">✓</div><div class="rt">Numbers hit <span>→</span> TRAIN</div></div>
+          <div class="rule" id="k6-r2"><div class="ic n">✕</div><div class="rt">No energy <span>→</span> REST</div></div>
+        </div>
+      </div>
+
+      <div id="caps" class="clip" data-start="0" data-duration="52.37" data-track-index="4">
+<div class="cap" id="c0"><span id="c0w0">SO</span> <span id="c0w1">EVERY</span> <span id="c0w2">F*CKER</span></div>
+<div class="cap" id="c1"><span id="c1w0">IS</span> <span id="c1w1">SICK</span> <span id="c1w2">AT</span></div>
+<div class="cap" id="c2"><span id="c2w0">THE</span> <span id="c2w1">MOMENT</span> <span id="c2w2">RIGHT</span></div>
+<div class="cap" id="c3"><span id="c3w0">THERE'S</span> <span id="c3w1">A</span> <span id="c3w2">VIRUS</span></div>
+<div class="cap" id="c4"><span id="c4w0">GOING</span> <span id="c4w1">AROUND</span></div>
+<div class="cap" id="c5"><span id="c5w0">AND</span> <span id="c5w1">I'VE</span> <span id="c5w2">GOT</span></div>
+<div class="cap" id="c6"><span id="c6w0">THIS</span> <span id="c6w1">QUESTION</span></div>
+<div class="cap" id="c7"><span id="c7w0">A</span> <span id="c7w1">LOT</span> <span id="c7w2">THIS</span></div>
+<div class="cap" id="c8"><span id="c8w0">WEEK</span> <span id="c8w1">FROM</span> <span id="c8w2">CLIENTS</span></div>
+<div class="cap" id="c9"><span id="c9w0">SHOULD</span> <span id="c9w1">I</span> <span id="c9w2">TRAIN</span></div>
+<div class="cap" id="c10"><span id="c10w0">ASH</span> <span id="c10w1">I</span> <span id="c10w2">FEEL</span></div>
+<div class="cap" id="c11"><span id="c11w0">SICK</span> <span id="c11w1">SHOULD</span></div>
+<div class="cap" id="c12"><span id="c12w0">I</span> <span id="c12w1">TRAIN</span> <span id="c12w2">OKAY</span></div>
+<div class="cap" id="c13"><span id="c13w0">NOW</span> <span id="c13w1">I</span> <span id="c13w2">SIT</span></div>
+<div class="cap" id="c14"><span id="c14w0">ON</span> <span id="c14w1">THE</span> <span id="c14w2">FENCE</span></div>
+<div class="cap" id="c15"><span id="c15w0">ON</span> <span id="c15w1">THIS</span> <span id="c15w2">PARTICULAR</span></div>
+<div class="cap" id="c16"><span id="c16w0">SUBJECT</span> <span id="c16w1">RIGHT</span></div>
+<div class="cap" id="c17"><span id="c17w0">SO</span> <span id="c17w1">A</span> <span id="c17w2">LOT</span></div>
+<div class="cap" id="c18"><span id="c18w0">OF</span> <span id="c18w1">PEOPLE</span> <span id="c18w2">EVEN</span></div>
+<div class="cap" id="c19"><span id="c19w0">KNOW</span> <span id="c19w1">DON'T</span> <span id="c19w2">TRAIN</span></div>
+<div class="cap" id="c20"><span id="c20w0">REST</span> <span id="c20w1">UP</span> <span id="c20w2">RECOVER</span></div>
+<div class="cap" id="c21"><span id="c21w0">FATIGUE</span> <span id="c21w1">MANAGEMENT</span></div>
+<div class="cap" id="c22"><span id="c22w0">ALL</span> <span id="c22w1">THAT</span> <span id="c22w2">BOLLOCKS</span></div>
+<div class="cap" id="c23"><span id="c23w0">AND</span> <span id="c23w1">THEN</span> <span id="c23w2">THE</span></div>
+<div class="cap" id="c24"><span id="c24w0">OTHER</span> <span id="c24w1">PEOPLE</span></div>
+<div class="cap" id="c25"><span id="c25w0">ARE</span> <span id="c25w1">JUST</span> <span id="c25w2">GOING</span></div>
+<div class="cap" id="c26"><span id="c26w0">TO</span> <span id="c26w1">ANYWAY</span> <span id="c26w2">RIGHT</span></div>
+<div class="cap" id="c27"><span id="c27w0">NOW</span> <span id="c27w1">FOR</span> <span id="c27w2">ME</span></div>
+<div class="cap" id="c28"><span id="c28w0">I</span> <span id="c28w1">SIT</span> <span id="c28w2">ON</span></div>
+<div class="cap" id="c29"><span id="c29w0">THE</span> <span id="c29w1">FENCE</span> <span id="c29w2">AND</span></div>
+<div class="cap" id="c30"><span id="c30w0">ASSESS</span> <span id="c30w1">THE</span> <span id="c30w2">SITUATION</span></div>
+<div class="cap" id="c31"><span id="c31w0">VERY</span> <span id="c31w1">SIMPLY</span></div>
+<div class="cap" id="c32"><span id="c32w0">OKAY</span> <span id="c32w1">NOW</span> <span id="c32w2">IF</span></div>
+<div class="cap" id="c33"><span id="c33w0">I</span> <span id="c33w1">FEEL</span> <span id="c33w2">ABLE</span></div>
+<div class="cap" id="c34"><span id="c34w0">TO</span> <span id="c34w1">GO</span> <span id="c34w2">TO</span></div>
+<div class="cap" id="c35"><span id="c35w0">THE</span> <span id="c35w1">GYM</span> <span id="c35w2">AND</span></div>
+<div class="cap" id="c36"><span id="c36w0">SUSTAIN</span> <span id="c36w1">MY</span> <span id="c36w2">LEVEL</span></div>
+<div class="cap" id="c37"><span id="c37w0">OF</span> <span id="c37w1">PERFORMANCE</span></div>
+<div class="cap" id="c38"><span id="c38w0">IN</span> <span id="c38w1">THE</span> <span id="c38w2">GYM</span></div>
+<div class="cap" id="c39"><span id="c39w0">I.E.</span> <span id="c39w1">MY</span> <span id="c39w2">NUMBERS</span></div>
+<div class="cap" id="c40"><span id="c40w0">ARE</span> <span id="c40w1">STILL</span> <span id="c40w2">BEING</span></div>
+<div class="cap" id="c41"><span id="c41w0">HIT</span> <span id="c41w1">I</span> <span id="c41w2">WILL</span></div>
+<div class="cap" id="c42"><span id="c42w0">GO</span> <span id="c42w1">TO</span> <span id="c42w2">THE</span></div>
+<div class="cap" id="c43"><span id="c43w0">GYM</span> <span id="c43w1">IF</span> <span id="c43w2">I</span></div>
+<div class="cap" id="c44"><span id="c44w0">FEEL</span> <span id="c44w1">THAT</span> <span id="c44w2">I'M</span></div>
+<div class="cap" id="c45"><span id="c45w0">GONNA</span> <span id="c45w1">BE</span> <span id="c45w2">DRAGGING</span></div>
+<div class="cap" id="c46"><span id="c46w0">MY</span> <span id="c46w1">ASS</span> <span id="c46w2">AROUND</span></div>
+<div class="cap" id="c47"><span id="c47w0">I'VE</span> <span id="c47w1">NOT</span> <span id="c47w2">REALLY</span></div>
+<div class="cap" id="c48"><span id="c48w0">GOT</span> <span id="c48w1">THE</span> <span id="c48w2">ENERGY</span></div>
+<div class="cap" id="c49"><span id="c49w0">I'M</span> <span id="c49w1">PROBABLY</span></div>
+<div class="cap" id="c50"><span id="c50w0">GONNA</span> <span id="c50w1">BE</span> <span id="c50w2">LIFTING</span></div>
+<div class="cap" id="c51"><span id="c51w0">YOU</span> <span id="c51w1">KNOW</span> <span id="c51w2">14</span></div>
+<div class="cap" id="c52"><span id="c52w0">REPS</span> <span id="c52w1">IN</span> <span id="c52w2">RESERVE</span></div>
+<div class="cap" id="c53"><span id="c53w0">I'M</span> <span id="c53w1">NOT</span> <span id="c53w2">GOING</span></div>
+<div class="cap" id="c54"><span id="c54w0">TO</span> <span id="c54w1">GO</span> <span id="c54w2">I'M</span></div>
+<div class="cap" id="c55"><span id="c55w0">GONNA</span> <span id="c55w1">REST</span> <span id="c55w2">AND</span></div>
+<div class="cap" id="c56"><span id="c56w0">I</span> <span id="c56w1">ADVISE</span> <span id="c56w2">YOU</span></div>
+<div class="cap" id="c57"><span id="c57w0">USE</span> <span id="c57w1">THAT</span> <span id="c57w2">TIP</span></div>
+<div class="cap" id="c58"><span id="c58w0">TO</span> <span id="c58w1">DO</span></div>
+      </div>
+
+      <!-- SFX -->
+      <audio id="x1" src="assets/sfx/pop.mp3" data-start="1.95" data-duration="0.7" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="x2" src="assets/sfx/hard-cut.mp3" data-start="2.95" data-duration="0.24" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="x3" src="assets/sfx/pop.mp3" data-start="6.5" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x4" src="assets/sfx/send-message.mp3" data-start="9.9" data-duration="1.0" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x5" src="assets/sfx/pop.mp3" data-start="12.65" data-duration="0.7" data-track-index="11" data-volume="0.18"></audio>
+      <audio id="x6" src="assets/sfx/click.wav" data-start="17.8" data-duration="0.45" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="x7" src="assets/sfx/click.wav" data-start="22.85" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x8" src="assets/sfx/zap.mp3" data-start="25.65" data-duration="0.9" data-track-index="11" data-volume="0.14"></audio>
+      <audio id="x9" src="assets/sfx/pop.mp3" data-start="27.45" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x10" src="assets/sfx/click.wav" data-start="31.7" data-duration="0.45" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="x10b" src="assets/sfx/click.wav" data-start="35.75" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x11" src="assets/sfx/slam.mp3" data-start="37.8" data-duration="1.2" data-track-index="11" data-volume="0.24"></audio>
+      <audio id="x12" src="assets/sfx/pop.mp3" data-start="38.6" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x13" src="assets/sfx/swipe.mp3" data-start="44.85" data-duration="1.05" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="x14" src="assets/sfx/slam.mp3" data-start="48.32" data-duration="1.2" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="x15" src="assets/sfx/click.wav" data-start="49.65" data-duration="0.45" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="x16" src="assets/sfx/click.wav" data-start="50.2" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 52.37;
+        const CARD = (id, t, end) => {
+          tl.fromTo(id, { opacity: 0, y: -30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(1.6)", immediateRender: false }, t);
+          tl.set(id, { opacity: 0 }, end);
+        };
+        const IN = (s, t, from = { y: 24 }, ease = "power3.out", d = 0.3) => tl.fromTo(s, { ...from, opacity: 0 }, { x: 0, y: 0, scale: 1, opacity: 1, duration: d, ease }, t);
+        const STAMP = (s, t) => tl.fromTo(s, { scale: 1.9, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.2, ease: "power4.in" }, t);
+
+        // 1 — Everyone's SICK + people turning red
+        CARD("#k1", 1.9, 6.45);
+        tl.set(["#k1-h", "#k1-row"], { opacity: 0 }, 1.9);
+        IN("#k1-h", 1.98, { y: 30 }, "expo.out");
+        tl.fromTo("#k1-box", { scale: 0.5 }, { scale: 1, duration: 0.22, ease: "back.out(3)" }, 2.97);
+        IN("#k1-row", 3.4, { y: 20 }, "power2.out");
+        document.querySelectorAll("#k1 .person").forEach((p, i) => {
+          if (i === 5) return;
+          const t = 4.0 + i * 0.28;
+          tl.to(p.querySelectorAll("i, b"), { backgroundColor: "#d80609", boxShadow: "0 0 22px rgba(216,6,9,.55)", duration: 0.12 }, t);
+          tl.fromTo(p, { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+        });
+
+        // 2 — the question (typing → bubble)
+        CARD("#k2", 6.45, 12.6);
+        tl.set(["#k2-b", "#k2-m"], { opacity: 0 }, 6.45);
+        tl.set("#k2-typing", { opacity: 1 }, 6.45);
+        tl.to("#k2-typing i", { y: -8, duration: 0.22, yoyo: true, repeat: 7, stagger: 0.12, ease: "sine.inOut" }, 7.6);
+        tl.set("#k2-typing", { opacity: 0 }, 9.85);
+        IN("#k2-b", 9.92, { y: 30, scale: 0.85 }, "back.out(1.8)", 0.32);
+        IN("#k2-m", 11.0, { y: 10 }, "power2.out");
+
+        // 3 — two camps, then ME
+        CARD("#k3", 12.6, 27.4);
+        tl.set(["#k3-f", "#k3-at", "#k3-bt", "#k3-b1", "#k3-me", "#k3-a1", "#k3-a2", "#k3-a3", "#k3-b2"], { opacity: 0 }, 12.6);
+        IN("#k3-f", 13.45, { x: 30 }, "back.out(2)");
+        IN("#k3-at", 17.8, { x: -30 }, "expo.out");
+        IN("#k3-a1", 18.45, { x: -12 });
+        IN("#k3-a2", 19.05, { x: -12 });
+        IN("#k3-a3", 19.8, { x: -12 });
+        IN("#k3-bt", 22.85, { x: 30 }, "expo.out");
+        IN("#k3-b1", 23.1, { x: 12 });
+        IN("#k3-b2", 23.3, { y: 10 });
+        tl.to(["#k3-a", "#k3-b"], { opacity: 0.35, duration: 0.3 }, 25.6);
+        tl.fromTo("#k3-me", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 25.65);
+
+        // 4 — the simple test: bars match → GO TRAIN
+        CARD("#k4", 27.4, 38.55);
+        tl.set(["#k4-q", "#k4-v"], { opacity: 0 }, 27.4);
+        tl.set(["#k4-b1", "#k4-b2"], { scaleY: 0 }, 27.4);
+        IN("#k4-q", 29.45, { y: 20 }, "expo.out");
+        tl.to("#k4-b1", { scaleY: 1, duration: 0.45, ease: "back.out(1.4)" }, 31.7);
+        tl.to("#k4-b2", { scaleY: 1, duration: 0.55, ease: "back.out(1.4)" }, 35.75);
+        STAMP("#k4-v", 37.8);
+
+        // 5 — dragging: battery drains, RIR needle → 14 → REST
+        CARD("#k5", 38.55, 49.4);
+        tl.set(["#k5-l", "#k5-s", "#k5-t", "#k5-v"], { opacity: 0 }, 38.55);
+        tl.to("#k5-bat", { scaleX: 0.12, backgroundColor: "#d80609", duration: 1.4, ease: "power2.in" }, 41.6);
+        IN("#k5-l", 40.9, { y: 12 });
+        IN("#k5-s", 41.0, { y: 12 });
+        IN("#k5-t", 41.1, { y: 12 });
+        tl.to("#k5-n", { x: 739, backgroundColor: "#d80609", duration: 0.7, ease: "power3.inOut" }, 44.85);
+        tl.to("#k5-n1", { opacity: 0, duration: 0.1 }, 45.15);
+        tl.to("#k5-n2", { opacity: 1, duration: 0.1 }, 45.2);
+        STAMP("#k5-v", 48.32);
+
+        // 6 — the rule
+        CARD("#k6", 49.4, DUR);
+        tl.set(["#k6-r1", "#k6-r2"], { opacity: 0 }, 49.4);
+        IN("#k6-r1", 49.65, { x: -30 }, "expo.out");
+        IN("#k6-r2", 50.2, { x: -30 }, "expo.out");
+
+        // punch-ins on two key lines (hard zoom, back out)
+        tl.set("#face-wrap", { scale: 1.14 }, 24.45);
+        tl.set("#face-wrap", { scale: 1 }, 27.4);
+        tl.set("#face-wrap", { scale: 1.14 }, 46.7);
+        tl.set("#face-wrap", { scale: 1 }, 49.4);
+
+        // captions
+        tl.set("#c0", { opacity: 1 }, 0.00); tl.fromTo("#c0", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 0.00); tl.set("#c0", { opacity: 0 }, 2.82);
+        tl.set("#c0w0", { color: "#FFD400" }, 0.00);
+        tl.set("#c0w0", { color: "#FFFFFF" }, 2.00);
+        tl.set("#c0w1", { color: "#FFD400" }, 2.00);
+        tl.set("#c0w1", { color: "#FFFFFF" }, 2.37);
+        tl.set("#c0w2", { color: "#FFD400" }, 2.37);
+        tl.set("#c1", { opacity: 1 }, 2.82); tl.fromTo("#c1", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 2.82); tl.set("#c1", { opacity: 0 }, 3.42);
+        tl.set("#c1w0", { color: "#FFD400" }, 2.82);
+        tl.set("#c1w0", { color: "#FFFFFF" }, 2.97);
+        tl.set("#c1w1", { color: "#FFD400" }, 2.97);
+        tl.set("#c1w1", { color: "#FFFFFF" }, 3.27);
+        tl.set("#c1w2", { color: "#FFD400" }, 3.27);
+        tl.set("#c2", { opacity: 1 }, 3.42); tl.fromTo("#c2", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 3.42); tl.set("#c2", { opacity: 0 }, 4.32);
+        tl.set("#c2w0", { color: "#FFD400" }, 3.42);
+        tl.set("#c2w0", { color: "#FFFFFF" }, 3.64);
+        tl.set("#c2w1", { color: "#FFD400" }, 3.64);
+        tl.set("#c2w1", { color: "#FFFFFF" }, 4.12);
+        tl.set("#c2w2", { color: "#FFD400" }, 4.12);
+        tl.set("#c3", { opacity: 1 }, 4.32); tl.fromTo("#c3", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 4.32); tl.set("#c3", { opacity: 0 }, 4.97);
+        tl.set("#c3w0", { color: "#FFD400" }, 4.32);
+        tl.set("#c3w0", { color: "#FFFFFF" }, 4.67);
+        tl.set("#c3w1", { color: "#FFD400" }, 4.67);
+        tl.set("#c3w1", { color: "#FFFFFF" }, 4.72);
+        tl.set("#c3w2", { color: "#FFD400" }, 4.72);
+        tl.set("#c4", { opacity: 1 }, 4.97); tl.fromTo("#c4", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 4.97); tl.set("#c4", { opacity: 0 }, 5.36);
+        tl.set("#c4w0", { color: "#FFD400" }, 4.97);
+        tl.set("#c4w0", { color: "#FFFFFF" }, 5.24);
+        tl.set("#c4w1", { color: "#FFD400" }, 5.24);
+        tl.set("#c5", { opacity: 1 }, 5.36); tl.fromTo("#c5", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 5.36); tl.set("#c5", { opacity: 0 }, 7.11);
+        tl.set("#c5w0", { color: "#FFD400" }, 5.36);
+        tl.set("#c5w0", { color: "#FFFFFF" }, 6.56);
+        tl.set("#c5w1", { color: "#FFD400" }, 6.56);
+        tl.set("#c5w1", { color: "#FFFFFF" }, 6.87);
+        tl.set("#c5w2", { color: "#FFD400" }, 6.87);
+        tl.set("#c6", { opacity: 1 }, 7.11); tl.fromTo("#c6", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 7.11); tl.set("#c6", { opacity: 0 }, 8.05);
+        tl.set("#c6w0", { color: "#FFD400" }, 7.11);
+        tl.set("#c6w0", { color: "#FFFFFF" }, 7.43);
+        tl.set("#c6w1", { color: "#FFD400" }, 7.43);
+        tl.set("#c7", { opacity: 1 }, 8.05); tl.fromTo("#c7", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 8.05); tl.set("#c7", { opacity: 0 }, 8.70);
+        tl.set("#c7w0", { color: "#FFD400" }, 8.05);
+        tl.set("#c7w0", { color: "#FFFFFF" }, 8.14);
+        tl.set("#c7w1", { color: "#FFD400" }, 8.14);
+        tl.set("#c7w1", { color: "#FFFFFF" }, 8.38);
+        tl.set("#c7w2", { color: "#FFD400" }, 8.38);
+        tl.set("#c8", { opacity: 1 }, 8.70); tl.fromTo("#c8", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 8.70); tl.set("#c8", { opacity: 0 }, 9.92);
+        tl.set("#c8w0", { color: "#FFD400" }, 8.70);
+        tl.set("#c8w0", { color: "#FFFFFF" }, 9.02);
+        tl.set("#c8w1", { color: "#FFD400" }, 9.02);
+        tl.set("#c8w1", { color: "#FFFFFF" }, 9.34);
+        tl.set("#c8w2", { color: "#FFD400" }, 9.34);
+        tl.set("#c9", { opacity: 1 }, 9.92); tl.fromTo("#c9", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 9.92); tl.set("#c9", { opacity: 0 }, 10.60);
+        tl.set("#c9w0", { color: "#FFD400" }, 9.92);
+        tl.set("#c9w0", { color: "#FFFFFF" }, 10.25);
+        tl.set("#c9w1", { color: "#FFD400" }, 10.25);
+        tl.set("#c9w1", { color: "#FFFFFF" }, 10.30);
+        tl.set("#c9w2", { color: "#FFD400" }, 10.30);
+        tl.set("#c10", { opacity: 1 }, 10.60); tl.fromTo("#c10", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 10.60); tl.set("#c10", { opacity: 0 }, 11.04);
+        tl.set("#c10w0", { color: "#FFD400" }, 10.60);
+        tl.set("#c10w0", { color: "#FFFFFF" }, 10.72);
+        tl.set("#c10w1", { color: "#FFD400" }, 10.72);
+        tl.set("#c10w1", { color: "#FFFFFF" }, 10.88);
+        tl.set("#c10w2", { color: "#FFD400" }, 10.88);
+        tl.set("#c11", { opacity: 1 }, 11.04); tl.fromTo("#c11", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 11.04); tl.set("#c11", { opacity: 0 }, 12.06);
+        tl.set("#c11w0", { color: "#FFD400" }, 11.04);
+        tl.set("#c11w0", { color: "#FFFFFF" }, 11.44);
+        tl.set("#c11w1", { color: "#FFD400" }, 11.44);
+        tl.set("#c12", { opacity: 1 }, 12.06); tl.fromTo("#c12", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 12.06); tl.set("#c12", { opacity: 0 }, 13.05);
+        tl.set("#c12w0", { color: "#FFD400" }, 12.06);
+        tl.set("#c12w0", { color: "#FFFFFF" }, 12.15);
+        tl.set("#c12w1", { color: "#FFD400" }, 12.15);
+        tl.set("#c12w1", { color: "#FFFFFF" }, 12.67);
+        tl.set("#c12w2", { color: "#FFD400" }, 12.67);
+        tl.set("#c13", { opacity: 1 }, 13.05); tl.fromTo("#c13", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 13.05); tl.set("#c13", { opacity: 0 }, 13.75);
+        tl.set("#c13w0", { color: "#FFD400" }, 13.05);
+        tl.set("#c13w0", { color: "#FFFFFF" }, 13.35);
+        tl.set("#c13w1", { color: "#FFD400" }, 13.35);
+        tl.set("#c13w1", { color: "#FFFFFF" }, 13.45);
+        tl.set("#c13w2", { color: "#FFD400" }, 13.45);
+        tl.set("#c14", { opacity: 1 }, 13.75); tl.fromTo("#c14", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 13.75); tl.set("#c14", { opacity: 0 }, 14.75);
+        tl.set("#c14w0", { color: "#FFD400" }, 13.75);
+        tl.set("#c14w0", { color: "#FFFFFF" }, 13.95);
+        tl.set("#c14w1", { color: "#FFD400" }, 13.95);
+        tl.set("#c14w1", { color: "#FFFFFF" }, 14.25);
+        tl.set("#c14w2", { color: "#FFD400" }, 14.25);
+        tl.set("#c15", { opacity: 1 }, 14.75); tl.fromTo("#c15", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 14.75); tl.set("#c15", { opacity: 0 }, 15.80);
+        tl.set("#c15w0", { color: "#FFD400" }, 14.75);
+        tl.set("#c15w0", { color: "#FFFFFF" }, 14.95);
+        tl.set("#c15w1", { color: "#FFD400" }, 14.95);
+        tl.set("#c15w1", { color: "#FFFFFF" }, 15.42);
+        tl.set("#c15w2", { color: "#FFD400" }, 15.42);
+        tl.set("#c16", { opacity: 1 }, 15.80); tl.fromTo("#c16", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 15.80); tl.set("#c16", { opacity: 0 }, 16.47);
+        tl.set("#c16w0", { color: "#FFD400" }, 15.80);
+        tl.set("#c16w0", { color: "#FFFFFF" }, 16.16);
+        tl.set("#c16w1", { color: "#FFD400" }, 16.16);
+        tl.set("#c17", { opacity: 1 }, 16.47); tl.fromTo("#c17", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 16.47); tl.set("#c17", { opacity: 0 }, 16.83);
+        tl.set("#c17w0", { color: "#FFD400" }, 16.47);
+        tl.set("#c17w0", { color: "#FFFFFF" }, 16.59);
+        tl.set("#c17w1", { color: "#FFD400" }, 16.59);
+        tl.set("#c17w1", { color: "#FFFFFF" }, 16.65);
+        tl.set("#c17w2", { color: "#FFD400" }, 16.65);
+        tl.set("#c18", { opacity: 1 }, 16.83); tl.fromTo("#c18", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 16.83); tl.set("#c18", { opacity: 0 }, 17.57);
+        tl.set("#c18w0", { color: "#FFD400" }, 16.83);
+        tl.set("#c18w0", { color: "#FFFFFF" }, 16.95);
+        tl.set("#c18w1", { color: "#FFD400" }, 16.95);
+        tl.set("#c18w1", { color: "#FFFFFF" }, 17.32);
+        tl.set("#c18w2", { color: "#FFD400" }, 17.32);
+        tl.set("#c19", { opacity: 1 }, 17.57); tl.fromTo("#c19", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 17.57); tl.set("#c19", { opacity: 0 }, 18.47);
+        tl.set("#c19w0", { color: "#FFD400" }, 17.57);
+        tl.set("#c19w0", { color: "#FFFFFF" }, 17.82);
+        tl.set("#c19w1", { color: "#FFD400" }, 17.82);
+        tl.set("#c19w1", { color: "#FFFFFF" }, 18.12);
+        tl.set("#c19w2", { color: "#FFD400" }, 18.12);
+        tl.set("#c20", { opacity: 1 }, 18.47); tl.fromTo("#c20", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 18.47); tl.set("#c20", { opacity: 0 }, 19.80);
+        tl.set("#c20w0", { color: "#FFD400" }, 18.47);
+        tl.set("#c20w0", { color: "#FFFFFF" }, 18.88);
+        tl.set("#c20w1", { color: "#FFD400" }, 18.88);
+        tl.set("#c20w1", { color: "#FFFFFF" }, 19.08);
+        tl.set("#c20w2", { color: "#FFD400" }, 19.08);
+        tl.set("#c21", { opacity: 1 }, 19.80); tl.fromTo("#c21", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 19.80); tl.set("#c21", { opacity: 0 }, 21.32);
+        tl.set("#c21w0", { color: "#FFD400" }, 19.80);
+        tl.set("#c21w0", { color: "#FFFFFF" }, 20.80);
+        tl.set("#c21w1", { color: "#FFD400" }, 20.80);
+        tl.set("#c22", { opacity: 1 }, 21.32); tl.fromTo("#c22", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 21.32); tl.set("#c22", { opacity: 0 }, 21.92);
+        tl.set("#c22w0", { color: "#FFD400" }, 21.32);
+        tl.set("#c22w0", { color: "#FFFFFF" }, 21.44);
+        tl.set("#c22w1", { color: "#FFD400" }, 21.44);
+        tl.set("#c22w1", { color: "#FFFFFF" }, 21.60);
+        tl.set("#c22w2", { color: "#FFD400" }, 21.60);
+        tl.set("#c23", { opacity: 1 }, 21.92); tl.fromTo("#c23", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 21.92); tl.set("#c23", { opacity: 0 }, 22.32);
+        tl.set("#c23w0", { color: "#FFD400" }, 21.92);
+        tl.set("#c23w0", { color: "#FFFFFF" }, 22.04);
+        tl.set("#c23w1", { color: "#FFD400" }, 22.04);
+        tl.set("#c23w1", { color: "#FFFFFF" }, 22.20);
+        tl.set("#c23w2", { color: "#FFD400" }, 22.20);
+        tl.set("#c24", { opacity: 1 }, 22.32); tl.fromTo("#c24", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 22.32); tl.set("#c24", { opacity: 0 }, 22.76);
+        tl.set("#c24w0", { color: "#FFD400" }, 22.32);
+        tl.set("#c24w0", { color: "#FFFFFF" }, 22.52);
+        tl.set("#c24w1", { color: "#FFD400" }, 22.52);
+        tl.set("#c25", { opacity: 1 }, 22.76); tl.fromTo("#c25", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 22.76); tl.set("#c25", { opacity: 0 }, 23.24);
+        tl.set("#c25w0", { color: "#FFD400" }, 22.76);
+        tl.set("#c25w0", { color: "#FFFFFF" }, 22.88);
+        tl.set("#c25w1", { color: "#FFD400" }, 22.88);
+        tl.set("#c25w1", { color: "#FFFFFF" }, 23.04);
+        tl.set("#c25w2", { color: "#FFD400" }, 23.04);
+        tl.set("#c26", { opacity: 1 }, 23.24); tl.fromTo("#c26", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 23.24); tl.set("#c26", { opacity: 0 }, 23.88);
+        tl.set("#c26w0", { color: "#FFD400" }, 23.24);
+        tl.set("#c26w0", { color: "#FFFFFF" }, 23.32);
+        tl.set("#c26w1", { color: "#FFD400" }, 23.32);
+        tl.set("#c26w1", { color: "#FFFFFF" }, 23.64);
+        tl.set("#c26w2", { color: "#FFD400" }, 23.64);
+        tl.set("#c27", { opacity: 1 }, 23.88); tl.fromTo("#c27", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 23.88); tl.set("#c27", { opacity: 0 }, 24.46);
+        tl.set("#c27w0", { color: "#FFD400" }, 23.88);
+        tl.set("#c27w0", { color: "#FFFFFF" }, 24.10);
+        tl.set("#c27w1", { color: "#FFD400" }, 24.10);
+        tl.set("#c27w1", { color: "#FFFFFF" }, 24.32);
+        tl.set("#c27w2", { color: "#FFD400" }, 24.32);
+        tl.set("#c28", { opacity: 1 }, 24.46); tl.fromTo("#c28", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 24.46); tl.set("#c28", { opacity: 0 }, 24.90);
+        tl.set("#c28w0", { color: "#FFD400" }, 24.46);
+        tl.set("#c28w0", { color: "#FFFFFF" }, 24.53);
+        tl.set("#c28w1", { color: "#FFD400" }, 24.53);
+        tl.set("#c28w1", { color: "#FFFFFF" }, 24.75);
+        tl.set("#c28w2", { color: "#FFD400" }, 24.75);
+        tl.set("#c29", { opacity: 1 }, 24.90); tl.fromTo("#c29", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 24.90); tl.set("#c29", { opacity: 0 }, 25.69);
+        tl.set("#c29w0", { color: "#FFD400" }, 24.90);
+        tl.set("#c29w0", { color: "#FFFFFF" }, 25.11);
+        tl.set("#c29w1", { color: "#FFD400" }, 25.11);
+        tl.set("#c29w1", { color: "#FFFFFF" }, 25.46);
+        tl.set("#c29w2", { color: "#FFD400" }, 25.46);
+        tl.set("#c30", { opacity: 1 }, 25.69); tl.fromTo("#c30", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 25.69); tl.set("#c30", { opacity: 0 }, 27.04);
+        tl.set("#c30w0", { color: "#FFD400" }, 25.69);
+        tl.set("#c30w0", { color: "#FFFFFF" }, 26.13);
+        tl.set("#c30w1", { color: "#FFD400" }, 26.13);
+        tl.set("#c30w1", { color: "#FFFFFF" }, 26.35);
+        tl.set("#c30w2", { color: "#FFD400" }, 26.35);
+        tl.set("#c31", { opacity: 1 }, 27.04); tl.fromTo("#c31", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 27.04); tl.set("#c31", { opacity: 0 }, 28.16);
+        tl.set("#c31w0", { color: "#FFD400" }, 27.04);
+        tl.set("#c31w0", { color: "#FFFFFF" }, 27.48);
+        tl.set("#c31w1", { color: "#FFD400" }, 27.48);
+        tl.set("#c32", { opacity: 1 }, 28.16); tl.fromTo("#c32", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 28.16); tl.set("#c32", { opacity: 0 }, 29.30);
+        tl.set("#c32w0", { color: "#FFD400" }, 28.16);
+        tl.set("#c32w0", { color: "#FFFFFF" }, 28.64);
+        tl.set("#c32w1", { color: "#FFD400" }, 28.64);
+        tl.set("#c32w1", { color: "#FFFFFF" }, 29.03);
+        tl.set("#c32w2", { color: "#FFD400" }, 29.03);
+        tl.set("#c33", { opacity: 1 }, 29.30); tl.fromTo("#c33", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 29.30); tl.set("#c33", { opacity: 0 }, 30.26);
+        tl.set("#c33w0", { color: "#FFD400" }, 29.30);
+        tl.set("#c33w0", { color: "#FFFFFF" }, 29.48);
+        tl.set("#c33w1", { color: "#FFD400" }, 29.48);
+        tl.set("#c33w1", { color: "#FFFFFF" }, 29.87);
+        tl.set("#c33w2", { color: "#FFD400" }, 29.87);
+        tl.set("#c34", { opacity: 1 }, 30.26); tl.fromTo("#c34", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 30.26); tl.set("#c34", { opacity: 0 }, 30.83);
+        tl.set("#c34w0", { color: "#FFD400" }, 30.26);
+        tl.set("#c34w0", { color: "#FFFFFF" }, 30.46);
+        tl.set("#c34w1", { color: "#FFD400" }, 30.46);
+        tl.set("#c34w1", { color: "#FFFFFF" }, 30.64);
+        tl.set("#c34w2", { color: "#FFD400" }, 30.64);
+        tl.set("#c35", { opacity: 1 }, 30.83); tl.fromTo("#c35", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 30.83); tl.set("#c35", { opacity: 0 }, 31.70);
+        tl.set("#c35w0", { color: "#FFD400" }, 30.83);
+        tl.set("#c35w0", { color: "#FFFFFF" }, 31.12);
+        tl.set("#c35w1", { color: "#FFD400" }, 31.12);
+        tl.set("#c35w1", { color: "#FFFFFF" }, 31.41);
+        tl.set("#c35w2", { color: "#FFD400" }, 31.41);
+        tl.set("#c36", { opacity: 1 }, 31.70); tl.fromTo("#c36", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 31.70); tl.set("#c36", { opacity: 0 }, 33.05);
+        tl.set("#c36w0", { color: "#FFD400" }, 31.70);
+        tl.set("#c36w0", { color: "#FFFFFF" }, 32.38);
+        tl.set("#c36w1", { color: "#FFD400" }, 32.38);
+        tl.set("#c36w1", { color: "#FFFFFF" }, 32.57);
+        tl.set("#c36w2", { color: "#FFD400" }, 32.57);
+        tl.set("#c37", { opacity: 1 }, 33.05); tl.fromTo("#c37", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 33.05); tl.set("#c37", { opacity: 0 }, 34.31);
+        tl.set("#c37w0", { color: "#FFD400" }, 33.05);
+        tl.set("#c37w0", { color: "#FFFFFF" }, 33.24);
+        tl.set("#c37w1", { color: "#FFD400" }, 33.24);
+        tl.set("#c38", { opacity: 1 }, 34.31); tl.fromTo("#c38", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 34.31); tl.set("#c38", { opacity: 0 }, 35.16);
+        tl.set("#c38w0", { color: "#FFD400" }, 34.31);
+        tl.set("#c38w0", { color: "#FFFFFF" }, 34.50);
+        tl.set("#c38w1", { color: "#FFD400" }, 34.50);
+        tl.set("#c38w1", { color: "#FFFFFF" }, 34.79);
+        tl.set("#c38w2", { color: "#FFD400" }, 34.79);
+        tl.set("#c39", { opacity: 1 }, 35.16); tl.fromTo("#c39", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 35.16); tl.set("#c39", { opacity: 0 }, 36.29);
+        tl.set("#c39w0", { color: "#FFD400" }, 35.16);
+        tl.set("#c39w0", { color: "#FFFFFF" }, 35.28);
+        tl.set("#c39w1", { color: "#FFD400" }, 35.28);
+        tl.set("#c39w1", { color: "#FFFFFF" }, 35.78);
+        tl.set("#c39w2", { color: "#FFD400" }, 35.78);
+        tl.set("#c40", { opacity: 1 }, 36.29); tl.fromTo("#c40", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 36.29); tl.set("#c40", { opacity: 0 }, 37.25);
+        tl.set("#c40w0", { color: "#FFD400" }, 36.29);
+        tl.set("#c40w0", { color: "#FFFFFF" }, 36.51);
+        tl.set("#c40w1", { color: "#FFD400" }, 36.51);
+        tl.set("#c40w1", { color: "#FFFFFF" }, 36.88);
+        tl.set("#c40w2", { color: "#FFD400" }, 36.88);
+        tl.set("#c41", { opacity: 1 }, 37.25); tl.fromTo("#c41", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 37.25); tl.set("#c41", { opacity: 0 }, 37.83);
+        tl.set("#c41w0", { color: "#FFD400" }, 37.25);
+        tl.set("#c41w0", { color: "#FFFFFF" }, 37.47);
+        tl.set("#c41w1", { color: "#FFD400" }, 37.47);
+        tl.set("#c41w1", { color: "#FFFFFF" }, 37.54);
+        tl.set("#c41w2", { color: "#FFD400" }, 37.54);
+        tl.set("#c42", { opacity: 1 }, 37.83); tl.fromTo("#c42", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 37.83); tl.set("#c42", { opacity: 0 }, 38.33);
+        tl.set("#c42w0", { color: "#FFD400" }, 37.83);
+        tl.set("#c42w0", { color: "#FFFFFF" }, 37.97);
+        tl.set("#c42w1", { color: "#FFD400" }, 37.97);
+        tl.set("#c42w1", { color: "#FFFFFF" }, 38.11);
+        tl.set("#c42w2", { color: "#FFD400" }, 38.11);
+        tl.set("#c43", { opacity: 1 }, 38.33); tl.fromTo("#c43", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 38.33); tl.set("#c43", { opacity: 0 }, 39.03);
+        tl.set("#c43w0", { color: "#FFD400" }, 38.33);
+        tl.set("#c43w0", { color: "#FFFFFF" }, 38.60);
+        tl.set("#c43w1", { color: "#FFD400" }, 38.60);
+        tl.set("#c43w1", { color: "#FFFFFF" }, 38.89);
+        tl.set("#c43w2", { color: "#FFD400" }, 38.89);
+        tl.set("#c44", { opacity: 1 }, 39.03); tl.fromTo("#c44", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 39.03); tl.set("#c44", { opacity: 0 }, 40.48);
+        tl.set("#c44w0", { color: "#FFD400" }, 39.03);
+        tl.set("#c44w0", { color: "#FFFFFF" }, 39.61);
+        tl.set("#c44w1", { color: "#FFD400" }, 39.61);
+        tl.set("#c44w1", { color: "#FFFFFF" }, 40.20);
+        tl.set("#c44w2", { color: "#FFD400" }, 40.20);
+        tl.set("#c45", { opacity: 1 }, 40.48); tl.fromTo("#c45", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 40.48); tl.set("#c45", { opacity: 0 }, 41.22);
+        tl.set("#c45w0", { color: "#FFD400" }, 40.48);
+        tl.set("#c45w0", { color: "#FFFFFF" }, 40.76);
+        tl.set("#c45w1", { color: "#FFD400" }, 40.76);
+        tl.set("#c45w1", { color: "#FFFFFF" }, 40.88);
+        tl.set("#c45w2", { color: "#FFD400" }, 40.88);
+        tl.set("#c46", { opacity: 1 }, 41.22); tl.fromTo("#c46", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 41.22); tl.set("#c46", { opacity: 0 }, 41.67);
+        tl.set("#c46w0", { color: "#FFD400" }, 41.22);
+        tl.set("#c46w0", { color: "#FFFFFF" }, 41.30);
+        tl.set("#c46w1", { color: "#FFD400" }, 41.30);
+        tl.set("#c46w1", { color: "#FFFFFF" }, 41.42);
+        tl.set("#c46w2", { color: "#FFD400" }, 41.42);
+        tl.set("#c47", { opacity: 1 }, 41.67); tl.fromTo("#c47", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 41.67); tl.set("#c47", { opacity: 0 }, 42.20);
+        tl.set("#c47w0", { color: "#FFD400" }, 41.67);
+        tl.set("#c47w0", { color: "#FFFFFF" }, 41.83);
+        tl.set("#c47w1", { color: "#FFD400" }, 41.83);
+        tl.set("#c47w1", { color: "#FFFFFF" }, 41.95);
+        tl.set("#c47w2", { color: "#FFD400" }, 41.95);
+        tl.set("#c48", { opacity: 1 }, 42.20); tl.fromTo("#c48", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 42.20); tl.set("#c48", { opacity: 0 }, 42.69);
+        tl.set("#c48w0", { color: "#FFD400" }, 42.20);
+        tl.set("#c48w0", { color: "#FFFFFF" }, 42.32);
+        tl.set("#c48w1", { color: "#FFD400" }, 42.32);
+        tl.set("#c48w1", { color: "#FFFFFF" }, 42.44);
+        tl.set("#c48w2", { color: "#FFD400" }, 42.44);
+        tl.set("#c49", { opacity: 1 }, 42.69); tl.fromTo("#c49", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 42.69); tl.set("#c49", { opacity: 0 }, 43.15);
+        tl.set("#c49w0", { color: "#FFD400" }, 42.69);
+        tl.set("#c49w0", { color: "#FFFFFF" }, 42.80);
+        tl.set("#c49w1", { color: "#FFD400" }, 42.80);
+        tl.set("#c50", { opacity: 1 }, 43.15); tl.fromTo("#c50", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 43.15); tl.set("#c50", { opacity: 0 }, 44.20);
+        tl.set("#c50w0", { color: "#FFD400" }, 43.15);
+        tl.set("#c50w0", { color: "#FFFFFF" }, 43.36);
+        tl.set("#c50w1", { color: "#FFD400" }, 43.36);
+        tl.set("#c50w1", { color: "#FFFFFF" }, 43.52);
+        tl.set("#c50w2", { color: "#FFD400" }, 43.52);
+        tl.set("#c51", { opacity: 1 }, 44.20); tl.fromTo("#c51", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 44.20); tl.set("#c51", { opacity: 0 }, 45.47);
+        tl.set("#c51w0", { color: "#FFD400" }, 44.20);
+        tl.set("#c51w0", { color: "#FFFFFF" }, 44.50);
+        tl.set("#c51w1", { color: "#FFD400" }, 44.50);
+        tl.set("#c51w1", { color: "#FFFFFF" }, 44.88);
+        tl.set("#c51w2", { color: "#FFD400" }, 44.88);
+        tl.set("#c52", { opacity: 1 }, 45.47); tl.fromTo("#c52", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 45.47); tl.set("#c52", { opacity: 0 }, 46.73);
+        tl.set("#c52w0", { color: "#FFD400" }, 45.47);
+        tl.set("#c52w0", { color: "#FFFFFF" }, 45.86);
+        tl.set("#c52w1", { color: "#FFD400" }, 45.86);
+        tl.set("#c52w1", { color: "#FFFFFF" }, 46.05);
+        tl.set("#c52w2", { color: "#FFD400" }, 46.05);
+        tl.set("#c53", { opacity: 1 }, 46.73); tl.fromTo("#c53", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 46.73); tl.set("#c53", { opacity: 0 }, 47.60);
+        tl.set("#c53w0", { color: "#FFD400" }, 46.73);
+        tl.set("#c53w0", { color: "#FFFFFF" }, 47.01);
+        tl.set("#c53w1", { color: "#FFD400" }, 47.01);
+        tl.set("#c53w1", { color: "#FFFFFF" }, 47.36);
+        tl.set("#c53w2", { color: "#FFD400" }, 47.36);
+        tl.set("#c54", { opacity: 1 }, 47.60); tl.fromTo("#c54", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 47.60); tl.set("#c54", { opacity: 0 }, 47.98);
+        tl.set("#c54w0", { color: "#FFD400" }, 47.60);
+        tl.set("#c54w0", { color: "#FFFFFF" }, 47.69);
+        tl.set("#c54w1", { color: "#FFD400" }, 47.69);
+        tl.set("#c54w1", { color: "#FFFFFF" }, 47.80);
+        tl.set("#c54w2", { color: "#FFD400" }, 47.80);
+        tl.set("#c55", { opacity: 1 }, 47.98); tl.fromTo("#c55", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 47.98); tl.set("#c55", { opacity: 0 }, 48.64);
+        tl.set("#c55w0", { color: "#FFD400" }, 47.98);
+        tl.set("#c55w0", { color: "#FFFFFF" }, 48.29);
+        tl.set("#c55w1", { color: "#FFD400" }, 48.29);
+        tl.set("#c55w1", { color: "#FFFFFF" }, 48.56);
+        tl.set("#c55w2", { color: "#FFD400" }, 48.56);
+        tl.set("#c56", { opacity: 1 }, 48.64); tl.fromTo("#c56", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 48.64); tl.set("#c56", { opacity: 0 }, 50.15);
+        tl.set("#c56w0", { color: "#FFD400" }, 48.64);
+        tl.set("#c56w0", { color: "#FFFFFF" }, 48.68);
+        tl.set("#c56w1", { color: "#FFD400" }, 48.68);
+        tl.set("#c56w1", { color: "#FFFFFF" }, 49.66);
+        tl.set("#c56w2", { color: "#FFD400" }, 49.66);
+        tl.set("#c57", { opacity: 1 }, 50.15); tl.fromTo("#c57", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 50.15); tl.set("#c57", { opacity: 0 }, 51.78);
+        tl.set("#c57w0", { color: "#FFD400" }, 50.15);
+        tl.set("#c57w0", { color: "#FFFFFF" }, 50.64);
+        tl.set("#c57w1", { color: "#FFD400" }, 50.64);
+        tl.set("#c57w1", { color: "#FFFFFF" }, 51.29);
+        tl.set("#c57w2", { color: "#FFD400" }, 51.29);
+        tl.set("#c58", { opacity: 1 }, 51.78); tl.fromTo("#c58", { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2.5)", immediateRender: false }, 51.78); tl.set("#c58", { opacity: 0 }, 52.37);
+        tl.set("#c58w0", { color: "#FFD400" }, 51.78);
+        tl.set("#c58w0", { color: "#FFFFFF" }, 52.10);
+        tl.set("#c58w1", { color: "#FFD400" }, 52.10);
+
+        tl.to({}, { duration: DUR }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

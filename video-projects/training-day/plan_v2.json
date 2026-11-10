@@ -1,0 +1,342 @@
+[
+ {
+  "c": "SLOWEXT",
+  "n": "exterior slow-mo",
+  "sf": 0,
+  "ef": 132,
+  "rec": 2482,
+  "dur": 132,
+  "src_in": 0,
+  "src_out": 4.4
+ },
+ {
+  "c": "c0006",
+  "n": "walk in",
+  "sf": 0,
+  "ef": 226,
+  "rec": 2614,
+  "dur": 282,
+  "src_in": 0.0,
+  "src_out": 9.4261
+ },
+ {
+  "c": "c0012",
+  "n": "what are you going to moan about",
+  "sf": 0,
+  "ef": 102,
+  "rec": 2896,
+  "dur": 127,
+  "src_in": 0.0,
+  "src_out": 4.25
+ },
+ {
+  "c": "c0012",
+  "n": "everything",
+  "sf": 302,
+  "ef": 391,
+  "rec": 3023,
+  "dur": 111,
+  "src_in": 12.6,
+  "src_out": 16.3
+ },
+ {
+  "c": "c0002",
+  "n": "mixing F75",
+  "sf": 28,
+  "ef": 247,
+  "rec": 3134,
+  "dur": 274,
+  "src_in": 1.15,
+  "src_out": 10.3
+ },
+ {
+  "c": "c0002",
+  "n": "try some? not really",
+  "sf": 957,
+  "ef": 1023,
+  "rec": 3408,
+  "dur": 82,
+  "src_in": 39.9,
+  "src_out": 42.65
+ },
+ {
+  "c": "c0007",
+  "n": "F75 review",
+  "sf": 0,
+  "ef": 2664,
+  "rec": 3490,
+  "dur": 3333,
+  "src_in": 0.0,
+  "src_out": 111.1
+ },
+ {
+  "c": "c0003",
+  "n": "banded kickback",
+  "sf": 36,
+  "ef": 253,
+  "rec": 6823,
+  "dur": 271,
+  "src_in": 1.5,
+  "src_out": 10.55
+ },
+ {
+  "c": "c0004",
+  "n": "mic joke",
+  "sf": 0,
+  "ef": 338,
+  "rec": 7094,
+  "dur": 422,
+  "src_in": 0.0,
+  "src_out": 14.1
+ },
+ {
+  "c": "c0005",
+  "n": "moccasins",
+  "sf": 583,
+  "ef": 996,
+  "rec": 7516,
+  "dur": 516,
+  "src_in": 24.3,
+  "src_out": 41.55
+ },
+ {
+  "c": "c0005",
+  "n": "kickback machine reps",
+  "sf": 1154,
+  "ef": 1429,
+  "rec": 8032,
+  "dur": 344,
+  "src_in": 48.15,
+  "src_out": 59.6
+ },
+ {
+  "c": "c0005",
+  "n": "dont like people telling me",
+  "sf": 2406,
+  "ef": 2642,
+  "rec": 8376,
+  "dur": 295,
+  "src_in": 100.35,
+  "src_out": 110.2
+ },
+ {
+  "c": "c0005",
+  "n": "Ash kickback reps",
+  "sf": 2959,
+  "ef": 3144,
+  "rec": 8671,
+  "dur": 231,
+  "src_in": 123.4,
+  "src_out": 131.15
+ },
+ {
+  "c": "c0008",
+  "n": "comedian",
+  "sf": 0,
+  "ef": 294,
+  "rec": 8902,
+  "dur": 367,
+  "src_in": 0.0,
+  "src_out": 12.25
+ },
+ {
+  "c": "c0008",
+  "n": "warm up",
+  "sf": 593,
+  "ef": 750,
+  "rec": 9269,
+  "dur": 196,
+  "src_in": 24.75,
+  "src_out": 31.3
+ },
+ {
+  "c": "c0009",
+  "n": "hip thrust reps",
+  "sf": 975,
+  "ef": 1192,
+  "rec": 9465,
+  "dur": 271,
+  "src_in": 40.65,
+  "src_out": 49.7
+ },
+ {
+  "c": "c0009",
+  "n": "water skiddy",
+  "sf": 1971,
+  "ef": 2713,
+  "rec": 9736,
+  "dur": 928,
+  "src_in": 82.2,
+  "src_out": 113.15
+ },
+ {
+  "c": "c0010",
+  "n": "I will complain",
+  "sf": 1779,
+  "ef": 2088,
+  "rec": 10664,
+  "dur": 386,
+  "src_in": 74.2,
+  "src_out": 87.1
+ },
+ {
+  "c": "c0010",
+  "n": "hip thrust reps 2",
+  "sf": 2364,
+  "ef": 2628,
+  "rec": 11050,
+  "dur": 330,
+  "src_in": 98.6,
+  "src_out": 109.6
+ },
+ {
+  "c": "c0011",
+  "n": "Ash hip thrust",
+  "sf": 6747,
+  "ef": 7019,
+  "rec": 11380,
+  "dur": 340,
+  "src_in": 281.4,
+  "src_out": 292.75
+ },
+ {
+  "c": "c0011",
+  "n": "ruined my set",
+  "sf": 7172,
+  "ef": 7753,
+  "rec": 11720,
+  "dur": 726,
+  "src_in": 299.15,
+  "src_out": 323.35
+ },
+ {
+  "c": "c0014",
+  "n": "leg press edu 1",
+  "sf": 0,
+  "ef": 1434,
+  "rec": 12446,
+  "dur": 1794,
+  "src_in": 0.0,
+  "src_out": 59.8
+ },
+ {
+  "c": "c0014",
+  "n": "leg press edu 2",
+  "sf": 1484,
+  "ef": 1971,
+  "rec": 14240,
+  "dur": 609,
+  "src_in": 61.9,
+  "src_out": 82.2
+ },
+ {
+  "c": "c0013",
+  "n": "leg press b-roll",
+  "sf": 0,
+  "ef": 71,
+  "rec": 14849,
+  "dur": 88,
+  "src_in": 0.0,
+  "src_out": 2.95
+ },
+ {
+  "c": "c0015",
+  "n": "leg press reps",
+  "sf": 266,
+  "ef": 454,
+  "rec": 14937,
+  "dur": 235,
+  "src_in": 11.1,
+  "src_out": 18.95
+ },
+ {
+  "c": "SLOWLP",
+  "n": "leg press slow-mo",
+  "sf": 0,
+  "ef": 108,
+  "rec": 15172,
+  "dur": 108,
+  "src_in": 0,
+  "src_out": 3.6
+ },
+ {
+  "c": "c0016",
+  "n": "knee rant",
+  "sf": 0,
+  "ef": 844,
+  "rec": 15280,
+  "dur": 1056,
+  "src_in": 0.0,
+  "src_out": 35.2
+ },
+ {
+  "c": "c0017",
+  "n": "single-leg machine squat",
+  "sf": 743,
+  "ef": 963,
+  "rec": 16336,
+  "dur": 275,
+  "src_in": 31.0,
+  "src_out": 40.15
+ },
+ {
+  "c": "c0017",
+  "n": "assessment",
+  "sf": 1413,
+  "ef": 1621,
+  "rec": 16611,
+  "dur": 260,
+  "src_in": 58.95,
+  "src_out": 67.6
+ },
+ {
+  "c": "c0018",
+  "n": "belt squat",
+  "sf": 0,
+  "ef": 314,
+  "rec": 16871,
+  "dur": 392,
+  "src_in": 0.0,
+  "src_out": 13.1
+ },
+ {
+  "c": "c0019",
+  "n": "cable kickback",
+  "sf": 215,
+  "ef": 367,
+  "rec": 17263,
+  "dur": 190,
+  "src_in": 8.95,
+  "src_out": 15.3
+ },
+ {
+  "c": "c0020",
+  "n": "Ash cable + trophy chat",
+  "sf": 730,
+  "ef": 1083,
+  "rec": 17453,
+  "dur": 441,
+  "src_in": 30.45,
+  "src_out": 45.15
+ },
+ {
+  "c": "c0021",
+  "n": "Lauren chat",
+  "sf": 1926,
+  "ef": 2531,
+  "rec": 17894,
+  "dur": 757,
+  "src_in": 80.35,
+  "src_out": 105.55
+ },
+ {
+  "c": "c0022",
+  "n": "outro",
+  "sf": 0,
+  "ef": 115,
+  "rec": 18651,
+  "dur": 143,
+  "src_in": 0.0,
+  "src_out": 4.8
+ }
+]

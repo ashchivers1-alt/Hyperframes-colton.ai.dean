@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#fl { position:absolute; inset:0; background:#fff; opacity:0; }
+.bar { position:absolute; left:0; right:0; height:120px; background:#000; display:none; }
+#bt { top:0; transform-origin:50% 0; } #bb { bottom:0; transform-origin:50% 100%; }
+#op { position:absolute; left:0; right:0; top:350px; text-align:center; }
+#op .k { font-weight:800; font-size:24px; letter-spacing:0.5em; color:#ff3b30; }
+#op .big { font-family:"Bebas Neue"; font-size:240px; line-height:0.86; letter-spacing:0.04em; text-shadow:0 0 40px rgba(255,255,255,0.25), 0 14px 50px rgba(0,0,0,0.8); }
+#op .s { font-weight:700; font-size:26px; letter-spacing:0.3em; margin-top:10px; }
+#opd { position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.55), rgba(0,0,0,0) 75%); opacity:0; }
+.tg { position:absolute; left:52px; bottom:72px; opacity:0; padding:14px 90px 16px 24px; border-left:6px solid #ff3b30;
+  background:linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 70%, rgba(0,0,0,0) 100%); }
+.tg .nm { font-family:"Bebas Neue"; font-size:84px; line-height:0.9; }
+.tg .s1 { font-weight:800; font-size:20px; letter-spacing:0.22em; margin-top:4px; white-space:nowrap; }
+.tg .s1 b { color:#ff3b30; }
+.tg.k .s1 b { color:#6f93ff; } .tg.k { border-left-color:#3f6cf0; }
+#bug { position:absolute; right:36px; top:36px; width:140px; opacity:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6)); }
+.en { position:absolute; bottom:60px; width:640px; text-align:center; opacity:0; }
+.en .nm { font-family:"Bebas Neue"; font-size:96px; line-height:0.9; text-shadow:0 8px 30px rgba(0,0,0,0.9); }
+.en .s1 { font-weight:800; font-size:19px; letter-spacing:0.22em; text-shadow:0 2px 10px rgba(0,0,0,0.9); }
+.en .s1 b { color:#ff3b30; }
+.dv { position:absolute; top:0; bottom:0; width:6px; margin-left:-3px; background:#ff3b30; box-shadow:0 0 18px rgba(255,59,48,0.8); transform-origin:50% 0; opacity:0; }
+#endlogo { position:absolute; left:40px; top:36px; width:170px; opacity:0; filter:drop-shadow(0 8px 24px rgba(0,0,0,0.8)); }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="46.366" data-width="1920" data-height="1080"><div id="opd"></div><div id="op"><div class="k">TEAM APEXX · ON STAGE</div><div class="big">STAGE DAY</div><div class="s">TBJP BRITISH FINALS · PCA BRITISH FINALS</div></div><div class="tg" id="tR"><div class="nm">RACHEL</div><div class="s1"><b>FIT MODEL</b> · TBJP BRITISH FINALS</div></div><div class="tg" id="tG"><div class="nm">GABRIELLA</div><div class="s1"><b>BIKINI</b> · TBJP BRITISH FINALS</div></div><div class="tg k" id="tK"><div class="nm">KATKA</div><div class="s1"><b>MASTERS BIKINI 45+</b> · PCA BRITISH FINALS</div></div><div class="en" id="eR" style="left:0px"><div class="nm">RACHEL</div><div class="s1"><b>FIT MODEL</b></div></div><div class="en" id="eG" style="left:640px"><div class="nm">GABRIELLA</div><div class="s1"><b>BIKINI</b></div></div><div class="en" id="eK" style="left:1280px"><div class="nm">KATKA</div><div class="s1"><b>MASTERS BIKINI 45+</b></div></div><div class="dv" id="d1" style="left:640px"></div><div class="dv" id="d2" style="left:1280px"></div><img id="bug" src="assets/apexx-logo.png"/><div class="bar" id="bt"></div><div class="bar" id="bb"></div><img id="endlogo" src="assets/apexx-logo.png"/><div id="fl"></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#op","#opd",".tg","#fl","#bug",".en",".dv","#endlogo"], { opacity:0 });
+tl.fromTo([".bar"], { scaleY:0 }, { scaleY:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, 0);
+tl.to("#opd", { opacity:1, duration:f(0.3) }, 0);
+tl.fromTo("#op", { opacity:0, scale:1.18, filter:"blur(14px)" }, { opacity:1, scale:1, filter:"blur(0px)", duration:f(0.55), ease:"expo.out", immediateRender:false }, f(0.1));
+tl.to("#op .big", { scale:1.06, duration:f(2.2), ease:"none" }, f(0.65));
+tl.to(["#op","#opd"], { opacity:0, y:-20, filter:"blur(10px)", duration:f(0.3), ease:"power2.in" }, f(2.967 - 0.3));
+tl.fromTo("#bug", { opacity:0 }, { opacity:0.9, duration:f(0.4), immediateRender:false }, f(2.967));
+tl.fromTo("#tR", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(3.1670000000000003));
+tl.fromTo("#tR .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(3.1670000000000003 + 0.1));
+tl.to("#tR", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(6.133 - 0.45));
+tl.fromTo("#tG", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(6.133));
+tl.fromTo("#tG .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(6.133 + 0.1));
+tl.to("#tG", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(9.1 - 0.45));
+tl.fromTo("#tK", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(9.1));
+tl.fromTo("#tK .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(9.1 + 0.1));
+tl.to("#tK", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(12.067 - 0.45));
+tl.fromTo("#tR", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(12.067));
+tl.fromTo("#tR .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(12.067 + 0.1));
+tl.to("#tR", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(15.033 - 0.45));
+tl.fromTo("#tG", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(15.033));
+tl.fromTo("#tG .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(15.033 + 0.1));
+tl.to("#tG", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(18.0 - 0.45));
+tl.fromTo("#tK", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(18.0));
+tl.fromTo("#tK .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(18.0 + 0.1));
+tl.to("#tK", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(20.967 - 0.45));
+tl.fromTo("#tG", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(20.967));
+tl.fromTo("#tG .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(20.967 + 0.1));
+tl.to("#tG", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(23.933 - 0.45));
+tl.fromTo("#tR", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(23.933));
+tl.fromTo("#tR .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(23.933 + 0.1));
+tl.to("#tR", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(26.9 - 0.45));
+tl.fromTo("#tK", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(26.9));
+tl.fromTo("#tK .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(26.9 + 0.1));
+tl.to("#tK", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(29.867 - 0.45));
+tl.fromTo("#tR", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(29.867));
+tl.fromTo("#tR .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(29.867 + 0.1));
+tl.to("#tR", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(32.833000000000006 - 0.45));
+tl.fromTo("#tG", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(32.833000000000006));
+tl.fromTo("#tG .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(32.833000000000006 + 0.1));
+tl.to("#tG", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(35.800000000000004 - 0.45));
+tl.fromTo("#tK", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(35.800000000000004));
+tl.fromTo("#tK .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(35.800000000000004 + 0.1));
+tl.to("#tK", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(38.767 - 0.45));
+tl.fromTo("#tG", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(38.767));
+tl.fromTo("#tG .nm", { y:16, opacity:0 }, { y:0, opacity:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(38.767 + 0.1));
+tl.to("#tG", { opacity:0, duration:f(0.35), ease:"power1.inOut" }, f(41.733000000000004 - 0.45));
+tl.to("#bug", { opacity:0, duration:f(0.2) }, f(41.533));
+tl.fromTo(".dv", { opacity:1, scaleY:0 }, { scaleY:1, duration:f(0.45), ease:"power3.out", stagger:0.1, immediateRender:false }, f(41.533 + 0.1));
+tl.fromTo(".en", { opacity:0, y:40 }, { opacity:1, y:0, duration:f(0.45), ease:"expo.out", stagger:0.15, immediateRender:false }, f(41.533 + 0.35));
+tl.fromTo("#endlogo", { opacity:0, scale:0.6, rotation:-8 }, { opacity:1, scale:1, rotation:0, duration:f(0.5), ease:"back.out(2)", immediateRender:false }, f(41.533 + 0.9));
+tl.to([".en",".dv","#endlogo"], { opacity:0, duration:f(0.5), ease:"power2.in" }, f(46.366 - 0.6));
+tl.to([".bar"], { scaleY:0, duration:f(0.5), ease:"power3.in" }, f(46.366 - 0.55));
+
+tl.to({}, { duration:46.366 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

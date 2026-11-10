@@ -1,0 +1,593 @@
+{
+ "units": [
+  {
+   "kind": "reel",
+   "clip": "SLOWEXT",
+   "pieces": [
+    [
+     0.0,
+     4.4
+    ]
+   ],
+   "dur": 4.4,
+   "start": 0.0,
+   "end": 4.4,
+   "xf_in": 0.0,
+   "tag": "exterior",
+   "nobeat": true
+  },
+  {
+   "kind": "reel",
+   "clip": "c0006",
+   "pieces": [
+    [
+     0.0,
+     6.163
+    ]
+   ],
+   "dur": 6.163,
+   "start": 4.067,
+   "end": 10.23,
+   "xf_in": 0.333,
+   "tag": "walkin",
+   "title": "legday"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0012",
+   "pieces": [
+    [
+     12.6,
+     16.3
+    ]
+   ],
+   "dur": 3.7,
+   "start": 9.897,
+   "end": 13.597,
+   "xf_in": 0.333,
+   "tag": "moan"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0002",
+   "pieces": [
+    [
+     4.3,
+     9.413
+    ]
+   ],
+   "dur": 5.113,
+   "start": 13.264,
+   "end": 18.377,
+   "xf_in": 0.333,
+   "tag": "mixing"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0002",
+   "pieces": [
+    [
+     39.9,
+     41.15
+    ]
+   ],
+   "dur": 1.25,
+   "start": 18.044,
+   "end": 19.294,
+   "xf_in": 0.333,
+   "tag": "trysome"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0007",
+   "pieces": [
+    [
+     0.0,
+     2.05
+    ],
+    [
+     2.7,
+     7.0
+    ],
+    [
+     7.3,
+     10.7
+    ],
+    [
+     10.9,
+     24.75
+    ],
+    [
+     25.2,
+     41.5
+    ],
+    [
+     41.8,
+     49.5
+    ],
+    [
+     49.8,
+     78.65
+    ],
+    [
+     78.9,
+     95.7
+    ],
+    [
+     96.55,
+     97.15
+    ],
+    [
+     97.55,
+     99.7
+    ]
+   ],
+   "dur": 96.0,
+   "start": 18.961,
+   "end": 114.961,
+   "xf_in": 0.333,
+   "tag": "review",
+   "gaps": true
+  },
+  {
+   "kind": "talk",
+   "clip": "c0007",
+   "pieces": [
+    [
+     107.95,
+     111.1
+    ]
+   ],
+   "dur": 3.15,
+   "start": 114.961,
+   "end": 118.111,
+   "xf_in": 0.0,
+   "tag": "review2",
+   "hardin": true
+  },
+  {
+   "kind": "reel",
+   "clip": "c0003",
+   "pieces": [
+    [
+     2.0,
+     4.673
+    ]
+   ],
+   "dur": 2.673,
+   "start": 117.778,
+   "end": 120.451,
+   "xf_in": 0.333,
+   "tag": "act1",
+   "title": "activation"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0003",
+   "pieces": [
+    [
+     9.0,
+     11.25
+    ]
+   ],
+   "dur": 2.25,
+   "start": 120.118,
+   "end": 122.368,
+   "xf_in": 0.333,
+   "tag": "act2"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0005",
+   "pieces": [
+    [
+     24.3,
+     41.55
+    ]
+   ],
+   "dur": 17.25,
+   "start": 122.035,
+   "end": 139.285,
+   "xf_in": 0.333,
+   "tag": "moccasins"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0004",
+   "pieces": [
+    [
+     59.0,
+     61.584
+    ]
+   ],
+   "dur": 2.584,
+   "start": 138.952,
+   "end": 141.536,
+   "xf_in": 0.333,
+   "tag": "abd1",
+   "title": "abductor"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0005",
+   "pieces": [
+    [
+     50.0,
+     52.73
+    ]
+   ],
+   "dur": 2.73,
+   "start": 141.203,
+   "end": 143.933,
+   "xf_in": 0.333,
+   "tag": "abd2"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0004",
+   "pieces": [
+    [
+     81.0,
+     83.729
+    ]
+   ],
+   "dur": 2.729,
+   "start": 143.6,
+   "end": 146.329,
+   "xf_in": 0.333,
+   "tag": "abd3"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0005",
+   "pieces": [
+    [
+     125.8,
+     128.529
+    ]
+   ],
+   "dur": 2.729,
+   "start": 145.996,
+   "end": 148.725,
+   "xf_in": 0.333,
+   "tag": "abd4"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0009",
+   "pieces": [
+    [
+     41.0,
+     43.729
+    ]
+   ],
+   "dur": 2.729,
+   "start": 148.392,
+   "end": 151.121,
+   "xf_in": 0.333,
+   "tag": "ht1",
+   "title": "hipthrust"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0009",
+   "pieces": [
+    [
+     45.0,
+     47.729
+    ]
+   ],
+   "dur": 2.729,
+   "start": 150.788,
+   "end": 153.517,
+   "xf_in": 0.333,
+   "tag": "ht2"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0008",
+   "pieces": [
+    [
+     24.75,
+     31.3
+    ]
+   ],
+   "dur": 6.55,
+   "start": 153.184,
+   "end": 159.734,
+   "xf_in": 0.333,
+   "tag": "warmup",
+   "zoom": 1.12
+  },
+  {
+   "kind": "reel",
+   "clip": "c0010",
+   "pieces": [
+    [
+     100.0,
+     102.742
+    ]
+   ],
+   "dur": 2.742,
+   "start": 159.401,
+   "end": 162.143,
+   "xf_in": 0.333,
+   "tag": "ht3"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0011",
+   "pieces": [
+    [
+     283.5,
+     286.229
+    ]
+   ],
+   "dur": 2.729,
+   "start": 161.81,
+   "end": 164.539,
+   "xf_in": 0.333,
+   "tag": "ht4"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0009",
+   "pieces": [
+    [
+     88.6,
+     113.15
+    ]
+   ],
+   "dur": 24.55,
+   "start": 164.206,
+   "end": 188.756,
+   "xf_in": 0.333,
+   "tag": "skiddy"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0011",
+   "pieces": [
+    [
+     288.5,
+     291.452
+    ]
+   ],
+   "dur": 2.952,
+   "start": 188.423,
+   "end": 191.375,
+   "xf_in": 0.333,
+   "tag": "ht5"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0011",
+   "pieces": [
+    [
+     299.15,
+     323.35
+    ]
+   ],
+   "dur": 24.2,
+   "start": 191.042,
+   "end": 215.242,
+   "xf_in": 0.333,
+   "tag": "ruined",
+   "zoom": 1.12
+  },
+  {
+   "kind": "talk",
+   "clip": "c0014",
+   "pieces": [
+    [
+     0.0,
+     3.0
+    ],
+    [
+     3.2,
+     6.55
+    ],
+    [
+     7.35,
+     30.8
+    ],
+    [
+     31.2,
+     34.6
+    ],
+    [
+     35.15,
+     38.9
+    ]
+   ],
+   "dur": 36.95,
+   "start": 214.909,
+   "end": 251.859,
+   "xf_in": 0.333,
+   "tag": "edu1",
+   "gaps": true,
+   "title": "legpress"
+  },
+  {
+   "kind": "talk",
+   "clip": "c0014",
+   "pieces": [
+    [
+     46.35,
+     59.8
+    ]
+   ],
+   "dur": 13.45,
+   "start": 251.859,
+   "end": 265.309,
+   "xf_in": 0.0,
+   "tag": "edu1b",
+   "gaps": true,
+   "hardin": true
+  },
+  {
+   "kind": "talk",
+   "clip": "c0014",
+   "pieces": [
+    [
+     61.9,
+     80.8
+    ],
+    [
+     81.05,
+     82.2
+    ]
+   ],
+   "dur": 20.05,
+   "start": 265.309,
+   "end": 285.359,
+   "xf_in": 0.0,
+   "tag": "edu2",
+   "gaps": true,
+   "hardin": true
+  },
+  {
+   "kind": "reel",
+   "clip": "c0017",
+   "pieces": [
+    [
+     33.0,
+     36.152
+    ]
+   ],
+   "dur": 3.152,
+   "start": 285.026,
+   "end": 288.178,
+   "xf_in": 0.333,
+   "tag": "sq1",
+   "title": "slmsquat"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0017",
+   "pieces": [
+    [
+     44.0,
+     47.208
+    ]
+   ],
+   "dur": 3.208,
+   "start": 287.845,
+   "end": 291.053,
+   "xf_in": 0.333,
+   "tag": "sq2"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0018",
+   "pieces": [
+    [
+     2.5,
+     5.708
+    ]
+   ],
+   "dur": 3.208,
+   "start": 290.72,
+   "end": 293.928,
+   "xf_in": 0.333,
+   "tag": "bs1",
+   "title": "beltsquat"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0018",
+   "pieces": [
+    [
+     24.5,
+     27.709
+    ]
+   ],
+   "dur": 3.209,
+   "start": 293.595,
+   "end": 296.804,
+   "xf_in": 0.333,
+   "tag": "bs2"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0019",
+   "pieces": [
+    [
+     10.0,
+     13.208
+    ]
+   ],
+   "dur": 3.208,
+   "start": 296.471,
+   "end": 299.679,
+   "xf_in": 0.333,
+   "tag": "gp1",
+   "title": "glutepress"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0020",
+   "pieces": [
+    [
+     41.0,
+     44.208
+    ]
+   ],
+   "dur": 3.208,
+   "start": 299.346,
+   "end": 302.554,
+   "xf_in": 0.333,
+   "tag": "gp2"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0021",
+   "pieces": [
+    [
+     12.0,
+     15.209
+    ]
+   ],
+   "dur": 3.209,
+   "start": 302.221,
+   "end": 305.43,
+   "xf_in": 0.333,
+   "tag": "gp3"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0019",
+   "pieces": [
+    [
+     40.0,
+     43.208
+    ]
+   ],
+   "dur": 3.208,
+   "start": 305.097,
+   "end": 308.305,
+   "xf_in": 0.333,
+   "tag": "gp4"
+  },
+  {
+   "kind": "reel",
+   "clip": "c0022",
+   "pieces": [
+    [
+     0.0,
+     4.8
+    ]
+   ],
+   "dur": 4.8,
+   "start": 307.972,
+   "end": 312.772,
+   "xf_in": 0.333,
+   "tag": "outro",
+   "nobeat": true,
+   "last": true
+  }
+ ],
+ "total": 312.772,
+ "beat": 0.47922,
+ "xf": 0.333
+}

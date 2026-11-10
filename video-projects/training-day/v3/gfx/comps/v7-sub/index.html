@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#sb { position:absolute; left:52px; bottom:72px; display:flex; align-items:center; gap:22px; padding:18px 40px 18px 22px; border-radius:14px;
+  background:linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 100%); box-shadow:0 0 40px 10px rgba(0,0,0,0.25); }
+#sb img { width:150px; }
+#sb .t { font-weight:800; font-size:20px; letter-spacing:0.32em; color:#cfcfcf; }
+#sb .h { font-family:"Bebas Neue"; font-size:64px; line-height:0.95; margin-top:2px; }
+#sb .btn { margin-left:12px; padding:14px 26px 12px; border-radius:8px; background:#ff3b30; font-weight:800; font-size:26px; letter-spacing:0.16em; }
+#sb .bell { font-size:40px; margin-left:4px; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="8.5" data-width="1920" data-height="1080"><div id="sb" class="shadow"><img src="assets/apexx-logo.png"/><div><div class="t">ENJOYING THE CHANNEL?</div><div class="h">MORE EDUCATION COMING SOON</div></div><div class="btn">SUBSCRIBE</div><div class="bell">🔔</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#sb","#sb .btn","#sb .bell"], { opacity:0 });
+tl.fromTo("#sb", { opacity:0, x:-60 }, { opacity:1, x:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(0.1));
+tl.fromTo("#sb .btn", { opacity:0, scale:0.6 }, { opacity:1, scale:1, duration:f(0.4), ease:"back.out(2.2)", immediateRender:false }, f(0.7));
+tl.fromTo("#sb .bell", { opacity:0, rotation:-30 }, { opacity:1, rotation:0, duration:f(0.4), ease:"back.out(2)", immediateRender:false }, f(1.0));
+tl.to("#sb .bell", { keyframes:[{ rotation:-14, duration:0.1 },{ rotation:14, duration:0.1 },{ rotation:-8, duration:0.1 },{ rotation:0, duration:0.1 }] }, f(1.6));
+tl.to("#sb .btn", { backgroundColor:"#3a3a3a", duration:f(0.2) }, f(3.2));
+tl.set("#sb .btn", { textContent:"SUBSCRIBED ✓" }, f(3.2));
+tl.to("#sb", { opacity:0, x:-30, duration:f(0.35), ease:"power2.in" }, f(8.1));
+tl.to({}, { duration:8.5 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

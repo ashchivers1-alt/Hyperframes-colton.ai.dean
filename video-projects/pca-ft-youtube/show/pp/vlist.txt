@@ -1,0 +1,4 @@
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-youtube/show/pp/v0.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-youtube/show/pp/v1.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-youtube/show/pp/v2.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-youtube/show/pp/v3.mp4'

@@ -1,0 +1,571 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:10,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 10000
+			},
+			"text": " [MUSIC]"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:31,000",
+				"to": "00:00:40,000"
+			},
+			"offsets": {
+				"from": 31000,
+				"to": 40000
+			},
+			"text": " Come on, pause, let's go, pause, nice, and again, come on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:40,000",
+				"to": "00:00:41,000"
+			},
+			"offsets": {
+				"from": 40000,
+				"to": 41000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:43,000",
+				"to": "00:00:44,000"
+			},
+			"offsets": {
+				"from": 43000,
+				"to": 44000
+			},
+			"text": " Lovely."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:54,000",
+				"to": "00:00:55,000"
+			},
+			"offsets": {
+				"from": 54000,
+				"to": 55000
+			},
+			"text": " Two 20s."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:01,000",
+				"to": "00:01:02,000"
+			},
+			"offsets": {
+				"from": 61000,
+				"to": 62000
+			},
+			"text": " Two."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:06,000",
+				"to": "00:01:07,000"
+			},
+			"offsets": {
+				"from": 66000,
+				"to": 67000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:07,000",
+				"to": "00:01:08,000"
+			},
+			"offsets": {
+				"from": 67000,
+				"to": 68000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:15,000",
+				"to": "00:01:16,000"
+			},
+			"offsets": {
+				"from": 75000,
+				"to": 76000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:19,000",
+				"to": "00:01:20,000"
+			},
+			"offsets": {
+				"from": 79000,
+				"to": 80000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:20,000",
+				"to": "00:01:21,000"
+			},
+			"offsets": {
+				"from": 80000,
+				"to": 81000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:21,000",
+				"to": "00:01:22,000"
+			},
+			"offsets": {
+				"from": 81000,
+				"to": 82000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:27,000",
+				"to": "00:01:31,000"
+			},
+			"offsets": {
+				"from": 87000,
+				"to": 91000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:34,000",
+				"to": "00:01:35,000"
+			},
+			"offsets": {
+				"from": 94000,
+				"to": 95000
+			},
+			"text": " Come on."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:40,000",
+				"to": "00:01:41,000"
+			},
+			"offsets": {
+				"from": 100000,
+				"to": 101000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:45,000",
+				"to": "00:01:46,000"
+			},
+			"offsets": {
+				"from": 105000,
+				"to": 106000
+			},
+			"text": " Come on."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:46,000",
+				"to": "00:01:47,000"
+			},
+			"offsets": {
+				"from": 106000,
+				"to": 107000
+			},
+			"text": " It's good."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:47,000",
+				"to": "00:01:48,000"
+			},
+			"offsets": {
+				"from": 107000,
+				"to": 108000
+			},
+			"text": " Just give me a minute."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:48,000",
+				"to": "00:01:49,000"
+			},
+			"offsets": {
+				"from": 108000,
+				"to": 109000
+			},
+			"text": " Let's go."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:54,000",
+				"to": "00:01:55,000"
+			},
+			"offsets": {
+				"from": 114000,
+				"to": 115000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:55,000",
+				"to": "00:01:56,000"
+			},
+			"offsets": {
+				"from": 115000,
+				"to": 116000
+			},
+			"text": " Come on, fight it, fight it."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,000",
+				"to": "00:01:57,000"
+			},
+			"offsets": {
+				"from": 116000,
+				"to": 117000
+			},
+			"text": " There you go."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:58,000",
+				"to": "00:01:59,000"
+			},
+			"offsets": {
+				"from": 118000,
+				"to": 119000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:59,000",
+				"to": "00:02:00,000"
+			},
+			"offsets": {
+				"from": 119000,
+				"to": 120000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:01,000",
+				"to": "00:02:03,000"
+			},
+			"offsets": {
+				"from": 121000,
+				"to": 123000
+			},
+			"text": " I feel like you need those pads on that one."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:03,000",
+				"to": "00:02:07,000"
+			},
+			"offsets": {
+				"from": 123000,
+				"to": 127000
+			},
+			"text": " I feel like you couldn't get, like, wide enough."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:16,000",
+				"to": "00:02:17,000"
+			},
+			"offsets": {
+				"from": 136000,
+				"to": 137000
+			},
+			"text": " Fuck me."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:17,000",
+				"to": "00:02:18,000"
+			},
+			"offsets": {
+				"from": 137000,
+				"to": 138000
+			},
+			"text": " Nah, I'm good."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:26,000",
+				"to": "00:02:29,000"
+			},
+			"offsets": {
+				"from": 146000,
+				"to": 149000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:40,000",
+				"to": "00:02:41,000"
+			},
+			"offsets": {
+				"from": 160000,
+				"to": 161000
+			},
+			"text": " You're too far back."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:41,000",
+				"to": "00:02:42,000"
+			},
+			"offsets": {
+				"from": 161000,
+				"to": 162000
+			},
+			"text": " Yeah, that's what it looked like."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:42,000",
+				"to": "00:02:45,000"
+			},
+			"offsets": {
+				"from": 162000,
+				"to": 165000
+			},
+			"text": " You were too far back and you couldn't open them enough."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:45,000",
+				"to": "00:02:46,000"
+			},
+			"offsets": {
+				"from": 165000,
+				"to": 166000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:46,000",
+				"to": "00:02:47,000"
+			},
+			"offsets": {
+				"from": 166000,
+				"to": 167000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:50,000",
+				"to": "00:02:51,000"
+			},
+			"offsets": {
+				"from": 170000,
+				"to": 171000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:52,000",
+				"to": "00:02:55,000"
+			},
+			"offsets": {
+				"from": 172000,
+				"to": 175000
+			},
+			"text": " So, machines like this, sometimes you've got to make them fit you, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:55,000",
+				"to": "00:02:57,000"
+			},
+			"offsets": {
+				"from": 175000,
+				"to": 177000
+			},
+			"text": " Like, they don't fit everybody."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:26,000",
+				"to": "00:03:27,000"
+			},
+			"offsets": {
+				"from": 206000,
+				"to": 207000
+			},
+			"text": " Up next."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:29,000",
+				"to": "00:03:30,000"
+			},
+			"offsets": {
+				"from": 209000,
+				"to": 210000
+			},
+			"text": " It's you?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:30,000",
+				"to": "00:03:31,000"
+			},
+			"offsets": {
+				"from": 210000,
+				"to": 211000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:31,000",
+				"to": "00:03:32,000"
+			},
+			"offsets": {
+				"from": 211000,
+				"to": 212000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:35,000",
+				"to": "00:03:39,000"
+			},
+			"offsets": {
+				"from": 215000,
+				"to": 219000
+			},
+			"text": " Well, I want to do another variation with the seat back as well."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:40,000",
+				"to": "00:03:41,000"
+			},
+			"offsets": {
+				"from": 220000,
+				"to": 221000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:51,000",
+				"to": "00:03:53,000"
+			},
+			"offsets": {
+				"from": 231000,
+				"to": 233000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:55,000",
+				"to": "00:03:56,000"
+			},
+			"offsets": {
+				"from": 235000,
+				"to": 236000
+			},
+			"text": " [INAUDIBLE]"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:58,000",
+				"to": "00:03:59,000"
+			},
+			"offsets": {
+				"from": 238000,
+				"to": 239000
+			},
+			"text": " Thank you, guys."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:59,000",
+				"to": "00:04:00,000"
+			},
+			"offsets": {
+				"from": 239000,
+				"to": 240000
+			},
+			"text": " Teamwork."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:03,000",
+				"to": "00:04:04,000"
+			},
+			"offsets": {
+				"from": 243000,
+				"to": 244000
+			},
+			"text": " That sounds good."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:04,000",
+				"to": "00:04:06,000"
+			},
+			"offsets": {
+				"from": 244000,
+				"to": 246000
+			},
+			"text": " That was not good at all."
+		}
+	]
+}

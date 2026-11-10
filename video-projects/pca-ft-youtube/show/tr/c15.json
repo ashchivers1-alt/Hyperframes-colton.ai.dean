@@ -1,0 +1,230 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:08,920"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 8920
+			},
+			"text": " Right then, it's another show day. So it is show day for Nick and we've also got Mark"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,920",
+				"to": "00:00:13,120"
+			},
+			"offsets": {
+				"from": 8920,
+				"to": 13120
+			},
+			"text": " on there today so we've got the lads competing this weekend. So we actually had Mark on stage"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:13,120",
+				"to": "00:00:23,200"
+			},
+			"offsets": {
+				"from": 13120,
+				"to": 23200
+			},
+			"text": " yesterday. He was at the Pure Elite World Championships in the pro division and you"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:23,200",
+				"to": "00:00:31,000"
+			},
+			"offsets": {
+				"from": 23200,
+				"to": 31000
+			},
+			"text": " come away with two top three finishes, a fourth and a fifth in very competitive line ups which"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:31,000",
+				"to": "00:00:39,160"
+			},
+			"offsets": {
+				"from": 31000,
+				"to": 39160
+			},
+			"text": " is good. To be fair with Mark, this was a very last minute decision where this was literally"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:39,160",
+				"to": "00:00:45,800"
+			},
+			"offsets": {
+				"from": 39160,
+				"to": 45800
+			},
+			"text": " a five weeks prep and he took off nearly ten kilos in five weeks. So to be fair to him,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:45,800",
+				"to": "00:00:50,200"
+			},
+			"offsets": {
+				"from": 45800,
+				"to": 50200
+			},
+			"text": " fair play to him because he's put in some serious work to get where he needs to be."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:50,200",
+				"to": "00:00:55,600"
+			},
+			"offsets": {
+				"from": 50200,
+				"to": 55600
+			},
+			"text": " Then we've got Nick. Nick is a first timer today. He is going to box off his first ever"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:55,600",
+				"to": "00:01:01,600"
+			},
+			"offsets": {
+				"from": 55600,
+				"to": 61600
+			},
+			"text": " show and the progress he's made through this prep. I'm going to put an image on the screen"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:01,600",
+				"to": "00:01:07,200"
+			},
+			"offsets": {
+				"from": 61600,
+				"to": 67200
+			},
+			"text": " somewhere to show you guys the kind of progress that he's made over this prep. It's pretty"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:07,200",
+				"to": "00:01:11,600"
+			},
+			"offsets": {
+				"from": 67200,
+				"to": 71600
+			},
+			"text": " insane and I'm really looking forward to seeing how the lads get on today. It's probably going"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:11,600",
+				"to": "00:01:16,400"
+			},
+			"offsets": {
+				"from": 71600,
+				"to": 76400
+			},
+			"text": " to be quite a long day because it is a double header today. He's got the PCA first timers"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:16,400",
+				"to": "00:01:23,600"
+			},
+			"offsets": {
+				"from": 76400,
+				"to": 83600
+			},
+			"text": " first and then the PCA UK Open in the afternoon which I'm guessing is going to be very busy"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:23,600",
+				"to": "00:01:29,200"
+			},
+			"offsets": {
+				"from": 83600,
+				"to": 89200
+			},
+			"text": " because what they've done is they've allocated pro cards to that part of the show. Usually"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:29,200",
+				"to": "00:01:35,200"
+			},
+			"offsets": {
+				"from": 89200,
+				"to": 95200
+			},
+			"text": " this show is pretty dead historically over the last couple of years so I think what they've"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:35,200",
+				"to": "00:01:41,800"
+			},
+			"offsets": {
+				"from": 95200,
+				"to": 101800
+			},
+			"text": " done is they've added in some pro cards to entice people to come and compete at it. That"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:41,800",
+				"to": "00:01:48,800"
+			},
+			"offsets": {
+				"from": 101800,
+				"to": 108800
+			},
+			"text": " is it. Let's go see how we get on. It's going to be a long day, plenty of caffeine and we'll"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:48,800",
+				"to": "00:01:51,800"
+			},
+			"offsets": {
+				"from": 108800,
+				"to": 111800
+			},
+			"text": " see how the lads get on when we get there."
+		}
+	]
+}

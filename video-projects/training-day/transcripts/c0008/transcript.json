@@ -1,0 +1,380 @@
+[
+  {
+    "text": "And",
+    "start": 0,
+    "end": 0.11,
+    "id": "w0"
+  },
+  {
+    "text": "I'm",
+    "start": 0.11,
+    "end": 0.21,
+    "id": "w1"
+  },
+  {
+    "text": "not",
+    "start": 0.21,
+    "end": 0.32,
+    "id": "w2"
+  },
+  {
+    "text": "going",
+    "start": 0.32,
+    "end": 0.51,
+    "id": "w3"
+  },
+  {
+    "text": "to",
+    "start": 0.51,
+    "end": 0.57,
+    "id": "w4"
+  },
+  {
+    "text": "record",
+    "start": 0.58,
+    "end": 0.81,
+    "id": "w5"
+  },
+  {
+    "text": "this",
+    "start": 0.81,
+    "end": 0.95,
+    "id": "w6"
+  },
+  {
+    "text": "unless",
+    "start": 1,
+    "end": 1.19,
+    "id": "w7"
+  },
+  {
+    "text": "you've",
+    "start": 1.22,
+    "end": 1.44,
+    "id": "w8"
+  },
+  {
+    "text": "got",
+    "start": 1.44,
+    "end": 1.55,
+    "id": "w9"
+  },
+  {
+    "text": "something",
+    "start": 1.55,
+    "end": 1.88,
+    "id": "w10"
+  },
+  {
+    "text": "funny",
+    "start": 1.88,
+    "end": 2.06,
+    "id": "w11"
+  },
+  {
+    "text": "to",
+    "start": 2.06,
+    "end": 2.13,
+    "id": "w12"
+  },
+  {
+    "text": "say.",
+    "start": 2.13,
+    "end": 2.64,
+    "id": "w13"
+  },
+  {
+    "text": "What,",
+    "start": 2.64,
+    "end": 2.94,
+    "id": "w14"
+  },
+  {
+    "text": "can",
+    "start": 2.94,
+    "end": 3.09,
+    "id": "w15"
+  },
+  {
+    "text": "I",
+    "start": 3.09,
+    "end": 3.14,
+    "id": "w16"
+  },
+  {
+    "text": "just",
+    "start": 3.14,
+    "end": 3.34,
+    "id": "w17"
+  },
+  {
+    "text": "say",
+    "start": 3.34,
+    "end": 3.48,
+    "id": "w18"
+  },
+  {
+    "text": "something?",
+    "start": 3.48,
+    "end": 4.16,
+    "id": "w19"
+  },
+  {
+    "text": "Yeah.",
+    "start": 4.16,
+    "end": 4.55,
+    "id": "w20"
+  },
+  {
+    "text": "You",
+    "start": 4.55,
+    "end": 5.053,
+    "id": "w21"
+  },
+  {
+    "text": "normally",
+    "start": 5.053,
+    "end": 5.555,
+    "id": "w22"
+  },
+  {
+    "text": "come",
+    "start": 5.555,
+    "end": 6.057,
+    "id": "w23"
+  },
+  {
+    "text": "out",
+    "start": 6.057,
+    "end": 6.56,
+    "id": "w24"
+  },
+  {
+    "text": "of",
+    "start": 6.56,
+    "end": 6.76,
+    "id": "w25"
+  },
+  {
+    "text": "some",
+    "start": 6.76,
+    "end": 7.14,
+    "id": "w26"
+  },
+  {
+    "text": "sort",
+    "start": 7.2,
+    "end": 7.64,
+    "id": "w27"
+  },
+  {
+    "text": "of",
+    "start": 7.64,
+    "end": 7.86,
+    "id": "w28"
+  },
+  {
+    "text": "one-liner.",
+    "start": 7.86,
+    "end": 9.2,
+    "id": "w29"
+  },
+  {
+    "text": "I'm",
+    "start": 9.2,
+    "end": 9.67,
+    "id": "w30"
+  },
+  {
+    "text": "just",
+    "start": 9.67,
+    "end": 10.14,
+    "id": "w31"
+  },
+  {
+    "text": "basically",
+    "start": 10.14,
+    "end": 10.61,
+    "id": "w32"
+  },
+  {
+    "text": "a",
+    "start": 10.61,
+    "end": 11.08,
+    "id": "w33"
+  },
+  {
+    "text": "comedian",
+    "start": 11.08,
+    "end": 11.92,
+    "id": "w34"
+  },
+  {
+    "text": "at",
+    "start": 11.96,
+    "end": 12.17,
+    "id": "w35"
+  },
+  {
+    "text": "this",
+    "start": 12.17,
+    "end": 12.61,
+    "id": "w36"
+  },
+  {
+    "text": "point.",
+    "start": 12.61,
+    "end": 13.52,
+    "id": "w37"
+  },
+  {
+    "text": "OK.",
+    "start": 24.12,
+    "end": 25.25,
+    "id": "w38"
+  },
+  {
+    "text": "I've",
+    "start": 25.34,
+    "end": 25.65,
+    "id": "w39"
+  },
+  {
+    "text": "been",
+    "start": 25.65,
+    "end": 25.99,
+    "id": "w40"
+  },
+  {
+    "text": "bored",
+    "start": 25.99,
+    "end": 26.41,
+    "id": "w41"
+  },
+  {
+    "text": "of",
+    "start": 26.41,
+    "end": 26.58,
+    "id": "w42"
+  },
+  {
+    "text": "that.",
+    "start": 26.59,
+    "end": 27.2,
+    "id": "w43"
+  },
+  {
+    "text": "How",
+    "start": 27.2,
+    "end": 27.39,
+    "id": "w44"
+  },
+  {
+    "text": "was",
+    "start": 27.39,
+    "end": 27.58,
+    "id": "w45"
+  },
+  {
+    "text": "it?",
+    "start": 27.58,
+    "end": 27.92,
+    "id": "w46"
+  },
+  {
+    "text": "Boring.",
+    "start": 27.92,
+    "end": 28.48,
+    "id": "w47"
+  },
+  {
+    "text": "How",
+    "start": 28.48,
+    "end": 28.66,
+    "id": "w48"
+  },
+  {
+    "text": "was",
+    "start": 28.66,
+    "end": 28.84,
+    "id": "w49"
+  },
+  {
+    "text": "that",
+    "start": 28.84,
+    "end": 29.08,
+    "id": "w50"
+  },
+  {
+    "text": "set,",
+    "start": 29.08,
+    "end": 29.38,
+    "id": "w51"
+  },
+  {
+    "text": "Loza?",
+    "start": 29.38,
+    "end": 29.84,
+    "id": "w52"
+  },
+  {
+    "text": "That",
+    "start": 29.84,
+    "end": 30.07,
+    "id": "w53"
+  },
+  {
+    "text": "wasn't",
+    "start": 30.07,
+    "end": 30.41,
+    "id": "w54"
+  },
+  {
+    "text": "a",
+    "start": 30.41,
+    "end": 30.42,
+    "id": "w55"
+  },
+  {
+    "text": "set,",
+    "start": 30.48,
+    "end": 30.74,
+    "id": "w56"
+  },
+  {
+    "text": "that",
+    "start": 30.74,
+    "end": 30.97,
+    "id": "w57"
+  },
+  {
+    "text": "was",
+    "start": 30.97,
+    "end": 31.14,
+    "id": "w58"
+  },
+  {
+    "text": "a",
+    "start": 31.14,
+    "end": 31.19,
+    "id": "w59"
+  },
+  {
+    "text": "warm",
+    "start": 31.19,
+    "end": 31.41,
+    "id": "w60"
+  },
+  {
+    "text": "up.",
+    "start": 31.45,
+    "end": 31.75,
+    "id": "w61"
+  },
+  {
+    "text": "Oh.",
+    "start": 31.76,
+    "end": 32.59,
+    "id": "w62"
+  }
+]

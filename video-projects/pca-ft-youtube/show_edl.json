@@ -1,0 +1,143 @@
+{
+ "fps": 23.976023976023978,
+ "start": 14031,
+ "end": 24792,
+ "segs": [
+  {
+   "clip": "c15",
+   "file": "/Volumes/Untitled/DCIM/DJI_001/DJI_20261108093859_0015_D.MP4",
+   "src_start": 2.84,
+   "src_end": 111.86,
+   "speed": 1.0,
+   "rec": 14031,
+   "frames": 2614
+  },
+  {
+   "clip": "c16",
+   "file": "/Volumes/Untitled/DCIM/DJI_001/DJI_20261108094057_0016_D.MP4",
+   "src_start": 17.73,
+   "src_end": 45.05,
+   "speed": 3.0,
+   "rec": 16645,
+   "frames": 218
+  },
+  {
+   "clip": "c17",
+   "file": "/Volumes/Untitled/DCIM/DJI_001/DJI_20261108162434_0017_D.MP4",
+   "src_start": 1.38,
+   "src_end": 156.78,
+   "speed": 1.0,
+   "rec": 16863,
+   "frames": 3726
+  },
+  {
+   "clip": "c01",
+   "file": "show/IMG_3801_rt.mov",
+   "src_start": 0.0,
+   "src_end": 175.31,
+   "speed": 1.0,
+   "rec": 20589,
+   "frames": 4203
+  }
+ ],
+ "broll": [
+  {
+   "file": "show/sdr/IMG_3767.mov",
+   "src_in": 3.7,
+   "src_out": 9.31,
+   "t": 726.9476249999999
+  },
+  {
+   "file": "show/sdr/IMG_3767.mov",
+   "src_in": 13.8,
+   "src_out": 17.86,
+   "t": 732.5576249999999
+  },
+  {
+   "file": "show/sdr/IMG_3767.mov",
+   "src_in": 21.13,
+   "src_out": 35.66,
+   "t": 736.6176249999999
+  },
+  {
+   "file": "show/sdr/IMG_3768.mov",
+   "src_in": 28.82,
+   "src_out": 33.42,
+   "t": 764.9476249999999
+  },
+  {
+   "file": "show/sdr/IMG_3768.mov",
+   "src_in": 52.58,
+   "src_out": 57.48,
+   "t": 769.5476249999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 6.25,
+   "src_out": 12.48,
+   "t": 927.6328749999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 19.22,
+   "src_out": 24.49,
+   "t": 935.9728749999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 24.52,
+   "src_out": 35.05,
+   "t": 941.2428749999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 44.53,
+   "src_out": 49.35,
+   "t": 954.7828749999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 61.47,
+   "src_out": 65.4,
+   "t": 961.2928749999999
+  },
+  {
+   "file": "show/sdr/IMG_3784.mov",
+   "src_in": 67.32,
+   "src_out": 76.22,
+   "t": 967.8828749999999
+  }
+ ],
+ "designed": {
+  "x_progress": [
+   638.7696249999999,
+   653.569625
+  ],
+  "x_vertical": [
+   662.3696249999999,
+   671.949625
+  ],
+  "x_routine": [
+   751.147625,
+   764.9476249999999
+  ],
+  "x_compare": [
+   813.4476249999999,
+   829.3476249999999
+  ],
+  "x_mark_card": [
+   920.7328749999999,
+   927.6328749999999
+  ],
+  "x_mark_photo": [
+   977.432875,
+   983.332875
+  ]
+ },
+ "cuts": [
+  585.209625,
+  694.2352083333333,
+  703.3276249999999,
+  858.7328749999999
+ ]
+}

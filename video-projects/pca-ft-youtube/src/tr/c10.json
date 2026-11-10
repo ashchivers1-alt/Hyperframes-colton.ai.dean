@@ -1,0 +1,219 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,580"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2580
+			},
+			"text": " (upbeat music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:33,700"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 33700
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:33,700",
+				"to": "00:00:34,540"
+			},
+			"offsets": {
+				"from": 33700,
+				"to": 34540
+			},
+			"text": " - Sorry?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:34,540",
+				"to": "00:00:37,460"
+			},
+			"offsets": {
+				"from": 34540,
+				"to": 37460
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:48,600",
+				"to": "00:00:49,440"
+			},
+			"offsets": {
+				"from": 48600,
+				"to": 49440
+			},
+			"text": " Sorry?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:49,440",
+				"to": "00:00:52,360"
+			},
+			"offsets": {
+				"from": 49440,
+				"to": 52360
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:00,000",
+				"to": "00:01:02,580"
+			},
+			"offsets": {
+				"from": 60000,
+				"to": 62580
+			},
+			"text": " (upbeat music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:10,660",
+				"to": "00:01:13,580"
+			},
+			"offsets": {
+				"from": 70660,
+				"to": 73580
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:15,120",
+				"to": "00:01:18,040"
+			},
+			"offsets": {
+				"from": 75120,
+				"to": 78040
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:30,000",
+				"to": "00:01:33,400"
+			},
+			"offsets": {
+				"from": 90000,
+				"to": 93400
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:33,400",
+				"to": "00:01:36,300"
+			},
+			"offsets": {
+				"from": 93400,
+				"to": 96300
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:40,940",
+				"to": "00:01:43,860"
+			},
+			"offsets": {
+				"from": 100940,
+				"to": 103860
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:47,860",
+				"to": "00:01:50,760"
+			},
+			"offsets": {
+				"from": 107860,
+				"to": 110760
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:50,760",
+				"to": "00:01:53,680"
+			},
+			"offsets": {
+				"from": 110760,
+				"to": 113680
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,680",
+				"to": "00:01:58,520"
+			},
+			"offsets": {
+				"from": 116680,
+				"to": 118520
+			},
+			"text": " - That was disgusting."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:00,040",
+				"to": "00:02:02,960"
+			},
+			"offsets": {
+				"from": 120040,
+				"to": 122960
+			},
+			"text": " (muffled speaking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:04,720",
+				"to": "00:02:07,640"
+			},
+			"offsets": {
+				"from": 124720,
+				"to": 127640
+			},
+			"text": " (muffled speaking)"
+		}
+	]
+}

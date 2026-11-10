@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#fl { position:absolute; inset:0; background:#fff; opacity:0; }
+#bug { position:absolute; right:36px; bottom:30px; width:150px; opacity:0; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.6)); }
+#op { position:absolute; left:0; right:0; top:360px; text-align:center; }
+#op .k { font-weight:800; font-size:24px; letter-spacing:0.5em; color:#ff3b30; }
+#op .big { font-family:"Bebas Neue"; font-size:230px; line-height:0.86; letter-spacing:0.04em; text-shadow:0 0 40px rgba(255,255,255,0.25), 0 14px 50px rgba(0,0,0,0.8); }
+#op .s { font-weight:700; font-size:26px; letter-spacing:0.3em; margin-top:10px; }
+#opd { position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.55), rgba(0,0,0,0) 75%); opacity:0; }
+.pl { position:absolute; left:52px; bottom:72px; padding:20px 150px 22px 30px; border-radius:12px; opacity:0;
+  background:linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.70) 65%, rgba(0,0,0,0) 100%); box-shadow:0 0 40px 10px rgba(0,0,0,0.2); }
+.pl .k { font-weight:800; font-size:18px; letter-spacing:0.4em; color:#ff3b30; }
+.pl .nmw { overflow:hidden; padding-bottom:4px; }
+.pl .nm { font-family:"Bebas Neue"; font-size:110px; line-height:0.88; margin-top:4px; }
+.pl .rule { width:110px; height:3px; background:#ff3b30; margin:8px 0 10px; transform-origin:0 50%; }
+.pl .s1 { font-weight:800; font-size:23px; letter-spacing:0.18em; white-space:nowrap; }
+.pl .s2 { font-weight:600; font-size:22px; margin-top:6px; color:#dcdcdc; white-space:nowrap; }
+.ch { position:absolute; left:52px; top:44px; display:flex; align-items:center; gap:14px; padding:10px 20px 9px 16px; border-radius:6px; opacity:0;
+  background:rgba(0,0,0,0.6); border:2px solid rgba(255,255,255,0.85); font-weight:800; font-size:24px; letter-spacing:0.26em; }
+.ch i { width:12px; height:12px; border-radius:50%; background:#ff3b30; box-shadow:0 0 12px #ff3b30; }
+#pca { position:absolute; left:0; right:0; top:420px; text-align:center; opacity:0; }
+#pca .k { font-weight:800; font-size:22px; letter-spacing:0.5em; color:#6f93ff; }
+#pca .big { font-family:"Bebas Neue"; font-size:150px; line-height:0.9; text-shadow:0 12px 40px rgba(0,0,0,0.8); }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="123.433" data-width="1920" data-height="1080"><div id="opd"></div><div id="op"><div class="k">TEAM APEXX · ON STAGE</div><div class="big">STAGE DAY</div><div class="s">TBJP INTERNATIONAL BRITISH FINALS</div></div><div class="pl shadow" id="p0"><div class="k">ATHLETE · FIT MODEL</div><div class="nmw"><div class="nm">RACHEL</div></div><div class="rule"></div><div class="s1">OPEN PRO QUALIFIER · FIT MODEL</div><div class="s2">Second from left</div></div><div class="pl shadow" id="p1"><div class="k">ATHLETE · BIKINI</div><div class="nmw"><div class="nm">GABRIELLA</div></div><div class="rule"></div><div class="s1">OPEN PRO QUALIFIER · BIKINI</div></div><div class="pl shadow" id="p2"><div class="k">ATHLETE · PCA BRITISH FINALS</div><div class="nmw"><div class="nm">KATKA</div></div><div class="rule"></div><div class="s1">MASTERS BIKINI 45+</div></div><div class="ch shadow" id="c0"><i></i>COMPARISONS</div><div class="ch shadow" id="c1"><i></i>INDIVIDUAL ROUTINE</div><div class="ch shadow" id="c2"><i></i>INDIVIDUAL ROUTINE</div><div class="ch shadow" id="c3"><i></i>COMPARISONS</div><div class="ch shadow" id="c4"><i></i>I-WALK</div><div id="pca"><div class="k">MEANWHILE IN TELFORD</div><div class="big">PCA BRITISH FINALS</div></div><img id="bug" src="assets/apexx-logo.png"/><div id="fl"></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#op",".pl",".ch","#pca","#fl","#bug"], { opacity:0 });
+tl.to("#opd", { opacity:1, duration:f(0.3) }, 0);
+tl.fromTo("#op", { opacity:0, scale:1.15, filter:"blur(14px)" }, { opacity:1, scale:1, filter:"blur(0px)", duration:f(0.6), ease:"expo.out", immediateRender:false }, f(0.15));
+tl.to("#op .big", { scale:1.05, duration:f(2.6), ease:"none" }, f(0.75));
+tl.to(["#op","#opd"], { opacity:0, y:-20, filter:"blur(10px)", duration:f(0.4), ease:"power2.in" }, f(3.2));
+tl.fromTo("#bug", { opacity:0 }, { opacity:0.92, duration:f(0.5), immediateRender:false }, f(3.6));
+tl.fromTo("#p0", { opacity:0, x:-50 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(3.8));
+tl.fromTo("#p0 .nm", { yPercent:110 }, { yPercent:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(3.8+0.12));
+tl.fromTo("#p0 .rule", { scaleX:0 }, { scaleX:1, duration:f(0.35), ease:"power3.inOut", immediateRender:false }, f(3.8+0.3));
+tl.to("#p0", { opacity:0, x:-30, duration:f(0.35), ease:"power2.in" }, f(10.3));
+tl.fromTo("#c0", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(3.8));
+tl.to("#c0", { opacity:0, y:-10, duration:f(0.3), ease:"power2.in" }, f(10.3));
+tl.fromTo("#fl", { opacity:0 }, { opacity:0.85, duration:f(0.08), ease:"none", immediateRender:false }, f(24.6333 - 0.08));
+tl.to("#fl", { opacity:0, duration:f(0.35), ease:"power2.out" }, f(24.6333));
+tl.fromTo("#c1", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(24.833299999999998));
+tl.to("#c1", { opacity:0, y:-10, duration:f(0.3), ease:"power2.in" }, f(29.833299999999998));
+tl.fromTo("#fl", { opacity:0 }, { opacity:0.85, duration:f(0.08), ease:"none", immediateRender:false }, f(38.5333 - 0.08));
+tl.to("#fl", { opacity:0, duration:f(0.35), ease:"power2.out" }, f(38.5333));
+tl.fromTo("#p1", { opacity:0, x:-50 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(38.833299999999994));
+tl.fromTo("#p1 .nm", { yPercent:110 }, { yPercent:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(38.833299999999994+0.12));
+tl.fromTo("#p1 .rule", { scaleX:0 }, { scaleX:1, duration:f(0.35), ease:"power3.inOut", immediateRender:false }, f(38.833299999999994+0.3));
+tl.to("#p1", { opacity:0, x:-30, duration:f(0.35), ease:"power2.in" }, f(45.333299999999994));
+tl.fromTo("#c2", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(38.833299999999994));
+tl.to("#c2", { opacity:0, y:-10, duration:f(0.3), ease:"power2.in" }, f(45.333299999999994));
+tl.fromTo("#fl", { opacity:0 }, { opacity:0.85, duration:f(0.08), ease:"none", immediateRender:false }, f(61.9 - 0.08));
+tl.to("#fl", { opacity:0, duration:f(0.35), ease:"power2.out" }, f(61.9));
+tl.fromTo("#c3", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(62.1));
+tl.to("#c3", { opacity:0, y:-10, duration:f(0.3), ease:"power2.in" }, f(67.1));
+tl.fromTo("#fl", { opacity:0 }, { opacity:0.85, duration:f(0.08), ease:"none", immediateRender:false }, f(91.9667 - 0.08));
+tl.to("#fl", { opacity:0, duration:f(0.35), ease:"power2.out" }, f(91.9667));
+tl.fromTo("#pca", { opacity:0, scale:1.1 }, { opacity:1, scale:1, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(91.9667 + 0.15));
+tl.to("#pca", { opacity:0, y:-20, duration:f(0.35), ease:"power2.in" }, f(91.9667 + 2.6));
+tl.fromTo("#p2", { opacity:0, x:-50 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(94.9667));
+tl.fromTo("#p2 .nm", { yPercent:110 }, { yPercent:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(94.9667+0.12));
+tl.fromTo("#p2 .rule", { scaleX:0 }, { scaleX:1, duration:f(0.35), ease:"power3.inOut", immediateRender:false }, f(94.9667+0.3));
+tl.to("#p2", { opacity:0, x:-30, duration:f(0.35), ease:"power2.in" }, f(101.9667));
+tl.fromTo("#c4", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(94.9667));
+tl.to("#c4", { opacity:0, y:-10, duration:f(0.3), ease:"power2.in" }, f(101.9667));
+tl.to("#bug", { opacity:0, duration:f(0.5) }, f(123.43333333333334 - 0.7));
+
+tl.to({}, { duration:123.433 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

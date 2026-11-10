@@ -1,0 +1,62 @@
+[
+  {
+    "text": "It's",
+    "start": 0,
+    "end": 0.37,
+    "id": "w0"
+  },
+  {
+    "text": "alright,",
+    "start": 0.37,
+    "end": 1.2,
+    "id": "w1"
+  },
+  {
+    "text": "I'll",
+    "start": 1.21,
+    "end": 1.58,
+    "id": "w2"
+  },
+  {
+    "text": "probably",
+    "start": 1.59,
+    "end": 2.33,
+    "id": "w3"
+  },
+  {
+    "text": "shoot",
+    "start": 2.33,
+    "end": 2.79,
+    "id": "w4"
+  },
+  {
+    "text": "alone",
+    "start": 2.79,
+    "end": 3.31,
+    "id": "w5"
+  },
+  {
+    "text": "and",
+    "start": 3.31,
+    "end": 3.5,
+    "id": "w6"
+  },
+  {
+    "text": "you",
+    "start": 3.5,
+    "end": 3.68,
+    "id": "w7"
+  },
+  {
+    "text": "can",
+    "start": 3.68,
+    "end": 3.86,
+    "id": "w8"
+  },
+  {
+    "text": "go.",
+    "start": 3.86,
+    "end": 4,
+    "id": "w9"
+  }
+]

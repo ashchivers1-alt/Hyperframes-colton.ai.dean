@@ -1,0 +1,274 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:00,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 0
+			},
+			"text": ""
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:00,450"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 450
+			},
+			"text": " Four,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,450",
+				"to": "00:00:00,930"
+			},
+			"offsets": {
+				"from": 450,
+				"to": 930
+			},
+			"text": " nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:00,930",
+				"to": "00:00:03,700"
+			},
+			"offsets": {
+				"from": 930,
+				"to": 3700
+			},
+			"text": " Five,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:03,700",
+				"to": "00:00:07,000"
+			},
+			"offsets": {
+				"from": 3700,
+				"to": 7000
+			},
+			"text": " lovely."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:07,000",
+				"to": "00:00:08,100"
+			},
+			"offsets": {
+				"from": 7000,
+				"to": 8100
+			},
+			"text": " Right,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,100",
+				"to": "00:00:08,900"
+			},
+			"offsets": {
+				"from": 8100,
+				"to": 8900
+			},
+			"text": " let's"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,900",
+				"to": "00:00:09,710"
+			},
+			"offsets": {
+				"from": 8900,
+				"to": 9710
+			},
+			"text": " go,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:09,710",
+				"to": "00:00:10,170"
+			},
+			"offsets": {
+				"from": 9710,
+				"to": 10170
+			},
+			"text": " come"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:10,170",
+				"to": "00:00:11,000"
+			},
+			"offsets": {
+				"from": 10170,
+				"to": 11000
+			},
+			"text": " on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:11,000",
+				"to": "00:00:14,180"
+			},
+			"offsets": {
+				"from": 11000,
+				"to": 14180
+			},
+			"text": " Seven,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:14,180",
+				"to": "00:00:16,400"
+			},
+			"offsets": {
+				"from": 14180,
+				"to": 16400
+			},
+			"text": " eight,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:16,400",
+				"to": "00:00:18,000"
+			},
+			"offsets": {
+				"from": 16400,
+				"to": 18000
+			},
+			"text": " nine,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:18,000",
+				"to": "00:00:18,130"
+			},
+			"offsets": {
+				"from": 18000,
+				"to": 18130
+			},
+			"text": " come"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:18,130",
+				"to": "00:00:18,280"
+			},
+			"offsets": {
+				"from": 18130,
+				"to": 18280
+			},
+			"text": " on,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:18,280",
+				"to": "00:00:20,240"
+			},
+			"offsets": {
+				"from": 18280,
+				"to": 20240
+			},
+			"text": " twelve."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:20,240",
+				"to": "00:00:21,750"
+			},
+			"offsets": {
+				"from": 20240,
+				"to": 21750
+			},
+			"text": " Ten,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:21,750",
+				"to": "00:00:22,740"
+			},
+			"offsets": {
+				"from": 21750,
+				"to": 22740
+			},
+			"text": " two"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:22,740",
+				"to": "00:00:24,790"
+			},
+			"offsets": {
+				"from": 22740,
+				"to": 24790
+			},
+			"text": " more."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:24,790",
+				"to": "00:00:27,210"
+			},
+			"offsets": {
+				"from": 24790,
+				"to": 27210
+			},
+			"text": " Eleven,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:27,210",
+				"to": "00:00:27,990"
+			},
+			"offsets": {
+				"from": 27210,
+				"to": 27990
+			},
+			"text": " come"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:27,990",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 27990,
+				"to": 30000
+			},
+			"text": " on."
+		}
+	]
+}

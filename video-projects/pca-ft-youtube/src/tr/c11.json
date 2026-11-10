@@ -1,0 +1,1033 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,240"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2240
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:32,240"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 32240
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:51,820",
+				"to": "00:00:52,820"
+			},
+			"offsets": {
+				"from": 51820,
+				"to": 52820
+			},
+			"text": " Yeah, I'm on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:58,600",
+				"to": "00:01:00,320"
+			},
+			"offsets": {
+				"from": 58600,
+				"to": 60320
+			},
+			"text": " So when you're doing this,"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:00,320",
+				"to": "00:01:02,760"
+			},
+			"offsets": {
+				"from": 60320,
+				"to": 62760
+			},
+			"text": " try and drive your hips back."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:02,760",
+				"to": "00:01:05,440"
+			},
+			"offsets": {
+				"from": 62760,
+				"to": 65440
+			},
+			"text": " So obviously, well, so you can do this kind of just like"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:05,440",
+				"to": "00:01:07,200"
+			},
+			"offsets": {
+				"from": 65440,
+				"to": 67200
+			},
+			"text": " bent up and down like that, right?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:07,200",
+				"to": "00:01:09,120"
+			},
+			"offsets": {
+				"from": 67200,
+				"to": 69120
+			},
+			"text": " There's a lot more load on like your erectors"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:09,120",
+				"to": "00:01:10,100"
+			},
+			"offsets": {
+				"from": 69120,
+				"to": 70100
+			},
+			"text": " and stuff like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:10,100",
+				"to": "00:01:11,120"
+			},
+			"offsets": {
+				"from": 70100,
+				"to": 71120
+			},
+			"text": " If you think about what you're trying to do,"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:11,120",
+				"to": "00:01:12,760"
+			},
+			"offsets": {
+				"from": 71120,
+				"to": 72760
+			},
+			"text": " you're trying to really lengthen the glute and the hammy,"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:12,760",
+				"to": "00:01:14,840"
+			},
+			"offsets": {
+				"from": 72760,
+				"to": 74840
+			},
+			"text": " right, to get connection there."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:16,440",
+				"to": "00:01:17,560"
+			},
+			"offsets": {
+				"from": 76440,
+				"to": 77560
+			},
+			"text": " It hurts."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:17,560",
+				"to": "00:01:18,480"
+			},
+			"offsets": {
+				"from": 77560,
+				"to": 78480
+			},
+			"text": " Okay, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:20,720",
+				"to": "00:01:21,800"
+			},
+			"offsets": {
+				"from": 80720,
+				"to": 81800
+			},
+			"text": " Right."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:21,800",
+				"to": "00:01:25,680"
+			},
+			"offsets": {
+				"from": 81800,
+				"to": 85680
+			},
+			"text": " So when you go, so you can't sort of push back like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:25,680",
+				"to": "00:01:27,240"
+			},
+			"offsets": {
+				"from": 85680,
+				"to": 87240
+			},
+			"text": " That's where you get the pain."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:28,720",
+				"to": "00:01:31,120"
+			},
+			"offsets": {
+				"from": 88720,
+				"to": 91120
+			},
+			"text": " (indistinct)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:31,120",
+				"to": "00:01:32,200"
+			},
+			"offsets": {
+				"from": 91120,
+				"to": 92200
+			},
+			"text": " - Yeah, yeah, yeah, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:32,200",
+				"to": "00:01:34,460"
+			},
+			"offsets": {
+				"from": 92200,
+				"to": 94460
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:35,500",
+				"to": "00:01:36,340"
+			},
+			"offsets": {
+				"from": 95500,
+				"to": 96340
+			},
+			"text": " (coughing)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:36,340",
+				"to": "00:01:37,440"
+			},
+			"offsets": {
+				"from": 96340,
+				"to": 97440
+			},
+			"text": " - Got it."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:37,440",
+				"to": "00:01:38,600"
+			},
+			"offsets": {
+				"from": 97440,
+				"to": 98600
+			},
+			"text": " - Oh, sorry, sorry, sorry."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:38,600",
+				"to": "00:01:40,860"
+			},
+			"offsets": {
+				"from": 98600,
+				"to": 100860
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:58,600",
+				"to": "00:02:00,840"
+			},
+			"offsets": {
+				"from": 118600,
+				"to": 120840
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:03,800",
+				"to": "00:02:04,640"
+			},
+			"offsets": {
+				"from": 123800,
+				"to": 124640
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:15,960",
+				"to": "00:02:16,800"
+			},
+			"offsets": {
+				"from": 135960,
+				"to": 136800
+			},
+			"text": " Let's go."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:18,520",
+				"to": "00:02:19,360"
+			},
+			"offsets": {
+				"from": 138520,
+				"to": 139360
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:28,000",
+				"to": "00:02:29,000"
+			},
+			"offsets": {
+				"from": 148000,
+				"to": 149000
+			},
+			"text": " Let's do it."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:34,640",
+				"to": "00:02:36,240"
+			},
+			"offsets": {
+				"from": 154640,
+				"to": 156240
+			},
+			"text": " - My lower back is hurting."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:36,240",
+				"to": "00:02:38,920"
+			},
+			"offsets": {
+				"from": 156240,
+				"to": 158920
+			},
+			"text": " I need to go without weight."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:38,920",
+				"to": "00:02:40,420"
+			},
+			"offsets": {
+				"from": 158920,
+				"to": 160420
+			},
+			"text": " - Ta-da, try now."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:43,840",
+				"to": "00:02:46,000"
+			},
+			"offsets": {
+				"from": 163840,
+				"to": 166000
+			},
+			"text": " - Let's get my lower back."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:46,920",
+				"to": "00:02:49,160"
+			},
+			"offsets": {
+				"from": 166920,
+				"to": 169160
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:58,000",
+				"to": "00:03:00,240"
+			},
+			"offsets": {
+				"from": 178000,
+				"to": 180240
+			},
+			"text": " (grunting)"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:18,360",
+				"to": "00:03:20,280"
+			},
+			"offsets": {
+				"from": 198360,
+				"to": 200280
+			},
+			"text": " - So when you're doing this right, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:22,280",
+				"to": "00:03:23,520"
+			},
+			"offsets": {
+				"from": 202280,
+				"to": 203520
+			},
+			"text": " So when you're doing this one, yeah,"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:23,520",
+				"to": "00:03:27,720"
+			},
+			"offsets": {
+				"from": 203520,
+				"to": 207720
+			},
+			"text": " so your lower back, right, is curving like this."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:27,720",
+				"to": "00:03:28,560"
+			},
+			"offsets": {
+				"from": 207720,
+				"to": 208560
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:28,560",
+				"to": "00:03:31,040"
+			},
+			"offsets": {
+				"from": 208560,
+				"to": 211040
+			},
+			"text": " So the way you want to do it is create a stable back."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:31,040",
+				"to": "00:03:33,120"
+			},
+			"offsets": {
+				"from": 211040,
+				"to": 213120
+			},
+			"text": " So you're sort of like creating an arch"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:33,120",
+				"to": "00:03:34,960"
+			},
+			"offsets": {
+				"from": 213120,
+				"to": 214960
+			},
+			"text": " in your lower back like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:34,960",
+				"to": "00:03:37,680"
+			},
+			"offsets": {
+				"from": 214960,
+				"to": 217680
+			},
+			"text": " So then it's just a hinge like that, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:38,640",
+				"to": "00:03:41,200"
+			},
+			"offsets": {
+				"from": 218640,
+				"to": 221200
+			},
+			"text": " And the minute you're going like this"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:41,200",
+				"to": "00:03:43,280"
+			},
+			"offsets": {
+				"from": 221200,
+				"to": 223280
+			},
+			"text": " and picking up like that, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:43,280",
+				"to": "00:03:45,760"
+			},
+			"offsets": {
+				"from": 223280,
+				"to": 225760
+			},
+			"text": " It's just putting like a lot of load in your lower back."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:49,040",
+				"to": "00:03:51,280"
+			},
+			"offsets": {
+				"from": 229040,
+				"to": 231280
+			},
+			"text": " (clanking)"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:57,920",
+				"to": "00:03:58,760"
+			},
+			"offsets": {
+				"from": 237920,
+				"to": 238760
+			},
+			"text": " That's it."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:07,880",
+				"to": "00:04:08,720"
+			},
+			"offsets": {
+				"from": 247880,
+				"to": 248720
+			},
+			"text": " That's it."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:10,120",
+				"to": "00:04:10,960"
+			},
+			"offsets": {
+				"from": 250120,
+				"to": 250960
+			},
+			"text": " - What?"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:10,960",
+				"to": "00:04:12,680"
+			},
+			"offsets": {
+				"from": 250960,
+				"to": 252680
+			},
+			"text": " - So when you come down as well, yeah,"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:12,680",
+				"to": "00:04:13,880"
+			},
+			"offsets": {
+				"from": 252680,
+				"to": 253880
+			},
+			"text": " think about what you're trying to do."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:13,880",
+				"to": "00:04:17,600"
+			},
+			"offsets": {
+				"from": 253880,
+				"to": 257600
+			},
+			"text": " So all you're doing is trying to stretch your hammers"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:17,600",
+				"to": "00:04:18,440"
+			},
+			"offsets": {
+				"from": 257600,
+				"to": 258440
+			},
+			"text": " and glutes, right?"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:18,440",
+				"to": "00:04:19,760"
+			},
+			"offsets": {
+				"from": 258440,
+				"to": 259760
+			},
+			"text": " So you're literally just coming straight down like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:19,760",
+				"to": "00:04:21,280"
+			},
+			"offsets": {
+				"from": 259760,
+				"to": 261280
+			},
+			"text": " What you're doing towards the end there,"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:21,280",
+				"to": "00:04:22,120"
+			},
+			"offsets": {
+				"from": 261280,
+				"to": 262120
+			},
+			"text": " you went like this."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:22,120",
+				"to": "00:04:24,040"
+			},
+			"offsets": {
+				"from": 262120,
+				"to": 264040
+			},
+			"text": " You got to here, and because you're flexible,"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:24,040",
+				"to": "00:04:26,240"
+			},
+			"offsets": {
+				"from": 264040,
+				"to": 266240
+			},
+			"text": " you went like that to go down even further."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:26,240",
+				"to": "00:04:27,800"
+			},
+			"offsets": {
+				"from": 266240,
+				"to": 267800
+			},
+			"text": " That's what's pulling your back forward."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:27,800",
+				"to": "00:04:28,640"
+			},
+			"offsets": {
+				"from": 267800,
+				"to": 268640
+			},
+			"text": " Do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:28,640",
+				"to": "00:04:29,720"
+			},
+			"offsets": {
+				"from": 268640,
+				"to": 269720
+			},
+			"text": " So literally just be like, right,"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:29,720",
+				"to": "00:04:31,600"
+			},
+			"offsets": {
+				"from": 269720,
+				"to": 271600
+			},
+			"text": " think what you're trying to do."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:31,600",
+				"to": "00:04:34,440"
+			},
+			"offsets": {
+				"from": 271600,
+				"to": 274440
+			},
+			"text": " So you're just going down, up."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:34,440",
+				"to": "00:04:36,200"
+			},
+			"offsets": {
+				"from": 274440,
+				"to": 276200
+			},
+			"text": " Rather than getting here, be like, oh,"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:36,200",
+				"to": "00:04:38,280"
+			},
+			"offsets": {
+				"from": 276200,
+				"to": 278280
+			},
+			"text": " well I can do a bit more and then pushing it forward."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:38,280",
+				"to": "00:04:40,120"
+			},
+			"offsets": {
+				"from": 278280,
+				"to": 280120
+			},
+			"text": " Do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:40,120",
+				"to": "00:04:42,720"
+			},
+			"offsets": {
+				"from": 280120,
+				"to": 282720
+			},
+			"text": " (upbeat music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:57,240",
+				"to": "00:04:58,600"
+			},
+			"offsets": {
+				"from": 297240,
+				"to": 298600
+			},
+			"text": " All right, fixed."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:58,600",
+				"to": "00:05:00,240"
+			},
+			"offsets": {
+				"from": 298600,
+				"to": 300240
+			},
+			"text": " There you go."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:00,240",
+				"to": "00:05:01,080"
+			},
+			"offsets": {
+				"from": 300240,
+				"to": 301080
+			},
+			"text": " That's it."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:01,080",
+				"to": "00:05:02,240"
+			},
+			"offsets": {
+				"from": 301080,
+				"to": 302240
+			},
+			"text": " That's all you need to go down is there."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:02,240",
+				"to": "00:05:03,840"
+			},
+			"offsets": {
+				"from": 302240,
+				"to": 303840
+			},
+			"text": " You're trying to stretch your glute and your hammer, yeah?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:03,840",
+				"to": "00:05:05,320"
+			},
+			"offsets": {
+				"from": 303840,
+				"to": 305320
+			},
+			"text": " You're not just trying to reach it"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:05,320",
+				"to": "00:05:08,000"
+			},
+			"offsets": {
+				"from": 305320,
+				"to": 308000
+			},
+			"text": " because you can reach the floor, yeah?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:08,000",
+				"to": "00:05:08,840"
+			},
+			"offsets": {
+				"from": 308000,
+				"to": 308840
+			},
+			"text": " Painful?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:10,960",
+				"to": "00:05:14,520"
+			},
+			"offsets": {
+				"from": 310960,
+				"to": 314520
+			},
+			"text": " - I don't want to eat it with just a little tap."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:14,520",
+				"to": "00:05:16,160"
+			},
+			"offsets": {
+				"from": 314520,
+				"to": 316160
+			},
+			"text": " I'll just do something else."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:16,160",
+				"to": "00:05:17,000"
+			},
+			"offsets": {
+				"from": 316160,
+				"to": 317000
+			},
+			"text": " - No, it's fine."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:17,000",
+				"to": "00:05:17,840"
+			},
+			"offsets": {
+				"from": 317000,
+				"to": 317840
+			},
+			"text": " It's not at all."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:17,840",
+				"to": "00:05:18,680"
+			},
+			"offsets": {
+				"from": 317840,
+				"to": 318680
+			},
+			"text": " Not at all."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:23,880",
+				"to": "00:05:24,720"
+			},
+			"offsets": {
+				"from": 323880,
+				"to": 324720
+			},
+			"text": " - Sorry."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:25,800",
+				"to": "00:05:26,640"
+			},
+			"offsets": {
+				"from": 325800,
+				"to": 326640
+			},
+			"text": " What's your back feel?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:26,640",
+				"to": "00:05:27,480"
+			},
+			"offsets": {
+				"from": 326640,
+				"to": 327480
+			},
+			"text": " Does it feel painful?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:27,480",
+				"to": "00:05:29,560"
+			},
+			"offsets": {
+				"from": 327480,
+				"to": 329560
+			},
+			"text": " Or have you just got like a, like a pump?"
+		},
+		{
+			"timestamps": {
+				"from": "00:05:34,040",
+				"to": "00:05:35,160"
+			},
+			"offsets": {
+				"from": 334040,
+				"to": 335160
+			},
+			"text": " Oh well, rest a minute."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:43,720",
+				"to": "00:05:44,560"
+			},
+			"offsets": {
+				"from": 343720,
+				"to": 344560
+			},
+			"text": " Got another 10."
+		},
+		{
+			"timestamps": {
+				"from": "00:05:55,160",
+				"to": "00:05:56,500"
+			},
+			"offsets": {
+				"from": 355160,
+				"to": 356500
+			},
+			"text": " Got another one?"
+		},
+		{
+			"timestamps": {
+				"from": "00:06:25,160",
+				"to": "00:06:27,740"
+			},
+			"offsets": {
+				"from": 385160,
+				"to": 387740
+			},
+			"text": " (upbeat music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:06:55,160",
+				"to": "00:06:57,740"
+			},
+			"offsets": {
+				"from": 415160,
+				"to": 417740
+			},
+			"text": " (upbeat music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:07:25,160",
+				"to": "00:07:28,160"
+			},
+			"offsets": {
+				"from": 445160,
+				"to": 448160
+			},
+			"text": " (breathing heavily)"
+		}
+	]
+}

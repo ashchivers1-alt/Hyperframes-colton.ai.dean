@@ -1,0 +1,147 @@
+[
+ {
+  "name": "p01_gym",
+  "rec": 101,
+  "frames": 125
+ },
+ {
+  "name": "p02_client",
+  "rec": 237,
+  "frames": 149
+ },
+ {
+  "name": "p03_peak",
+  "rec": 396,
+  "frames": 101
+ },
+ {
+  "name": "p04_qturn",
+  "rec": 1463,
+  "frames": 86
+ },
+ {
+  "name": "p05_breathe",
+  "rec": 1717,
+  "frames": 201
+ },
+ {
+  "name": "p06_front",
+  "rec": 2189,
+  "frames": 82
+ },
+ {
+  "name": "p07_sidetri",
+  "rec": 2585,
+  "frames": 86
+ },
+ {
+  "name": "p08_sideleg",
+  "rec": 3045,
+  "frames": 86
+ },
+ {
+  "name": "p09_sideleg_cues",
+  "rec": 3467,
+  "frames": 957
+ },
+ {
+  "name": "p10_prep",
+  "rec": 4510,
+  "frames": 260
+ },
+ {
+  "name": "p11_them",
+  "rec": 4919,
+  "frames": 67
+ },
+ {
+  "name": "p12_checklist",
+  "rec": 5194,
+  "frames": 1192
+ },
+ {
+  "name": "t00_session",
+  "rec": 6401,
+  "frames": 110
+ },
+ {
+  "name": "t01_kick",
+  "rec": 6516,
+  "frames": 120
+ },
+ {
+  "name": "t02_abd",
+  "rec": 7351,
+  "frames": 120
+ },
+ {
+  "name": "t03_thrust",
+  "rec": 9509,
+  "frames": 120
+ },
+ {
+  "name": "t04_press",
+  "rec": 10564,
+  "frames": 120
+ },
+ {
+  "name": "t05_rdl",
+  "rec": 11816,
+  "frames": 120
+ },
+ {
+  "name": "t06_curl",
+  "rec": 13403,
+  "frames": 120
+ },
+ {
+  "name": "t10_squeeze",
+  "rec": 6653,
+  "frames": 110
+ },
+ {
+  "name": "t11_fit",
+  "rec": 8681,
+  "frames": 395
+ },
+ {
+  "name": "t13_squeeze_top",
+  "rec": 9701,
+  "frames": 110
+ },
+ {
+  "name": "t14_lower",
+  "rec": 10048,
+  "frames": 288
+ },
+ {
+  "name": "t16_3weeks",
+  "rec": 11365,
+  "frames": 120
+ },
+ {
+  "name": "t17_hips",
+  "rec": 11873,
+  "frames": 455
+ },
+ {
+  "name": "t18_stable",
+  "rec": 12360,
+  "frames": 270
+ },
+ {
+  "name": "t19_stretch",
+  "rec": 12641,
+  "frames": 394
+ },
+ {
+  "name": "t20_floor",
+  "rec": 13275,
+  "frames": 115
+ },
+ {
+  "name": "t21_reps",
+  "rec": 14868,
+  "frames": 357
+ }
+]

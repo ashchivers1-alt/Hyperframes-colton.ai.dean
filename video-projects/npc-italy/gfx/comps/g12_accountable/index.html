@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+#A { position:absolute; left:84px; top:330px; }
+#A .k { font-size:36px; margin-bottom:8px; color:#fff; }
+#A .acc { position:relative; font-size:140px; color:#fff; }
+#A .acc .w { display:inline-block; overflow:hidden; padding-bottom:4px; vertical-align:bottom; }
+#A .acc .w span { display:inline-block; }
+#A .acc .gl { position:absolute; left:0; top:0; color:transparent; text-shadow:none; pointer-events:none;
+  background:linear-gradient(100deg, rgba(255,255,255,0) 42%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0) 58%);
+  background-size:300% 100%; background-position:100% 0; -webkit-background-clip:text; background-clip:text; }
+#A .team { position:relative; display:inline-block; margin-top:14px; padding:10px 22px 4px; }
+#A .team .bar { position:absolute; inset:0; background:#d80609; transform-origin:left center; }
+#A .team .t { position:relative; font-size:92px; color:#fff; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="13.950" data-width="3840" data-height="2160"><div id="root"><div class="back" style="left:-300px; top:120px; bottom:auto; width:1400px; height:800px; background:radial-gradient(ellipse 50% 50% at 40% 50%, rgba(0,0,0,0.7), rgba(0,0,0,0) 72%);"></div><div id="A" class="sh"><div class="k"><i></i>ALWAYS BEING HELD</div><div class="acc t"><span class="w"><span>A</span></span><span class="w"><span>C</span></span><span class="w"><span>C</span></span><span class="w"><span>O</span></span><span class="w"><span>U</span></span><span class="w"><span>N</span></span><span class="w"><span>T</span></span><span class="w"><span>A</span></span><span class="w"><span>B</span></span><span class="w"><span>L</span></span><span class="w"><span>E</span></span><div class="gl t">ACCOUNTABLE</div></div><div><div class="team"><div class="bar"></div><div class="t">BY MY TEAM</div></div></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set([".back", "#A .k"], { opacity:0 }); gsap.set("#A .acc .w span", { yPercent:110 });
+gsap.set("#A .team .bar", { scaleX:0 }); gsap.set("#A .team .t", { opacity:0, x:-20 });
+tl.to(".back", { opacity:1, duration:0.6*K }, 0.3*K);
+tl.fromTo("#A .k", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.5*K, ease:"power3.out", immediateRender:false }, 0.5*K);
+tl.to("#A .acc .w span", { yPercent:0, duration:0.7*K, ease:"expo.out", stagger:0.045*K }, 0.8*K);
+tl.to("#A .acc .gl", { backgroundPosition:"0% 0", duration:1.1*K, ease:"power2.inOut" }, 1.7*K);
+tl.to("#A .team .bar", { scaleX:1, duration:0.5*K, ease:"power4.inOut" }, 2.2*K);
+tl.to("#A .team .t", { opacity:1, x:0, duration:0.45*K, ease:"back.out(1.6)" }, 2.5*K);
+tl.fromTo("#A .acc .gl", { backgroundPosition:"100% 0" }, { backgroundPosition:"0% 0", duration:1.1*K, ease:"power2.inOut", immediateRender:false }, 7.5*K);
+tl.to("#A", { opacity:0, x:-40, duration:0.5*K, ease:"power2.in" }, 13.364*K);
+tl.to(".back", { opacity:0, duration:0.5*K }, 13.464*K);
+tl.to({}, { duration:13.950 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

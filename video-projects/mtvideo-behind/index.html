@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <!--
+      STYLE TRIAL — "behind the subject".
+      This composition renders the BACK layer only: Ash's footage + graphics + SFX.
+      scripts/composite.sh then pastes Ash back on top using a per-frame person
+      matte (Robust Video Matting), so every graphic here reads as sitting behind him.
+      Keep graphics out of the burned-in caption band (y ≈ 1050–1450).
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #face-wrap { position: absolute; inset: 0; }
+      #face-video { width: 1080px; height: 1920px; object-fit: cover; }
+
+      /* background grade — darkens the gym behind Ash, fades out above the captions */
+      #grade {
+        position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 70% 40% at 50% 18%, rgba(216, 6, 9, 0.22), transparent 70%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.5) 38%, rgba(0, 0, 0, 0) 58%);
+      }
+      #glow {
+        position: absolute; left: -10%; right: -10%; top: -6%; height: 64%; pointer-events: none;
+        background: radial-gradient(ellipse 50% 45% at 50% 40%, rgba(216, 6, 9, 0.75), transparent 72%);
+        mix-blend-mode: screen; opacity: 0;
+      }
+      #grain {
+        position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+        background:
+          radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 3px 3px,
+          radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 1px 2px / 5px 5px,
+          radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px) 2px 1px / 7px 7px;
+      }
+
+      /* the giant type that sits behind Ash's head */
+      .stage { position: absolute; left: 0; right: 0; top: 0; height: 1000px; overflow: hidden; }
+      .giant {
+        position: absolute; left: 0; right: 0; top: 260px; margin-top: -0.41em;
+        font-family: "Bebas Neue", sans-serif; font-weight: 400; line-height: 0.82; letter-spacing: 0.01em;
+        white-space: nowrap; text-align: center;
+      }
+      .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #e9e9e9 42%, #9a9a9a 70%, #d8d8d8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.28)) drop-shadow(0 10px 40px rgba(0, 0, 0, 0.6));
+      }
+      .redfill {
+        color: var(--brand-accent);
+        text-shadow: 0 0 30px rgba(216, 6, 9, 0.75), 0 0 80px rgba(216, 6, 9, 0.45);
+      }
+      .outline {
+        color: transparent; -webkit-text-stroke: 3px rgba(255, 255, 255, 0.55);
+      }
+      .kicker {
+        position: absolute; left: 0; right: 0; text-align: center;
+        font-family: Inter, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 0.42em;
+        color: rgba(255, 255, 255, 0.9); white-space: nowrap; text-transform: uppercase;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+      }
+
+      /* B1 */
+      #s1-easy { font-size: 500px; top: 330px; }
+      #s1-k { top: 26px; }
+
+      /* B2 — instagram caption card, floats behind the left shoulder */
+      #s2-card {
+        position: absolute; left: 34px; top: 150px; width: 470px; padding: 26px 28px 30px;
+        border-radius: 26px; background: rgba(250, 250, 250, 0.95); color: #111;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6); transform: rotate(-6deg);
+      }
+      #s2-card .hd { display: flex; align-items: center; gap: 12px; }
+      #s2-card .av { width: 44px; height: 44px; border-radius: 50%; padding: 3px; background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75); }
+      #s2-card .av div { width: 100%; height: 100%; border-radius: 50%; background: #ddd; border: 2px solid #fff; }
+      #s2-card .who { font-weight: 800; font-size: 22px; }
+      #s2-card .dots { margin-left: auto; font-weight: 900; font-size: 26px; letter-spacing: 2px; color: #555; }
+      #s2-card .q { margin-top: 18px; font-weight: 600; font-size: 31px; line-height: 1.28; }
+      #s2-card .q span { display: inline-block; margin-right: 8px; }
+      #s2-card .row { display: flex; gap: 20px; margin-top: 18px; font-size: 30px; }
+      #s2-x {
+        position: absolute; left: 50%; top: 330px; width: 980px; height: 620px; transform: translate(-50%, -50%);
+      }
+      #s2-x path { fill: none; stroke: var(--brand-accent); stroke-width: 120; stroke-linecap: round; filter: drop-shadow(0 0 30px rgba(216,6,9,0.8)); }
+      #s2-word { font-size: 250px; top: 260px; line-height: 0.86; }
+
+      /* B3 */
+      #s3-a { font-size: 330px; top: 175px; }
+      #s3-b { font-size: 230px; top: 420px; }
+
+      /* B4 — vertical side columns */
+      .side { position: absolute; top: 540px; font-family: "Bebas Neue", sans-serif; font-size: 190px; line-height: 1; white-space: nowrap; }
+      #s4-l { left: 110px; }
+      #s4-r { left: 300px; }
+
+      /* B5 — DOUBT marquee rows */
+      .mq { position: absolute; left: 0; white-space: nowrap; font-family: "Bebas Neue", sans-serif; font-size: 190px; line-height: 1; }
+      #s5-r1 { top: 60px; } #s5-r2 { top: 250px; } #s5-r3 { top: 440px; } #s5-r4 { top: 630px; }
+
+      /* B6 */
+      #s6-hard { font-size: 560px; top: 290px; }
+      #s6-chal { font-size: 280px; top: 190px; }
+
+      /* B7 — B-roll windows behind Ash */
+      .broll {
+        position: absolute; opacity: 0; width: 400px; height: 338px; border-radius: 22px; overflow: hidden;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), 0 0 0 2px rgba(255, 255, 255, 0.14);
+      }
+      .broll video { width: 100%; height: 100%; object-fit: cover; }
+      .broll .tagline {
+        position: absolute; left: 14px; bottom: 12px; padding: 6px 12px; border-radius: 8px;
+        background: var(--brand-accent); font-family: "Bebas Neue", sans-serif; font-size: 30px; color: #fff;
+      }
+      #s7-w1 { left: 24px; top: 270px; transform: rotate(-5deg); }
+      #s7-w2 { right: 24px; top: 210px; transform: rotate(5deg); }
+      #s7-word { font-size: 250px; top: 120px; }
+
+      /* B8 — stacked trio */
+      .trio { position: absolute; left: 0; right: 0; text-align: center; font-family: "Bebas Neue", sans-serif; white-space: nowrap; line-height: 0.9; }
+      #s8-1 { top: 50px; font-size: 230px; }
+      #s8-2 { top: 50px; font-size: 230px; }
+      #s8-3 { top: 50px; font-size: 230px; }
+
+      /* B9 — logo outro behind Ash */
+      #s9-logo { position: absolute; left: 60px; top: 40px; width: 960px; filter: drop-shadow(0 0 40px rgba(216,6,9,0.55)); }
+      #s9-k { top: 26px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="41.96" data-width="1080" data-height="1920">
+      <div id="face-wrap">
+        <video id="face-video" src="assets/mtvideo.mp4" data-start="0" data-duration="41.96" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/mtvideo.mp4" data-start="0" data-duration="41.96" data-track-index="1" data-volume="1"></audio>
+
+      <div id="grade" class="clip" data-start="0" data-duration="41.96" data-track-index="2"></div>
+      <div id="glow" class="clip" data-start="0" data-duration="41.96" data-track-index="3"></div>
+
+      <!-- B1 · 0.5–3.0 · "everybody wants it easy" -->
+      <div id="s1" class="stage clip" data-start="0.5" data-duration="2.5" data-track-index="4">
+        <div id="s1-k" class="kicker">Everybody wants it</div>
+        <div id="s1-easy" class="giant chrome">EASY</div>
+      </div>
+
+      <!-- B2 · 3.0–15.6 · the caption he saw → giant red brush X + WRONG MINDSET -->
+      <div id="s2" class="stage clip" data-start="3.0" data-duration="12.6" data-track-index="4">
+        <svg id="s2-x" viewBox="0 0 980 620"><path id="s2-x1" d="M120 70 L860 550" /><path id="s2-x2" d="M860 70 L120 550" /></svg>
+        <div id="s2-word" class="giant chrome">WRONG<br />MINDSET</div>
+        <div id="s2-card">
+          <div class="hd"><div class="av"><div></div></div><div class="who">caption I saw</div><div class="dots">···</div></div>
+          <div class="q"><span id="q0">It's</span><span id="q1">not</span><span id="q2">how</span><span id="q3">hard</span><span id="q4">you</span><span id="q5">work,</span><span id="q6">it's</span><span id="q7">about</span><span id="q8">how</span><span id="q9">little</span><span id="q10">you</span><span id="q11">can</span><span id="q12">do…</span></div>
+          <div class="row"><span>♡</span><span>💬</span><span>➤</span></div>
+        </div>
+      </div>
+
+      <!-- B3 · 15.7–19.6 · "worth having … will not come easy" -->
+      <div id="s3" class="stage clip" data-start="15.7" data-duration="3.9" data-track-index="4">
+        <div id="s3-a" class="giant chrome">WORTH IT</div>
+        <div id="s3-b" class="giant redfill">≠ EASY</div>
+      </div>
+
+      <!-- B4 · 19.65–23.7 · physical / mental -->
+      <div id="s4" class="stage clip" data-start="19.65" data-duration="4.05" data-track-index="4">
+        <div id="s4-l" class="side chrome">PHYSICAL</div>
+        <div id="s4-r" class="side redfill">MENTAL</div>
+      </div>
+
+      <!-- B5 · 23.75–26.75 · doubting yourself (marquee) -->
+      <div id="s5" class="stage clip" data-start="23.75" data-duration="3.0" data-track-index="4">
+        <div id="s5-r1" class="mq outline">DOUBT · DOUBT · DOUBT · DOUBT · DOUBT · DOUBT ·</div>
+        <div id="s5-r2" class="mq redfill">DOUBT · DOUBT · DOUBT · DOUBT · DOUBT · DOUBT ·</div>
+        <div id="s5-r3" class="mq outline">DOUBT · DOUBT · DOUBT · DOUBT · DOUBT · DOUBT ·</div>
+        <div id="s5-r4" class="mq outline">DOUBT · DOUBT · DOUBT · DOUBT · DOUBT · DOUBT ·</div>
+      </div>
+
+      <!-- B6 · 26.8–31.6 · hard → challenge → ? -->
+      <div id="s6" class="stage clip" data-start="26.8" data-duration="4.8" data-track-index="4">
+        <div id="s6-hard" class="giant redfill">HARD</div>
+        <div id="s6-chal" class="giant chrome">CHALLENGE</div>
+      </div>
+
+      <!-- B7 · 31.7–37.0 · no cookie-cutter shortcuts — B-roll windows behind -->
+      <div id="s7" class="stage clip" data-start="31.7" data-duration="5.3" data-track-index="4">
+        <div id="s7-word" class="giant outline">NO SHORTCUTS</div>
+      </div>
+      <div id="s7-w1" class="broll">
+        <video id="s7-v1" src="assets/broll/bar-hands.mp4" data-start="31.9" data-duration="5.1" data-track-index="7" muted playsinline></video>
+        <div class="tagline">THE WORK</div>
+      </div>
+      <div id="s7-w2" class="broll">
+        <video id="s7-v2" src="assets/broll/strap-rack.mp4" data-start="33.6" data-duration="3.3" data-track-index="8" muted playsinline></video>
+        <div class="tagline">EVERY SESSION</div>
+      </div>
+
+      <!-- B8 · 37.1–40.1 · time / consistency / hard work -->
+      <div id="s8" class="stage clip" data-start="37.1" data-duration="3.0" data-track-index="4">
+        <div id="s8-1" class="trio chrome">TIME</div>
+        <div id="s8-2" class="trio chrome">CONSISTENCY</div>
+        <div id="s8-3" class="trio redfill">HARD WORK</div>
+      </div>
+
+      <!-- B9 · 40.1–41.96 · not for everybody — logo behind Ash -->
+      <div id="s9" class="stage clip" data-start="40.1" data-duration="1.86" data-track-index="4">
+        <div id="s9-k" class="kicker">Not for everybody</div>
+        <img id="s9-logo" src="assets/team-apexx-logo.png" />
+      </div>
+
+      <div id="grain" class="clip" data-start="0" data-duration="41.96" data-track-index="9"></div>
+
+      <!-- SFX -->
+      <audio id="x1" src="assets/sfx/whoosh.mp3" data-start="0.45" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x2" src="assets/sfx/slam.mp3" data-start="2.38" data-duration="1.2" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x3" src="assets/sfx/swipe.mp3" data-start="5.25" data-duration="1.05" data-track-index="10" data-volume="0.15"></audio>
+      <audio id="x4" src="assets/sfx/bass-drop.mp3" data-start="12.0" data-duration="1.15" data-track-index="11" data-volume="0.32"></audio>
+      <audio id="x5" src="assets/sfx/hard-cut.mp3" data-start="16.88" data-duration="0.24" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="x6" src="assets/sfx/slam.mp3" data-start="18.2" data-duration="1.2" data-track-index="12" data-volume="0.26"></audio>
+      <audio id="x7" src="assets/sfx/whoosh.mp3" data-start="20.98" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x8" src="assets/sfx/whoosh.mp3" data-start="22.42" data-duration="0.57" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="x9" src="assets/sfx/glitch.mp3" data-start="23.9" data-duration="1.4" data-track-index="12" data-volume="0.1"></audio>
+      <audio id="x10" src="assets/sfx/bass-drop.mp3" data-start="27.66" data-duration="1.15" data-track-index="10" data-volume="0.34"></audio>
+      <audio id="x11" src="assets/sfx/hard-cut.mp3" data-start="29.05" data-duration="0.24" data-track-index="11" data-volume="0.28"></audio>
+            <audio id="x13" src="assets/sfx/swipe.mp3" data-start="31.85" data-duration="1.05" data-track-index="10" data-volume="0.15"></audio>
+      <audio id="x14" src="assets/sfx/swipe.mp3" data-start="33.55" data-duration="1.05" data-track-index="11" data-volume="0.15"></audio>
+      <audio id="x15" src="assets/sfx/hard-cut.mp3" data-start="38.02" data-duration="0.24" data-track-index="12" data-volume="0.26"></audio>
+      <audio id="x16" src="assets/sfx/hard-cut.mp3" data-start="38.38" data-duration="0.24" data-track-index="10" data-volume="0.26"></audio>
+      <audio id="x17" src="assets/sfx/slam.mp3" data-start="39.52" data-duration="1.2" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="x18" src="assets/sfx/bass-drop.mp3" data-start="40.4" data-duration="1.15" data-track-index="12" data-volume="0.3"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 41.96;
+        const PULSE = (t, a = 0.9) => tl.fromTo("#glow", { opacity: a }, { opacity: 0, duration: 0.9, ease: "power2.out", immediateRender: false }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -16, duration: 0.04 }, { x: 13, duration: 0.04 }, { x: -7, duration: 0.04 }, { x: 0, duration: 0.05 }] }, t);
+
+        // B1 — EASY rises behind the head, slams on "easy"
+        tl.fromTo("#s1-k", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 0.92);
+        tl.fromTo("#s1-easy", { yPercent: -10, scale: 0.6, opacity: 0, filter: "blur(20px)" }, { scale: 1, opacity: 0.18, filter: "blur(6px)", duration: 1.4, ease: "power2.out" }, 0.9);
+        tl.to("#s1-easy", { opacity: 1, filter: "blur(0px)", scale: 1.04, duration: 0.18, ease: "power4.in" }, 2.32);
+        PULSE(2.42);
+        tl.to("#s1-easy", { scale: 1.1, duration: 0.5, ease: "none" }, 2.5);
+        tl.to("#s1", { opacity: 0, duration: 0.18 }, 2.82);
+
+        // B2 — caption card floats in, words type, X + WRONG MINDSET slam
+        tl.set(["#s2-word"], { opacity: 0 }, 3.0);
+        tl.set(["#s2-x1", "#s2-x2"], { strokeDasharray: 900, strokeDashoffset: 900 }, 3.0);
+        tl.fromTo("#s2-card", { x: -200, opacity: 0, rotation: -14 }, { x: 0, opacity: 1, rotation: -6, duration: 0.6, ease: "expo.out" }, 5.25);
+        [6.40, 6.66, 6.85, 7.04, 7.30, 7.49, 7.88, 8.14, 8.47, 8.65, 9.04, 9.23, 9.42].forEach((t, i) =>
+          tl.fromTo(`#q${i}`, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.16, ease: "power2.out" }, t));
+        tl.to("#s2-card", { y: -18, rotation: -4, duration: 2.6, ease: "sine.inOut" }, 9.5);
+        tl.to("#s2-card", { x: -40, scale: 0.86, opacity: 0.35, filter: "blur(4px)", duration: 0.4, ease: "power2.in" }, 11.75);
+        tl.to("#s2-x1", { strokeDashoffset: 0, duration: 0.14, ease: "power4.out" }, 12.0);
+        tl.to("#s2-x2", { strokeDashoffset: 0, duration: 0.14, ease: "power4.out" }, 12.1);
+        PULSE(12.05, 1);
+        tl.fromTo("#s2-word", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 12.3);
+        SHAKE("#s2", 12.5);
+        tl.to("#s2-word", { scale: 1.06, duration: 2.6, ease: "none" }, 12.6);
+        tl.to("#s2", { opacity: 0, filter: "blur(14px)", duration: 0.3, ease: "power2.in" }, 15.25);
+
+        // B3 — WORTH IT / ≠ EASY
+        tl.fromTo("#s3-a", { scale: 2.2, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.22, ease: "power4.in" }, 16.86);
+        tl.to("#s3-a", { scale: 1.05, duration: 2.4, ease: "none" }, 17.1);
+        tl.fromTo("#s3-b", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.28, ease: "back.out(2)" }, 18.2);
+        PULSE(18.2, 0.7);
+        tl.to("#s3", { opacity: 0, duration: 0.25 }, 19.35);
+
+        // B4 — PHYSICAL climbs up the left edge, MENTAL drops down the right edge
+        tl.set("#s4-l", { xPercent: -50, yPercent: -50, rotation: -90 }, 19.65);
+        tl.set("#s4-r", { xPercent: -50, yPercent: -50, rotation: -90 }, 19.65);
+        tl.fromTo("#s4-l", { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 20.98);
+        tl.to("#s4-l", { y: -60, duration: 1.9, ease: "none" }, 21.55);
+        tl.fromTo("#s4-r", { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 22.42);
+        tl.to("#s4-r", { y: -30, duration: 0.45, ease: "none" }, 23.0);
+        PULSE(22.45, 0.6);
+        tl.to("#s4", { opacity: 0, duration: 0.25 }, 23.45);
+
+        // B5 — DOUBT rows drift in opposite directions
+        tl.fromTo("#s5", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 23.85);
+        tl.fromTo(["#s5-r1", "#s5-r3"], { x: 0 }, { x: -700, duration: 3.0, ease: "none" }, 23.75);
+        tl.fromTo(["#s5-r2", "#s5-r4"], { x: -900 }, { x: -200, duration: 3.0, ease: "none" }, 23.75);
+        tl.to("#s5-r2", { opacity: 0.35, duration: 0.12, yoyo: true, repeat: 5, ease: "steps(1)" }, 24.6);
+        tl.to("#s5", { opacity: 0, duration: 0.25 }, 26.5);
+
+        // B6 — HARD (red slam) → CHALLENGE → giant outline ?
+        tl.set("#s6-chal", { opacity: 0 }, 26.8);
+        tl.fromTo("#s6-hard", { scale: 2.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 27.5);
+        PULSE(27.66, 1);
+        SHAKE("#s6", 27.7);
+        tl.to("#s6-hard", { scale: 1.08, duration: 1.1, ease: "none" }, 27.8);
+        tl.to("#s6-hard", { opacity: 0, scale: 1.5, filter: "blur(16px)", duration: 0.2, ease: "power2.in" }, 28.95);
+        tl.fromTo("#s6-chal", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 29.05);
+        tl.to("#s6-chal", { scale: 1.06, duration: 1.9, ease: "none" }, 29.35);
+                        tl.to("#s6", { opacity: 0, duration: 0.2 }, 31.4);
+
+        // B7 — NO SHORTCUTS outline + B-roll windows slide in behind Ash
+        tl.fromTo("#s7-word", { opacity: 0, scale: 1.35 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, 32.6);
+        tl.fromTo("#s7-w1", { x: -460, opacity: 0, rotation: -14 }, { x: 0, opacity: 1, rotation: -5, duration: 0.55, ease: "expo.out" }, 31.9);
+        tl.fromTo("#s7-w2", { x: 460, opacity: 0, rotation: 14 }, { x: 0, opacity: 1, rotation: 5, duration: 0.55, ease: "expo.out" }, 33.6);
+        tl.to(["#s7-w1", "#s7-w2"], { y: -24, duration: 2.8, ease: "sine.inOut" }, 34.0);
+        tl.to("#s7-word", { color: "#d80609", webkitTextStroke: "0px rgba(0,0,0,0)", textShadow: "0 0 30px rgba(216,6,9,0.75)", duration: 0.25 }, 35.44);
+        PULSE(35.44, 0.7);
+        tl.to(["#s7", "#s7-w1", "#s7-w2"], { opacity: 0, filter: "blur(12px)", duration: 0.3, ease: "power2.in" }, 36.65);
+        tl.set(["#s7-w1", "#s7-w2"], { opacity: 0 }, 37.0);
+
+        // B8 — TIME / CONSISTENCY / HARD WORK, one per word
+        tl.set(["#s8-1", "#s8-2", "#s8-3"], { opacity: 0 }, 37.1);
+        tl.fromTo("#s8-1", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 37.95);
+        tl.to("#s8-1", { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, 38.2);
+        tl.fromTo("#s8-2", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 38.32);
+        tl.to("#s8-2", { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, 39.33);
+        tl.fromTo("#s8-3", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 39.45);
+        PULSE(39.5, 1);
+        SHAKE("#s8", 39.6);
+        tl.to("#s8", { opacity: 0, duration: 0.2 }, 39.95);
+
+        // B9 — logo crystallises behind Ash, holds, fades with his clip
+        tl.fromTo("#s9-logo", { scale: 1.4, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 0.95, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 40.3);
+        tl.fromTo("#s9-k", { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }, 40.76);
+        PULSE(40.4, 0.8);
+        tl.to("#s9-logo", { scale: 1.04, duration: 1.2, ease: "none" }, 40.8);
+        tl.to("#s9", { opacity: 0, duration: 0.15 }, 41.78);
+
+        tl.to({}, { duration: DUR }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

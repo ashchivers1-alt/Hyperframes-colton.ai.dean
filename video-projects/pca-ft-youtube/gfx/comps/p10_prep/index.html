@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+#P { position:absolute; left:0; right:0; top:34px; display:flex; flex-direction:column; align-items:center; gap:10px; }
+#P .t { font-size:58px; }
+#P .row { display:flex; gap:18px; }
+#P .c { padding:10px 22px 9px; background:rgba(12,12,14,0.78); border:2px solid rgba(255,255,255,0.8); border-radius:4px;
+  font-family:"Bebas Neue"; font-size:40px; letter-spacing:0.04em; }
+#P .st { font-family:"Bebas Neue"; font-size:44px; letter-spacing:0.06em; background:#d80609; padding:6px 22px 2px; transform:rotate(-3deg); }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="10.839" data-width="3840" data-height="2160"><div id="root"><div id="P" class="sh"><div class="clip"><div class="t">PREP LOOKS DIFFERENT FOR EVERYONE</div></div><div class="row"><div class="c" id="c0">500G CARBS</div><div class="c" id="c1">8,000 STEPS</div></div><div class="st">THAT AIN&#x27;T EVERYONE</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#P .t","#P .c","#P .st"], { opacity:0 });
+tl.fromTo("#P .t", { opacity:0, yPercent:100 }, { opacity:1, yPercent:0, duration:0.55*K, ease:"expo.out", immediateRender:false }, 0.1*K);
+tl.fromTo("#c0", { opacity:0, scale:1.4 }, { opacity:1, scale:1, duration:0.35*K, ease:"back.out(2)", immediateRender:false }, 6.200*K);
+tl.fromTo("#c1", { opacity:0, scale:1.4 }, { opacity:1, scale:1, duration:0.35*K, ease:"back.out(2)", immediateRender:false }, 7.600*K);
+tl.fromTo("#P .st", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:0.3*K, ease:"power4.in", immediateRender:false }, 8.900*K);
+tl.to("#P", { opacity:0, y:-16, duration:0.4*K, ease:"power2.in" }, 10.400*K);
+tl.to({}, { duration:10.839 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

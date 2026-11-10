@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+.cap { position:absolute; left:0; right:0; bottom:118px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.k { font-family:"JetBrains Mono"; font-weight:700; font-size:26px; letter-spacing:0.3em; color:#fff; background:#d80609; padding:9px 18px 8px 22px; }
+.t { font-weight:900; font-style:italic; font-size:84px; line-height:1; letter-spacing:-0.01em; color:#fff; white-space:nowrap;
+  text-shadow:0 4px 0 rgba(0,0,0,0.55), 0 0 30px rgba(0,0,0,0.75), 0 0 2px #000; }
+.t b { color:#ff2a2d; font-weight:900; }
+.s { font-family:"JetBrains Mono"; font-weight:600; font-size:24px; letter-spacing:0.3em; color:rgba(255,255,255,0.85); text-shadow:0 2px 10px #000; }
+.vig { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 75% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+.slo { position:absolute; left:50%; top:46px; transform:translateX(-50%); display:flex; align-items:center; gap:12px; opacity:0;
+  font-family:"JetBrains Mono"; font-weight:700; font-size:24px; letter-spacing:0.3em; color:#fff; background:rgba(10,10,12,0.7); padding:9px 18px; border-radius:30px; }
+.slo i { width:14px; height:14px; border-radius:50%; background:#d80609; box-shadow:0 0 10px #ff2a2d; }
+.bf { width:46px; height:32px; position:relative; }
+.bf::before { content:""; position:absolute; left:0; top:-4px; width:4px; height:44px; background:#ddd; }
+.bf::after { content:""; position:absolute; left:4px; top:0; width:42px; height:28px; background:#1565ff; box-shadow:0 0 12px rgba(40,110,255,0.8); }
+
+#fl { position:absolute; inset:0; background:#fff; opacity:0; }
+#frz { position:absolute; inset:0; border:10px solid rgba(255,255,255,0.9); opacity:0; }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="3.880" data-width="3840" data-height="2160">
+<div id="root"><div id="frz"></div><div id="fl"></div><div class="vig" id="vig"></div><div class="slo" id="slo"><i></i>SLOW-MO 0.5×</div><div class="cap"><div class="k" id="k">THE LEADER LOOKS BEHIND…</div><div class="t" id="t">…FOR THE <b>4,000TH TIME</b></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+tl.to("#vig", { opacity:1, duration:0.4, ease:"power1.out" }, 0.0);tl.fromTo("#slo", { opacity:0, y:-16 }, { opacity:1, y:0, duration:0.35, ease:"back.out(2)", immediateRender:false }, 0.15);tl.fromTo("#slo i", { opacity:1 }, { opacity:0.25, duration:0.4, yoyo:true, repeat:5, ease:"sine.inOut", immediateRender:false }, 0.5);tl.to(["#vig", "#slo"], { opacity:0, duration:0.3, ease:"power1.in" }, 3.530);
+tl.fromTo("#k", { opacity:0, clipPath:"inset(0 100% 0 0)" }, { opacity:1, clipPath:"inset(0 0% 0 0)", duration:0.4, ease:"expo.out", immediateRender:true }, 2.130);
+tl.fromTo("#t", { opacity:0, scale:1.35, y:10 }, { opacity:1, scale:1, y:0, duration:0.32, ease:"back.out(1.8)", immediateRender:true }, 2.380);
+tl.to(".cap", { opacity:0, y:24, duration:0.35, ease:"power2.in" }, 3.480);
+tl.fromTo("#fl", { opacity:0.85 }, { opacity:0, duration:0.35, ease:"power2.out", immediateRender:false }, 2.080);
+tl.fromTo("#frz", { opacity:1, scale:1.04 }, { opacity:0.85, scale:1, duration:0.3, ease:"power3.out", immediateRender:false }, 2.080);
+tl.to("#frz", { opacity:0, duration:0.2, ease:"power1.in" }, 3.630);
+
+tl.to({}, { duration:3.880 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

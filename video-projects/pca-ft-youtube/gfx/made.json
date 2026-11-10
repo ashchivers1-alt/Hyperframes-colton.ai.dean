@@ -1,0 +1,172 @@
+[
+ {
+  "name": "p01_gym",
+  "rec": 101,
+  "frames": 125
+ },
+ {
+  "name": "p02_client",
+  "rec": 237,
+  "frames": 149
+ },
+ {
+  "name": "p03_peak",
+  "rec": 396,
+  "frames": 101
+ },
+ {
+  "name": "p04_qturn",
+  "rec": 1463,
+  "frames": 86
+ },
+ {
+  "name": "p05_breathe",
+  "rec": 1717,
+  "frames": 201
+ },
+ {
+  "name": "p06_front",
+  "rec": 2189,
+  "frames": 82
+ },
+ {
+  "name": "p07_sidetri",
+  "rec": 2585,
+  "frames": 86
+ },
+ {
+  "name": "p08_sideleg",
+  "rec": 3045,
+  "frames": 86
+ },
+ {
+  "name": "p09_sideleg_cues",
+  "rec": 3467,
+  "frames": 957
+ },
+ {
+  "name": "p10_prep",
+  "rec": 4510,
+  "frames": 260
+ },
+ {
+  "name": "p11_them",
+  "rec": 4919,
+  "frames": 67
+ },
+ {
+  "name": "p12_checklist",
+  "rec": 5194,
+  "frames": 1192
+ },
+ {
+  "name": "t0g_gym",
+  "rec": 6397,
+  "frames": 89
+ },
+ {
+  "name": "t00_session",
+  "rec": 6494,
+  "frames": 82
+ },
+ {
+  "name": "t01_kick",
+  "rec": 6578,
+  "frames": 94
+ },
+ {
+  "name": "t02_abd",
+  "rec": 7136,
+  "frames": 120
+ },
+ {
+  "name": "t03_thrust",
+  "rec": 8874,
+  "frames": 120
+ },
+ {
+  "name": "t04_press",
+  "rec": 9929,
+  "frames": 120
+ },
+ {
+  "name": "t05_rdl",
+  "rec": 11181,
+  "frames": 120
+ },
+ {
+  "name": "t06_curl",
+  "rec": 12612,
+  "frames": 120
+ },
+ {
+  "name": "t10_squeeze",
+  "rec": 6693,
+  "frames": 110
+ },
+ {
+  "name": "t11_fit",
+  "rec": 8466,
+  "frames": 395
+ },
+ {
+  "name": "t13_squeeze_top",
+  "rec": 9066,
+  "frames": 110
+ },
+ {
+  "name": "t14_lower",
+  "rec": 9413,
+  "frames": 288
+ },
+ {
+  "name": "t15b_kneefreeze",
+  "rec": 10304,
+  "frames": 284
+ },
+ {
+  "name": "t15_quads",
+  "rec": 10255,
+  "frames": 332
+ },
+ {
+  "name": "t16_3weeks",
+  "rec": 10730,
+  "frames": 120
+ },
+ {
+  "name": "t17_hips",
+  "rec": 11238,
+  "frames": 455
+ },
+ {
+  "name": "t18_stable",
+  "rec": 11725,
+  "frames": 270
+ },
+ {
+  "name": "t19_stretch",
+  "rec": 12006,
+  "frames": 394
+ },
+ {
+  "name": "t21_reps",
+  "rec": 13674,
+  "frames": 357
+ },
+ {
+  "name": "t12_pulses",
+  "rec": 7849,
+  "frames": 110
+ },
+ {
+  "name": "t14b_alarm",
+  "rec": 9763,
+  "frames": 101
+ },
+ {
+  "name": "t22_phones",
+  "rec": 12735,
+  "frames": 120
+ }
+]

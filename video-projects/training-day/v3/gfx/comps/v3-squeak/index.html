@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#sq { position:absolute; left:52px; top:44px; padding:22px 150px 24px 32px; border-radius:12px; display:flex; gap:22px; align-items:center;
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+#sq .ic { font-size:84px; line-height:1; }
+#sq .l1 { font-weight:800; font-size:22px; letter-spacing:0.36em; color:#ff3b30; }
+#sq .l2 { font-family:"Bebas Neue", sans-serif; font-size:76px; line-height:0.92; }
+#sq .l3 { font-weight:700; font-size:30px; margin-top:6px; }
+#sq .l3 b { color:#ff3b30; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="6.0" data-width="1920" data-height="1080"><div id="sq" class="shadow"><div class="ic">🔊</div><div><div class="l1">THE CULPRIT</div><div class="l2">THAT SQUEAK? IT&#39;S THE MACHINE.</div><div class="l3">Someone get this thing some <b>WD-40</b> 😂</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#sq","#sq .ic"], { opacity:0 });
+tl.fromTo("#sq", { opacity:0, x:-50 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(0.1));
+tl.fromTo("#sq .ic", { opacity:0, scale:0.4, rotation:-20 }, { opacity:1, scale:1, rotation:0, duration:f(0.4), ease:"back.out(2.4)", immediateRender:false }, f(0.3));
+tl.to("#sq .ic", { keyframes:[{ rotation:-12, duration:0.1 },{ rotation:12, duration:0.1 },{ rotation:-8, duration:0.1 },{ rotation:0, duration:0.1 }] }, f(0.9));
+tl.to("#sq", { opacity:0, x:-30, duration:f(0.3), ease:"power2.in" }, f(5.6));
+tl.to({}, { duration:6.0 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

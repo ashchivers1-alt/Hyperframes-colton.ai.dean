@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+#Q { position:absolute; left:80px; top:250px; width:780px; }
+#Q .mk { font-family:"Bebas Neue"; font-size:170px; line-height:0.6; color:#d80609; height:70px; }
+#Q .q { font-weight:800; font-size:52px; line-height:1.14; letter-spacing:-0.01em; }
+#Q .rule { width:90px; height:4px; background:#d80609; margin-top:22px; transform-origin:0 50%; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="6.993" data-width="3840" data-height="2160"><div id="root"><div class="back" style="left:-300px; top:60px; bottom:auto; height:700px;"></div><div id="Q" class="sh"><div class="mk">&ldquo;</div><div class="q">Don’t judge your show by the result. Bring your best to stage.</div><div class="rule"></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#Q .mk","#Q .q",".back"], { opacity:0 }); gsap.set("#Q .rule", { scaleX:0 });
+tl.to(".back", { opacity:1, duration:0.5*K }, 0);
+tl.fromTo("#Q .mk", { opacity:0, y:20 }, { opacity:1, y:0, duration:0.45*K, ease:"power3.out", immediateRender:false }, 0.05*K);
+tl.fromTo("#Q .q", { opacity:0, y:24 }, { opacity:1, y:0, duration:0.6*K, ease:"expo.out", immediateRender:false }, 0.2*K);
+tl.to("#Q .rule", { scaleX:1, duration:0.5*K, ease:"power3.inOut" }, 0.55*K);
+tl.to(["#Q .mk","#Q .q","#Q .rule",".back"], { opacity:0, duration:0.4*K, ease:"power2.in" }, 6.550*K);
+tl.to({}, { duration:6.993 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

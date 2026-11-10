@@ -40,3 +40,7 @@ _reference/creator-library/**/source.webm
 _reference/creator-library/**/source.info.json
 _reference/creator-library/**/frames/
 
+
+# HyperFrames render bookkeeping (changes every render)
+**/.hyperframes/render-outputs.json
+**/.hyperframes/video-state.json

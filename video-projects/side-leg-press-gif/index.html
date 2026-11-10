@@ -1,0 +1,302 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Side-lying leg press demo loop (Kahunas-style): white canvas, grey mannequin, target muscle in red, coaching cues.
+   window.render(t) draws the frame at t seconds; one rep = LOOP seconds, seamless. */
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1080px; overflow:hidden; background:#fff; font-family:Montserrat, sans-serif; }
+svg { position:absolute; inset:0; }
+text { font-family:Montserrat, sans-serif; }
+</style></head>
+<body>
+<svg id="s" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity="0.16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="torsoG" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#e4e4e4"/><stop offset="0.55" stop-color="#bdbdbd"/><stop offset="1" stop-color="#8e8e8e"/></linearGradient>
+    <linearGradient id="padG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#121212"/></linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9ecef"/><stop offset="0.5" stop-color="#9aa1aa"/><stop offset="1" stop-color="#d4d8dd"/></linearGradient>
+    <radialGradient id="plateG" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#4a4a4a"/><stop offset="1" stop-color="#151515"/></radialGradient>
+    <radialGradient id="hair" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#6b5444"/><stop offset="1" stop-color="#2d211a"/></radialGradient>
+    <clipPath id="gluteClip"><path id="clipTorso"/><path id="clipThigh"/></clipPath>
+  </defs>
+  <g id="scene"></g>
+  <g id="ui"></g>
+</svg>
+<script>
+const NS = 'http://www.w3.org/2000/svg';
+const LOOP = 5.0;
+// rep: lower 0-2.4 (eccentric), bottom 2.4-2.9, press 2.9-4.0, top squeeze 4.0-5.0
+const PH = { lower:[0, 2.4], bottom:[2.4, 2.9], press:[2.9, 4.0], top:[4.0, 5.0] };
+
+const v = (x, y) => ({ x, y });
+const add = (a, b) => v(a.x + b.x, a.y + b.y), sub = (a, b) => v(a.x - b.x, a.y - b.y);
+const mul = (a, k) => v(a.x * k, a.y * k), len = a => Math.hypot(a.x, a.y), nrm = a => mul(a, 1 / len(a));
+const perp = a => v(-a.y, a.x);          // rotate 90°
+const lerp = (a, b, k) => a + (b - a) * k;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const sine = k => 0.5 - 0.5 * Math.cos(Math.PI * k);
+const quadIO = k => k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+const P = p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+
+// ---------------------------------------------------------------- rig (base coords, then fitted by #scene transform)
+const H = v(640, 560);                         // hip joint (top of the bench)
+const T = nrm(v(0.85, 0.42));                  // torso direction (hip -> shoulder), down the bench
+const UP = (n => n.y > 0 ? mul(n, -1) : n)(perp(T)), DN = mul(UP, -1);   // torso normals (ceiling side / bench side)
+const S = add(H, mul(T, 240));                 // shoulder
+const U = nrm(v(-1, -1));                      // rail direction (sled travels up-left)
+const Pd = nrm(v(-1, 1));                      // along the footplate (down-left, toward the rails)
+const THIGH = 232, SHIN = 228, D = 215;        // sled travel
+const A_TOP = add(H, mul(nrm(v(-0.64, -0.77)), 438));   // ankle at top (soft knee, not locked)
+const ankle = s => add(A_TOP, mul(U, -D * (1 - s)));   // s: 1 = extended, 0 = deep
+const FLOOR = 905;
+
+function sAt(t) {
+  t = ((t % LOOP) + LOOP) % LOOP;
+  if (t < PH.lower[1]) return 1 - sine(t / PH.lower[1]);
+  if (t < PH.bottom[1]) return 0;
+  if (t < PH.press[1]) return quadIO((t - PH.press[0]) / (PH.press[1] - PH.press[0]));
+  return 1;
+}
+
+function knee(h, a) {           // two-bone IK, knee bends up toward the chest
+  const d = sub(a, h), L = Math.min(len(d), THIGH + SHIN - 0.5);
+  const x = (THIGH * THIGH - SHIN * SHIN + L * L) / (2 * L), y = Math.sqrt(Math.max(THIGH * THIGH - x * x, 0));
+  const dn = nrm(d), n = perp(dn), k1 = add(add(h, mul(dn, x)), mul(n, y)), k2 = add(add(h, mul(dn, x)), mul(n, -y));
+  return k1.y < k2.y ? k1 : k2;
+}
+
+// ---------------------------------------------------------------- svg helpers
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e); return e;
+}
+function capsule(p, q, r1, r2) {   // tapered limb outline
+  const d = nrm(sub(q, p)), n = perp(d);
+  const a = add(p, mul(n, r1)), b = add(q, mul(n, r2)), c = sub(q, mul(n, r2)), e = sub(p, mul(n, r1));
+  return `M${P(a)} L${P(b)} A${r2},${r2} 0 0 0 ${P(c)} L${P(e)} A${r1},${r1} 0 0 0 ${P(a)} Z`;
+}
+let gid = 0;
+function shadedLimb(g, p, q, r1, r2, light = '#e6e6e6', mid = '#bcbcbc', dark = '#8a8a8a', stroke = '#7a7a7a') {
+  const d = nrm(sub(q, p)); let n = perp(d); if (n.y > 0) n = mul(n, -1);   // light from above
+  const m = mul(add(p, q), 0.5), r = Math.max(r1, r2);
+  const id = 'lg' + (gid++);
+  const lg = el('linearGradient', { id, gradientUnits:'userSpaceOnUse', x1:m.x + n.x * r, y1:m.y + n.y * r, x2:m.x - n.x * r, y2:m.y - n.y * r }, g);
+  el('stop', { offset:0, 'stop-color':light }, lg); el('stop', { offset:0.55, 'stop-color':mid }, lg); el('stop', { offset:1, 'stop-color':dark }, lg);
+  return el('path', { d:capsule(p, q, r1, r2), fill:`url(#${id})`, stroke, 'stroke-width':1.6 }, g);
+}
+
+// ---------------------------------------------------------------- machine (static parts)
+function machineBack(g) {
+  el('ellipse', { cx:540, cy:FLOOR + 6, rx:540, ry:26, fill:'url(#shadow)' }, g);
+  // rails (b = 262 off the plate), from below the deep position to past the top
+  const o0 = add(add(ankle(0), mul(U, 24)), mul(Pd, 262)), r0 = add(o0, mul(U, -110)), r1 = add(add(add(A_TOP, mul(U, 24)), mul(Pd, 262)), mul(U, 170));
+  el('rect', { x:r1.x - 40, y:FLOOR - 22, width:1010 - r1.x, height:22, rx:6, fill:'#2f3237' }, g);
+  el('path', { d:`M${P(r1)} L${r1.x},${FLOOR - 20} M${P(r0)} L${r0.x},${FLOOR - 20}`, stroke:'#3a3e44', 'stroke-width':20, 'stroke-linecap':'square', fill:'none' }, g);
+  for (const off of [-9, 9]) {
+    const a = add(r0, mul(Pd, off)), b = add(r1, mul(Pd, off));
+    el('line', { x1:a.x, y1:a.y, x2:b.x, y2:b.y, stroke:'url(#chrome)', 'stroke-width':12, 'stroke-linecap':'round' }, g);
+  }
+  el('circle', { cx:r1.x, cy:r1.y, r:15, fill:'#2a2d31' }, g);
+  // one long bench pad: seat at the sled end, sloping down to the right under the torso
+  const b0 = add(add(H, mul(DN, 84)), mul(T, -150)), b1 = add(add(H, mul(DN, 84)), mul(T, 330));
+  el('rect', { x:b0.x + 60, y:b0.y + 20, width:20, height:FLOOR - b0.y - 40, fill:'#3a3e44' }, g);
+  el('rect', { x:b1.x - 90, y:b1.y + 10, width:20, height:FLOOR - b1.y - 30, fill:'#3a3e44' }, g);
+  el('path', { d:capsule(add(b0, mul(DN, 22)), add(b1, mul(DN, 22)), 7, 7), fill:'#4a4f56' }, g);
+  el('path', { d:capsule(b0, b1, 24, 24), fill:'url(#padG)' }, g);
+  // grab handles at the low end
+  const hb = add(b1, mul(DN, 30));
+  el('path', { d:`M${P(hb)} l30,8 l8,40`, stroke:'#2a2d31', 'stroke-width':13, fill:'none', 'stroke-linecap':'round', 'stroke-linejoin':'round' }, g);
+}
+
+function sled(g, a) {            // footplate + carriage + plates at ankle position a
+  const O = add(a, mul(U, 24));
+  const pt = (au, bp) => add(add(O, mul(U, au)), mul(Pd, bp));
+  const poly = pts => pts.map((p, i) => (i ? 'L' : 'M') + P(p)).join(' ') + ' Z';
+  // carriage + wheels on the rail
+  el('path', { d:poly([pt(24, 120), pt(150, 150), pt(150, 262), pt(24, 262)]), fill:'#3a3e44' }, g);
+  for (const au of [50, 128]) { const w = pt(au, 262); el('circle', { cx:w.x, cy:w.y, r:14, fill:'#1d1f22', stroke:'#8b929b', 'stroke-width':4 }, g); }
+  // plates on the horn
+  const hc = pt(120, 170);
+  for (const [r, c] of [[92, 'url(#plateG)'], [74, '#1b1b1b']]) el('circle', { cx:hc.x, cy:hc.y, r, fill:c, stroke:'#000', 'stroke-opacity':0.4, 'stroke-width':2 }, g);
+  el('circle', { cx:hc.x, cy:hc.y, r:84, fill:'none', stroke:'#555', 'stroke-width':3 }, g);
+  el('circle', { cx:hc.x, cy:hc.y, r:17, fill:'url(#chrome)', stroke:'#666', 'stroke-width':2 }, g);
+  // footplate (foot sits at the TOP end)
+  el('path', { d:poly([pt(0, -128), pt(0, 240), pt(26, 248), pt(26, -136)]), fill:'#26292d', stroke:'#111', 'stroke-width':2 }, g);
+  for (let b = -110; b < 235; b += 22) { const p0 = pt(3, b), p1 = pt(3, b + 10); el('line', { x1:p0.x, y1:p0.y, x2:p1.x, y2:p1.y, stroke:'#55595f', 'stroke-width':3 }, g); }
+  return { O, pt };
+}
+
+// ---------------------------------------------------------------- figure
+function figureBack(g) {          // bottom (right) leg tucked on the bench + the far arm, drawn behind the torso
+  const K2 = add(add(H, mul(T, -150)), mul(DN, 30)), A2 = add(add(K2, mul(T, 70)), mul(DN, 70));
+  shadedLimb(g, H, K2, 52, 40, '#cfcfcf', '#a8a8a8', '#7c7c7c');
+  shadedLimb(g, K2, A2, 36, 24, '#cfcfcf', '#a8a8a8', '#7c7c7c');
+  // trainer pointing back along the bench, sole toward the camera's left
+  const toe = add(A2, mul(T, 78));
+  el('path', { d:capsule(add(A2, mul(T, -8)), toe, 24, 18), fill:'#2b2b2b', stroke:'#111', 'stroke-width':2 }, g);
+  el('path', { d:`M${P(add(add(A2, mul(T, -8)), mul(DN, 22)))} L${P(add(toe, mul(DN, 16)))}`, stroke:'#eee', 'stroke-width':5, 'stroke-linecap':'round' }, g);
+  // far arm: reaching down to the floor past the end of the bench
+  const S2 = add(S, mul(DN, 26)), E2 = add(S2, v(120, 40)), H2 = v(E2.x + 70, FLOOR - 14);
+  shadedLimb(g, S2, E2, 26, 20, '#c9c9c9', '#a2a2a2', '#787878');
+  shadedLimb(g, E2, H2, 20, 16, '#c9c9c9', '#a2a2a2', '#787878');
+  el('ellipse', { cx:H2.x + 10, cy:H2.y + 2, rx:26, ry:12, fill:'#b0b0b0', stroke:'#777', 'stroke-width':1.6 }, g);
+}
+
+function nearArm(g) {             // top (left) arm: down the front of the body to the bench handle
+  const E = add(add(S, mul(T, 30)), mul(DN, 120)), Hd = add(add(H, mul(T, 330)), mul(DN, 140));
+  shadedLimb(g, add(S, mul(UP, 10)), E, 30, 23, '#dadada', '#b0b0b0', '#838383');
+  shadedLimb(g, E, Hd, 22, 17, '#dadada', '#b0b0b0', '#838383');
+  el('circle', { cx:Hd.x, cy:Hd.y, r:20, fill:'#bcbcbc', stroke:'#7a7a7a', 'stroke-width':1.6 }, g);
+}
+
+function torso(g) {
+  const n = UP;                        // ceiling-side edge
+  const W = add(H, mul(T, 120));
+  const p = (c, r) => add(c, mul(n, r));
+  const d = `M${P(p(H, 64))} Q${P(p(W, 50))} ${P(p(S, 60))} A60,60 0 0 1 ${P(p(S, -60))} Q${P(p(W, -54))} ${P(p(H, -66))} A66,66 0 0 1 ${P(p(H, 64))} Z`;
+  const tg = document.getElementById('torsoG'), m = add(H, mul(T, 125));
+  tg.setAttribute('x1', m.x + n.x * 64); tg.setAttribute('y1', m.y + n.y * 64); tg.setAttribute('x2', m.x - n.x * 64); tg.setAttribute('y2', m.y - n.y * 64);
+  el('path', { d, fill:'url(#torsoG)', stroke:'#7a7a7a', 'stroke-width':1.6 }, g);
+  document.getElementById('clipTorso').setAttribute('d', d);
+  // sports top across the upper back
+  const c0 = add(H, mul(T, 170)), c1 = add(H, mul(T, 228));
+  el('path', { d:`M${P(p(c0, 58))} L${P(p(c1, 62))} L${P(p(c1, -62))} L${P(p(c0, -58))} Z`, fill:'#1d1d1f' }, g);
+  // spine + shoulder blade hints
+  const sp0 = add(H, mul(T, 40)), sp1 = add(H, mul(T, 165));
+  el('path', { d:`M${P(sp0)} L${P(sp1)}`, stroke:'#9a9a9a', 'stroke-width':2.5, 'stroke-linecap':'round' }, g);
+  // neck + head (back of the head: hair + bun)
+  const hc = add(add(S, mul(T, 76)), mul(DN, 10));
+  shadedLimb(g, add(S, mul(T, 20)), hc, 24, 22, '#d9d9d9', '#b0b0b0', '#848484');
+  el('circle', { cx:hc.x, cy:hc.y, r:46, fill:'url(#hair)' }, g);
+  const bun = add(hc, add(mul(T, -6), mul(n, 40)));
+  el('circle', { cx:bun.x, cy:bun.y, r:20, fill:'#3a2b21' }, g);
+}
+
+function workingLeg(g, a, s, t) {
+  const K = knee(H, a);
+  shadedLimb(g, H, K, 54, 38);
+  shadedLimb(g, K, a, 36, 22);
+  // glutes (target): muscle bellies clipped to the body silhouette so they read as anatomy, not a sticker
+  document.getElementById('clipThigh').setAttribute('d', capsule(H, K, 54, 38));
+  const th = nrm(sub(K, H)), up = UP;
+  const squeeze = clamp((s - 0.85) / 0.15);          // brighter as the hip locks in at the top
+  const fg = el('g', { 'clip-path':'url(#gluteClip)' }, g);
+  const ang = p => Math.atan2(p.y, p.x) * 180 / Math.PI;
+  // glute med (secondary) up on the side of the pelvis
+  const gmed = add(add(H, mul(T, 78)), mul(up, 26));
+  el('ellipse', { cx:gmed.x, cy:gmed.y, rx:52, ry:34, transform:`rotate(${ang(T)} ${gmed.x} ${gmed.y})`, fill:'#ef7a78', stroke:'#b8282c', 'stroke-width':1.5 }, fg);
+  // glute max: sacrum -> upper femur
+  const bis = nrm(sub(th, T)), gc = add(add(H, mul(bis, 10)), mul(up, -4));
+  const rx = 84 + squeeze * 3, ry = 60 + squeeze * 3;
+  const col = `rgb(${Math.round(lerp(212, 236, squeeze))},${Math.round(lerp(36, 44, squeeze))},${Math.round(lerp(42, 48, squeeze))})`;
+  el('ellipse', { cx:gc.x, cy:gc.y, rx, ry, transform:`rotate(${ang(bis)} ${gc.x} ${gc.y})`, fill:col, stroke:'#9c1a1f', 'stroke-width':1.8 }, fg);
+  // fibres run diagonally from the sacrum down to the femur
+  const fd = nrm(add(bis, mul(up, -0.35))), fn = perp(fd);
+  for (let k = -6; k <= 6; k++) {
+    const c = add(gc, mul(fn, k * 10)), p0 = add(c, mul(fd, -rx)), p1 = add(c, mul(fd, rx));
+    el('path', { d:`M${P(p0)} Q${P(add(gc, add(mul(fn, k * 12), mul(up, 6))))} ${P(p1)}`, stroke:'#8e1217', 'stroke-width':1.4, 'stroke-opacity':0.45, fill:'none' }, fg);
+  }
+  const tt = ((t % LOOP) + LOOP) % LOOP;
+  if (tt >= PH.top[0]) for (const d0 of [0, 0.4]) {
+    const k = clamp((tt - PH.top[0] - d0) / 0.6);
+    if (k > 0 && k < 1) el('ellipse', { cx:gc.x, cy:gc.y, rx:rx + 14 + k * 40, ry:ry + 14 + k * 40, transform:`rotate(${ang(bis)} ${gc.x} ${gc.y})`,
+      fill:'none', stroke:'#e0262d', 'stroke-width':5 * (1 - k) + 1, opacity:1 - k }, g);
+  }
+  const hl = add(gc, mul(up, 28));
+  el('ellipse', { cx:hl.x, cy:hl.y, rx:44, ry:12, transform:`rotate(${ang(bis)} ${hl.x} ${hl.y})`, fill:'#fff', opacity:0.18 + squeeze * 0.14 }, fg);
+  return K;
+}
+
+function foot(g, a, O) {          // trainer flat on the plate, heel just below the ankle, toes up past the top
+  const L = (au, bp) => add(add(O, mul(U, -au)), mul(Pd, bp));
+  const d = `M${P(L(2, 26))} L${P(L(2, -112))} Q${P(L(3, -132))} ${P(L(22, -126))} Q${P(L(40, -98))} ${P(L(48, -40))} L${P(L(54, -4))} Q${P(L(50, 26))} ${P(L(30, 34))} Q${P(L(8, 38))} ${P(L(2, 26))} Z`;
+  el('path', { d, fill:'#2b2b2b', stroke:'#111', 'stroke-width':2, 'stroke-linejoin':'round' }, g);
+  const s0 = L(5, 26), s1 = L(5, -116);
+  el('line', { x1:s0.x, y1:s0.y, x2:s1.x, y2:s1.y, stroke:'#f1f1f1', 'stroke-width':6 }, g);   // sole
+  for (const b of [-78, -62, -46]) { const p0 = L(30 - (b + 78) * 0.12, b), p1 = L(38 - (b + 78) * 0.12, b + 6); el('line', { x1:p0.x, y1:p0.y, x2:p1.x, y2:p1.y, stroke:'#bbb', 'stroke-width':3, 'stroke-linecap':'round' }, g); }
+  return { heel: L(0, 18), toe: L(0, -118) };
+}
+
+// ---------------------------------------------------------------- UI / cues
+const RED = '#d8262c', INK = '#141414';
+const CUES = [
+  { t0:0.0, t1:2.4, k:'LOWER', txt:'SLOW & CONTROLLED' },
+  { t0:2.4, t1:4.0, k:'PRESS', txt:'DRIVE THROUGH THE HEEL' },
+  { t0:4.0, t1:5.0, k:'TOP',   txt:'SQUEEZE · DON’T LOCK OUT' },
+];
+function textW(str, size, weight) {
+  const t = el('text', { x:-999, y:-999, 'font-size':size, 'font-weight':weight, 'letter-spacing':size * 0.04 }, document.getElementById('ui'));
+  t.textContent = str; const w = t.getComputedTextLength(); t.remove(); return w;
+}
+function callout(ui, anchor, lx, ly, lines, align, fromBottom) {
+  const size = 25, padX = 18, lh = 32;
+  const w = Math.max(...lines.map(l => textW(l, size, 800))) + padX * 2, h = lines.length * lh + 18;
+  const bx = align === 'right' ? lx - w : lx;
+  const join = fromBottom ? v(bx + w * fromBottom, ly + h) : v(lx, ly + h / 2);
+  el('path', { d:`M${P(join)} L${P(anchor)}`, stroke:INK, 'stroke-width':2.5, fill:'none' }, ui);
+  el('circle', { cx:anchor.x, cy:anchor.y, r:9, fill:RED, stroke:'#fff', 'stroke-width':3 }, ui);
+  el('rect', { x:bx, y:ly, width:w, height:h, rx:12, fill:'#fff', stroke:INK, 'stroke-width':2.5 }, ui);
+  lines.forEach((l, i) => { const tx = el('text', { x:bx + padX, y:ly + 9 + lh * (i + 0.78), 'font-size':size, 'font-weight':800, 'letter-spacing':size * 0.04, fill:i ? RED : INK }, ui); tx.textContent = l; });
+}
+
+function ui(t, s, fp, K) {
+  const g = document.getElementById('ui'); g.innerHTML = '';
+  const M = sceneMap;
+  // target chip
+  el('rect', { x:740, y:40, width:300, height:56, rx:28, fill:INK }, g);
+  el('circle', { cx:772, cy:68, r:11, fill:RED }, g);
+  const ch = el('text', { x:794, y:77, 'font-size':24, 'font-weight':800, 'letter-spacing':1.5, fill:'#fff' }, g); ch.textContent = 'TARGET · GLUTES';
+  // pinned cues
+  callout(g, M(add(fp.toe, mul(U, -10))), 1040, 150, ['FOOT HIGH', 'ON THE PLATFORM'], 'right', 0.2);
+  callout(g, M(add(H, mul(UP, 40))), 1040, 330, ['LIE ON YOUR SIDE', 'HIPS STACKED'], 'right', 0.3);
+  // heel drive arrows during the press
+  const tt = ((t % LOOP) + LOOP) % LOOP;
+  const pressK = tt >= PH.bottom[0] && tt < PH.press[1] ? 1 : 0;
+  if (pressK) {
+    const pulse = 0.5 + 0.5 * Math.sin(tt * 14);
+    for (const off of [-1, 1]) {
+      const base = M(add(add(fp.heel, mul(U, -46 - pulse * 10)), mul(Pd, off * 18 - 6)));
+      const tip = M(add(add(fp.heel, mul(U, -14 - pulse * 10)), mul(Pd, off * 18 - 6)));
+      const d = nrm(sub(tip, base)), n = perp(d);
+      el('path', { d:`M${P(base)} L${P(sub(tip, mul(d, 10)))}`, stroke:RED, 'stroke-width':6, 'stroke-linecap':'round' }, g);
+      el('path', { d:`M${P(tip)} L${P(add(sub(tip, mul(d, 18)), mul(n, 10)))} L${P(sub(sub(tip, mul(d, 18)), mul(n, 10)))} Z`, fill:RED }, g);
+    }
+  }
+  // phase banner
+  const c = CUES.find(c => tt >= c.t0 && tt < c.t1) || CUES[0];
+  const prog = (tt - c.t0) / (c.t1 - c.t0);
+  const by = 960, bh = 84;
+  el('rect', { x:40, y:by, width:1000, height:bh, rx:18, fill:INK }, g);
+  el('rect', { x:40, y:by, width:170, height:bh, rx:18, fill:RED }, g);
+  el('rect', { x:190, y:by, width:20, height:bh, fill:RED }, g);
+  const k = el('text', { x:125, y:by + 54, 'font-size':30, 'font-weight':900, 'letter-spacing':2, fill:'#fff', 'text-anchor':'middle' }, g); k.textContent = c.k;
+  const tx = el('text', { x:240, y:by + 55, 'font-size':34, 'font-weight':800, 'letter-spacing':1.4, fill:'#fff' }, g); tx.textContent = c.txt;
+  el('rect', { x:210, y:by + bh - 7, width:(1040 - 210 - 12) * clamp(prog), height:5, rx:2.5, fill:RED, opacity:0.9 }, g);
+  // tempo dots (3 reps of the cue sequence)
+  CUES.forEach((q, i) => el('circle', { cx:1004 - (2 - i) * 22, cy:by + 30, r:6, fill:q === c ? RED : '#555' }, g));
+}
+
+// fit base coords into the frame
+const FIT = { k:0.86, x:40, y:110 };
+const sceneMap = p => v(p.x * FIT.k + FIT.x, p.y * FIT.k + FIT.y);
+
+window.render = function (t) {
+  gid = 0;
+  const g = document.getElementById('scene'); g.innerHTML = '';
+  g.setAttribute('transform', `translate(${FIT.x},${FIT.y}) scale(${FIT.k})`);
+  document.querySelectorAll('defs linearGradient[id^=lg]').forEach(e => e.remove());
+  const s = sAt(t), a = ankle(s);
+  machineBack(g);
+  figureBack(g);
+  const { O } = sled(g, a);
+  torso(g);
+  nearArm(g);
+  const K = workingLeg(g, a, s, t);
+  const fp = foot(g, a, O);
+  ui(t, s, fp, K);
+};
+window.render(0);
+</script>
+</body></html>

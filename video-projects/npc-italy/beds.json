@@ -1,0 +1,44 @@
+[
+ {
+  "name": "hyperlapse",
+  "file": "audio/music_hyperlapse.wav",
+  "rec": 4170,
+  "dur": 461
+ },
+ {
+  "name": "checkin_golds",
+  "file": "audio/music_checkin_golds.wav",
+  "rec": 13066,
+  "dur": 926
+ },
+ {
+  "name": "vn_fast1",
+  "file": "audio/music_vn_fast1.wav",
+  "rec": 14672,
+  "dur": 182
+ },
+ {
+  "name": "vn_fast3",
+  "file": "audio/music_vn_fast3.wav",
+  "rec": 15064,
+  "dur": 136
+ },
+ {
+  "name": "gym",
+  "file": "audio/music_gym.wav",
+  "rec": 19808,
+  "dur": 9691
+ },
+ {
+  "name": "posing",
+  "file": "audio/music_posing.wav",
+  "rec": 29499,
+  "dur": 616
+ },
+ {
+  "name": "checkin_showday",
+  "file": "audio/music_checkin_showday.wav",
+  "rec": 33414,
+  "dur": 1093
+ }
+]

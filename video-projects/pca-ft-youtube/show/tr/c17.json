@@ -1,0 +1,351 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:08,880"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 8880
+			},
+			"text": " Right, so that is Nick done and dusted. I'm back in the car now because it is absolutely"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,880",
+				"to": "00:00:14,760"
+			},
+			"offsets": {
+				"from": 8880,
+				"to": 14760
+			},
+			"text": " fucking freezing today and even in the building it's cold so I'm sat in the car now with the"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:14,760",
+				"to": "00:00:20,120"
+			},
+			"offsets": {
+				"from": 14760,
+				"to": 20120
+			},
+			"text": " heating on full heated seat on, sweating, which is exactly what I want. So yeah, Nick"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:20,120",
+				"to": "00:00:26,000"
+			},
+			"offsets": {
+				"from": 20120,
+				"to": 26000
+			},
+			"text": " I'm going to put a little bit of imagery and footage I got from the show on the screen"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:26,000",
+				"to": "00:00:34,520"
+			},
+			"offsets": {
+				"from": 26000,
+				"to": 34520
+			},
+			"text": " now. Nick placed fourth place and got an invite to the PCA World Championships next weekend"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:34,520",
+				"to": "00:00:39,800"
+			},
+			"offsets": {
+				"from": 34520,
+				"to": 39800
+			},
+			"text": " in Spain. So really, really happy with that. You know, it was really refreshing to see"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:39,800",
+				"to": "00:00:46,520"
+			},
+			"offsets": {
+				"from": 39800,
+				"to": 46520
+			},
+			"text": " someone on stage enjoying themselves, right? So, you know, he was on stage, he was posing."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:46,520",
+				"to": "00:00:49,240"
+			},
+			"offsets": {
+				"from": 46520,
+				"to": 49240
+			},
+			"text": " You could just tell he was enjoying every moment of it and he was happy with it. He"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:49,240",
+				"to": "00:00:53,280"
+			},
+			"offsets": {
+				"from": 49240,
+				"to": 53280
+			},
+			"text": " enjoyed the posing routine and he was absolutely over the moon when he got his fourth place."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:53,280",
+				"to": "00:00:56,760"
+			},
+			"offsets": {
+				"from": 53280,
+				"to": 56760
+			},
+			"text": " Okay, so for me, we could not have done any more than that. Super, super happy with that."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:56,760",
+				"to": "00:01:03,520"
+			},
+			"offsets": {
+				"from": 56760,
+				"to": 63520
+			},
+			"text": " You know, the very, very happy with the look as well that we brought to stage and yeah,"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:03,520",
+				"to": "00:01:07,360"
+			},
+			"offsets": {
+				"from": 63520,
+				"to": 67360
+			},
+			"text": " you know, like I said to him and, you know, we're fully aware that this is the benchmark."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:07,360",
+				"to": "00:01:12,360"
+			},
+			"offsets": {
+				"from": 67360,
+				"to": 72360
+			},
+			"text": " This is the entry point into competitive bodybuilding, right? So this is the reference point now"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:12,360",
+				"to": "00:01:18,160"
+			},
+			"offsets": {
+				"from": 72360,
+				"to": 78160
+			},
+			"text": " for next time. So now the goal is for Nick is to get him back into an off season, reverse"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:18,160",
+				"to": "00:01:23,320"
+			},
+			"offsets": {
+				"from": 78160,
+				"to": 83320
+			},
+			"text": " him out of this game into off season. We're gonna have a nice little push through the"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:23,320",
+				"to": "00:01:28,040"
+			},
+			"offsets": {
+				"from": 83320,
+				"to": 88040
+			},
+			"text": " next four to six weeks in this reverse period and, you know, just try and really capitalize"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:28,040",
+				"to": "00:01:33,900"
+			},
+			"offsets": {
+				"from": 88040,
+				"to": 93900
+			},
+			"text": " on that and yeah, obviously blood work, make sure if it's all good and then yeah, two years"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:33,900",
+				"to": "00:01:37,920"
+			},
+			"offsets": {
+				"from": 93900,
+				"to": 97920
+			},
+			"text": " off stage is the plan for Nick, two years away from the stage. So, you know, we're going"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:37,920",
+				"to": "00:01:43,720"
+			},
+			"offsets": {
+				"from": 97920,
+				"to": 103720
+			},
+			"text": " to be looking to add some significant tissue on his frame, but yeah, overall very, very"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:43,720",
+				"to": "00:01:49,360"
+			},
+			"offsets": {
+				"from": 103720,
+				"to": 109360
+			},
+			"text": " happy for him. Like I said, it's been a long journey, you know, we literally started day"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:49,360",
+				"to": "00:01:56,280"
+			},
+			"offsets": {
+				"from": 109360,
+				"to": 116280
+			},
+			"text": " one. You know, I am his first and only coach. So he literally come to me as a lifestyle"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,280",
+				"to": "00:02:02,080"
+			},
+			"offsets": {
+				"from": 116280,
+				"to": 122080
+			},
+			"text": " client looking to diet down for a holiday and it's turned into falling into love with"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:02,080",
+				"to": "00:02:06,440"
+			},
+			"offsets": {
+				"from": 122080,
+				"to": 126440
+			},
+			"text": " bodybuilding, diet in growth phase, diet in growth phase and then fully commit into a"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:06,440",
+				"to": "00:02:11,120"
+			},
+			"offsets": {
+				"from": 126440,
+				"to": 131120
+			},
+			"text": " contest prep. So, you know, onwards and upwards from here, really, really happy with that."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:11,120",
+				"to": "00:02:16,280"
+			},
+			"offsets": {
+				"from": 131120,
+				"to": 136280
+			},
+			"text": " And yeah, now we're just going to get some meals in, get a meal in, which I haven't actually"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:16,280",
+				"to": "00:02:24,740"
+			},
+			"offsets": {
+				"from": 136280,
+				"to": 144740
+			},
+			"text": " eaten yet and it is 2.30 and then we are going to go back in and see Mark who is another"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:24,740",
+				"to": "00:02:30,040"
+			},
+			"offsets": {
+				"from": 144740,
+				"to": 150040
+			},
+			"text": " client I've got competing today. So obviously we'll see how he gets on. He is doing the"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:30,040",
+				"to": "00:02:35,780"
+			},
+			"offsets": {
+				"from": 150040,
+				"to": 155780
+			},
+			"text": " PCA UK Open in Masters Men's Physique. So let's get back in there and see how he is"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:35,780",
+				"to": "00:02:36,280"
+			},
+			"offsets": {
+				"from": 155780,
+				"to": 156280
+			},
+			"text": " getting on."
+		}
+	]
+}

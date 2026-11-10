@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+#C { position:absolute; right:64px; top:56px; display:flex; align-items:center; gap:12px; padding:10px 18px 9px;
+  background:rgba(10,10,10,0.55); border:1px solid rgba(255,255,255,0.18); border-radius:6px; font-weight:800; font-size:24px; letter-spacing:0.14em; }
+#C b { color:#d80609; font-size:22px; letter-spacing:-0.1em; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="5.667" data-width="3840" data-height="2160"><div id="root"><div id="C"><b>&#9654;&#9654;</b>5×</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set("#C", { opacity:0 });
+tl.fromTo("#C", { opacity:0, y:-12 }, { opacity:1, y:0, duration:0.3*K, ease:"power2.out", immediateRender:false }, 0.05*K);
+tl.to("#C b", { opacity:0.35, duration:0.5*K, yoyo:true, repeat:9, ease:"sine.inOut" }, 0.4*K);
+tl.to("#C", { opacity:0, duration:0.25*K }, 5.372*K);
+tl.to({}, { duration:5.667 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>
