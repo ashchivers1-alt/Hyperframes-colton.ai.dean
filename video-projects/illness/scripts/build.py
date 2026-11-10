@@ -42,7 +42,8 @@ for i, ch in enumerate(chunks):
         if j + 1 < len(ch):
             cap_js.append(f'tl.set("#c{i}w{j}", {{ color: "#FFFFFF" }}, {ch[j+1]["start"]:.2f});')
 
-html = (ROOT / "scripts/template.html").read_text()
+import os
+html = (ROOT / "scripts/template.html").read_text().replace("assets/illness.mp4", f"assets/{os.environ.get('VIDEO', 'illness')}.mp4")
 html = html.replace("<!--CAPTIONS-->", "\n".join(cap_html)).replace("//CAPTIONS_JS", "\n        ".join(cap_js)).replace("__DUR__", str(DUR))
 (ROOT / "index.html").write_text(html)
 print("chunks", len(chunks))
