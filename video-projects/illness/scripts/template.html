@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <!--
+      ILLNESS — @kingketo "top card" style (see _reference/creator-library/kingketo/style-distilled.md).
+      Face-cam full frame; one wide card in the headroom above Ash (y 70–640), swapping per point;
+      cream ↔ charcoal alternation; red pill tags; italic-serif accent + red highlight-box keyword;
+      ALL-CAPS 1–3 word captions with a yellow active word at chest height. Hard swaps, motion inside cards.
+      GENERATED: edit scripts/template.html, then run python3 -I scripts/build.py
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #face-wrap { position: absolute; inset: 0; transform-origin: 50% 58%; }
+      #face-video { width: 1080px; height: 1920px; object-fit: cover; filter: contrast(1.06) saturate(1.06); }
+      #topfade { position: absolute; left: 0; right: 0; top: 0; height: 760px; pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0) 100%); }
+
+      /* ---------- cards ---------- */
+      .card {
+        position: absolute; left: 60px; top: 90px; width: 960px; height: 540px; border-radius: 34px; overflow: hidden; opacity: 0;
+        padding: 40px 48px; box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+      }
+      .cream { background: #F4EFE6; color: #141414; }
+      .cream::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(20,20,20,.045) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(20,20,20,.045) 0 1px, transparent 1px 44px); }
+      .dark { background: #141414; color: #fff; border: 1px solid rgba(255,255,255,0.08); }
+      .dark::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px); }
+      .card > * { position: relative; z-index: 1; }
+      .pill { display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 18px; border-radius: 10px; background: var(--brand-accent);
+        color: #fff; font: 800 22px/1 Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+      .pill.ghost { background: transparent; border: 2px solid currentColor; }
+      .h { font: 900 92px/0.98 Montserrat, sans-serif; letter-spacing: -0.01em; white-space: nowrap; }
+      .serif { font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; letter-spacing: 0; }
+      .box { display: inline-block; background: var(--brand-accent); color: #fff; padding: 0 16px; border-radius: 10px; }
+      .gold { color: #F2C230; }
+      .small { font: 700 26px/1.2 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; opacity: .62; white-space: nowrap; }
+
+      /* card 1 — everyone's sick */
+      #k1 .row { display: flex; gap: 26px; margin-top: 34px; }
+      .person { position: relative; width: 96px; height: 120px; }
+      .person i { position: absolute; left: 28px; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #3a3a3a; }
+      .person b { position: absolute; left: 8px; top: 46px; width: 80px; height: 74px; border-radius: 40px 40px 12px 12px; background: #3a3a3a; }
+            #k1-sub { margin-top: 26px; font-size: 40px; opacity: .85; }
+
+      /* card 2 — the question */
+      #k2 .bubble { margin-top: 34px; display: inline-block; max-width: 760px; padding: 26px 34px; border-radius: 34px 34px 34px 10px;
+        background: #E5E1DA; font: 600 46px/1.22 Inter, sans-serif; color: #141414; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+      #k2 .typing { margin-top: 34px; display: inline-flex; gap: 10px; padding: 26px 30px; border-radius: 34px; background: #E5E1DA; }
+      #k2 .typing i { width: 16px; height: 16px; border-radius: 50%; background: #8d8a84; }
+      #k2 .meta { margin-top: 18px; }
+
+      /* card 3 — two camps + me */
+      #k3 .camps { display: flex; gap: 22px; margin-top: 28px; }
+      #k3 .camp { flex: 1; height: 240px; border-radius: 22px; padding: 24px 26px; background: #1f1f1f; border: 1px solid rgba(255,255,255,.1); }
+      #k3 .camp .t { font: 900 46px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k3 .camp ul { list-style: none; margin-top: 18px; font: 600 28px/1.5 Inter, sans-serif; color: #cfcfcf; }
+      #k3 .camp .serif { font-size: 30px; color: #9a9a9a; margin-top: 4px; display: block; }
+      #k3 .me { position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); height: 66px; font-size: 26px; padding: 0 26px;
+        box-shadow: 0 0 34px rgba(216,6,9,.6); }
+
+      /* card 4 — the simple test */
+      #k4 .q { margin-top: 20px; font: 900 50px/1.05 Montserrat, sans-serif; white-space: nowrap; }
+      #k4 .bars { display: flex; align-items: flex-end; gap: 40px; height: 180px; margin-top: 26px; padding-left: 8px; }
+      #k4 .bar { position: relative; width: 150px; height: 170px; border-radius: 14px 14px 6px 6px; background: #141414; transform-origin: 50% 100%; }
+      #k4 .bar span { position: absolute; left: 0; right: 0; top: -40px; text-align: center; font: 800 28px/1 Inter, sans-serif; color: #141414; }
+      #k4 .bar em { position: absolute; left: 0; right: 0; bottom: -36px; text-align: center; font: 700 20px/1 Inter, sans-serif; letter-spacing: .1em; color: #6b6b6b; font-style: normal; white-space: nowrap; }
+      #k4 .bar.today { background: #F2C230; }
+      #k4 .verdict { position: absolute; right: 52px; bottom: 70px; height: 96px; padding: 0 30px; border-radius: 16px; background: #141414; color: #F2C230;
+        display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; white-space: nowrap; }
+
+      /* card 5 — dragging / RIR */
+      #k5 .batt { position: absolute; right: 52px; top: 44px; width: 150px; height: 70px; border: 5px solid #fff; border-radius: 14px; padding: 6px; }
+      #k5 .batt::after { content: ""; position: absolute; right: -16px; top: 20px; width: 10px; height: 22px; border-radius: 0 4px 4px 0; background: #fff; }
+      #k5 .batt i { display: block; height: 100%; width: 100%; border-radius: 6px; background: #F2C230; transform-origin: left center; }
+      #k5 .lab { margin-top: 28px; }
+      #k5 .scale { position: relative; height: 30px; margin-top: 22px; border-radius: 15px; background: #2a2a2a; }
+      #k5 .zone { position: absolute; left: 0; top: 0; bottom: 0; width: 14%; border-radius: 15px; background: #F2C230; }
+      #k5 .ticks { display: flex; justify-content: space-between; margin-top: 12px; font: 700 22px/1 Inter, sans-serif; color: #8a8a8a; }
+      #k5 .needle { position: absolute; top: -18px; left: 7%; width: 6px; height: 66px; margin-left: -3px; border-radius: 3px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.7); }
+      #k5 .needle b { position: absolute; top: -52px; left: 50%; transform: translateX(-50%); font: 900 40px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k5 .verdict { position: absolute; right: 52px; bottom: 56px; height: 96px; padding: 0 30px; border-radius: 16px; background: var(--brand-accent); color: #fff;
+        display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; box-shadow: 0 0 36px rgba(216,6,9,.6); white-space: nowrap; }
+
+      /* card 6 — summary */
+      #k6 .rule { display: flex; align-items: center; gap: 24px; height: 120px; margin-top: 22px; padding: 0 28px; border-radius: 22px; background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.07); }
+      #k6 .ic { width: 76px; height: 76px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font: 900 44px/1 Montserrat, sans-serif; color: #fff; flex: none; }
+      #k6 .ic.y { background: #141414; color: #F2C230; }
+      #k6 .ic.n { background: var(--brand-accent); }
+      #k6 .rt { font: 900 44px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k6 .rt span { color: #8a8a8a; font-size: 34px; }
+
+      /* ---------- captions (kingketo) ---------- */
+      .cap {
+        position: absolute; left: 40px; right: 40px; top: 1450px; text-align: center; opacity: 0; white-space: nowrap;
+        font: 900 78px/1 Montserrat, sans-serif; color: #fff; letter-spacing: -0.01em;
+        text-shadow: 0 0 2px #000, 0 3px 0 #000, 0 -3px 0 #000, 3px 0 0 #000, -3px 0 0 #000, 0 6px 22px rgba(0,0,0,.55);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__DUR__" data-width="1080" data-height="1920">
+      <div id="face-wrap">
+        <video id="face-video" src="assets/illness.mp4" data-start="0" data-duration="__DUR__" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/illness.mp4" data-start="0" data-duration="__DUR__" data-track-index="1" data-volume="1"></audio>
+      <div id="topfade" class="clip" data-start="0" data-duration="__DUR__" data-track-index="2"></div>
+
+      <div id="cards" class="clip" data-start="0" data-duration="__DUR__" data-track-index="3">
+        <!-- 1 · 0.2–6.45 -->
+        <div class="card dark" id="k1">
+          <div class="pill" id="k1-p">● Going around</div>
+          <div class="h" id="k1-h" style="margin-top:22px">Everyone's <span class="box" id="k1-box">SICK</span></div>
+          <div class="row" id="k1-row">
+            <div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div>
+            <div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div><div class="person"><i></i><b></b></div>
+          </div>
+        </div>
+        <!-- 2 · 6.45–12.6 -->
+        <div class="card cream" id="k2">
+          <div class="pill" id="k2-p">Clients · this week</div>
+          <div style="position:relative;height:150px;margin-top:34px"><div class="typing" id="k2-typing" style="position:absolute;left:0;top:0;margin:0"><i></i><i></i><i></i></div><div class="bubble" id="k2-b" style="position:absolute;left:0;top:0;margin:0">“Should I <b>train</b>, Ash? I feel <b>sick</b> 🤒”</div></div>
+          <div class="small meta" id="k2-m">The question I keep getting</div>
+        </div>
+        <!-- 3 · 12.6–27.4 -->
+        <div class="card dark" id="k3">
+          <div class="h" id="k3-h" style="font-size:72px">Two <span class="serif">camps</span></div>
+          <div class="camps">
+            <div class="camp" id="k3-a"><div class="t">DON'T TRAIN</div><ul><li id="k3-a1">· Rest up</li><li id="k3-a2">· Recover</li><li id="k3-a3">· Fatigue management</li></ul></div>
+            <div class="camp" id="k3-b"><div class="t">TRAIN ANYWAY</div><ul><li>· Push through</li></ul><span class="serif" id="k3-b2">no matter what</span></div>
+          </div>
+          <div class="pill me" id="k3-me">Me → assess the situation</div>
+        </div>
+        <!-- 4 · 27.4–38.55 -->
+        <div class="card cream" id="k4">
+          <div class="h" id="k4-h" style="font-size:72px">The <span class="serif">simple</span> test</div>
+          <div class="q" id="k4-q">Can you hit your <span class="box">numbers?</span></div>
+          <div class="bars">
+            <div class="bar" id="k4-b1"><span>100 KG × 8</span><em>NORMAL</em></div>
+            <div class="bar today" id="k4-b2"><span>100 KG × 8</span><em>TODAY</em></div>
+          </div>
+          <div class="verdict" id="k4-v">✓ GO TRAIN</div>
+        </div>
+        <!-- 5 · 38.55–48.6 -->
+        <div class="card dark" id="k5">
+          <div class="h" id="k5-h" style="font-size:72px">Dragging your <span class="serif">ass?</span></div>
+          <div class="batt"><i id="k5-bat"></i></div>
+          <div class="small lab" id="k5-l">Reps in reserve</div>
+          <div class="scale" id="k5-s"><div class="zone"></div><div class="needle" id="k5-n"><b id="k5-nb"><span id="k5-n1">1–2</span><span id="k5-n2" style="position:absolute;left:50%;transform:translateX(-50%);color:#ff3b3e;opacity:0">14</span></b></div></div>
+          <div class="ticks" id="k5-t"><span>0</span><span>5</span><span>10</span><span>15</span></div>
+          <div class="verdict" id="k5-v">✕ REST</div>
+        </div>
+        <!-- 6 · 48.6–end -->
+        <div class="card cream" id="k6">
+          <div class="h" style="font-size:66px">Ash's <span class="serif">rule</span> <span class="box">when sick</span></div>
+          <div class="rule" id="k6-r1"><div class="ic y">✓</div><div class="rt">Numbers hit <span>→</span> TRAIN</div></div>
+          <div class="rule" id="k6-r2"><div class="ic n">✕</div><div class="rt">No energy <span>→</span> REST</div></div>
+        </div>
+      </div>
+
+      <div id="caps" class="clip" data-start="0" data-duration="__DUR__" data-track-index="4">
+<!--CAPTIONS-->
+      </div>
+
+      <!-- SFX -->
+      <audio id="x1" src="assets/sfx/pop.mp3" data-start="0.25" data-duration="0.7" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="x2" src="assets/sfx/hard-cut.mp3" data-start="2.95" data-duration="0.24" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="x3" src="assets/sfx/pop.mp3" data-start="6.5" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x4" src="assets/sfx/send-message.mp3" data-start="9.9" data-duration="1.0" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x5" src="assets/sfx/pop.mp3" data-start="12.65" data-duration="0.7" data-track-index="11" data-volume="0.18"></audio>
+      <audio id="x6" src="assets/sfx/click.wav" data-start="17.8" data-duration="0.45" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="x7" src="assets/sfx/click.wav" data-start="22.85" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x8" src="assets/sfx/zap.mp3" data-start="25.65" data-duration="0.9" data-track-index="11" data-volume="0.14"></audio>
+      <audio id="x9" src="assets/sfx/pop.mp3" data-start="27.45" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x10" src="assets/sfx/click.wav" data-start="35.75" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x11" src="assets/sfx/slam.mp3" data-start="37.8" data-duration="1.2" data-track-index="11" data-volume="0.24"></audio>
+      <audio id="x12" src="assets/sfx/pop.mp3" data-start="38.6" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x13" src="assets/sfx/swipe.mp3" data-start="44.85" data-duration="1.05" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="x14" src="assets/sfx/slam.mp3" data-start="48.25" data-duration="1.2" data-track-index="11" data-volume="0.26"></audio>
+      <audio id="x15" src="assets/sfx/click.wav" data-start="49.0" data-duration="0.45" data-track-index="12" data-volume="0.22"></audio>
+      <audio id="x16" src="assets/sfx/click.wav" data-start="49.6" data-duration="0.45" data-track-index="10" data-volume="0.22"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = __DUR__;
+        const CARD = (id, t, end) => {
+          tl.fromTo(id, { opacity: 0, y: -30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: "back.out(1.6)", immediateRender: false }, t);
+          tl.set(id, { opacity: 0 }, end);
+        };
+        const IN = (s, t, from = { y: 24 }, ease = "power3.out", d = 0.3) => tl.fromTo(s, { ...from, opacity: 0 }, { x: 0, y: 0, scale: 1, opacity: 1, duration: d, ease }, t);
+        const STAMP = (s, t) => tl.fromTo(s, { scale: 1.9, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.2, ease: "power4.in" }, t);
+
+        // 1 — Everyone's SICK + people turning red
+        CARD("#k1", 0.2, 6.45);
+        tl.set(["#k1-h", "#k1-row"], { opacity: 0 }, 0.2);
+        IN("#k1-h", 2.0, { y: 30 }, "expo.out");
+        tl.fromTo("#k1-box", { scale: 0.5 }, { scale: 1, duration: 0.22, ease: "back.out(3)" }, 2.97);
+        IN("#k1-row", 3.4, { y: 20 }, "power2.out");
+        document.querySelectorAll("#k1 .person").forEach((p, i) => {
+          if (i === 5) return;
+          const t = 4.0 + i * 0.28;
+          tl.to(p.querySelectorAll("i, b"), { backgroundColor: "#d80609", boxShadow: "0 0 22px rgba(216,6,9,.55)", duration: 0.12 }, t);
+          tl.fromTo(p, { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+        });
+
+        // 2 — the question (typing → bubble)
+        CARD("#k2", 6.45, 12.6);
+        tl.set(["#k2-b", "#k2-m"], { opacity: 0 }, 6.45);
+        tl.set("#k2-typing", { opacity: 1 }, 6.45);
+        tl.to("#k2-typing i", { y: -8, duration: 0.22, yoyo: true, repeat: 7, stagger: 0.12, ease: "sine.inOut" }, 7.6);
+        tl.set("#k2-typing", { opacity: 0 }, 9.85);
+        IN("#k2-b", 9.92, { y: 30, scale: 0.85 }, "back.out(1.8)", 0.32);
+        IN("#k2-m", 11.0, { y: 10 }, "power2.out");
+
+        // 3 — two camps, then ME
+        CARD("#k3", 12.6, 27.4);
+        tl.set(["#k3-a", "#k3-b", "#k3-me", "#k3-a1", "#k3-a2", "#k3-a3", "#k3-b2"], { opacity: 0 }, 12.6);
+        IN("#k3-a", 17.8, { x: -40 }, "expo.out");
+        IN("#k3-a1", 18.45, { x: -12 });
+        IN("#k3-a2", 19.05, { x: -12 });
+        IN("#k3-a3", 19.8, { x: -12 });
+        IN("#k3-b", 22.85, { x: 40 }, "expo.out");
+        IN("#k3-b2", 23.3, { y: 10 });
+        tl.to(["#k3-a", "#k3-b"], { opacity: 0.35, duration: 0.3 }, 25.6);
+        tl.fromTo("#k3-me", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, 25.65);
+
+        // 4 — the simple test: bars match → GO TRAIN
+        CARD("#k4", 27.4, 38.55);
+        tl.set(["#k4-q", "#k4-v"], { opacity: 0 }, 27.4);
+        tl.set(["#k4-b1", "#k4-b2"], { scaleY: 0 }, 27.4);
+        IN("#k4-q", 29.45, { y: 20 }, "expo.out");
+        tl.to("#k4-b1", { scaleY: 1, duration: 0.45, ease: "back.out(1.4)" }, 33.2);
+        tl.to("#k4-b2", { scaleY: 1, duration: 0.55, ease: "back.out(1.4)" }, 35.75);
+        STAMP("#k4-v", 37.8);
+
+        // 5 — dragging: battery drains, RIR needle → 14 → REST
+        CARD("#k5", 38.55, 48.6);
+        tl.set(["#k5-l", "#k5-s", "#k5-t", "#k5-v"], { opacity: 0 }, 38.55);
+        tl.to("#k5-bat", { scaleX: 0.12, backgroundColor: "#d80609", duration: 1.4, ease: "power2.in" }, 41.6);
+        IN("#k5-l", 43.4, { y: 12 });
+        IN("#k5-s", 43.5, { y: 12 });
+        IN("#k5-t", 43.6, { y: 12 });
+        tl.to("#k5-n", { x: 743, backgroundColor: "#d80609", duration: 0.7, ease: "power3.inOut" }, 44.85);
+        tl.to("#k5-n1", { opacity: 0, duration: 0.1 }, 45.15);
+        tl.to("#k5-n2", { opacity: 1, duration: 0.1 }, 45.2);
+        STAMP("#k5-v", 48.25);
+
+        // 6 — the rule
+        CARD("#k6", 48.6, DUR);
+        tl.set(["#k6-r1", "#k6-r2"], { opacity: 0 }, 48.6);
+        IN("#k6-r1", 49.0, { x: -30 }, "expo.out");
+        IN("#k6-r2", 49.6, { x: -30 }, "expo.out");
+
+        // punch-ins on two key lines (hard zoom, back out)
+        tl.set("#face-wrap", { scale: 1.14 }, 24.45);
+        tl.set("#face-wrap", { scale: 1 }, 27.4);
+        tl.set("#face-wrap", { scale: 1.14 }, 46.7);
+        tl.set("#face-wrap", { scale: 1 }, 48.6);
+
+        // captions
+        //CAPTIONS_JS
+
+        tl.to({}, { duration: DUR }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>
