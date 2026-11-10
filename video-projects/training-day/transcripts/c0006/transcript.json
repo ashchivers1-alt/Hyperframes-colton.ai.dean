@@ -1,0 +1,104 @@
+[
+  {
+    "text": "I've",
+    "start": 0,
+    "end": 0.52,
+    "id": "w0"
+  },
+  {
+    "text": "been",
+    "start": 0.52,
+    "end": 0.98,
+    "id": "w1"
+  },
+  {
+    "text": "here",
+    "start": 1.04,
+    "end": 1.58,
+    "id": "w2"
+  },
+  {
+    "text": "for",
+    "start": 1.58,
+    "end": 1.79,
+    "id": "w3"
+  },
+  {
+    "text": "13,000",
+    "start": 2.15,
+    "end": 4.16,
+    "id": "w4"
+  },
+  {
+    "text": "hours",
+    "start": 4.45,
+    "end": 4.87,
+    "id": "w5"
+  },
+  {
+    "text": "of",
+    "start": 4.91,
+    "end": 5.14,
+    "id": "w6"
+  },
+  {
+    "text": "my",
+    "start": 5.14,
+    "end": 5.4,
+    "id": "w7"
+  },
+  {
+    "text": "life.",
+    "start": 5.4,
+    "end": 6.53,
+    "id": "w8"
+  },
+  {
+    "text": "No.",
+    "start": 6.56,
+    "end": 7.54,
+    "id": "w9"
+  },
+  {
+    "text": "I",
+    "start": 7.56,
+    "end": 7.65,
+    "id": "w10"
+  },
+  {
+    "text": "was",
+    "start": 7.65,
+    "end": 7.92,
+    "id": "w11"
+  },
+  {
+    "text": "here.",
+    "start": 7.92,
+    "end": 8.55,
+    "id": "w12"
+  },
+  {
+    "text": "There",
+    "start": 8.56,
+    "end": 8.97,
+    "id": "w13"
+  },
+  {
+    "text": "it",
+    "start": 8.97,
+    "end": 9.13,
+    "id": "w14"
+  },
+  {
+    "text": "is.",
+    "start": 9.13,
+    "end": 9.55,
+    "id": "w15"
+  },
+  {
+    "text": "Yeah.",
+    "start": 9.55,
+    "end": 9.85,
+    "id": "w16"
+  }
+]

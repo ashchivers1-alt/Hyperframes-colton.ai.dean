@@ -1,0 +1,153 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,900"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1900
+			},
+			"text": " your"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,900",
+				"to": "00:00:04,280"
+			},
+			"offsets": {
+				"from": 1900,
+				"to": 4280
+			},
+			"text": " legit"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,280",
+				"to": "00:00:08,410"
+			},
+			"offsets": {
+				"from": 4280,
+				"to": 8410
+			},
+			"text": " stronger"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,410",
+				"to": "00:00:10,130"
+			},
+			"offsets": {
+				"from": 8410,
+				"to": 10130
+			},
+			"text": " than"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:10,130",
+				"to": "00:00:12,340"
+			},
+			"offsets": {
+				"from": 10130,
+				"to": 12340
+			},
+			"text": " me?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:12,340",
+				"to": "00:00:14,350"
+			},
+			"offsets": {
+				"from": 12340,
+				"to": 14350
+			},
+			"text": " Come"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:14,350",
+				"to": "00:00:16,150"
+			},
+			"offsets": {
+				"from": 14350,
+				"to": 16150
+			},
+			"text": " on,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:16,150",
+				"to": "00:00:19,000"
+			},
+			"offsets": {
+				"from": 16150,
+				"to": 19000
+			},
+			"text": " good,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:19,000",
+				"to": "00:00:22,320"
+			},
+			"offsets": {
+				"from": 19000,
+				"to": 22320
+			},
+			"text": " nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:22,320",
+				"to": "00:00:22,990"
+			},
+			"offsets": {
+				"from": 22320,
+				"to": 22990
+			},
+			"text": " Again,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:22,990",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 22990,
+				"to": 30000
+			},
+			"text": " lovely."
+		}
+	]
+}

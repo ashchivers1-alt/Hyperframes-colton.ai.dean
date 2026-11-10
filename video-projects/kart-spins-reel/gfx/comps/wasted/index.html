@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; }
+
+#band { position:absolute; left:0; right:0; top:820px; height:280px;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.62) 22%, rgba(0,0,0,0.62) 78%, rgba(0,0,0,0) 100%); }
+#w { position:absolute; left:0; right:0; top:832px; text-align:center; font-family:"Bebas Neue", sans-serif; font-size:250px; line-height:1;
+  letter-spacing:0.06em; color:#c8161d; -webkit-text-stroke:5px #000; paint-order:stroke fill;
+  text-shadow:0 6px 0 #000, 0 0 40px rgba(0,0,0,0.6); }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="1.9" data-width="1080" data-height="1920"><div id="band"></div><div id="w">WASTED</div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+gsap.set("#band", { opacity:0 }); gsap.set("#w", { opacity:0, scale:1.6 });
+tl.to("#band", { opacity:1, duration:0.15, ease:"power1.out" }, 0);
+tl.to("#w", { opacity:1, scale:1, duration:0.16, ease:"power3.in" }, 0.02);
+tl.to("#w", { scale:1.05, duration:1.7, ease:"none" }, 0.18);
+tl.to({}, { duration:1.9 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

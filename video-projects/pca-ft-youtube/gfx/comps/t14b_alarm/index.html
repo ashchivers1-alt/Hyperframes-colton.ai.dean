@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+#A { position:absolute; left:0; right:0; top:46px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+#A .pill { background:#d80609; font-weight:800; font-size:19px; letter-spacing:0.26em; padding:7px 14px 6px; }
+#A .t { font-size:78px; }
+#A .row { display:flex; align-items:center; gap:18px; }
+#A .st { font-family:"Bebas Neue"; font-size:64px; letter-spacing:0.05em; background:#d80609; padding:4px 20px 0; transform:rotate(-4deg); }
+#A .s { font-size:24px; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="4.196" data-width="3840" data-height="2160"><div id="root"><div id="A" class="sh"><div class="pill">ALARM UPDATE</div><div class="clip"><div class="t">MY ALARM IS GOING OFF</div></div><div class="row"><div class="st">AGAIN.</div><div class="s">Snooze count: lost track</div></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#A .pill","#A .t","#A .st","#A .s"], { opacity:0 });
+tl.fromTo("#A .pill", { opacity:0, y:-16 }, { opacity:1, y:0, duration:0.35*K, ease:"power3.out", immediateRender:false }, 0.05*K);
+tl.fromTo("#A .t", { opacity:0, yPercent:100 }, { opacity:1, yPercent:0, duration:0.55*K, ease:"expo.out", immediateRender:false }, 0.15*K);
+tl.fromTo("#A .pill", { rotation:-6 }, { rotation:6, duration:0.06*K, ease:"none", yoyo:true, repeat:13, immediateRender:false }, 0.4*K);
+tl.fromTo("#A .st", { opacity:0, scale:2.4 }, { opacity:1, scale:1, duration:0.28*K, ease:"power4.in", immediateRender:false }, 1.05*K);
+tl.fromTo("#A .s", { opacity:0, x:-14 }, { opacity:1, x:0, duration:0.4*K, ease:"power2.out", immediateRender:false }, 1.5*K);
+tl.to("#A", { opacity:0, y:-16, duration:0.4*K, ease:"power2.in" }, 3.750*K);
+tl.to({}, { duration:4.196 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

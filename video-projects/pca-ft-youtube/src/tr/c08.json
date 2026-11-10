@@ -1,0 +1,505 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,660"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2660
+			},
+			"text": " (hip hop music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:32,660"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 32660
+			},
+			"text": " (hip hop music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:00,000",
+				"to": "00:01:02,660"
+			},
+			"offsets": {
+				"from": 60000,
+				"to": 62660
+			},
+			"text": " (hip hop music)"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:30,000",
+				"to": "00:01:35,000"
+			},
+			"offsets": {
+				"from": 90000,
+				"to": 95000
+			},
+			"text": " - All the best, okay, two, I just want to do it all."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:35,320",
+				"to": "00:01:37,160"
+			},
+			"offsets": {
+				"from": 95320,
+				"to": 97160
+			},
+			"text": " I don't want to do it."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:38,380",
+				"to": "00:01:43,120"
+			},
+			"offsets": {
+				"from": 98380,
+				"to": 103120
+			},
+			"text": " - Like you're gonna do this for the first time, yeah?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:43,120",
+				"to": "00:01:44,800"
+			},
+			"offsets": {
+				"from": 103120,
+				"to": 104800
+			},
+			"text": " Is that not comfortable?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:44,800",
+				"to": "00:01:48,120"
+			},
+			"offsets": {
+				"from": 104800,
+				"to": 108120
+			},
+			"text": " - Nah, I won't, it's me, no, it's you."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:48,120",
+				"to": "00:01:48,960"
+			},
+			"offsets": {
+				"from": 108120,
+				"to": 108960
+			},
+			"text": " - You?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:48,960",
+				"to": "00:01:49,800"
+			},
+			"offsets": {
+				"from": 108960,
+				"to": 109800
+			},
+			"text": " - Me?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:54,060",
+				"to": "00:01:56,940"
+			},
+			"offsets": {
+				"from": 114060,
+				"to": 116940
+			},
+			"text": " - You're gonna show me full hair, yeah?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,940",
+				"to": "00:01:57,780"
+			},
+			"offsets": {
+				"from": 116940,
+				"to": 117780
+			},
+			"text": " - Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:00,200",
+				"to": "00:02:02,040"
+			},
+			"offsets": {
+				"from": 120200,
+				"to": 122040
+			},
+			"text": " - I think you should get some."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:02,040",
+				"to": "00:02:06,720"
+			},
+			"offsets": {
+				"from": 122040,
+				"to": 126720
+			},
+			"text": " - I want to do with you a side-mounted leg press."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:06,720",
+				"to": "00:02:09,480"
+			},
+			"offsets": {
+				"from": 126720,
+				"to": 129480
+			},
+			"text": " Let me know what you think, for glutes."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:09,480",
+				"to": "00:02:13,480"
+			},
+			"offsets": {
+				"from": 129480,
+				"to": 133480
+			},
+			"text": " You're just sort of sat on the side, like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:13,480",
+				"to": "00:02:14,320"
+			},
+			"offsets": {
+				"from": 133480,
+				"to": 134320
+			},
+			"text": " With you?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:15,440",
+				"to": "00:02:18,840"
+			},
+			"offsets": {
+				"from": 135440,
+				"to": 138840
+			},
+			"text": " Yeah, do you like it or not, oops."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:18,840",
+				"to": "00:02:22,340"
+			},
+			"offsets": {
+				"from": 138840,
+				"to": 142340
+			},
+			"text": " I fucking love it, I did it the other day."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:23,400",
+				"to": "00:02:26,120"
+			},
+			"offsets": {
+				"from": 143400,
+				"to": 146120
+			},
+			"text": " No, no, no, no, that's side-mounted hat squat,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:26,120",
+				"to": "00:02:27,880"
+			},
+			"offsets": {
+				"from": 146120,
+				"to": 147880
+			},
+			"text": " on a leg press."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:27,880",
+				"to": "00:02:29,640"
+			},
+			"offsets": {
+				"from": 147880,
+				"to": 149640
+			},
+			"text": " So like, you just basically, imagine you're sat there,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:29,640",
+				"to": "00:02:31,700"
+			},
+			"offsets": {
+				"from": 149640,
+				"to": 151700
+			},
+			"text": " and you just sort of cross a little bit like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:31,700",
+				"to": "00:02:34,600"
+			},
+			"offsets": {
+				"from": 151700,
+				"to": 154600
+			},
+			"text": " Put so much tension on the side of the leg."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:34,600",
+				"to": "00:02:35,440"
+			},
+			"offsets": {
+				"from": 154600,
+				"to": 155440
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:37,120",
+				"to": "00:02:37,960"
+			},
+			"offsets": {
+				"from": 157120,
+				"to": 157960
+			},
+			"text": " Yeah, I love it, it's fucking,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:37,960",
+				"to": "00:02:40,560"
+			},
+			"offsets": {
+				"from": 157960,
+				"to": 160560
+			},
+			"text": " I've only had it a few days, but."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:42,080",
+				"to": "00:02:44,380"
+			},
+			"offsets": {
+				"from": 162080,
+				"to": 164380
+			},
+			"text": " Does everything, steps, wear it when you sleep."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:46,880",
+				"to": "00:02:49,000"
+			},
+			"offsets": {
+				"from": 166880,
+				"to": 169000
+			},
+			"text": " Well, I don't think you paid for the first year."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:49,000",
+				"to": "00:02:50,680"
+			},
+			"offsets": {
+				"from": 169000,
+				"to": 170680
+			},
+			"text": " Well, after that, I don't know how much it is,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:50,680",
+				"to": "00:02:55,180"
+			},
+			"offsets": {
+				"from": 170680,
+				"to": 175180
+			},
+			"text": " I can't remember, 50, I don't know, no idea."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:55,180",
+				"to": "00:02:57,660"
+			},
+			"offsets": {
+				"from": 175180,
+				"to": 177660
+			},
+			"text": " I just, I didn't read any Ts and Cs,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:57,660",
+				"to": "00:03:00,680"
+			},
+			"offsets": {
+				"from": 177660,
+				"to": 180680
+			},
+			"text": " I was like, all right, I want it, and both, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:00,680",
+				"to": "00:03:01,520"
+			},
+			"offsets": {
+				"from": 180680,
+				"to": 181520
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:06,860",
+				"to": "00:03:11,220"
+			},
+			"offsets": {
+				"from": 186860,
+				"to": 191220
+			},
+			"text": " Okay, so don't push any of the straight moves on four."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:11,220",
+				"to": "00:03:12,060"
+			},
+			"offsets": {
+				"from": 191220,
+				"to": 192060
+			},
+			"text": " 12."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:12,060",
+				"to": "00:03:13,600"
+			},
+			"offsets": {
+				"from": 192060,
+				"to": 193600
+			},
+			"text": " 12?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:13,600",
+				"to": "00:03:14,600"
+			},
+			"offsets": {
+				"from": 193600,
+				"to": 194600
+			},
+			"text": " Do a few more."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:14,600",
+				"to": "00:03:15,440"
+			},
+			"offsets": {
+				"from": 194600,
+				"to": 195440
+			},
+			"text": " 15."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:15,440",
+				"to": "00:03:18,280"
+			},
+			"offsets": {
+				"from": 195440,
+				"to": 198280
+			},
+			"text": " 10 more on 12, on 12, on 12."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:18,280",
+				"to": "00:03:19,760"
+			},
+			"offsets": {
+				"from": 198280,
+				"to": 199760
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:19,760",
+				"to": "00:03:21,680"
+			},
+			"offsets": {
+				"from": 199760,
+				"to": 201680
+			},
+			"text": " Nice, good, good, good."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:27,660",
+				"to": "00:03:28,500"
+			},
+			"offsets": {
+				"from": 207660,
+				"to": 208500
+			},
+			"text": " Like that."
+		}
+	]
+}

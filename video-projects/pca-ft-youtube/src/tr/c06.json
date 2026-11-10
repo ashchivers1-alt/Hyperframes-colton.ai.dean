@@ -1,0 +1,692 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:02,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 2000
+			},
+			"text": " on each side."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:18,000",
+				"to": "00:00:20,000"
+			},
+			"offsets": {
+				"from": 18000,
+				"to": 20000
+			},
+			"text": " Oh yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:20,000",
+				"to": "00:00:22,000"
+			},
+			"offsets": {
+				"from": 20000,
+				"to": 22000
+			},
+			"text": " I need a coffee."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:22,000",
+				"to": "00:00:24,000"
+			},
+			"offsets": {
+				"from": 22000,
+				"to": 24000
+			},
+			"text": " Do you know what, I was literally just debating, should I go get a can of..."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:24,000",
+				"to": "00:00:26,000"
+			},
+			"offsets": {
+				"from": 24000,
+				"to": 26000
+			},
+			"text": " Coffee man, I think I need a coffee."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:28,000",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 28000,
+				"to": 30000
+			},
+			"text": " I know you'll get a can of bonsu in a minute."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:32,000"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 32000
+			},
+			"text": " Fucking hell."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:36,000",
+				"to": "00:00:38,000"
+			},
+			"offsets": {
+				"from": 36000,
+				"to": 38000
+			},
+			"text": " No."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:38,000",
+				"to": "00:00:40,000"
+			},
+			"offsets": {
+				"from": 38000,
+				"to": 40000
+			},
+			"text": " My ego will not allow me to."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:40,000",
+				"to": "00:00:42,000"
+			},
+			"offsets": {
+				"from": 40000,
+				"to": 42000
+			},
+			"text": " I've put it on there now, I've just got to suffer."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:50,000",
+				"to": "00:00:54,000"
+			},
+			"offsets": {
+				"from": 50000,
+				"to": 54000
+			},
+			"text": " I mean, you're about to torture the bench, by the way."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:54,000",
+				"to": "00:00:56,000"
+			},
+			"offsets": {
+				"from": 54000,
+				"to": 56000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:56,000",
+				"to": "00:00:58,000"
+			},
+			"offsets": {
+				"from": 56000,
+				"to": 58000
+			},
+			"text": " I was looking right at you."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:00,000",
+				"to": "00:01:04,000"
+			},
+			"offsets": {
+				"from": 60000,
+				"to": 64000
+			},
+			"text": " Yeah, but I don't... with you, because the machine's quite big, innit?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:04,000",
+				"to": "00:01:06,000"
+			},
+			"offsets": {
+				"from": 64000,
+				"to": 66000
+			},
+			"text": " Yeah, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:06,000",
+				"to": "00:01:08,000"
+			},
+			"offsets": {
+				"from": 66000,
+				"to": 68000
+			},
+			"text": " Fucking hell."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:08,000",
+				"to": "00:01:10,000"
+			},
+			"offsets": {
+				"from": 68000,
+				"to": 70000
+			},
+			"text": " I feel like I've been kicked up the arse."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:26,000",
+				"to": "00:01:28,000"
+			},
+			"offsets": {
+				"from": 86000,
+				"to": 88000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:38,000",
+				"to": "00:01:40,000"
+			},
+			"offsets": {
+				"from": 98000,
+				"to": 100000
+			},
+			"text": " Good. You're legit stronger than me."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:48,000",
+				"to": "00:01:50,000"
+			},
+			"offsets": {
+				"from": 108000,
+				"to": 110000
+			},
+			"text": " Come on. Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:50,000",
+				"to": "00:01:52,000"
+			},
+			"offsets": {
+				"from": 110000,
+				"to": 112000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:52,000",
+				"to": "00:01:54,000"
+			},
+			"offsets": {
+				"from": 112000,
+				"to": 114000
+			},
+			"text": " Lovely."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:54,000",
+				"to": "00:01:56,000"
+			},
+			"offsets": {
+				"from": 114000,
+				"to": 116000
+			},
+			"text": " Let's go. Keep going. Come on."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:56,000",
+				"to": "00:01:58,000"
+			},
+			"offsets": {
+				"from": 116000,
+				"to": 118000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:58,000",
+				"to": "00:02:00,000"
+			},
+			"offsets": {
+				"from": 118000,
+				"to": 120000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:02,000",
+				"to": "00:02:04,000"
+			},
+			"offsets": {
+				"from": 122000,
+				"to": 124000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:04,000",
+				"to": "00:02:06,000"
+			},
+			"offsets": {
+				"from": 124000,
+				"to": 126000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:08,000",
+				"to": "00:02:10,000"
+			},
+			"offsets": {
+				"from": 128000,
+				"to": 130000
+			},
+			"text": " Yep."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:10,000",
+				"to": "00:02:12,000"
+			},
+			"offsets": {
+				"from": 130000,
+				"to": 132000
+			},
+			"text": " Sucks arse."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:16,000",
+				"to": "00:02:18,000"
+			},
+			"offsets": {
+				"from": 136000,
+				"to": 138000
+			},
+			"text": " That's alright, I'll cut it out."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:22,000",
+				"to": "00:02:24,000"
+			},
+			"offsets": {
+				"from": 142000,
+				"to": 144000
+			},
+			"text": " Yesterday I was so fucking close."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:24,000",
+				"to": "00:02:26,000"
+			},
+			"offsets": {
+				"from": 144000,
+				"to": 146000
+			},
+			"text": " Was it talking to you?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:26,000",
+				"to": "00:02:28,000"
+			},
+			"offsets": {
+				"from": 146000,
+				"to": 148000
+			},
+			"text": " Nobody."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:28,000",
+				"to": "00:02:30,000"
+			},
+			"offsets": {
+				"from": 148000,
+				"to": 150000
+			},
+			"text": " No, the vial, was it talking to you?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:30,000",
+				"to": "00:02:32,000"
+			},
+			"offsets": {
+				"from": 150000,
+				"to": 152000
+			},
+			"text": " It was like, \"Come on, come on.\""
+		},
+		{
+			"timestamps": {
+				"from": "00:02:32,000",
+				"to": "00:02:34,000"
+			},
+			"offsets": {
+				"from": 152000,
+				"to": 154000
+			},
+			"text": " I was sitting there and I was like,"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:34,000",
+				"to": "00:02:36,000"
+			},
+			"offsets": {
+				"from": 154000,
+				"to": 156000
+			},
+			"text": " \"I haven't been hit by an ego.\""
+		},
+		{
+			"timestamps": {
+				"from": "00:02:36,000",
+				"to": "00:02:38,000"
+			},
+			"offsets": {
+				"from": 156000,
+				"to": 158000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:38,000",
+				"to": "00:02:42,000"
+			},
+			"offsets": {
+				"from": 158000,
+				"to": 162000
+			},
+			"text": " My fucking office desk is full of shit that I used to use."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:42,000",
+				"to": "00:02:44,000"
+			},
+			"offsets": {
+				"from": 162000,
+				"to": 164000
+			},
+			"text": " Fucking trend, deck, everything."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:44,000",
+				"to": "00:02:46,000"
+			},
+			"offsets": {
+				"from": 164000,
+				"to": 166000
+			},
+			"text": " Every now and then."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:46,000",
+				"to": "00:02:48,000"
+			},
+			"offsets": {
+				"from": 166000,
+				"to": 168000
+			},
+			"text": " Close it."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:48,000",
+				"to": "00:02:50,000"
+			},
+			"offsets": {
+				"from": 168000,
+				"to": 170000
+			},
+			"text": " Take one out."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:52,000",
+				"to": "00:02:54,000"
+			},
+			"offsets": {
+				"from": 172000,
+				"to": 174000
+			},
+			"text": " Yeah, up and in."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:54,000",
+				"to": "00:02:56,000"
+			},
+			"offsets": {
+				"from": 174000,
+				"to": 176000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:00,000",
+				"to": "00:03:02,000"
+			},
+			"offsets": {
+				"from": 180000,
+				"to": 182000
+			},
+			"text": " Do you want to see forward a bit?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:02,000",
+				"to": "00:03:04,000"
+			},
+			"offsets": {
+				"from": 182000,
+				"to": 184000
+			},
+			"text": " What do you want to see forward?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:04,000",
+				"to": "00:03:06,000"
+			},
+			"offsets": {
+				"from": 184000,
+				"to": 186000
+			},
+			"text": " Lean forward."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:06,000",
+				"to": "00:03:08,000"
+			},
+			"offsets": {
+				"from": 186000,
+				"to": 188000
+			},
+			"text": " Lean forward a bit, your upper body."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:08,000",
+				"to": "00:03:10,000"
+			},
+			"offsets": {
+				"from": 188000,
+				"to": 190000
+			},
+			"text": " Oh, you're alright."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:22,000",
+				"to": "00:03:24,000"
+			},
+			"offsets": {
+				"from": 202000,
+				"to": 204000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:28,000",
+				"to": "00:03:30,000"
+			},
+			"offsets": {
+				"from": 208000,
+				"to": 210000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:36,000",
+				"to": "00:03:38,000"
+			},
+			"offsets": {
+				"from": 216000,
+				"to": 218000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:40,000",
+				"to": "00:03:42,000"
+			},
+			"offsets": {
+				"from": 220000,
+				"to": 222000
+			},
+			"text": " It's good, go on."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:44,000",
+				"to": "00:03:46,000"
+			},
+			"offsets": {
+				"from": 224000,
+				"to": 226000
+			},
+			"text": " Yep."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:48,000",
+				"to": "00:03:50,000"
+			},
+			"offsets": {
+				"from": 228000,
+				"to": 230000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:52,000",
+				"to": "00:03:54,000"
+			},
+			"offsets": {
+				"from": 232000,
+				"to": 234000
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:02,000",
+				"to": "00:04:04,000"
+			},
+			"offsets": {
+				"from": 242000,
+				"to": 244000
+			},
+			"text": " Alright."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:04,000",
+				"to": "00:04:06,000"
+			},
+			"offsets": {
+				"from": 244000,
+				"to": 246000
+			},
+			"text": " Should we just have a bit more fun now?"
+		},
+		{
+			"timestamps": {
+				"from": "00:04:08,000",
+				"to": "00:04:10,000"
+			},
+			"offsets": {
+				"from": 248000,
+				"to": 250000
+			},
+			"text": " Yeah?"
+		}
+	]
+}

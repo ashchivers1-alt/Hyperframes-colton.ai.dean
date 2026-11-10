@@ -1,0 +1,5 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":5.52775}
+{"type":"words","model":"small.en","words":[{"text":"It's","start":0,"end":0.348},{"text":"alright,","start":0.348,"end":1.043},{"text":"I'll","start":1.043,"end":1.391},{"text":"probably","start":1.391,"end":2.087},{"text":"shoot","start":2.087,"end":2.522},{"text":"alone","start":2.522,"end":2.957},{"text":"and","start":2.957,"end":3.217},{"text":"you","start":3.217,"end":3.478},{"text":"can","start":3.478,"end":3.739},{"text":"go.","start":3.739,"end":4}],"through":4}
+{"type":"words","model":"small.en","words":[],"through":5.52775}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":10,"durationSeconds":4,"speechOnsetSeconds":null,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/c0022/transcript.json"}

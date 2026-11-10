@@ -1,0 +1,99 @@
+{
+ "fps": 23.976023976023978,
+ "source": "/Users/ashleychivers/Documents/Claude Video - Completed/npc-italy.mp4",
+ "reels": {
+  "post-show-recovery": {
+   "segs": [
+    [
+     322.42,
+     357.56
+    ],
+    [
+     452.8,
+     457.97
+    ],
+    [
+     459.12,
+     462.03
+    ]
+   ],
+   "crop": "tight",
+   "scopes": [
+    [
+     0,
+     8.45
+    ],
+    [
+     25.6,
+     34.7
+    ]
+   ]
+  },
+  "bicep-stretch": {
+   "segs": [
+    [
+     1160.04,
+     1185.0
+    ]
+   ],
+   "crop": "full",
+   "static": true,
+   "scopes": [
+    [
+     18.9,
+     30
+    ]
+   ]
+  },
+  "life-balance": {
+   "segs": [
+    [
+     759.31,
+     769.77
+    ],
+    [
+     773.17,
+     779.86
+    ],
+    [
+     780.54,
+     802.93
+    ]
+   ],
+   "crop": "tight",
+   "scopes": [
+    [
+     0,
+     7.6
+    ],
+    [
+     17.75,
+     29.55
+    ]
+   ]
+  },
+  "judge-your-prep": {
+   "segs": [
+    [
+     1670.82,
+     1695.94
+    ],
+    [
+     1700.38,
+     1712.52
+    ],
+    [
+     1717.38,
+     1722.43
+    ]
+   ],
+   "crop": "tight",
+   "scopes": [
+    [
+     0,
+     7.0
+    ]
+   ]
+  }
+ }
+}

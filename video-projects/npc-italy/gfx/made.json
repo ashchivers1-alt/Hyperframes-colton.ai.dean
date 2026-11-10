@@ -1,0 +1,162 @@
+[
+ {
+  "name": "g01_milan",
+  "rec": 48,
+  "frames": 132
+ },
+ {
+  "name": "g02_admin",
+  "rec": 4184,
+  "frames": 120
+ },
+ {
+  "name": "g03_hyper_speed",
+  "rec": 4175,
+  "frames": 449
+ },
+ {
+  "name": "g04_topic_reverse",
+  "rec": 4645,
+  "frames": 144
+ },
+ {
+  "name": "g05_golds",
+  "rec": 13078,
+  "frames": 156
+ },
+ {
+  "name": "g06_nextday",
+  "rec": 13997,
+  "frames": 115
+ },
+ {
+  "name": "g07_voicenote",
+  "rec": 14132,
+  "frames": 120
+ },
+ {
+  "name": "g08_vn_fast1",
+  "rec": 14672,
+  "frames": 182
+ },
+ {
+  "name": "g08_vn_fast3",
+  "rec": 15064,
+  "frames": 136
+ },
+ {
+  "name": "g09_topic_life",
+  "rec": 15474,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex1",
+  "rec": 22363,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex2",
+  "rec": 23791,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex3",
+  "rec": 24631,
+  "frames": 156
+ },
+ {
+  "name": "g10_ex4",
+  "rec": 25175,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex5",
+  "rec": 27085,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex6",
+  "rec": 27767,
+  "frames": 144
+ },
+ {
+  "name": "g10_ex7",
+  "rec": 28703,
+  "frames": 144
+ },
+ {
+  "name": "g11_quote_feel",
+  "rec": 26199,
+  "frames": 144
+ },
+ {
+  "name": "g12_accountable",
+  "rec": 29499,
+  "frames": 335
+ },
+ {
+  "name": "g13_showday",
+  "rec": 31755,
+  "frames": 156
+ },
+ {
+  "name": "g14_final_checkin",
+  "rec": 33424,
+  "frames": 108
+ },
+ {
+  "name": "g15_stage",
+  "rec": 35133,
+  "frames": 132
+ },
+ {
+  "name": "g16_topic_post",
+  "rec": 36769,
+  "frames": 144
+ },
+ {
+  "name": "g17_quote_result",
+  "rec": 40058,
+  "frames": 168
+ },
+ {
+  "name": "cap_03",
+  "rec": 4631,
+  "frames": 4365
+ },
+ {
+  "name": "cap_04",
+  "rec": 8996,
+  "frames": 2425
+ },
+ {
+  "name": "cap_12",
+  "rec": 15460,
+  "frames": 4348
+ },
+ {
+  "name": "cap_20",
+  "rec": 25161,
+  "frames": 1910
+ },
+ {
+  "name": "cap_44",
+  "rec": 36750,
+  "frames": 4755
+ },
+ {
+  "name": "g20_menstrual",
+  "rec": 8633,
+  "frames": 360
+ },
+ {
+  "name": "g21_bench_cues",
+  "rec": 22878,
+  "frames": 623
+ },
+ {
+  "name": "g22_curl_stretch",
+  "rec": 27998,
+  "frames": 264
+ }
+]

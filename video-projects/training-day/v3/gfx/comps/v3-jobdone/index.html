@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#jd { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; display:flex; align-items:center; gap:26px;
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+#jd .t { font-family:"Bebas Neue", sans-serif; font-size:150px; line-height:0.86; }
+#jd svg { flex:none; }
+#jd .peace { font-size:96px; line-height:1; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="4.3" data-width="1920" data-height="1080"><div id="jd" class="shadow"><div class="t">JOB DONE</div><svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="#ff3b30"/><path id="tk" d="M34 62 L53 80 L88 42" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="peace">✌️</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#jd","#jd svg","#jd .peace"], { opacity:0 });
+tl.fromTo("#jd", { opacity:0, x:-60 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(0.1));
+tl.fromTo("#jd svg", { opacity:0, scale:0.3 }, { opacity:1, scale:1, duration:f(0.4), ease:"back.out(2.2)", immediateRender:false }, f(0.5));
+tl.fromTo("#tk", { strokeDasharray:90, strokeDashoffset:90 }, { strokeDashoffset:0, duration:f(0.35), ease:"power2.out", immediateRender:false }, f(0.7));
+tl.fromTo("#jd .peace", { opacity:0, rotation:-30, scale:0.5 }, { opacity:1, rotation:0, scale:1, duration:f(0.45), ease:"back.out(2)", immediateRender:false }, f(0.95));
+tl.to({}, { duration:4.3 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

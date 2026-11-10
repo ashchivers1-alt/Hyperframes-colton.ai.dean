@@ -1,0 +1,9 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":17.1544375}
+{"type":"words","model":"small.en","words":[{"text":"I've","start":0,"end":0.75},{"text":"been","start":0.75,"end":1.499},{"text":"here","start":1.499,"end":2.249},{"text":"for","start":2.249,"end":2.811},{"text":"13,000","start":2.811,"end":3.936},{"text":"hours","start":3.936,"end":4.873},{"text":"of","start":4.873,"end":5.248},{"text":"my","start":5.248,"end":5.623},{"text":"life.","start":5.623,"end":6.56}],"through":6.56}
+{"type":"words","model":"small.en","words":[{"text":"No.","start":6.56,"end":7.56}],"through":7.56}
+{"type":"words","model":"small.en","words":[{"text":"I","start":7.56,"end":7.671},{"text":"was","start":7.671,"end":8.004},{"text":"here.","start":8.004,"end":8.56}],"through":8.56}
+{"type":"words","model":"small.en","words":[{"text":"There","start":8.56,"end":9.06},{"text":"it","start":9.06,"end":9.26},{"text":"is.","start":9.26,"end":9.56}],"through":9.56}
+{"type":"words","model":"small.en","words":[{"text":"Yeah.","start":9.56,"end":9.56}],"through":9.56}
+{"type":"words","model":"small.en","words":[],"through":17.1544375}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":17,"durationSeconds":9.56,"speechOnsetSeconds":null,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/c0006/transcript.json"}

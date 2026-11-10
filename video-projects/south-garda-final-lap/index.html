@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      @font-face { font-family: "Unbounded"; src: url("assets/fonts/Unbounded.ttf") format("truetype"); font-weight: 200 900; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; font-family: "Unbounded", sans-serif; color: #f6f6f6; }
+      .clip { position: absolute; inset: 0; }
+
+      /* base multicam cut (built by scripts/build_base.sh): band at y 575–1345 over a blurred fill */
+      #cam { position: absolute; inset: 0; overflow: hidden; }
+      #cam video { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+
+      #vignette { z-index: 5; background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 50%, rgba(0,0,0,.7) 100%); }
+      #bars { z-index: 6; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 74%, rgba(0,0,0,.6) 100%); }
+      #flash { z-index: 40; background: #fff; opacity: 0; }
+
+      .chrome { background: linear-gradient(180deg, #fff 0%, #e6e6e6 42%, #8a8a8a 52%, #d2d2d2 70%, #fff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 20px rgba(0,0,0,.85)); }
+      .redtxt { background: linear-gradient(180deg, #ff3b3e 0%, #e3080b 50%, #a10305 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 22px rgba(216,6,9,.7)); }
+      .hl { font-weight: 900; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; transform: skewX(-9deg); display: inline-block; white-space: nowrap; }
+      .center { position: absolute; left: 0; right: 0; text-align: center; }
+
+      /* header (whole lap) */
+      #hdr { z-index: 10; }
+      #h-event { top: 250px; font-size: 64px; }
+      #h-race { top: 335px; font-size: 26px; font-weight: 700; letter-spacing: .42em; padding-left: .42em; color: #e8e8e8; }
+      #h-lap { position: absolute; left: 50%; top: 420px; transform: translateX(-50%) skewX(-12deg); background: var(--brand-accent); box-shadow: 0 0 30px rgba(216,6,9,.7); padding: 12px 34px; }
+      #h-lap span { display: block; transform: skewX(12deg); font-size: 30px; font-weight: 800; letter-spacing: .16em; color: #fff; white-space: nowrap; }
+
+      /* camera tag + position, under the band */
+      #info { z-index: 10; }
+      #camtag { position: absolute; left: 60px; top: 1375px; display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 700; letter-spacing: .24em; color: #f2f2f2; }
+      #camtag i { width: 14px; height: 14px; border-radius: 50%; background: var(--brand-accent); box-shadow: 0 0 12px rgba(216,6,9,.9); }
+      #camtag .t { position: relative; height: 30px; width: 700px; }
+      #camtag .t b { position: absolute; left: 0; top: 0; font-weight: 700; white-space: nowrap; }
+      #pos { position: absolute; right: 60px; top: 1362px; display: flex; align-items: baseline; gap: 14px; }
+      #pos .p { font-size: 54px; }
+      #pos4 { position: absolute; right: 0; top: 0; opacity: 0; }
+      
+      /* photo-finish payoff */
+      #end { z-index: 12; }
+      #e-photo { top: 455px; font-size: 30px; font-weight: 700; letter-spacing: .5em; padding-left: .5em; color: #fff; text-shadow: 0 4px 18px rgba(0,0,0,.9); }
+      #e-p3 { top: 1380px; font-size: 190px; }
+      #e-by { top: 1590px; font-size: 40px; font-weight: 700; letter-spacing: .18em; color: #fff; text-shadow: 0 4px 18px rgba(0,0,0,.9); }
+      #e-by em { font-style: normal; color: var(--brand-accent); }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="73.3" data-width="1080" data-height="1920">
+
+      <div id="cam"><video id="v-base" src="assets/base.mp4" data-start="0" data-duration="73.3" data-track-index="0" muted playsinline></video></div>
+      <div id="vignette" class="clip" data-start="0" data-duration="73.3" data-track-index="1"></div>
+      <div id="bars" class="clip" data-start="0" data-duration="73.3" data-track-index="2"></div>
+
+      <div id="hdr" class="clip" data-start="0" data-duration="73.3" data-track-index="3">
+        <div id="h-event" class="center"><span class="hl chrome">South Garda Supercup</span></div>
+        <div id="h-race" class="center">PLUS 100 · FINAL</div>
+        <div id="h-lap"><span>FINAL LAP</span></div>
+      </div>
+
+      <div id="info" class="clip" data-start="0" data-duration="70.55" data-track-index="4">
+        <div id="camtag"><i></i><div class="t"><b id="ct-live">LIVE · TRACKSIDE</b><b id="ct-on">ONBOARD · CHIVERS · KART 13</b></div></div>
+        <div id="pos"><span class="p hl redtxt" id="pos3">P3</span><span class="p hl redtxt" id="pos4">P4</span></div>
+      </div>
+
+      <div id="end" class="clip" data-start="70.55" data-duration="2.75" data-track-index="5">
+        <div id="e-photo" class="center">PHOTO FINISH</div>
+        <div id="e-p3" class="center"><span class="hl redtxt">P3</span></div>
+        <div id="e-by" class="center">BY <em>0.045</em>s</div>
+      </div>
+
+
+      <div id="flash" class="clip" data-start="0" data-duration="73.3" data-track-index="6"></div>
+
+      <!-- Live-stream commentary plays for the whole edit -->
+      <audio id="commentary" src="assets/commentary.wav" data-start="0" data-duration="73.3" data-track-index="20" data-volume="1" data-fade-in="0.2" data-fade-out="1.2"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 73.3, FREEZE = 70.55;
+        // camera per shot (stream time): S = live stream, O = onboard
+        const CUTS = [[0, "S"], [4.0, "O"], [11.5, "S"], [14.0, "O"], [24.0, "S"], [29.5, "O"], [42.0, "S"], [47.5, "O"], [55.0, "S"], [62.5, "O"], [68.8, "S"]];
+
+        const FLASH = (t, o = 0.35) => tl.set("#flash", { opacity: o }, t).to("#flash", { opacity: 0, duration: 0.22, ease: "power2.out" }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -14, y: 6, duration: 0.04 }, { x: 10, y: -5, duration: 0.04 }, { x: -5, y: 3, duration: 0.04 }, { x: 0, y: 0, duration: 0.05 }] }, t);
+
+        // ── each shot punches in on the cut then drifts (camera never sleeps)
+        CUTS.forEach(([t, cam], i) => {
+          const end = i + 1 < CUTS.length ? CUTS[i + 1][0] : FREEZE;
+          tl.set("#cam", { scale: 1.08, transformOrigin: "50% 50%" }, t);
+          tl.to("#cam", { scale: 1.0, duration: 0.3, ease: "expo.out" }, t);
+          tl.to("#cam", { scale: 1.035, duration: Math.max(0.1, end - t - 0.3), ease: "none" }, t + 0.3);
+          if (i > 0) FLASH(t, 0.3);
+          // camera tag swaps
+          const on = cam === "O";
+          tl.set("#ct-on", { opacity: on ? 1 : 0, y: 0 }, t);
+          tl.set("#ct-live", { opacity: on ? 0 : 1, y: 0 }, t);
+          tl.fromTo(on ? "#ct-on" : "#ct-live", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, t + 0.05);
+        });
+
+        // ── header
+        tl.fromTo("#h-event .hl", { scale: 2.2, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.32, ease: "power4.in" }, 0.15);
+        tl.fromTo("#h-race", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.45);
+        tl.fromTo("#h-lap", { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.3, ease: "power4.out" }, 0.65);
+        tl.fromTo("#h-lap span", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.85);
+        tl.to("#h-lap", { boxShadow: "0 0 60px rgba(216,6,9,1)", duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 5 }, 1.2);
+        // header steps aside for the payoff
+        tl.to(["#h-race", "#h-lap"], { opacity: 0, duration: 0.25 }, FREEZE);
+
+        // ── info row
+        tl.fromTo("#camtag i", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)" }, 0.9);
+        tl.fromTo("#pos", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 1.0);
+        tl.to("#camtag i", { opacity: 0.25, duration: 0.5, ease: "steps(1)", yoyo: true, repeat: 69 }, 1.3);
+
+        // ── position changes: P4 at 23.0 (passed on the right), back to P3 at 58.4 (past #23, second-to-last corner)
+        const SWAP = (from, to, t) => {
+          tl.to(from, { y: -40, opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power2.in" }, t);
+          tl.fromTo(to, { y: 50, opacity: 0, scale: 1.6, filter: "blur(10px)" }, { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "back.out(2)", immediateRender: false }, t + 0.16);
+          SHAKE("#pos", t + 0.46);
+        };
+        SWAP("#pos3", "#pos4", 23.0);
+        SWAP("#pos4", "#pos3", 58.4);
+
+
+
+        // ── photo finish: freeze + flash + shake, then P3 slams
+        FLASH(FREEZE, 0.9);
+        SHAKE("#cam", FREEZE + 0.02);
+        tl.set("#cam", { scale: 1.0 }, FREEZE);
+        tl.to("#cam", { scale: 1.12, duration: DUR - FREEZE, ease: "power1.out" }, FREEZE + 0.05);
+        tl.fromTo("#e-photo", { opacity: 0, scaleX: 1.6 }, { opacity: 1, scaleX: 1, duration: 0.45, ease: "power3.out" }, FREEZE + 0.15);
+        tl.fromTo("#e-p3 .hl", { scale: 3.2, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.26, ease: "power4.in" }, FREEZE + 0.55);
+        SHAKE("#end", FREEZE + 0.82);
+        tl.fromTo("#e-by", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, FREEZE + 1.0);
+
+        tl.to({}, { duration: DUR }, 0); // Law #11 anchor
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

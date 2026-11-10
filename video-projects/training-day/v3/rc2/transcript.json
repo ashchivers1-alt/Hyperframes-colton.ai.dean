@@ -1,0 +1,92 @@
+[
+  {
+    "text": "Just",
+    "start": 0,
+    "end": 0.68,
+    "id": "w0"
+  },
+  {
+    "text": "got",
+    "start": 0.73,
+    "end": 1.33,
+    "id": "w1"
+  },
+  {
+    "text": "me",
+    "start": 1.33,
+    "end": 1.71,
+    "id": "w2"
+  },
+  {
+    "text": "bear",
+    "start": 1.71,
+    "end": 2.47,
+    "id": "w3"
+  },
+  {
+    "text": "flavor.",
+    "start": 2.6,
+    "end": 4.17,
+    "id": "w4"
+  },
+  {
+    "text": "Yeah,",
+    "start": 4.2,
+    "end": 4.65,
+    "id": "w5"
+  },
+  {
+    "text": "I'm",
+    "start": 4.65,
+    "end": 4.87,
+    "id": "w6"
+  },
+  {
+    "text": "going",
+    "start": 4.87,
+    "end": 5.24,
+    "id": "w7"
+  },
+  {
+    "text": "to",
+    "start": 5.24,
+    "end": 5.4,
+    "id": "w8"
+  },
+  {
+    "text": "give",
+    "start": 5.4,
+    "end": 5.7,
+    "id": "w9"
+  },
+  {
+    "text": "you",
+    "start": 5.7,
+    "end": 5.91,
+    "id": "w10"
+  },
+  {
+    "text": "guys",
+    "start": 5.92,
+    "end": 6.22,
+    "id": "w11"
+  },
+  {
+    "text": "a",
+    "start": 6.22,
+    "end": 6.25,
+    "id": "w12"
+  },
+  {
+    "text": "review",
+    "start": 6.3,
+    "end": 6.7,
+    "id": "w13"
+  },
+  {
+    "text": "afterwards.",
+    "start": 6.8,
+    "end": 7.6,
+    "id": "w14"
+  }
+]

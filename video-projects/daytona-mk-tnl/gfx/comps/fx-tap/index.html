@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+#rv { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 70% 65% at 50% 50%, rgba(160,0,0,0) 45%, rgba(170,0,0,0.55) 75%, rgba(120,0,0,0.92) 100%); }
+#wf { position:absolute; inset:0; background:#fff; opacity:0; }
+#hm { position:absolute; left:930px; top:510px; width:60px; height:60px; opacity:0; }
+#hm i { position:absolute; width:22px; height:5px; background:#fff; box-shadow:0 0 6px rgba(0,0,0,0.8); }
+#hm i:nth-child(1) { left:0; top:6px; transform:rotate(45deg); } #hm i:nth-child(2) { right:0; top:6px; transform:rotate(-45deg); }
+#hm i:nth-child(3) { left:0; bottom:6px; transform:rotate(-45deg); } #hm i:nth-child(4) { right:0; bottom:6px; transform:rotate(45deg); }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="1.200" data-width="3840" data-height="2160">
+<div id="root"><div id="rv"></div><div id="wf"></div><div id="hm"><i></i><i></i><i></i><i></i></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+
+tl.fromTo("#wf", { opacity:0.35 }, { opacity:0, duration:0.12, ease:"power2.out", immediateRender:false }, 0.0);
+tl.fromTo("#rv", { opacity:1 }, { opacity:0, duration:1.10, ease:"power2.in", immediateRender:false }, 0.0);
+tl.fromTo("#hm", { opacity:1, scale:1.5 }, { opacity:0, scale:1, duration:0.35, ease:"power2.out", immediateRender:false }, 0.0);
+
+tl.to({}, { duration:1.200 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

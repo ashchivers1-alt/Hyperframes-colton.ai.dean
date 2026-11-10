@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+#R { position:absolute; right:72px; top:64px; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+#R .box { display:flex; align-items:baseline; gap:14px; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:8px 22px 4px 18px; }
+#R .l { font-weight:800; font-size:22px; letter-spacing:0.28em; color:#ff5254; }
+#R .n { position:relative; width:96px; height:110px; overflow:hidden; }
+#R .n div { position:absolute; right:0; top:0; font-family:"Bebas Neue"; font-size:120px; line-height:0.92; }
+#R .ex { font-family:"Bebas Neue"; font-size:44px; letter-spacing:0.06em; background:#d80609; padding:4px 16px 0; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="14.891" data-width="3840" data-height="2160"><div id="root"><div id="R" class="sh"><div class="box"><div class="l">REPS</div><div class="n"><div id="n0">7</div><div id="n1">8</div><div id="n2">9</div><div id="n3">10</div><div id="n4">11</div></div></div><div class="ex">TWO MORE</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set("#R .n div", { yPercent:110 }); tl.fromTo("#R .box", { opacity:0, x:30 }, { opacity:1, x:0, duration:0.4*K, ease:"power3.out", immediateRender:false }, 0);
+tl.to("#n0", { yPercent:0, duration:0.25*K, ease:"back.out(1.6)" }, 0.300*K);
+tl.to("#n1", { yPercent:0, duration:0.25*K, ease:"back.out(1.6)" }, 3.500*K);
+tl.to("#n0", { yPercent:-110, duration:0.25*K, ease:"power2.in" }, 3.500*K);
+tl.to("#n2", { yPercent:0, duration:0.25*K, ease:"back.out(1.6)" }, 5.700*K);
+tl.to("#n1", { yPercent:-110, duration:0.25*K, ease:"power2.in" }, 5.700*K);
+tl.to("#n3", { yPercent:0, duration:0.25*K, ease:"back.out(1.6)" }, 9.500*K);
+tl.to("#n2", { yPercent:-110, duration:0.25*K, ease:"power2.in" }, 9.500*K);
+tl.to("#n4", { yPercent:0, duration:0.25*K, ease:"back.out(1.6)" }, 14.000*K);
+tl.to("#n3", { yPercent:-110, duration:0.25*K, ease:"power2.in" }, 14.000*K);
+gsap.set("#R .ex", { opacity:0 }); tl.fromTo("#R .ex", { opacity:0, scale:1.5 }, { opacity:1, scale:1, duration:0.3*K, ease:"back.out(2)", immediateRender:false }, 11.100*K);
+tl.to("#R", { opacity:0, x:24, duration:0.35*K, ease:"power2.in" }, 14.506*K);
+tl.to({}, { duration:14.891 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

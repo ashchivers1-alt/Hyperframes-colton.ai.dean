@@ -1,0 +1,175 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:08,160"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 8160
+			},
+			"text": " Just sort of like, planted it on there, and it's just sort of like, driving your tiptoes,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,160",
+				"to": "00:00:13,180"
+			},
+			"offsets": {
+				"from": 8160,
+				"to": 13180
+			},
+			"text": " your leg extension, to drive your fucking toe in, and then you're sort of like, your"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:13,180",
+				"to": "00:00:17,820"
+			},
+			"offsets": {
+				"from": 13180,
+				"to": 17820
+			},
+			"text": " hamstring, your hamstring's there, quads, you got the quad, and then it's like, you"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:17,820",
+				"to": "00:00:23,480"
+			},
+			"offsets": {
+				"from": 17820,
+				"to": 23480
+			},
+			"text": " can kind of like squeeze your glute as well to get that, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:23,480",
+				"to": "00:00:27,660"
+			},
+			"offsets": {
+				"from": 23480,
+				"to": 27660
+			},
+			"text": " It's little things like that, you don't, you learn that in time, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:27,660",
+				"to": "00:00:32,080"
+			},
+			"offsets": {
+				"from": 27660,
+				"to": 32080
+			},
+			"text": " Prep for some people looks like that. Prep for some people, they're blessed at eating"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:32,080",
+				"to": "00:00:36,960"
+			},
+			"offsets": {
+				"from": 32080,
+				"to": 36960
+			},
+			"text": " fucking three and a half, fucking 500g of carb, doing 8,000 steps, but that ain't everyone,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:36,960",
+				"to": "00:00:38,960"
+			},
+			"offsets": {
+				"from": 36960,
+				"to": 38960
+			},
+			"text": " do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:38,960",
+				"to": "00:00:40,960"
+			},
+			"offsets": {
+				"from": 38960,
+				"to": 40960
+			},
+			"text": " You do what you just have to do."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:40,960",
+				"to": "00:00:44,800"
+			},
+			"offsets": {
+				"from": 40960,
+				"to": 44800
+			},
+			"text": " Exactly, that's the thing, it's like, you know, you see shit on social media, it's not"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:44,800",
+				"to": "00:00:48,240"
+			},
+			"offsets": {
+				"from": 44800,
+				"to": 48240
+			},
+			"text": " you, do you know what I mean? It's like, try not to cause any more stress than you need"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:48,240",
+				"to": "00:00:50,880"
+			},
+			"offsets": {
+				"from": 48240,
+				"to": 50880
+			},
+			"text": " to, do you know what I mean? If you think about this, it's a simple process, do you"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:50,880",
+				"to": "00:00:54,840"
+			},
+			"offsets": {
+				"from": 50880,
+				"to": 54840
+			},
+			"text": " know what I mean? The work's more or less done, it's just like, this is just..."
+		}
+	]
+}

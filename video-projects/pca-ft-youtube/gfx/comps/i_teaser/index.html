@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+.bar { position:absolute; left:0; right:0; height:139px; background:#000; } #bt { top:0; } #bb { bottom:0; }
+.fl { position:absolute; inset:0; background:#fff; opacity:0; }
+.ch { position:absolute; left:96px; bottom:170px; font-family:"Bebas Neue"; font-size:64px; letter-spacing:0.08em; opacity:0; }
+.ch i { display:inline-block; width:46px; height:5px; background:#d80609; margin-right:16px; vertical-align:middle; }
+#TT { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; opacity:0; }
+#TT img { width:250px; margin-bottom:6px; }
+#TT .k { font-size:24px; color:#ff5254; } #TT .t { font-size:150px; margin-top:6px; }
+#TT .rule { width:150px; height:5px; background:#d80609; margin-top:12px; transform-origin:50% 50%; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="21.405" data-width="3840" data-height="2160"><div id="root"><div class="bar" id="bt"></div><div class="bar" id="bb"></div><div class="ch sh" id="c0"><i></i>PEAK WEEK</div><div class="ch sh" id="c1"><i></i>THE SESSION</div><div class="ch sh" id="c2"><i></i>SHOW DAY</div><div id="TT" class="sh"><img src="assets/team-apexx-logo.png"><div class="k"><i></i>PCA FIRST TIMERS · UK OPEN<i></i></div><div class="clip"><div class="t">PEAK WEEK TO SHOW DAY</div></div><div class="rule"></div></div><div class="fl" id="f0"></div><div class="fl" id="f1"></div><div class="fl" id="f2"></div><div class="fl" id="f3"></div><div class="fl" id="f4"></div><div class="fl" id="f5"></div><div class="fl" id="f6"></div><div class="fl" id="f7"></div><div class="fl" id="f8"></div><div class="fl" id="f9"></div><div class="fl" id="f10"></div><div class="fl" id="f11"></div><div class="fl" id="f12"></div><div class="fl" id="f13"></div><div class="fl" id="f14"></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set("#TT .rule", { scaleX:0 });
+tl.fromTo("#c0", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.35*K, ease:"power3.out", immediateRender:false }, 4.501*K);
+tl.to("#c0", { opacity:0, duration:0.2*K }, 6.704*K);
+tl.fromTo("#c1", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.35*K, ease:"power3.out", immediateRender:false }, 7.004*K);
+tl.to("#c1", { opacity:0, duration:0.2*K }, 10.040*K);
+tl.fromTo("#c2", { opacity:0, x:-30 }, { opacity:1, x:0, duration:0.35*K, ease:"power3.out", immediateRender:false }, 10.340*K);
+tl.to("#c2", { opacity:0, duration:0.2*K }, 14.211*K);
+tl.fromTo("#f0", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 2.002*K);
+tl.fromTo("#f1", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 4.421*K);
+tl.fromTo("#f2", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 5.255*K);
+tl.fromTo("#f3", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 6.089*K);
+tl.fromTo("#f4", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 6.924*K);
+tl.fromTo("#f5", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 7.758*K);
+tl.fromTo("#f6", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 8.592*K);
+tl.fromTo("#f7", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 9.426*K);
+tl.fromTo("#f8", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 10.260*K);
+tl.fromTo("#f9", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 11.094*K);
+tl.fromTo("#f10", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 11.929*K);
+tl.fromTo("#f11", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 12.763*K);
+tl.fromTo("#f12", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 13.597*K);
+tl.fromTo("#f13", { opacity:0.7 }, { opacity:0, duration:0.22*K, ease:"power2.out", immediateRender:false }, 14.431*K);
+tl.fromTo("#f14", { opacity:0.95 }, { opacity:0, duration:0.12*K, ease:"power2.out", immediateRender:false }, 21.307*K);
+tl.fromTo("#TT", { opacity:0 }, { opacity:1, duration:0.2*K, immediateRender:false }, 18.377*K);
+tl.fromTo("#TT img", { opacity:0, scale:0.8 }, { opacity:1, scale:1, duration:0.6*K, ease:"back.out(1.6)", immediateRender:false }, 18.377*K);
+tl.fromTo("#TT .t", { yPercent:100 }, { yPercent:0, duration:0.7*K, ease:"expo.out", immediateRender:false }, 18.577*K);
+tl.fromTo("#TT .k", { opacity:0, letterSpacing:"0.6em" }, { opacity:1, letterSpacing:"0.3em", duration:0.8*K, immediateRender:false }, 18.727*K);
+tl.to("#TT .rule", { scaleX:1, duration:0.6*K, ease:"power3.inOut" }, 18.827*K);
+tl.fromTo("#TT", { scale:1 }, { scale:1.04, duration:3.20*K, ease:"none", immediateRender:false }, 18.227*K);
+tl.to({}, { duration:21.405 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

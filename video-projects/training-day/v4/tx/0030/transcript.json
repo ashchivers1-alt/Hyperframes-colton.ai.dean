@@ -1,0 +1,452 @@
+[
+  {
+    "text": "Right,",
+    "start": 0,
+    "end": 0.43,
+    "id": "w0"
+  },
+  {
+    "text": "I'm",
+    "start": 0.43,
+    "end": 0.61,
+    "id": "w1"
+  },
+  {
+    "text": "going",
+    "start": 0.61,
+    "end": 0.92,
+    "id": "w2"
+  },
+  {
+    "text": "to",
+    "start": 0.92,
+    "end": 1.03,
+    "id": "w3"
+  },
+  {
+    "text": "give",
+    "start": 1.03,
+    "end": 1.29,
+    "id": "w4"
+  },
+  {
+    "text": "you",
+    "start": 1.29,
+    "end": 1.47,
+    "id": "w5"
+  },
+  {
+    "text": "a",
+    "start": 1.47,
+    "end": 1.53,
+    "id": "w6"
+  },
+  {
+    "text": "top",
+    "start": 1.53,
+    "end": 1.7,
+    "id": "w7"
+  },
+  {
+    "text": "tip",
+    "start": 1.71,
+    "end": 1.96,
+    "id": "w8"
+  },
+  {
+    "text": "for",
+    "start": 1.97,
+    "end": 2.76,
+    "id": "w9"
+  },
+  {
+    "text": "making",
+    "start": 2.76,
+    "end": 3.19,
+    "id": "w10"
+  },
+  {
+    "text": "this",
+    "start": 3.2,
+    "end": 3.75,
+    "id": "w11"
+  },
+  {
+    "text": "micro",
+    "start": 3.76,
+    "end": 4.2,
+    "id": "w12"
+  },
+  {
+    "text": "rice",
+    "start": 4.2,
+    "end": 4.55,
+    "id": "w13"
+  },
+  {
+    "text": "taste",
+    "start": 4.55,
+    "end": 4.84,
+    "id": "w14"
+  },
+  {
+    "text": "absolutely",
+    "start": 4.85,
+    "end": 5.44,
+    "id": "w15"
+  },
+  {
+    "text": "amazing.",
+    "start": 5.44,
+    "end": 5.9,
+    "id": "w16"
+  },
+  {
+    "text": "So",
+    "start": 5.9,
+    "end": 6.06,
+    "id": "w17"
+  },
+  {
+    "text": "once",
+    "start": 6.06,
+    "end": 6.39,
+    "id": "w18"
+  },
+  {
+    "text": "you've",
+    "start": 6.39,
+    "end": 6.88,
+    "id": "w19"
+  },
+  {
+    "text": "microwaved",
+    "start": 6.88,
+    "end": 7.69,
+    "id": "w20"
+  },
+  {
+    "text": "it,",
+    "start": 7.7,
+    "end": 8.02,
+    "id": "w21"
+  },
+  {
+    "text": "what",
+    "start": 8.02,
+    "end": 8.27,
+    "id": "w22"
+  },
+  {
+    "text": "you",
+    "start": 8.27,
+    "end": 8.46,
+    "id": "w23"
+  },
+  {
+    "text": "want",
+    "start": 8.46,
+    "end": 8.71,
+    "id": "w24"
+  },
+  {
+    "text": "to",
+    "start": 8.71,
+    "end": 8.83,
+    "id": "w25"
+  },
+  {
+    "text": "do",
+    "start": 8.83,
+    "end": 9,
+    "id": "w26"
+  },
+  {
+    "text": "is",
+    "start": 9,
+    "end": 9.7,
+    "id": "w27"
+  },
+  {
+    "text": "open",
+    "start": 9.7,
+    "end": 10,
+    "id": "w28"
+  },
+  {
+    "text": "the",
+    "start": 10,
+    "end": 10.22,
+    "id": "w29"
+  },
+  {
+    "text": "packet,",
+    "start": 10.22,
+    "end": 11.7,
+    "id": "w30"
+  },
+  {
+    "text": "pour",
+    "start": 11.7,
+    "end": 11.87,
+    "id": "w31"
+  },
+  {
+    "text": "a",
+    "start": 11.87,
+    "end": 11.91,
+    "id": "w32"
+  },
+  {
+    "text": "little",
+    "start": 11.91,
+    "end": 12.16,
+    "id": "w33"
+  },
+  {
+    "text": "bit",
+    "start": 12.16,
+    "end": 12.3,
+    "id": "w34"
+  },
+  {
+    "text": "of",
+    "start": 12.3,
+    "end": 12.54,
+    "id": "w35"
+  },
+  {
+    "text": "water",
+    "start": 12.54,
+    "end": 13.14,
+    "id": "w36"
+  },
+  {
+    "text": "in",
+    "start": 13.14,
+    "end": 13.3,
+    "id": "w37"
+  },
+  {
+    "text": "there,",
+    "start": 13.3,
+    "end": 13.83,
+    "id": "w38"
+  },
+  {
+    "text": "right,",
+    "start": 13.83,
+    "end": 14.24,
+    "id": "w39"
+  },
+  {
+    "text": "mix",
+    "start": 14.24,
+    "end": 14.52,
+    "id": "w40"
+  },
+  {
+    "text": "it",
+    "start": 14.52,
+    "end": 14.7,
+    "id": "w41"
+  },
+  {
+    "text": "up.",
+    "start": 14.7,
+    "end": 15,
+    "id": "w42"
+  },
+  {
+    "text": "Let",
+    "start": 15,
+    "end": 15.31,
+    "id": "w43"
+  },
+  {
+    "text": "it",
+    "start": 15.31,
+    "end": 15.53,
+    "id": "w44"
+  },
+  {
+    "text": "sit",
+    "start": 15.53,
+    "end": 15.85,
+    "id": "w45"
+  },
+  {
+    "text": "for",
+    "start": 15.85,
+    "end": 16.17,
+    "id": "w46"
+  },
+  {
+    "text": "maybe",
+    "start": 16.17,
+    "end": 16.7,
+    "id": "w47"
+  },
+  {
+    "text": "a",
+    "start": 16.7,
+    "end": 16.81,
+    "id": "w48"
+  },
+  {
+    "text": "minute,",
+    "start": 16.81,
+    "end": 17.67,
+    "id": "w49"
+  },
+  {
+    "text": "and",
+    "start": 17.67,
+    "end": 17.92,
+    "id": "w50"
+  },
+  {
+    "text": "it",
+    "start": 17.92,
+    "end": 18.09,
+    "id": "w51"
+  },
+  {
+    "text": "makes",
+    "start": 18.09,
+    "end": 18.52,
+    "id": "w52"
+  },
+  {
+    "text": "it",
+    "start": 18.52,
+    "end": 18.69,
+    "id": "w53"
+  },
+  {
+    "text": "so",
+    "start": 18.7,
+    "end": 18.86,
+    "id": "w54"
+  },
+  {
+    "text": "much",
+    "start": 18.86,
+    "end": 19.2,
+    "id": "w55"
+  },
+  {
+    "text": "more",
+    "start": 19.2,
+    "end": 19.54,
+    "id": "w56"
+  },
+  {
+    "text": "moist",
+    "start": 19.54,
+    "end": 20,
+    "id": "w57"
+  },
+  {
+    "text": "than",
+    "start": 20,
+    "end": 20.2,
+    "id": "w58"
+  },
+  {
+    "text": "what",
+    "start": 20.2,
+    "end": 20.4,
+    "id": "w59"
+  },
+  {
+    "text": "it",
+    "start": 20.4,
+    "end": 20.5,
+    "id": "w60"
+  },
+  {
+    "text": "does",
+    "start": 20.5,
+    "end": 20.7,
+    "id": "w61"
+  },
+  {
+    "text": "come",
+    "start": 20.7,
+    "end": 20.9,
+    "id": "w62"
+  },
+  {
+    "text": "straight",
+    "start": 20.9,
+    "end": 21.28,
+    "id": "w63"
+  },
+  {
+    "text": "out",
+    "start": 21.28,
+    "end": 21.44,
+    "id": "w64"
+  },
+  {
+    "text": "of",
+    "start": 21.44,
+    "end": 21.54,
+    "id": "w65"
+  },
+  {
+    "text": "the",
+    "start": 21.54,
+    "end": 21.69,
+    "id": "w66"
+  },
+  {
+    "text": "packet,",
+    "start": 21.69,
+    "end": 22.15,
+    "id": "w67"
+  },
+  {
+    "text": "so",
+    "start": 22.15,
+    "end": 22.3,
+    "id": "w68"
+  },
+  {
+    "text": "a",
+    "start": 22.3,
+    "end": 22.37,
+    "id": "w69"
+  },
+  {
+    "text": "little",
+    "start": 22.37,
+    "end": 22.83,
+    "id": "w70"
+  },
+  {
+    "text": "tip",
+    "start": 22.83,
+    "end": 23.06,
+    "id": "w71"
+  },
+  {
+    "text": "for",
+    "start": 23.06,
+    "end": 23.29,
+    "id": "w72"
+  },
+  {
+    "text": "it",
+    "start": 23.29,
+    "end": 23.44,
+    "id": "w73"
+  },
+  {
+    "text": "then.",
+    "start": 23.44,
+    "end": 24,
+    "id": "w74"
+  }
+]

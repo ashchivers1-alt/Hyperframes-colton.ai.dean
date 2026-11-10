@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+#B { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+#B .k { font-size:24px; } #B .t { font-size:170px; margin-top:4px; }
+#B .rule { width:150px; height:5px; background:#d80609; margin-top:14px; transform-origin:50% 50%; }
+#BK { position:absolute; inset:0; background:#000; opacity:0; }
+.back2 { position:absolute; inset:0; background:radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0,0,0,0.5), rgba(0,0,0,0) 75%); }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="6.886" data-width="3840" data-height="2160"><div id="root"><div class="back2"></div><div id="B" class="sh"><div class="k"><i></i>EN ROUTE<i></i></div><div class="clip"><div class="t">ROAD TO THE SHOW</div></div><div class="rule"></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#B .k","#B .t",".back2"], { opacity:0 }); gsap.set("#B .rule", { scaleX:0 });
+tl.to(".back2", { opacity:1, duration:0.5*K }, 0);
+tl.fromTo("#B .t", { opacity:0, yPercent:100 }, { opacity:1, yPercent:0, duration:0.7*K, ease:"expo.out", immediateRender:false }, 0.1*K);
+tl.fromTo("#B .k", { opacity:0, letterSpacing:"0.6em" }, { opacity:1, letterSpacing:"0.3em", duration:0.8*K, ease:"power2.out", immediateRender:false }, 0.3*K);
+tl.to("#B .rule", { scaleX:1, duration:0.6*K, ease:"power3.inOut" }, 0.45*K);
+tl.fromTo("#B .t", { scale:1 }, { scale:1.04, duration:6.89*K, ease:"none", immediateRender:false }, 0);
+tl.to(["#B", ".back2"], { opacity:0, duration:0.45*K, ease:"power2.in" }, 6.392*K);
+tl.to({}, { duration:6.886 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

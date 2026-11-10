@@ -1,0 +1,152 @@
+[
+ {
+  "name": "w1_showday",
+  "rec": 14000,
+  "frames": 62
+ },
+ {
+  "name": "w2_road",
+  "rec": 16629,
+  "frames": 31
+ },
+ {
+  "name": "w3_later",
+  "rec": 16834,
+  "frames": 58
+ },
+ {
+  "name": "w4_morning",
+  "rec": 20560,
+  "frames": 58
+ },
+ {
+  "name": "s01_lads",
+  "rec": 14090,
+  "frames": 134
+ },
+ {
+  "name": "s02_mark",
+  "rec": 14327,
+  "frames": 396
+ },
+ {
+  "name": "s03_kilos",
+  "rec": 14903,
+  "frames": 257
+ },
+ {
+  "name": "s04_nick",
+  "rec": 15188,
+  "frames": 122
+ },
+ {
+  "name": "x_progress",
+  "rec": 15315,
+  "frames": 355
+ },
+ {
+  "name": "s05_double",
+  "rec": 15706,
+  "frames": 171
+ },
+ {
+  "name": "s06_procards",
+  "rec": 16020,
+  "frames": 89
+ },
+ {
+  "name": "s07_caffeine",
+  "rec": 16459,
+  "frames": 110
+ },
+ {
+  "name": "s08_road",
+  "rec": 16667,
+  "frames": 165
+ },
+ {
+  "name": "s09_done",
+  "rec": 16892,
+  "frames": 101
+ },
+ {
+  "name": "s10_result",
+  "rec": 17480,
+  "frames": 252
+ },
+ {
+  "name": "x_routine",
+  "rec": 18010,
+  "frames": 331
+ },
+ {
+  "name": "s12_bench",
+  "rec": 18422,
+  "frames": 134
+ },
+ {
+  "name": "s13_plan",
+  "rec": 18592,
+  "frames": 722
+ },
+ {
+  "name": "x_compare",
+  "rec": 19503,
+  "frames": 381
+ },
+ {
+  "name": "s14_mark",
+  "rec": 20381,
+  "frames": 134
+ },
+ {
+  "name": "s15_recap",
+  "rec": 21064,
+  "frames": 158
+ },
+ {
+  "name": "s16_nick",
+  "rec": 21591,
+  "frames": 216
+ },
+ {
+  "name": "x_mark_card",
+  "rec": 22076,
+  "frames": 165
+ },
+ {
+  "name": "s18_markprep",
+  "rec": 22279,
+  "frames": 650
+ },
+ {
+  "name": "x_mark_photo",
+  "rec": 23435,
+  "frames": 141
+ },
+ {
+  "name": "s20_ahead",
+  "rec": 23634,
+  "frames": 477
+ },
+ {
+  "name": "s20b_bigman",
+  "rec": 23665,
+  "frames": 254
+ },
+ {
+  "name": "s20c_nationals",
+  "rec": 23924,
+  "frames": 185
+ },
+ {
+  "name": "s21_edu",
+  "rec": 24444,
+  "frames": 144
+ },
+ {
+  "name": "s22_outro",
+  "rec": 24694,
+  "frames": 98
+ }
+]

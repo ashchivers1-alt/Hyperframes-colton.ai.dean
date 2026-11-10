@@ -1,0 +1,219 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:29,980"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 29980
+			},
+			"text": " So another week, another show. We are up here in St Neots at Alpha Muscle Gym to do an in-person check-in with my client Nick, who is doing his first show at PCA First Timers, this time next weekend. So this is a peak week check-in. So we're going to have a little look at him and a little catch-up and just give us a little run through of the week ahead and see how it goes. So yeah, let's go and have a little check-in with him now, see how he's getting on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:30,000",
+				"to": "00:00:40,860"
+			},
+			"offsets": {
+				"from": 30000,
+				"to": 40860
+			},
+			"text": " And I'll keep you guys posted. Just arrived at Alpha Muscle Gym, never been here before. So let's have a little look round and see how it goes."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:59,020",
+				"to": "00:01:00,860"
+			},
+			"offsets": {
+				"from": 59020,
+				"to": 60860
+			},
+			"text": " Nice man, quarter turn."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:10,460",
+				"to": "00:01:20,860"
+			},
+			"offsets": {
+				"from": 70460,
+				"to": 80860
+			},
+			"text": " Nice, quarter turn to the rear. Always breathe out any sort of site where you need to contract the waist, blow that air out. On the glute, nice. Right, back to the front."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:29,020",
+				"to": "00:01:55,020"
+			},
+			"offsets": {
+				"from": 89020,
+				"to": 115020
+			},
+			"text": " Yeah, nice. So try. Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:59,020",
+				"to": "00:02:17,020"
+			},
+			"offsets": {
+				"from": 119020,
+				"to": 137020
+			},
+			"text": " Right. Nice. Into the side leg. It's like, it's a hard one to contract your glute, isn't it, at the same time, because it's like, if you like..."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:17,020",
+				"to": "00:02:31,020"
+			},
+			"offsets": {
+				"from": 137020,
+				"to": 151020
+			},
+			"text": " So the thing is, what I want to do is contract the ham, and then I'll tuck in my hamstring. You have me like probably pressed against your leg, right? So you're sort of squeezing this knee. Do you see what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:31,020",
+				"to": "00:02:40,020"
+			},
+			"offsets": {
+				"from": 151020,
+				"to": 160020
+			},
+			"text": " Yeah. So you're basically creating a bit of a hamstring drop. So if you look at that, yeah, look at my leg, and now I've pushed my other leg against it. You see how I'm getting that extra drop?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:40,020",
+				"to": "00:03:04,020"
+			},
+			"offsets": {
+				"from": 160020,
+				"to": 184020
+			},
+			"text": " Yeah. Just sort of like planted it on there, and it's just sort of like driving your tiptoes. Imagine you're at the start of a leg extension to drive your fucking toe in, and then you're sort of like, your hamstring's there, you've got the quad, and then it's like you can kind of squeeze your glute as well to get that. Do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:04,020",
+				"to": "00:03:19,020"
+			},
+			"offsets": {
+				"from": 184020,
+				"to": 199020
+			},
+			"text": " It's little things like that. You learn that in time, do you know what I mean? Prep for some people looks like that. Prep for some people are blessed with eating fucking three and a half fucking 500 gram of carb, doing 8,000 steps, but that ain't everyone, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:19,020",
+				"to": "00:03:21,020"
+			},
+			"offsets": {
+				"from": 199020,
+				"to": 201020
+			},
+			"text": " You do what you just have to do."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:21,020",
+				"to": "00:03:34,020"
+			},
+			"offsets": {
+				"from": 201020,
+				"to": 214020
+			},
+			"text": " Exactly. That's the thing. You see shit on social media where people are like, \"Oh, fucking this cunt's got a cheat meal every week.\" Yeah, but that's them. That's not you, do you know what I mean? Try not to cause any more stress than you need to, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:34,020",
+				"to": "00:03:50,020"
+			},
+			"offsets": {
+				"from": 214020,
+				"to": 230020
+			},
+			"text": " If you think about this, it's a simple process. Do you know what I mean? The work's more or less done. This is just chilling out this week, tanning. It's like, right, so what do you need to do? Yes, exfoliate your skin, do all that protocol, but a lot of people use Imac and shit like that to get the hair off."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:50,020",
+				"to": "00:03:55,020"
+			},
+			"offsets": {
+				"from": 230020,
+				"to": 235020
+			},
+			"text": " In my opinion, that's the worst thing you can do. It's essentially burning your fucking skin, do you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:55,020",
+				"to": "00:04:08,020"
+			},
+			"offsets": {
+				"from": 235020,
+				"to": 248020
+			},
+			"text": " So I think the best thing that I've used for a shaver in terms of, so at the start of the week, I would have a clean shave. So like use a razor and whatnot. Try not to fucking cut yourself like me. I hack myself to bits."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:08,020",
+				"to": "00:04:20,020"
+			},
+			"offsets": {
+				"from": 248020,
+				"to": 260020
+			},
+			"text": " Pretty much today, I was just to go and do a wet shave. Yeah, I have a wet shave today, get all the hair off, and then you've got like a Phillips one or like a lady shaver or whatever."
+		},
+		{
+			"timestamps": {
+				"from": "00:04:20,020",
+				"to": "00:04:31,020"
+			},
+			"offsets": {
+				"from": 260020,
+				"to": 271020
+			},
+			"text": " And then literally when I start to see it go back, I just keep going over it with that. And then, because obviously that provided a fresh blade, it won't cause any skin irritation."
+		}
+	]
+}

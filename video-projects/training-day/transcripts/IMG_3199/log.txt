@@ -1,0 +1,4 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":4.104125}
+{"type":"words","model":"small.en","words":[],"through":4.104125}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":0,"durationSeconds":0,"speechOnsetSeconds":null,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/IMG_3199/transcript.json"}

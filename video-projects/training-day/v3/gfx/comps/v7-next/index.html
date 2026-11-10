@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#nx { position:absolute; left:60px; top:90px; width:600px; padding:28px 34px 30px; border-radius:16px; border-left:6px solid #ff3b30;
+  background:linear-gradient(160deg, rgba(14,14,16,0.9) 0%, rgba(8,8,10,0.82) 100%); box-shadow:0 30px 80px rgba(0,0,0,0.55); }
+#nx .k { font-weight:800; font-size:18px; letter-spacing:0.4em; color:#ff3b30; }
+#nx .h { font-family:"Bebas Neue"; font-size:96px; line-height:0.86; margin-top:6px; }
+#nx .rule { width:110px; height:3px; background:#ff3b30; margin:12px 0 12px; transform-origin:0 50%; }
+#nx .it { display:flex; align-items:center; gap:18px; padding:11px 0; border-bottom:1px solid rgba(255,255,255,0.12); }
+#nx .it .d { width:14px; height:14px; border-radius:50%; background:#ff3b30; flex:none; box-shadow:0 0 12px rgba(255,59,48,0.8); }
+#nx .it .n { font-family:"Bebas Neue"; font-size:44px; line-height:1; }
+#nx .it .s { font-weight:600; font-size:20px; color:#cfcfcf; margin-left:auto; text-align:right; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="32.0" data-width="1920" data-height="1080"><div id="nx" class="shadow"><div class="k">TEAM APEXX · 2026 SEASON</div><div class="h">WHAT'S NEXT</div><div class="rule"></div><div class="it" id="s0"><div class="d"></div><div class="n">NPC ITALY</div><div class="s">Amateur Olympia</div></div><div class="it" id="s1"><div class="d"></div><div class="n">COPENHAGEN</div><div class="s">Pro Qualifier · TBC</div></div><div class="it" id="s2"><div class="d"></div><div class="n">ALICANTE</div><div class="s">Pro Qualifier</div></div><div class="it" id="s3"><div class="d"></div><div class="n">TEXAS</div><div class="s">Pro Qualifier · Attending</div></div><div class="it" id="s4"><div class="d"></div><div class="n">PCA FIRST TIMERS</div><div class="s"></div></div><div class="it" id="s5"><div class="d"></div><div class="n">PCA OPEN</div><div class="s">Start of November</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#nx","#s0","#s1","#s2","#s3","#s4","#s5"], { opacity:0 });
+tl.fromTo("#nx", { opacity:0, x:-60 }, { opacity:1, x:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(0.2));
+tl.fromTo("#nx .rule", { scaleX:0 }, { scaleX:1, duration:f(0.4), ease:"power3.inOut", immediateRender:false }, f(0.45));
+tl.fromTo("#s0", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(2.2));
+tl.fromTo("#s1", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(8.3));
+tl.fromTo("#s2", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(11.7));
+tl.fromTo("#s3", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(15.7));
+tl.fromTo("#s4", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(24.6));
+tl.fromTo("#s5", { opacity:0, x:30 }, { opacity:1, x:0, duration:f(0.4), ease:"power3.out", immediateRender:false }, f(27.6));
+tl.to("#nx", { opacity:0, x:-40, duration:f(0.4), ease:"power2.in" }, f(32.0 - 0.5));
+tl.to({}, { duration:32.0 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

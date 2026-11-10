@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+#band { position:absolute; left:-100px; top:400px; width:2120px; height:330px; transform:skewY(-6deg); transform-origin:50% 50%;
+  background:linear-gradient(90deg, rgba(60,28,6,0.95), rgba(150,80,26,0.95) 45%, rgba(60,28,6,0.95)); box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+.chk { position:absolute; left:0; right:0; height:28px; background:conic-gradient(#fff 25%, #111 0 50%, #fff 0 75%, #111 0) 0 0/28px 28px; }
+#c1 { top:0; } #c2 { bottom:0; }
+#big { position:absolute; left:0; right:0; top:400px; text-align:center; font-weight:900; font-style:italic; font-size:270px; line-height:330px;
+  background:linear-gradient(180deg, #ffe2bd 0%, #e0a46a 40%, #9a5520 75%, #ffcf9e 100%); -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 8px 0 rgba(0,0,0,0.5)); transform:skewY(-6deg); }
+#nm { position:absolute; left:0; right:0; top:770px; text-align:center; font-weight:900; font-style:italic; font-size:64px; color:#fff;
+  text-shadow:0 4px 0 rgba(0,0,0,0.6), 0 0 24px rgba(0,0,0,0.8); }
+#sb { position:absolute; left:0; right:0; top:790px; text-align:center; font-family:"JetBrains Mono"; font-weight:700; font-size:28px; letter-spacing:0.35em; color:#ffcf9e;
+  text-shadow:0 2px 10px #000; }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="6.000" data-width="3840" data-height="2160">
+<div id="root"><div id="band"><div class="chk" id="c1"></div><div class="chk" id="c2"></div></div><div id="big">P3</div><div id="sb">TNL SODI HEAVY · DAYTONA MK</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+
+tl.fromTo("#band", { scaleX:0 }, { scaleX:1, duration:0.5, ease:"expo.out", immediateRender:true }, 0.1);
+tl.fromTo(".chk", { backgroundPositionX:"0px" }, { backgroundPositionX:"280px", duration:6.00, ease:"none", immediateRender:true }, 0);
+tl.fromTo("#big", { opacity:0, scale:2.4 }, { opacity:1, scale:1, duration:0.35, ease:"power4.out", immediateRender:true }, 0.45);
+tl.to("#big", { x:5, duration:0.05, yoyo:true, repeat:5, ease:"none" }, 0.8);
+tl.fromTo("#sb", { opacity:0 }, { opacity:1, duration:0.5, ease:"none", immediateRender:true }, 1.2);
+tl.to("#big", { scale:1.05, duration:3.5, ease:"sine.inOut" }, 1.3);
+tl.to(["#band", "#big"], { x:2200, duration:0.55, ease:"power3.in" }, 5.250);
+tl.to("#sb", { opacity:0, duration:0.35, ease:"power1.in" }, 5.400);
+
+tl.to({}, { duration:6.000 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

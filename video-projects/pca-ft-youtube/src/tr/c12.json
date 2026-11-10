@@ -1,0 +1,373 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:03,000"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 3000
+			},
+			"text": " Fake it to me mate, don't it?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:29,000",
+				"to": "00:00:31,000"
+			},
+			"offsets": {
+				"from": 29000,
+				"to": 31000
+			},
+			"text": " Go on, go on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:34,000",
+				"to": "00:00:35,000"
+			},
+			"offsets": {
+				"from": 34000,
+				"to": 35000
+			},
+			"text": " Who?"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:35,000",
+				"to": "00:00:36,000"
+			},
+			"offsets": {
+				"from": 35000,
+				"to": 36000
+			},
+			"text": " Dan, no."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:38,000",
+				"to": "00:00:39,000"
+			},
+			"offsets": {
+				"from": 38000,
+				"to": 39000
+			},
+			"text": " Oh!"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:39,000",
+				"to": "00:00:40,000"
+			},
+			"offsets": {
+				"from": 39000,
+				"to": 40000
+			},
+			"text": " Right, ah."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:40,000",
+				"to": "00:00:41,000"
+			},
+			"offsets": {
+				"from": 40000,
+				"to": 41000
+			},
+			"text": " Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:41,000",
+				"to": "00:00:42,000"
+			},
+			"offsets": {
+				"from": 41000,
+				"to": 42000
+			},
+			"text": " Yeah, you did, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:43,000",
+				"to": "00:00:45,000"
+			},
+			"offsets": {
+				"from": 43000,
+				"to": 45000
+			},
+			"text": " I left it in my request."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:46,000",
+				"to": "00:00:48,000"
+			},
+			"offsets": {
+				"from": 46000,
+				"to": 48000
+			},
+			"text": " I read it and left it straight in my request."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:48,000",
+				"to": "00:00:51,000"
+			},
+			"offsets": {
+				"from": 48000,
+				"to": 51000
+			},
+			"text": " No, I did see it and, err."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:53,000",
+				"to": "00:00:56,000"
+			},
+			"offsets": {
+				"from": 53000,
+				"to": 56000
+			},
+			"text": " I didn't reply because I know how."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:56,000",
+				"to": "00:00:58,000"
+			},
+			"offsets": {
+				"from": 56000,
+				"to": 58000
+			},
+			"text": " No, I didn't reply."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:58,000",
+				"to": "00:01:05,000"
+			},
+			"offsets": {
+				"from": 58000,
+				"to": 65000
+			},
+			"text": " But he said, erm, he said that you messaged, you told him to message me or something like that."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:11,000",
+				"to": "00:01:12,000"
+			},
+			"offsets": {
+				"from": 71000,
+				"to": 72000
+			},
+			"text": " Yeah, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:13,000",
+				"to": "00:01:14,000"
+			},
+			"offsets": {
+				"from": 73000,
+				"to": 74000
+			},
+			"text": " Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:15,000",
+				"to": "00:01:16,000"
+			},
+			"offsets": {
+				"from": 75000,
+				"to": 76000
+			},
+			"text": " Because, err."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:20,000",
+				"to": "00:01:21,000"
+			},
+			"offsets": {
+				"from": 80000,
+				"to": 81000
+			},
+			"text": " Sorry?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:22,000",
+				"to": "00:01:25,000"
+			},
+			"offsets": {
+				"from": 82000,
+				"to": 85000
+			},
+			"text": " It was just kind of like a cold outreach thing, he didn't really offer anything."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:25,000",
+				"to": "00:01:32,000"
+			},
+			"offsets": {
+				"from": 85000,
+				"to": 92000
+			},
+			"text": " He basically kind of just said, he's got an app, more or less to summarize, he's got an app, would I be interested in trying it?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:32,000",
+				"to": "00:01:35,000"
+			},
+			"offsets": {
+				"from": 92000,
+				"to": 95000
+			},
+			"text": " Erm, that's about it really, that's all he said."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:35,000",
+				"to": "00:01:41,000"
+			},
+			"offsets": {
+				"from": 95000,
+				"to": 101000
+			},
+			"text": " I didn't reply, no, just because I know a lot of people have done that because of, er, broad code."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:41,000",
+				"to": "00:01:44,000"
+			},
+			"offsets": {
+				"from": 101000,
+				"to": 104000
+			},
+			"text": " Like, you can get it to create apps and shoot it for you."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:44,000",
+				"to": "00:01:52,000"
+			},
+			"offsets": {
+				"from": 104000,
+				"to": 112000
+			},
+			"text": " And I know a couple of people who have tried to do it and all the issues they've had and I'm just like fuck that, I can't be bothered to invest loads of time setting it up how I want it."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:52,000",
+				"to": "00:01:54,000"
+			},
+			"offsets": {
+				"from": 112000,
+				"to": 114000
+			},
+			"text": " And then it just keeps fucking up, you know what I mean?"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:54,000",
+				"to": "00:01:55,000"
+			},
+			"offsets": {
+				"from": 114000,
+				"to": 115000
+			},
+			"text": " Erm."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:20,000",
+				"to": "00:02:23,000"
+			},
+			"offsets": {
+				"from": 140000,
+				"to": 143000
+			},
+			"text": " We're going to have to mince a superstar game."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:23,000",
+				"to": "00:02:25,000"
+			},
+			"offsets": {
+				"from": 143000,
+				"to": 145000
+			},
+			"text": " Oh for fuck's sake, why not?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:25,000",
+				"to": "00:02:28,000"
+			},
+			"offsets": {
+				"from": 145000,
+				"to": 148000
+			},
+			"text": " Because they just don't answer to me about my feedback."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:29,000",
+				"to": "00:02:30,000"
+			},
+			"offsets": {
+				"from": 149000,
+				"to": 150000
+			},
+			"text": " Do you know?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:30,000",
+				"to": "00:02:31,000"
+			},
+			"offsets": {
+				"from": 150000,
+				"to": 151000
+			},
+			"text": " I DM them."
+		}
+	]
+}

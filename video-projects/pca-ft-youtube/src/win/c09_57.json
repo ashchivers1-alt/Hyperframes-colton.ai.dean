@@ -1,0 +1,197 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:01,340"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 1340
+			},
+			"text": "."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:01,340",
+				"to": "00:00:02,230"
+			},
+			"offsets": {
+				"from": 1340,
+				"to": 2230
+			},
+			"text": " Go"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:02,230",
+				"to": "00:00:04,010"
+			},
+			"offsets": {
+				"from": 2230,
+				"to": 4010
+			},
+			"text": " on,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:04,010",
+				"to": "00:00:06,290"
+			},
+			"offsets": {
+				"from": 4010,
+				"to": 6290
+			},
+			"text": " three"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:06,290",
+				"to": "00:00:09,360"
+			},
+			"offsets": {
+				"from": 6290,
+				"to": 9360
+			},
+			"text": " weeks,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:09,360",
+				"to": "00:00:11,590"
+			},
+			"offsets": {
+				"from": 9360,
+				"to": 11590
+			},
+			"text": " three"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:11,590",
+				"to": "00:00:13,920"
+			},
+			"offsets": {
+				"from": 11590,
+				"to": 13920
+			},
+			"text": " weeks"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:13,920",
+				"to": "00:00:14,710"
+			},
+			"offsets": {
+				"from": 13920,
+				"to": 14710
+			},
+			"text": " to"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:14,710",
+				"to": "00:00:16,500"
+			},
+			"offsets": {
+				"from": 14710,
+				"to": 16500
+			},
+			"text": " make"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:16,500",
+				"to": "00:00:17,390"
+			},
+			"offsets": {
+				"from": 16500,
+				"to": 17390
+			},
+			"text": " it"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:17,390",
+				"to": "00:00:20,070"
+			},
+			"offsets": {
+				"from": 17390,
+				"to": 20070
+			},
+			"text": " come,"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:20,070",
+				"to": "00:00:21,850"
+			},
+			"offsets": {
+				"from": 20070,
+				"to": 21850
+			},
+			"text": " come"
+		},
+		{
+			"timestamps": {
+				"from": "00:00:21,850",
+				"to": "00:00:21,990"
+			},
+			"offsets": {
+				"from": 21850,
+				"to": 21990
+			},
+			"text": " on."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:21,990",
+				"to": "00:00:21,990"
+			},
+			"offsets": {
+				"from": 21990,
+				"to": 21990
+			},
+			"text": " Good."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:21,990",
+				"to": "00:00:30,000"
+			},
+			"offsets": {
+				"from": 21990,
+				"to": 30000
+			},
+			"text": " Yep."
+		}
+	]
+}

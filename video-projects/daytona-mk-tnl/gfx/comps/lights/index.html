@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+#lt { position:absolute; left:839px; top:34px; width:242px; display:flex; gap:16px; padding:12px 18px; border-radius:40px;
+  background:rgba(8,8,10,0.55); box-shadow:0 6px 22px rgba(0,0,0,0.45); opacity:0; }
+.l { position:relative; width:54px; height:54px; border-radius:50%; border:3px solid #1a0000;
+  background:radial-gradient(circle at 38% 32%, #ff8a80 0%, #ff1a10 32%, #c40000 70%, #7a0000 100%);
+  box-shadow:0 0 18px rgba(255,20,10,0.85), inset 0 -4px 8px rgba(0,0,0,0.35); }
+.l.g { position:absolute; left:0; top:0; border-color:#002a08; opacity:0;
+  background:radial-gradient(circle at 38% 32%, #b9ffbf 0%, #2bff4a 32%, #00c22a 70%, #006a14 100%);
+  box-shadow:0 0 22px rgba(40,255,80,0.9), inset 0 -4px 8px rgba(0,0,0,0.3); }
+.cell { position:relative; width:54px; height:54px; }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="4.700" data-width="3840" data-height="2160">
+<div id="root"><div id="lt"><div class="cell"><div class="l r" id="r0"></div><div class="l g" id="g0"></div></div><div class="cell"><div class="l r" id="r1"></div><div class="l g" id="g1"></div></div><div class="cell"><div class="l r" id="r2"></div><div class="l g" id="g2"></div></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+
+tl.fromTo("#lt", { opacity:0, y:-30 }, { opacity:1, y:0, duration:0.3, ease:"back.out(1.8)", immediateRender:true }, 0.05);
+tl.from(".r", { scale:0.4, duration:0.25, stagger:0.06, ease:"back.out(2.2)" }, 0.1);
+tl.to(".g", { opacity:1, duration:0.06, ease:"none" }, 3.100);
+tl.fromTo(".g", { scale:1.18 }, { scale:1, duration:0.3, ease:"power2.out", immediateRender:false }, 3.100);
+tl.to("#lt", { opacity:0, y:-20, duration:0.35, ease:"power2.in" }, 4.300);
+
+tl.to({}, { duration:4.700 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

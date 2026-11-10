@@ -1,0 +1,464 @@
+[
+  {
+    "text": "right",
+    "start": 0.01,
+    "end": 0.5,
+    "id": "w0"
+  },
+  {
+    "text": "then",
+    "start": 0.64,
+    "end": 0.96,
+    "id": "w1"
+  },
+  {
+    "text": "guys",
+    "start": 0.96,
+    "end": 1.38,
+    "id": "w2"
+  },
+  {
+    "text": "so",
+    "start": 1.39,
+    "end": 1.6,
+    "id": "w3"
+  },
+  {
+    "text": "that",
+    "start": 1.6,
+    "end": 2.01,
+    "id": "w4"
+  },
+  {
+    "text": "is",
+    "start": 2.01,
+    "end": 2.21,
+    "id": "w5"
+  },
+  {
+    "text": "Italy",
+    "start": 2.35,
+    "end": 2.77,
+    "id": "w6"
+  },
+  {
+    "text": "done",
+    "start": 2.77,
+    "end": 3.23,
+    "id": "w7"
+  },
+  {
+    "text": "and",
+    "start": 3.23,
+    "end": 3.64,
+    "id": "w8"
+  },
+  {
+    "text": "dusted",
+    "start": 3.64,
+    "end": 4.44,
+    "id": "w9"
+  },
+  {
+    "text": "I'm",
+    "start": 4.44,
+    "end": 4.6,
+    "id": "w10"
+  },
+  {
+    "text": "just",
+    "start": 4.6,
+    "end": 4.81,
+    "id": "w11"
+  },
+  {
+    "text": "coming",
+    "start": 4.91,
+    "end": 5.17,
+    "id": "w12"
+  },
+  {
+    "text": "out",
+    "start": 5.17,
+    "end": 5.36,
+    "id": "w13"
+  },
+  {
+    "text": "now",
+    "start": 5.45,
+    "end": 5.58,
+    "id": "w14"
+  },
+  {
+    "text": "tonight",
+    "start": 5.6,
+    "end": 5.82,
+    "id": "w15"
+  },
+  {
+    "text": "just",
+    "start": 6.22,
+    "end": 6.47,
+    "id": "w16"
+  },
+  {
+    "text": "get",
+    "start": 6.47,
+    "end": 6.7,
+    "id": "w17"
+  },
+  {
+    "text": "some",
+    "start": 6.73,
+    "end": 6.99,
+    "id": "w18"
+  },
+  {
+    "text": "steps",
+    "start": 7.13,
+    "end": 7.43,
+    "id": "w19"
+  },
+  {
+    "text": "in",
+    "start": 7.43,
+    "end": 7.59,
+    "id": "w20"
+  },
+  {
+    "text": "and",
+    "start": 7.59,
+    "end": 7.79,
+    "id": "w21"
+  },
+  {
+    "text": "go",
+    "start": 7.93,
+    "end": 7.99,
+    "id": "w22"
+  },
+  {
+    "text": "find",
+    "start": 7.99,
+    "end": 8.31,
+    "id": "w23"
+  },
+  {
+    "text": "some",
+    "start": 8.31,
+    "end": 8.5,
+    "id": "w24"
+  },
+  {
+    "text": "food",
+    "start": 8.68,
+    "end": 9.02,
+    "id": "w25"
+  },
+  {
+    "text": "some",
+    "start": 9.02,
+    "end": 9.25,
+    "id": "w26"
+  },
+  {
+    "text": "board",
+    "start": 9.25,
+    "end": 9.54,
+    "id": "w27"
+  },
+  {
+    "text": "and",
+    "start": 9.54,
+    "end": 9.56,
+    "id": "w28"
+  },
+  {
+    "text": "I'm",
+    "start": 9.56,
+    "end": 9.78,
+    "id": "w29"
+  },
+  {
+    "text": "hungry",
+    "start": 9.78,
+    "end": 10.56,
+    "id": "w30"
+  },
+  {
+    "text": "and",
+    "start": 10.57,
+    "end": 10.8,
+    "id": "w31"
+  },
+  {
+    "text": "tomorrow",
+    "start": 11.2,
+    "end": 11.44,
+    "id": "w32"
+  },
+  {
+    "text": "morning",
+    "start": 11.44,
+    "end": 11.96,
+    "id": "w33"
+  },
+  {
+    "text": "fly",
+    "start": 12.11,
+    "end": 12.24,
+    "id": "w34"
+  },
+  {
+    "text": "back",
+    "start": 12.24,
+    "end": 12.56,
+    "id": "w35"
+  },
+  {
+    "text": "to",
+    "start": 12.56,
+    "end": 12.72,
+    "id": "w36"
+  },
+  {
+    "text": "the",
+    "start": 12.72,
+    "end": 12.96,
+    "id": "w37"
+  },
+  {
+    "text": "UK",
+    "start": 12.96,
+    "end": 13.12,
+    "id": "w38"
+  },
+  {
+    "text": "and",
+    "start": 13.12,
+    "end": 13.36,
+    "id": "w39"
+  },
+  {
+    "text": "we've",
+    "start": 13.36,
+    "end": 13.76,
+    "id": "w40"
+  },
+  {
+    "text": "got",
+    "start": 13.76,
+    "end": 14,
+    "id": "w41"
+  },
+  {
+    "text": "a",
+    "start": 14,
+    "end": 14.1,
+    "id": "w42"
+  },
+  {
+    "text": "nice",
+    "start": 14.16,
+    "end": 14.29,
+    "id": "w43"
+  },
+  {
+    "text": "couple",
+    "start": 14.39,
+    "end": 14.54,
+    "id": "w44"
+  },
+  {
+    "text": "of",
+    "start": 14.54,
+    "end": 14.66,
+    "id": "w45"
+  },
+  {
+    "text": "weeks",
+    "start": 14.66,
+    "end": 14.89,
+    "id": "w46"
+  },
+  {
+    "text": "break",
+    "start": 14.9,
+    "end": 15.37,
+    "id": "w47"
+  },
+  {
+    "text": "till",
+    "start": 15.54,
+    "end": 15.75,
+    "id": "w48"
+  },
+  {
+    "text": "the",
+    "start": 15.75,
+    "end": 16.02,
+    "id": "w49"
+  },
+  {
+    "text": "next",
+    "start": 16.05,
+    "end": 16.3,
+    "id": "w50"
+  },
+  {
+    "text": "show",
+    "start": 16.45,
+    "end": 16.77,
+    "id": "w51"
+  },
+  {
+    "text": "which",
+    "start": 16.8,
+    "end": 17.26,
+    "id": "w52"
+  },
+  {
+    "text": "I",
+    "start": 17.26,
+    "end": 17.34,
+    "id": "w53"
+  },
+  {
+    "text": "believe",
+    "start": 17.4,
+    "end": 18.01,
+    "id": "w54"
+  },
+  {
+    "text": "is",
+    "start": 18.01,
+    "end": 18.21,
+    "id": "w55"
+  },
+  {
+    "text": "the",
+    "start": 18.27,
+    "end": 18.3,
+    "id": "w56"
+  },
+  {
+    "text": "start",
+    "start": 18.3,
+    "end": 18.64,
+    "id": "w57"
+  },
+  {
+    "text": "of",
+    "start": 18.73,
+    "end": 18.77,
+    "id": "w58"
+  },
+  {
+    "text": "November",
+    "start": 18.77,
+    "end": 19.32,
+    "id": "w59"
+  },
+  {
+    "text": "and",
+    "start": 19.32,
+    "end": 19.6,
+    "id": "w60"
+  },
+  {
+    "text": "then",
+    "start": 19.6,
+    "end": 20.4,
+    "id": "w61"
+  },
+  {
+    "text": "a",
+    "start": 20.4,
+    "end": 20.82,
+    "id": "w62"
+  },
+  {
+    "text": "couple",
+    "start": 20.83,
+    "end": 21.11,
+    "id": "w63"
+  },
+  {
+    "text": "weeks",
+    "start": 21.16,
+    "end": 21.21,
+    "id": "w64"
+  },
+  {
+    "text": "off",
+    "start": 21.46,
+    "end": 21.52,
+    "id": "w65"
+  },
+  {
+    "text": "and",
+    "start": 21.55,
+    "end": 21.67,
+    "id": "w66"
+  },
+  {
+    "text": "then",
+    "start": 21.67,
+    "end": 21.87,
+    "id": "w67"
+  },
+  {
+    "text": "we",
+    "start": 21.87,
+    "end": 21.94,
+    "id": "w68"
+  },
+  {
+    "text": "go",
+    "start": 21.97,
+    "end": 22.07,
+    "id": "w69"
+  },
+  {
+    "text": "to",
+    "start": 22.07,
+    "end": 22.16,
+    "id": "w70"
+  },
+  {
+    "text": "Alicante",
+    "start": 22.17,
+    "end": 22.6,
+    "id": "w71"
+  },
+  {
+    "text": "at",
+    "start": 22.6,
+    "end": 23.02,
+    "id": "w72"
+  },
+  {
+    "text": "the",
+    "start": 23.17,
+    "end": 23.75,
+    "id": "w73"
+  },
+  {
+    "text": "end",
+    "start": 23.92,
+    "end": 24.47,
+    "id": "w74"
+  },
+  {
+    "text": "of",
+    "start": 24.47,
+    "end": 24.82,
+    "id": "w75"
+  },
+  {
+    "text": "November",
+    "start": 25,
+    "end": 27.01,
+    "id": "w76"
+  }
+]

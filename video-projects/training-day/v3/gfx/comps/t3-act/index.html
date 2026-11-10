@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="3.5" data-width="1920" data-height="1080"><div class="ex shadow"><div class="idx">01 <span>/ 07</span></div><div class="rule"></div><div class="nmw"><div class="nm" style="font-size:104px">GLUTE ACTIVATION</div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set([".ex .idx",".ex .rule",".ex .nm",".ex .chip"], { opacity:0 });
+tl.fromTo(".ex .idx", { opacity:0, x:-20 }, { opacity:1, x:0, duration:f(0.3), ease:"power2.out", immediateRender:false }, f(0.1));
+tl.fromTo(".ex .rule", { opacity:1, scaleX:0 }, { scaleX:1, duration:f(0.35), ease:"power3.inOut", immediateRender:false }, f(0.15));
+tl.fromTo(".ex .nm", { opacity:1, yPercent:110 }, { yPercent:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(0.25));
+tl.fromTo(".ex .chip", { opacity:0, y:12 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(0.6));
+tl.to(".ex .nm", { yPercent:-110, duration:f(0.35), ease:"power2.in" }, f(3.0));
+tl.to([".ex .idx",".ex .rule",".ex .chip"], { opacity:0, duration:f(0.3) }, f(3.05));
+tl.to({}, { duration:3.5 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

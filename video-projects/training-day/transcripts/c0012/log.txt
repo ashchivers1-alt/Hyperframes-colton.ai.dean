@@ -1,0 +1,7 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":18.797125}
+{"type":"words","model":"small.en","words":[{"text":"For","start":0,"end":0.655},{"text":"my","start":0.655,"end":1.092},{"text":"benefit.","start":1.092,"end":2.84}],"through":2.84}
+{"type":"words","model":"small.en","words":[{"text":"So","start":2.84,"end":3.593},{"text":"what","start":3.593,"end":5.099},{"text":"are","start":5.099,"end":6.228},{"text":"you","start":6.228,"end":7.358},{"text":"going","start":7.358,"end":9.24},{"text":"to","start":9.24,"end":9.993},{"text":"moan","start":9.993,"end":11.499},{"text":"about","start":11.499,"end":13.381},{"text":"today?","start":13.381,"end":15.64}],"through":15.64}
+{"type":"words","model":"small.en","words":[{"text":"Everything.","start":15.64,"end":17.2}],"through":17.2}
+{"type":"words","model":"small.en","words":[],"through":18.797125}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":13,"durationSeconds":17.2,"speechOnsetSeconds":null,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/c0012/transcript.json"}

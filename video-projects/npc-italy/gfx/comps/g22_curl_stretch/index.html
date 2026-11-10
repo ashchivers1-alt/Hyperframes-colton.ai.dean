@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+svg { position:absolute; inset:0; overflow:visible; }
+.ln { fill:none; stroke:#fff; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 2px 6px rgba(0,0,0,0.8)); }
+.ln.red { stroke:#d80609; }
+.lbl { position:absolute; font-weight:800; font-size:30px; color:#fff; padding:8px 14px 6px; background:rgba(10,10,10,0.7); border-left:5px solid #d80609; white-space:nowrap; }
+#c1 { left:1180px; top:820px; } #c2 { left:180px; top:420px; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="10.989" data-width="3840" data-height="2160"><div id="root"><svg viewBox="0 0 1920 1080"><path class="ln p4" d="M 1170 840 L 1050 900"/><path class="ln p4h" d="M 1075 862 L 1050 900 L 1094 905"/><path class="ln red p5" style="stroke-width:10" d="M 720 520 C 680 590, 640 640, 600 690"/><path class="ln red p5h" style="stroke-width:10" d="M 600 646 L 600 690 L 642 676"/></svg><div class="lbl" id="c1">SEAT LOW</div><div class="lbl" id="c2">ARMS FULLY LENGTHENED = BICEP STRETCH</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#c1","#c2"], { opacity:0 });
+document.querySelectorAll(".p4, .p4h").forEach(p => { const L = p.getTotalLength(); gsap.set(p, { strokeDasharray:L, strokeDashoffset:L }); });
+tl.to(".p4, .p4h", { strokeDashoffset:0, duration:0.6*K, ease:"power2.inOut", stagger:0.12*K }, 0.2*K);
+tl.fromTo("#c1", { opacity:0, x:12 }, { opacity:1, x:0, duration:0.35*K, immediateRender:false }, 0.4*K);
+document.querySelectorAll(".p5, .p5h").forEach(p => { const L = p.getTotalLength(); gsap.set(p, { strokeDasharray:L, strokeDashoffset:L }); });
+tl.to(".p5, .p5h", { strokeDashoffset:0, duration:0.7*K, ease:"power2.inOut", stagger:0.12*K }, 2.4*K);
+tl.fromTo("#c2", { opacity:0, y:-10 }, { opacity:1, y:0, duration:0.35*K, immediateRender:false }, 2.6*K);
+tl.to(["#c1","#c2","svg path"], { opacity:0, duration:0.45*K }, 10.500*K);
+tl.to({}, { duration:10.989 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

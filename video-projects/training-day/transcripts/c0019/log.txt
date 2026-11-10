@@ -1,0 +1,16 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":64.27975}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":0,"end":6}],"through":6}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":6,"end":12}],"through":12}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":12,"end":17}],"through":17}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":17,"end":22}],"through":22}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":22,"end":27}],"through":27}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":27,"end":32}],"through":32}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":32,"end":37}],"through":37}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":37,"end":42}],"through":42}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":42,"end":47}],"through":47}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":47,"end":52}],"through":52}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":52,"end":57}],"through":57}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":57,"end":62}],"through":62}
+{"type":"words","model":"small.en","words":[{"text":"♪♪","start":62,"end":65}],"through":65}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":13,"durationSeconds":65,"speechOnsetSeconds":7,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/c0019/transcript.json"}

@@ -1,0 +1,6 @@
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_0.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_1.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_2.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_3.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_4.mp4'
+file '/Users/ashleychivers/Documents/Claude Video Studio/video-projects/pca-ft-reels/src/cut/prep-isnt-3500_5.mp4'

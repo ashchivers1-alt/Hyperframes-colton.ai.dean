@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; }
+/* Team Apexx keyword card (approved style A) */
+.card { position:absolute; display:flex; align-items:stretch; border-radius:14px; overflow:hidden;
+  background:rgba(10,10,10,0.78); box-shadow:0 18px 50px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.10); }
+.bar { width:10px; background:#d80609; flex:none; }
+.ct { padding:16px 30px 14px 22px; }
+.kick { font-weight:700; font-size:20px; letter-spacing:0.32em; color:#a19f9f; }
+.big { font-family:"Bebas Neue", sans-serif; font-size:76px; line-height:0.95; color:#f6f6f6; letter-spacing:0.02em; }
+.big b { color:#d80609; font-weight:400; }
+.small { font-weight:600; font-size:26px; color:#f6f6f6; line-height:1.3; }
+.small b { color:#ff4b47; font-weight:800; }
+
+#dimbg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 90% at 40% 50%, rgba(5,7,10,0.96), rgba(5,7,10,0.9)); }
+#panel { position:absolute; left:48px; top:40px; width:1044px; height:1000px; border-radius:22px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08); }
+#panel img { width:100%; height:100%; display:block; }
+.band { position:absolute; border-radius:6px; background:rgba(111,195,238,0.22); box-shadow:inset 3px 0 0 #6fc3ee, 0 0 18px rgba(111,195,238,0.35); }
+.tick { position:absolute; width:26px; height:26px; border-radius:50%; background:#2fbf71; color:#fff; font:800 17px/26px Montserrat, sans-serif; text-align:center; box-shadow:0 0 12px rgba(47,191,113,0.8); }
+#side { position:absolute; left:1150px; top:70px; width:700px; }
+#side .kick { font-size:22px; }
+#cur { margin-top:30px; height:190px; }
+.cn { position:absolute; left:0; width:700px; }
+.cn .nm { font-family:"Bebas Neue", sans-serif; font-size:84px; line-height:0.95; color:#f6f6f6; }
+.cn .am { font-weight:700; font-size:40px; color:#6fc3ee; margin-top:8px; }
+#legend { position:absolute; left:1150px; top:960px; font-weight:600; font-size:22px; color:#a19f9f; }
+#legend span { display:inline-block; width:24px; height:24px; border-radius:50%; background:#2fbf71; color:#fff; text-align:center; font:800 15px/24px Montserrat; margin-right:10px; vertical-align:-4px; }
+#tub { position:absolute; left:1290px; top:420px; width:460px; height:520px; -webkit-mask-image:radial-gradient(ellipse 40% 48% at 50% 50%, #000 70%, transparent 100%); mask-image:radial-gradient(ellipse 40% 48% at 50% 50%, #000 70%, transparent 100%); }
+#tub img { position:absolute; left:-130px; top:-90px; width:700px; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="30.2" data-width="1920" data-height="1080">
+<div id="dimbg"></div><div id="panel"><img src="assets/panel-official.jpg" /></div><div class="band" id="b0" style="left:241px; top:340px; width:323px; height:29px;"></div><div class="band" id="b1" style="left:241px; top:430px; width:323px; height:29px;"></div><div class="band" id="b2" style="left:241px; top:460px; width:323px; height:29px;"></div><div class="band" id="b3" style="left:241px; top:488px; width:323px; height:29px;"></div><div class="band" id="b4" style="left:241px; top:517px; width:323px; height:29px;"></div><div class="band" id="b5" style="left:241px; top:547px; width:323px; height:29px;"></div><div class="band" id="b6" style="left:241px; top:578px; width:323px; height:29px;"></div><div class="band" id="b7" style="left:241px; top:606px; width:323px; height:29px;"></div><div class="band" id="b8" style="left:241px; top:635px; width:323px; height:29px;"></div><div class="band" id="b9" style="left:241px; top:664px; width:323px; height:29px;"></div><div class="band" id="b10" style="left:241px; top:752px; width:323px; height:29px;"></div><div class="band" id="b11" style="left:582px; top:517px; width:321px; height:29px;"></div><div class="band" id="b12" style="left:582px; top:547px; width:321px; height:29px;"></div><div class="band" id="b13" style="left:582px; top:578px; width:321px; height:29px;"></div><div class="band" id="b14" style="left:582px; top:635px; width:321px; height:29px;"></div><div class="band" id="b15" style="left:582px; top:831px; width:321px; height:60px;"></div><div class="tick" id="k0" style="left:201px; top:342px;">✓</div><div class="tick" id="k1" style="left:201px; top:432px;">✓</div><div class="tick" id="k2" style="left:201px; top:461px;">✓</div><div class="tick" id="k3" style="left:201px; top:490px;">✓</div><div class="tick" id="k4" style="left:201px; top:519px;">✓</div><div class="tick" id="k5" style="left:201px; top:549px;">✓</div><div class="tick" id="k6" style="left:201px; top:580px;">✓</div><div class="tick" id="k7" style="left:201px; top:608px;">✓</div><div class="tick" id="k8" style="left:201px; top:636px;">✓</div><div class="tick" id="k9" style="left:201px; top:665px;">✓</div><div class="tick" id="k10" style="left:201px; top:754px;">✓</div><div class="tick" id="k11" style="left:890px; top:519px;">✓</div><div class="tick" id="k12" style="left:890px; top:549px;">✓</div><div class="tick" id="k13" style="left:890px; top:580px;">✓</div><div class="tick" id="k14" style="left:890px; top:636px;">✓</div><div class="tick" id="k15" style="left:890px; top:848px;">✓</div><div id="side"><div class="kick">INGREDIENT BREAKDOWN</div><div id="cur"><div class="cn" id="n0"><div class="nm">L-Citrulline</div><div class="am">10,000mg · per 75g serving</div></div><div class="cn" id="n1"><div class="nm">PeptiPump®</div><div class="am">500mg · per 75g serving</div></div><div class="cn" id="n2"><div class="nm">Beetroot Extract</div><div class="am">2,000mg · per 75g serving</div></div><div class="cn" id="n3"><div class="nm">Pine Bark Extract</div><div class="am">300mg · per 75g serving</div></div><div class="cn" id="n4"><div class="nm">S7®</div><div class="am">100mg · per 75g serving</div></div><div class="cn" id="n5"><div class="nm">HydroPrime Glycerol®</div><div class="am">5,000mg · per 75g serving</div></div><div class="cn" id="n6"><div class="nm">Beta Alanine</div><div class="am">4,800mg · per 75g serving</div></div><div class="cn" id="n7"><div class="nm">Taurine</div><div class="am">4,000mg · per 75g serving</div></div><div class="cn" id="n8"><div class="nm">Betaine Anhydrous</div><div class="am">3,000mg · per 75g serving</div></div><div class="cn" id="n9"><div class="nm">Peak ATP®</div><div class="am">400mg · per 75g serving</div></div><div class="cn" id="n10"><div class="nm">Creatine Monohydrate</div><div class="am">5,000mg · per 75g serving</div></div><div class="cn" id="n11"><div class="nm">Alpha GPC 50%</div><div class="am">1,200mg · per 75g serving</div></div><div class="cn" id="n12"><div class="nm">Cognizin®</div><div class="am">500mg · per 75g serving</div></div><div class="cn" id="n13"><div class="nm">Huperzine A</div><div class="am">200mcg · per 75g serving</div></div><div class="cn" id="n14"><div class="nm">Caffeine</div><div class="am">250mg · per 75g serving</div></div><div class="cn" id="n15"><div class="nm">Teacrine® 40%</div><div class="am">100mg (yielding 40mg) · per 75g serving</div></div></div></div><div id="tub"><img src="assets/tub-official.jpg" /></div><div id="legend"><span>✓</span>= mentioned in Ash's review (not a verified benefit)</div>
+</div>
+<script>
+(() => {
+  const tl = gsap.timeline({ paused: true });
+  const f = (s) => Math.round(s * 30) / 30;
+  gsap.set([".band",".tick",".cn"], { opacity:0 });
+  tl.fromTo("#dimbg", { opacity:0 }, { opacity:1, duration:f(0.4), ease:"power2.out", immediateRender:false }, 0);
+  tl.fromTo("#panel", { y:60, opacity:0, scale:0.96 }, { y:0, opacity:1, scale:1, duration:f(0.6), ease:"expo.out", immediateRender:false }, f(0.1));
+  tl.fromTo(["#side","#legend"], { x:40, opacity:0 }, { x:0, opacity:1, duration:f(0.5), ease:"power3.out", stagger:0.1, immediateRender:false }, f(0.35));
+  tl.fromTo("#tub", { y:60, opacity:0 }, { y:0, opacity:1, duration:f(0.7), ease:"power3.out", immediateRender:false }, f(0.5));
+  tl.fromTo("#b0", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(1.8));
+  tl.to("#b0", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(4.8));
+  tl.fromTo("#k0", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(1.85));
+  tl.fromTo("#n0", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(1.8));
+  tl.to("#n0", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(4.6499999999999995));
+  tl.fromTo("#b1", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(5.0));
+  tl.to("#b1", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(5.6));
+  tl.fromTo("#k1", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(5.05));
+  tl.fromTo("#n1", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(5.0));
+  tl.to("#n1", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(5.449999999999999));
+  tl.fromTo("#b2", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(5.6));
+  tl.to("#b2", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(6.9));
+  tl.fromTo("#k2", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(5.6499999999999995));
+  tl.fromTo("#n2", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(5.6));
+  tl.to("#n2", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(6.75));
+  tl.fromTo("#b3", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(6.9));
+  tl.to("#b3", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(8.1));
+  tl.fromTo("#k3", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(6.95));
+  tl.fromTo("#n3", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(6.9));
+  tl.to("#n3", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(7.949999999999999));
+  tl.fromTo("#b4", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(8.1));
+  tl.to("#b4", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(8.5));
+  tl.fromTo("#k4", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(8.15));
+  tl.fromTo("#n4", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(8.1));
+  tl.to("#n4", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(8.35));
+  tl.fromTo("#b5", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(8.5));
+  tl.to("#b5", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(9.6));
+  tl.fromTo("#k5", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(8.55));
+  tl.fromTo("#n5", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(8.5));
+  tl.to("#n5", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(9.45));
+  tl.fromTo("#b6", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(9.6));
+  tl.to("#b6", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(10.8));
+  tl.fromTo("#k6", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(9.65));
+  tl.fromTo("#n6", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(9.6));
+  tl.to("#n6", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(10.65));
+  tl.fromTo("#b7", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(10.8));
+  tl.to("#b7", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(11.9));
+  tl.fromTo("#k7", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(10.850000000000001));
+  tl.fromTo("#n7", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(10.8));
+  tl.to("#n7", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(11.75));
+  tl.fromTo("#b8", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(11.9));
+  tl.to("#b8", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(12.7));
+  tl.fromTo("#k8", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(11.950000000000001));
+  tl.fromTo("#n8", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(11.9));
+  tl.to("#n8", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(12.549999999999999));
+  tl.fromTo("#b9", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(12.7));
+  tl.to("#b9", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(13.5));
+  tl.fromTo("#k9", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(12.75));
+  tl.fromTo("#n9", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(12.7));
+  tl.to("#n9", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(13.35));
+  tl.fromTo("#b10", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(13.5));
+  tl.to("#b10", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(16.5));
+  tl.fromTo("#k10", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(13.55));
+  tl.fromTo("#n10", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(13.5));
+  tl.to("#n10", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(16.35));
+  tl.fromTo("#b11", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(23.8));
+  tl.to("#b11", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(24.3));
+  tl.fromTo("#k11", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(23.85));
+  tl.fromTo("#n11", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(23.8));
+  tl.to("#n11", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(24.150000000000002));
+  tl.fromTo("#b12", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(24.3));
+  tl.to("#b12", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(25.2));
+  tl.fromTo("#k12", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(24.35));
+  tl.fromTo("#n12", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(24.3));
+  tl.to("#n12", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(25.05));
+  tl.fromTo("#b13", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(25.2));
+  tl.to("#b13", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(27.0));
+  tl.fromTo("#k13", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(25.25));
+  tl.fromTo("#n13", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(25.2));
+  tl.to("#n13", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(26.85));
+  tl.fromTo("#b14", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(27.0));
+  tl.to("#b14", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(29.1));
+  tl.fromTo("#k14", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(27.05));
+  tl.fromTo("#n14", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(27.0));
+  tl.to("#n14", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(28.950000000000003));
+  tl.fromTo("#b15", { opacity:0, scaleX:0.2, transformOrigin:"0% 50%" }, { opacity:1, scaleX:1, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(29.1));
+  tl.to("#b15", { opacity:0.35, duration:f(0.4), ease:"power1.out" }, f(29.8));
+  tl.fromTo("#k15", { opacity:0, scale:2.2 }, { opacity:1, scale:1, duration:f(0.27), ease:"back.out(2.5)", immediateRender:false }, f(29.150000000000002));
+  tl.fromTo("#n15", { opacity:0, y:20 }, { opacity:1, y:0, duration:f(0.2), ease:"power2.out", immediateRender:false }, f(29.1));
+  tl.to("#n15", { opacity:0, y:-14, duration:f(0.15), ease:"power2.in" }, f(29.650000000000002));
+  tl.to(["#panel","#side","#legend","#tub",".band",".tick"], { opacity:0, duration:f(0.33), ease:"power2.in" }, f(29.77));
+  tl.to("#dimbg", { opacity:0, duration:f(0.4), ease:"power1.inOut" }, f(29.8));
+
+  tl.to({}, { duration: 30.2 }, 0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["main"] = tl;
+})();
+</script></body></html>

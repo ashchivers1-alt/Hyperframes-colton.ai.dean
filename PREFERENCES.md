@@ -18,6 +18,10 @@ _(colors, typography, density, placement — populated by /feedback over time)_
 - Avoid every video looking identical — vary or mix the two styles across a posting batch so it doesn't read as generic "Claude-edited". (2026-10-12)
 - Graphics illustrate the key nouns/claims Ash actually says, landing on the spoken word. (2026-10-12)
 
+## Resolution / export
+
+- **Everything in 4K (3840×2160, or 2160×3840 vertical) from now on** when the footage is 4K — timeline, graphics, captions, tracked overlays, plates, and the final export. Author graphics natively at 4K (or render 1080-designed comps at 2× scale), never upscale 1080p overlays. (2026-10-28)
+
 ## Pacing
 
 _(scene length, cuts vs. transitions, breathing room — populated by /feedback over time)_

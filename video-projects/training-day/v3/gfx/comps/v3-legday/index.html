@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#ld { position:absolute; left:0; right:0; top:330px; text-align:center; }
+#ld .k { font-weight:700; font-size:26px; letter-spacing:0.6em; color:rgba(255,255,255,0.85); }
+#ld .big { font-family:"Bebas Neue", sans-serif; font-size:300px; line-height:0.86; letter-spacing:0.04em; }
+#ld .big .ch { display:inline-block; color:#f4f4f4; text-shadow:0 0 30px rgba(255,255,255,0.25), 0 12px 40px rgba(0,0,0,0.75); }
+#slash { position:absolute; left:660px; top:620px; width:600px; height:10px; background:#ff3b30; transform:skewX(-20deg); transform-origin:0 50%;
+  box-shadow:0 0 30px rgba(255,59,48,0.8); }
+#dim { position:absolute; inset:0; background:radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.5), rgba(0,0,0,0) 75%); }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="5.8" data-width="1920" data-height="1080"><div id="dim"></div><div id="ld" class="shadow"><div class="k">WELLNESS WEEK · TEAM APEXX</div><div class="big"><span class="ch">L</span><span class="ch">E</span><span class="ch">G</span><span class="ch" style="width:70px"></span><span class="ch">D</span><span class="ch">A</span><span class="ch">Y</span></div></div><div id="slash"></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#dim","#ld .k","#ld .ch","#slash"], { opacity:0 });
+tl.to("#dim", { opacity:1, duration:f(0.4) }, 0);
+tl.fromTo("#ld .ch", { opacity:0, y:80, scale:1.4, filter:"blur(12px)" }, { opacity:1, y:0, scale:1, filter:"blur(0px)", duration:f(0.5), ease:"expo.out", stagger:0.06, immediateRender:false }, f(0.15));
+tl.fromTo("#slash", { opacity:1, scaleX:0 }, { scaleX:1, duration:f(0.4), ease:"power3.inOut", immediateRender:false }, f(0.7));
+tl.fromTo("#ld .k", { opacity:0, y:-16 }, { opacity:1, y:0, duration:f(0.6), ease:"power2.out", immediateRender:false }, f(0.9));
+tl.to("#ld .big", { scale:1.06, duration:f(4.2), ease:"none" }, f(0.6));
+tl.to(["#ld","#slash"], { opacity:0, y:-30, filter:"blur(10px)", duration:f(0.4), ease:"power2.in" }, f(5.2));
+tl.to("#dim", { opacity:0, duration:f(0.4) }, f(5.3));
+tl.to({}, { duration:5.8 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

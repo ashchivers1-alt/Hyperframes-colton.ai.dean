@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1280, height=400" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1280px; height:400px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:1280px; height:400px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+html, body, #stage { width:1280px; height:400px; }
+#root { width:640px; height:200px; }
+#box { position:absolute; left:0; top:0; width:640px; height:143px; border-radius:6px; overflow:hidden;
+  background:linear-gradient(180deg, rgba(22,22,26,0.92), rgba(12,12,14,0.92)); box-shadow:0 10px 30px rgba(0,0,0,0.45); }
+#chip { position:absolute; left:0; top:0; width:176px; height:92px; background:#d80609;
+  clip-path:polygon(0 0, 100% 0, 100% 100%, 22px 100%, 0 calc(100% - 22px)); }
+#chip span { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-weight:900; font-style:italic;
+  font-size:70px; letter-spacing:-0.02em; color:#fff; padding-right:6px; }
+#nm { position:absolute; right:30px; top:8px; font-weight:900; font-style:italic; font-size:54px; letter-spacing:0.01em; line-height:1.1; }
+#sub { position:absolute; right:32px; top:63px; font-family:"JetBrains Mono"; font-weight:600; font-size:20px; letter-spacing:0.32em; color:rgba(255,255,255,0.62); }
+#rule { position:absolute; left:20px; right:20px; top:96px; height:1px; background:rgba(255,255,255,0.12); }
+#bot { position:absolute; left:0; right:0; top:97px; height:46px; display:flex; align-items:center; justify-content:center; gap:22px; }
+#lbl { font-family:"JetBrains Mono"; font-weight:600; font-size:20px; letter-spacing:0.28em; color:rgba(255,255,255,0.62); }
+#clk { font-weight:900; font-size:36px; letter-spacing:0.02em; font-variant-numeric:tabular-nums; min-width:112px; }
+#fin { position:absolute; left:0; right:0; top:97px; height:46px; display:flex; align-items:center; justify-content:center; gap:16px; opacity:0;
+  font-weight:900; font-style:italic; font-size:34px; letter-spacing:0.06em; color:#fff; background:#d80609; }
+.chq { width:34px; height:24px; background:conic-gradient(#fff 25%, #111 0 50%, #fff 0 75%, #111 0) 0 0/12px 12px; border:1px solid rgba(255,255,255,0.6); }
+#glow { position:absolute; left:0; right:0; top:141px; height:3px; background:#d80609; box-shadow:0 0 14px rgba(216,6,9,0.9); }
+#chip.c1 { background:linear-gradient(135deg, #fff1a8 0%, #f2c230 35%, #b8860b 70%, #ffe066 100%); }
+#chip.c2 { background:linear-gradient(135deg, #ffffff 0%, #d4d8dd 35%, #8e959c 70%, #e9ecef 100%); }
+#chip.c3 { background:linear-gradient(135deg, #ffcf9e 0%, #d08a45 35%, #8a4b17 70%, #e0a46a 100%); }
+#chip.c1 span, #chip.c2 span { color:#141414; }
+#chip.c3 span { color:#fff; text-shadow:0 2px 6px rgba(0,0,0,0.35); }
+#yf { position:absolute; left:0; top:150px; width:640px; height:46px; border-radius:6px; overflow:hidden; opacity:0;
+  background:#ffd400; color:#111; display:flex; align-items:center; justify-content:center; gap:16px;
+  font-weight:900; font-style:italic; font-size:32px; letter-spacing:0.08em; box-shadow:0 8px 24px rgba(0,0,0,0.4); }
+#yf .fl { width:30px; height:22px; background:#111; clip-path:polygon(0 0, 100% 20%, 100% 80%, 0 100%); position:relative; }
+#yf .fl::after { content:""; position:absolute; inset:3px 4px 3px 2px; background:#ffd400; clip-path:polygon(0 0, 100% 20%, 100% 80%, 0 100%); }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="1280.520" data-width="1280" data-height="400">
+<div id="root"><div id="box"><div id="chip" class="c3"><span id="pos">P3</span></div>
+<div id="nm">CHIVERS</div><div id="sub">ASH</div><div id="rule"></div>
+<div id="bot"><span id="lbl">TIME REMAINING</span><span id="clk">20:00</span></div>
+<div id="fin"><i class="chq"></i>FINAL LAP<i class="chq"></i></div><div id="glow"></div></div>
+<div id="yf"><i class="fl"></i>YELLOW FLAG<i class="fl"></i></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+
+const clk = { r:1200 }, el = document.getElementById("clk");
+const fmt = r => { const c = Math.max(0, Math.ceil(r - 1e-6)); return Math.floor(c / 60) + ":" + String(c % 60).padStart(2, "0"); };
+const draw = () => { el.textContent = fmt(clk.r); }; draw();
+tl.fromTo("#box", { opacity:0, x:60 }, { opacity:1, x:0, duration:0.5, ease:"expo.out", immediateRender:true }, 0.2);
+tl.from("#chip", { xPercent:-100, duration:0.45, ease:"power3.out" }, 0.45);
+tl.from("#nm", { opacity:0, x:24, duration:0.4, ease:"power2.out" }, 0.55);
+tl.from("#sub", { opacity:0, duration:0.4, ease:"none" }, 0.7);
+tl.from("#bot", { opacity:0, y:10, duration:0.4, ease:"back.out(1.6)" }, 0.8);
+tl.from("#glow", { scaleX:0, transformOrigin:"0 50%", duration:0.6, ease:"power2.inOut" }, 0.6);
+tl.to(clk, { r:0, duration:1200, ease:"none", onUpdate:draw }, 9.500);
+tl.fromTo("#glow", { opacity:0.3 }, { opacity:1, duration:0.25, yoyo:true, repeat:3, ease:"sine.inOut", immediateRender:false }, 9.500);
+tl.set("#bot", { opacity:0 }, 1195.040);
+tl.fromTo("#fin", { opacity:0, scaleY:0.2 }, { opacity:1, scaleY:1, duration:0.3, ease:"back.out(2)", immediateRender:false }, 1195.040);
+tl.fromTo("#fin", { backgroundColor:"#d80609" }, { backgroundColor:"#ff3b3e", duration:0.5, yoyo:true, repeat:5, ease:"sine.inOut", immediateRender:false }, 1195.340);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 188.400);tl.set("#pos", { textContent:"P2" }, 188.520);tl.set("#chip", { attr:{ class:"c2" } }, 188.520);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 188.520);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 188.520);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 195.900);tl.set("#pos", { textContent:"P3" }, 196.020);tl.set("#chip", { attr:{ class:"c3" } }, 196.020);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 196.020);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 196.020);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 344.200);tl.set("#pos", { textContent:"P2" }, 344.320);tl.set("#chip", { attr:{ class:"c2" } }, 344.320);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 344.320);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 344.320);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 502.400);tl.set("#pos", { textContent:"P1" }, 502.520);tl.set("#chip", { attr:{ class:"c1" } }, 502.520);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 502.520);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 502.520);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 506.700);tl.set("#pos", { textContent:"P2" }, 506.820);tl.set("#chip", { attr:{ class:"c2" } }, 506.820);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 506.820);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 506.820);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 557.200);tl.set("#pos", { textContent:"P1" }, 557.320);tl.set("#chip", { attr:{ class:"c1" } }, 557.320);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 557.320);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 557.320);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 597.600);tl.set("#pos", { textContent:"P2" }, 597.720);tl.set("#chip", { attr:{ class:"c2" } }, 597.720);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 597.720);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 597.720);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 606.400);tl.set("#pos", { textContent:"P1" }, 606.520);tl.set("#chip", { attr:{ class:"c1" } }, 606.520);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 606.520);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 606.520);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 720.040);tl.set("#pos", { textContent:"P2" }, 720.160);tl.set("#chip", { attr:{ class:"c2" } }, 720.160);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 720.160);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 720.160);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 1107.400);tl.set("#pos", { textContent:"P3" }, 1107.520);tl.set("#chip", { attr:{ class:"c3" } }, 1107.520);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 1107.520);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 1107.520);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 1130.500);tl.set("#pos", { textContent:"P2" }, 1130.620);tl.set("#chip", { attr:{ class:"c2" } }, 1130.620);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 1130.620);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 1130.620);
+tl.to("#chip", { scaleY:0, duration:0.12, ease:"power2.in", transformOrigin:"50% 50%" }, 1136.500);tl.set("#pos", { textContent:"P3" }, 1136.620);tl.set("#chip", { attr:{ class:"c3" } }, 1136.620);tl.to("#chip", { scaleY:1, duration:0.22, ease:"back.out(2.4)" }, 1136.620);tl.fromTo("#chip", { filter:"brightness(2.2)" }, { filter:"brightness(1)", duration:0.6, ease:"power2.out", immediateRender:false }, 1136.620);
+tl.fromTo("#yf", { opacity:0, y:-14 }, { opacity:1, y:0, duration:0.3, ease:"back.out(2)", immediateRender:false }, 442.040);tl.fromTo("#yf", { backgroundColor:"#ffd400" }, { backgroundColor:"#ffef7a", duration:0.4, yoyo:true, repeat:15, ease:"sine.inOut", immediateRender:false }, 442.340);tl.to("#yf", { opacity:0, y:-10, duration:0.3, ease:"power2.in" }, 449.040);
+tl.fromTo("#yf", { opacity:0, y:-14 }, { opacity:1, y:0, duration:0.3, ease:"back.out(2)", immediateRender:false }, 612.040);tl.fromTo("#yf", { backgroundColor:"#ffd400" }, { backgroundColor:"#ffef7a", duration:0.4, yoyo:true, repeat:11, ease:"sine.inOut", immediateRender:false }, 612.340);tl.to("#yf", { opacity:0, y:-10, duration:0.3, ease:"power2.in" }, 617.040);
+
+tl.to({}, { duration:1280.520 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

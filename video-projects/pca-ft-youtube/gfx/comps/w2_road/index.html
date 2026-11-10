@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+.bg { position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 45%, #1d1d22 0%, #0b0b0d 75%); }
+.bg::after { content:''; position:absolute; inset:0; opacity:0.18;
+  background-image:linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size:80px 80px; }
+.hd { position:absolute; left:0; right:0; top:46px; text-align:center; }
+.hd .k { justify-content:center; font-size:20px; color:#ff5254; }
+.hd .t { font-size:84px; margin-top:6px; }
+.pol { position:absolute; background:#f3f1ec; padding:16px 16px 70px; box-shadow:0 30px 70px rgba(0,0,0,0.6); }
+.pol img, .pol video { display:block; width:100%; height:100%; object-fit:cover; }
+.pol .cap { position:absolute; left:0; right:0; bottom:12px; text-align:center; color:#141414; }
+.pol .cap b { font-family:"Bebas Neue"; font-size:40px; letter-spacing:0.04em; }
+.pol .cap span { display:block; font-weight:700; font-size:17px; letter-spacing:0.08em; color:#555; margin-top:-2px; }
+.tag { position:absolute; top:-22px; left:22px; background:#d80609; color:#fff; font-family:"Bebas Neue"; font-size:38px; letter-spacing:0.08em;
+  padding:4px 18px 0; box-shadow:0 8px 20px rgba(0,0,0,0.4); }
+.vcard { position:absolute; background:#0c0c0e; padding:10px; border-top:6px solid #d80609; box-shadow:0 30px 80px rgba(0,0,0,0.6); }
+.vcard video { display:block; width:100%; height:100%; object-fit:cover; }
+.vcard .lab { position:absolute; left:10px; bottom:-52px; font-weight:800; font-size:21px; letter-spacing:0.24em; color:#fff;
+  background:rgba(12,12,14,0.85); padding:10px 16px 9px; }
+.vcard .lab b { color:#ff5254; }#P { position:absolute; inset:0; background:#0c0c0e; }
+#P .edge { position:absolute; right:-36px; top:0; bottom:0; width:36px; background:#d80609; }
+#P .bg { opacity:1; }
+#M { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+#M .k { font-size:22px; color:#ff5254; }
+#M .t { font-size:150px; margin-top:6px; }
+#M .rule { width:140px; height:5px; background:#d80609; margin-top:16px; transform-origin:50% 50%; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="1.299" data-width="3840" data-height="2160"><div id="root"><div id="P"><div class="bg"></div><div class="edge"></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set("#P", { xPercent:-104 });
+tl.to("#P", { xPercent:0, duration:0.45*K, ease:"power3.inOut" }, 0);
+tl.to("#P", { xPercent:104, duration:0.45*K, ease:"power3.inOut" }, 0.850*K);
+tl.to({}, { duration:1.299 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

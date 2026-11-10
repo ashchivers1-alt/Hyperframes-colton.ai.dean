@@ -1,0 +1,650 @@
+[
+  {
+    "text": "♪",
+    "start": 0.01,
+    "end": 0.24,
+    "id": "w0"
+  },
+  {
+    "text": "You",
+    "start": 0.24,
+    "end": 0.48,
+    "id": "w1"
+  },
+  {
+    "text": "got",
+    "start": 0.48,
+    "end": 0.72,
+    "id": "w2"
+  },
+  {
+    "text": "the",
+    "start": 0.72,
+    "end": 0.96,
+    "id": "w3"
+  },
+  {
+    "text": "rock,",
+    "start": 0.96,
+    "end": 1.44,
+    "id": "w4"
+  },
+  {
+    "text": "I'm",
+    "start": 1.44,
+    "end": 1.67,
+    "id": "w5"
+  },
+  {
+    "text": "a",
+    "start": 1.68,
+    "end": 1.76,
+    "id": "w6"
+  },
+  {
+    "text": "black",
+    "start": 1.76,
+    "end": 2.15,
+    "id": "w7"
+  },
+  {
+    "text": "woman",
+    "start": 2.16,
+    "end": 2.56,
+    "id": "w8"
+  },
+  {
+    "text": "♪",
+    "start": 2.56,
+    "end": 2.84,
+    "id": "w9"
+  },
+  {
+    "text": "That",
+    "start": 2.85,
+    "end": 3.12,
+    "id": "w10"
+  },
+  {
+    "text": "leg",
+    "start": 3.12,
+    "end": 3.33,
+    "id": "w11"
+  },
+  {
+    "text": "is",
+    "start": 3.33,
+    "end": 3.47,
+    "id": "w12"
+  },
+  {
+    "text": "so",
+    "start": 3.47,
+    "end": 3.6,
+    "id": "w13"
+  },
+  {
+    "text": "fucking",
+    "start": 3.61,
+    "end": 4.1,
+    "id": "w14"
+  },
+  {
+    "text": "bad",
+    "start": 4.1,
+    "end": 4.31,
+    "id": "w15"
+  },
+  {
+    "text": "at",
+    "start": 4.31,
+    "end": 4.45,
+    "id": "w16"
+  },
+  {
+    "text": "the",
+    "start": 4.45,
+    "end": 4.66,
+    "id": "w17"
+  },
+  {
+    "text": "moment.",
+    "start": 4.66,
+    "end": 5.32,
+    "id": "w18"
+  },
+  {
+    "text": "Knee.",
+    "start": 5.33,
+    "end": 6.15,
+    "id": "w19"
+  },
+  {
+    "text": "Yeah.",
+    "start": 6.16,
+    "end": 6.4,
+    "id": "w20"
+  },
+  {
+    "text": "Go.",
+    "start": 8.8,
+    "end": 9.63,
+    "id": "w21"
+  },
+  {
+    "text": "♪",
+    "start": 9.63,
+    "end": 10.303,
+    "id": "w22"
+  },
+  {
+    "text": "You",
+    "start": 10.303,
+    "end": 10.977,
+    "id": "w23"
+  },
+  {
+    "text": "stay,",
+    "start": 10.977,
+    "end": 11.65,
+    "id": "w24"
+  },
+  {
+    "text": "you're",
+    "start": 11.65,
+    "end": 12.4,
+    "id": "w25"
+  },
+  {
+    "text": "a",
+    "start": 12.41,
+    "end": 12.55,
+    "id": "w26"
+  },
+  {
+    "text": "good",
+    "start": 12.56,
+    "end": 13.18,
+    "id": "w27"
+  },
+  {
+    "text": "friend",
+    "start": 13.18,
+    "end": 14.11,
+    "id": "w28"
+  },
+  {
+    "text": "♪",
+    "start": 14.11,
+    "end": 14.64,
+    "id": "w29"
+  },
+  {
+    "text": "♪",
+    "start": 14.65,
+    "end": 14.85,
+    "id": "w30"
+  },
+  {
+    "text": "You're",
+    "start": 14.85,
+    "end": 15.27,
+    "id": "w31"
+  },
+  {
+    "text": "a",
+    "start": 15.27,
+    "end": 15.34,
+    "id": "w32"
+  },
+  {
+    "text": "short",
+    "start": 15.34,
+    "end": 15.69,
+    "id": "w33"
+  },
+  {
+    "text": "one",
+    "start": 15.69,
+    "end": 15.9,
+    "id": "w34"
+  },
+  {
+    "text": "♪",
+    "start": 15.9,
+    "end": 16.14,
+    "id": "w35"
+  },
+  {
+    "text": "♪",
+    "start": 16.15,
+    "end": 16.56,
+    "id": "w36"
+  },
+  {
+    "text": "You",
+    "start": 16.56,
+    "end": 16.97,
+    "id": "w37"
+  },
+  {
+    "text": "got",
+    "start": 16.98,
+    "end": 17.4,
+    "id": "w38"
+  },
+  {
+    "text": "a",
+    "start": 17.4,
+    "end": 17.54,
+    "id": "w39"
+  },
+  {
+    "text": "short",
+    "start": 17.54,
+    "end": 18.24,
+    "id": "w40"
+  },
+  {
+    "text": "one",
+    "start": 18.28,
+    "end": 18.67,
+    "id": "w41"
+  },
+  {
+    "text": "♪",
+    "start": 18.67,
+    "end": 19.14,
+    "id": "w42"
+  },
+  {
+    "text": "♪",
+    "start": 19.15,
+    "end": 19.3,
+    "id": "w43"
+  },
+  {
+    "text": "Right",
+    "start": 19.3,
+    "end": 19.57,
+    "id": "w44"
+  },
+  {
+    "text": "in",
+    "start": 19.57,
+    "end": 19.68,
+    "id": "w45"
+  },
+  {
+    "text": "your",
+    "start": 19.68,
+    "end": 19.9,
+    "id": "w46"
+  },
+  {
+    "text": "strong",
+    "start": 19.9,
+    "end": 20.23,
+    "id": "w47"
+  },
+  {
+    "text": "skin",
+    "start": 20.23,
+    "end": 20.45,
+    "id": "w48"
+  },
+  {
+    "text": "♪",
+    "start": 20.45,
+    "end": 20.64,
+    "id": "w49"
+  },
+  {
+    "text": "♪",
+    "start": 20.65,
+    "end": 20.81,
+    "id": "w50"
+  },
+  {
+    "text": "Hold",
+    "start": 20.82,
+    "end": 21.06,
+    "id": "w51"
+  },
+  {
+    "text": "my",
+    "start": 21.06,
+    "end": 21.18,
+    "id": "w52"
+  },
+  {
+    "text": "mind",
+    "start": 21.18,
+    "end": 21.42,
+    "id": "w53"
+  },
+  {
+    "text": "♪",
+    "start": 21.42,
+    "end": 21.64,
+    "id": "w54"
+  },
+  {
+    "text": "♪",
+    "start": 21.64,
+    "end": 21.77,
+    "id": "w55"
+  },
+  {
+    "text": "You're",
+    "start": 21.77,
+    "end": 22.04,
+    "id": "w56"
+  },
+  {
+    "text": "the",
+    "start": 22.04,
+    "end": 22.18,
+    "id": "w57"
+  },
+  {
+    "text": "one",
+    "start": 22.18,
+    "end": 22.32,
+    "id": "w58"
+  },
+  {
+    "text": "♪",
+    "start": 22.32,
+    "end": 22.48,
+    "id": "w59"
+  },
+  {
+    "text": "♪",
+    "start": 22.48,
+    "end": 22.6,
+    "id": "w60"
+  },
+  {
+    "text": "You're",
+    "start": 22.6,
+    "end": 22.84,
+    "id": "w61"
+  },
+  {
+    "text": "a",
+    "start": 22.84,
+    "end": 22.88,
+    "id": "w62"
+  },
+  {
+    "text": "good",
+    "start": 22.88,
+    "end": 23.04,
+    "id": "w63"
+  },
+  {
+    "text": "dog",
+    "start": 23.04,
+    "end": 23.16,
+    "id": "w64"
+  },
+  {
+    "text": "♪",
+    "start": 23.16,
+    "end": 23.32,
+    "id": "w65"
+  },
+  {
+    "text": "♪",
+    "start": 23.32,
+    "end": 23.45,
+    "id": "w66"
+  },
+  {
+    "text": "I",
+    "start": 23.45,
+    "end": 23.49,
+    "id": "w67"
+  },
+  {
+    "text": "got",
+    "start": 23.49,
+    "end": 23.62,
+    "id": "w68"
+  },
+  {
+    "text": "a",
+    "start": 23.62,
+    "end": 23.66,
+    "id": "w69"
+  },
+  {
+    "text": "long",
+    "start": 23.66,
+    "end": 23.84,
+    "id": "w70"
+  },
+  {
+    "text": "one",
+    "start": 23.84,
+    "end": 23.97,
+    "id": "w71"
+  },
+  {
+    "text": "♪",
+    "start": 23.97,
+    "end": 24.16,
+    "id": "w72"
+  },
+  {
+    "text": "♪",
+    "start": 24.16,
+    "end": 24.26,
+    "id": "w73"
+  },
+  {
+    "text": "You're",
+    "start": 24.26,
+    "end": 24.48,
+    "id": "w74"
+  },
+  {
+    "text": "a",
+    "start": 24.48,
+    "end": 24.51,
+    "id": "w75"
+  },
+  {
+    "text": "good,",
+    "start": 24.51,
+    "end": 24.72,
+    "id": "w76"
+  },
+  {
+    "text": "small",
+    "start": 24.72,
+    "end": 24.89,
+    "id": "w77"
+  },
+  {
+    "text": "one",
+    "start": 24.89,
+    "end": 25.01,
+    "id": "w78"
+  },
+  {
+    "text": "♪",
+    "start": 25.01,
+    "end": 25.16,
+    "id": "w79"
+  },
+  {
+    "text": "Go",
+    "start": 25.17,
+    "end": 25.4,
+    "id": "w80"
+  },
+  {
+    "text": "on.",
+    "start": 25.4,
+    "end": 25.99,
+    "id": "w81"
+  },
+  {
+    "text": "♪",
+    "start": 26.01,
+    "end": 26.28,
+    "id": "w82"
+  },
+  {
+    "text": "You",
+    "start": 26.28,
+    "end": 26.56,
+    "id": "w83"
+  },
+  {
+    "text": "got",
+    "start": 26.56,
+    "end": 26.83,
+    "id": "w84"
+  },
+  {
+    "text": "a",
+    "start": 26.84,
+    "end": 26.93,
+    "id": "w85"
+  },
+  {
+    "text": "short",
+    "start": 26.93,
+    "end": 27.4,
+    "id": "w86"
+  },
+  {
+    "text": "one",
+    "start": 27.4,
+    "end": 27.67,
+    "id": "w87"
+  },
+  {
+    "text": "♪",
+    "start": 27.68,
+    "end": 28,
+    "id": "w88"
+  },
+  {
+    "text": "♪",
+    "start": 28.01,
+    "end": 28.27,
+    "id": "w89"
+  },
+  {
+    "text": "You",
+    "start": 28.27,
+    "end": 28.54,
+    "id": "w90"
+  },
+  {
+    "text": "got",
+    "start": 28.54,
+    "end": 28.81,
+    "id": "w91"
+  },
+  {
+    "text": "a",
+    "start": 28.81,
+    "end": 28.9,
+    "id": "w92"
+  },
+  {
+    "text": "long",
+    "start": 28.9,
+    "end": 29.26,
+    "id": "w93"
+  },
+  {
+    "text": "one",
+    "start": 29.26,
+    "end": 29.53,
+    "id": "w94"
+  },
+  {
+    "text": "♪",
+    "start": 29.53,
+    "end": 29.84,
+    "id": "w95"
+  },
+  {
+    "text": "♪",
+    "start": 29.85,
+    "end": 30.01,
+    "id": "w96"
+  },
+  {
+    "text": "Hold",
+    "start": 30.02,
+    "end": 30.27,
+    "id": "w97"
+  },
+  {
+    "text": "your",
+    "start": 30.27,
+    "end": 30.52,
+    "id": "w98"
+  },
+  {
+    "text": "mind",
+    "start": 30.52,
+    "end": 30.77,
+    "id": "w99"
+  },
+  {
+    "text": "♪",
+    "start": 30.77,
+    "end": 31,
+    "id": "w100"
+  },
+  {
+    "text": "♪",
+    "start": 31.01,
+    "end": 31.31,
+    "id": "w101"
+  },
+  {
+    "text": "You're",
+    "start": 31.31,
+    "end": 31.95,
+    "id": "w102"
+  },
+  {
+    "text": "a",
+    "start": 31.95,
+    "end": 32.05,
+    "id": "w103"
+  },
+  {
+    "text": "good,",
+    "start": 32.05,
+    "end": 32.69,
+    "id": "w104"
+  },
+  {
+    "text": "small",
+    "start": 32.69,
+    "end": 33.23,
+    "id": "w105"
+  },
+  {
+    "text": "one",
+    "start": 33.23,
+    "end": 33.55,
+    "id": "w106"
+  },
+  {
+    "text": "♪",
+    "start": 33.55,
+    "end": 33.92,
+    "id": "w107"
+  }
+]

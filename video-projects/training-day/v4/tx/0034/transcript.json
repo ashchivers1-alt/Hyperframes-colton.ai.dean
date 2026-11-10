@@ -1,0 +1,896 @@
+[
+  {
+    "text": "Right,",
+    "start": 0,
+    "end": 0.5,
+    "id": "w0"
+  },
+  {
+    "text": "that",
+    "start": 0.71,
+    "end": 0.87,
+    "id": "w1"
+  },
+  {
+    "text": "is",
+    "start": 0.87,
+    "end": 1.03,
+    "id": "w2"
+  },
+  {
+    "text": "breakfast",
+    "start": 1.03,
+    "end": 1.74,
+    "id": "w3"
+  },
+  {
+    "text": "done.",
+    "start": 1.74,
+    "end": 2.08,
+    "id": "w4"
+  },
+  {
+    "text": "I'm",
+    "start": 2.08,
+    "end": 2.29,
+    "id": "w5"
+  },
+  {
+    "text": "gonna",
+    "start": 2.29,
+    "end": 2.38,
+    "id": "w6"
+  },
+  {
+    "text": "give",
+    "start": 2.79,
+    "end": 3.06,
+    "id": "w7"
+  },
+  {
+    "text": "you",
+    "start": 3.06,
+    "end": 3.21,
+    "id": "w8"
+  },
+  {
+    "text": "a",
+    "start": 3.34,
+    "end": 3.39,
+    "id": "w9"
+  },
+  {
+    "text": "little",
+    "start": 3.39,
+    "end": 3.92,
+    "id": "w10"
+  },
+  {
+    "text": "look",
+    "start": 3.92,
+    "end": 4.32,
+    "id": "w11"
+  },
+  {
+    "text": "at",
+    "start": 4.32,
+    "end": 4.48,
+    "id": "w12"
+  },
+  {
+    "text": "the",
+    "start": 4.48,
+    "end": 4.55,
+    "id": "w13"
+  },
+  {
+    "text": "1,000",
+    "start": 4.72,
+    "end": 5.85,
+    "id": "w14"
+  },
+  {
+    "text": "calorie",
+    "start": 5.85,
+    "end": 6.42,
+    "id": "w15"
+  },
+  {
+    "text": "breakfast,",
+    "start": 6.42,
+    "end": 7.32,
+    "id": "w16"
+  },
+  {
+    "text": "okay?",
+    "start": 7.32,
+    "end": 7.93,
+    "id": "w17"
+  },
+  {
+    "text": "So",
+    "start": 7.94,
+    "end": 8.17,
+    "id": "w18"
+  },
+  {
+    "text": "this",
+    "start": 8.65,
+    "end": 9.06,
+    "id": "w19"
+  },
+  {
+    "text": "is",
+    "start": 9.06,
+    "end": 9.39,
+    "id": "w20"
+  },
+  {
+    "text": "it.",
+    "start": 9.43,
+    "end": 10.4,
+    "id": "w21"
+  },
+  {
+    "text": "Also,",
+    "start": 10.4,
+    "end": 11.195,
+    "id": "w22"
+  },
+  {
+    "text": "we've",
+    "start": 11.195,
+    "end": 11.99,
+    "id": "w23"
+  },
+  {
+    "text": "got",
+    "start": 11.99,
+    "end": 12.785,
+    "id": "w24"
+  },
+  {
+    "text": "the",
+    "start": 12.785,
+    "end": 13.58,
+    "id": "w25"
+  },
+  {
+    "text": "steak",
+    "start": 13.58,
+    "end": 13.62,
+    "id": "w26"
+  },
+  {
+    "text": "here.",
+    "start": 13.62,
+    "end": 14.68,
+    "id": "w27"
+  },
+  {
+    "text": "250",
+    "start": 14.68,
+    "end": 15.47,
+    "id": "w28"
+  },
+  {
+    "text": "gram,",
+    "start": 15.47,
+    "end": 15.99,
+    "id": "w29"
+  },
+  {
+    "text": "255",
+    "start": 15.99,
+    "end": 16.78,
+    "id": "w30"
+  },
+  {
+    "text": "grams",
+    "start": 16.78,
+    "end": 17.22,
+    "id": "w31"
+  },
+  {
+    "text": "raw",
+    "start": 17.22,
+    "end": 17.48,
+    "id": "w32"
+  },
+  {
+    "text": "weight",
+    "start": 17.48,
+    "end": 17.87,
+    "id": "w33"
+  },
+  {
+    "text": "rump",
+    "start": 17.87,
+    "end": 18.34,
+    "id": "w34"
+  },
+  {
+    "text": "steak.",
+    "start": 18.56,
+    "end": 19.08,
+    "id": "w35"
+  },
+  {
+    "text": "200",
+    "start": 19.08,
+    "end": 19.31,
+    "id": "w36"
+  },
+  {
+    "text": "sourdough,",
+    "start": 19.76,
+    "end": 20.12,
+    "id": "w37"
+  },
+  {
+    "text": "201",
+    "start": 20.12,
+    "end": 20.59,
+    "id": "w38"
+  },
+  {
+    "text": "grams",
+    "start": 20.59,
+    "end": 20.85,
+    "id": "w39"
+  },
+  {
+    "text": "specifically.",
+    "start": 20.85,
+    "end": 21.52,
+    "id": "w40"
+  },
+  {
+    "text": "Three",
+    "start": 21.52,
+    "end": 21.75,
+    "id": "w41"
+  },
+  {
+    "text": "extra",
+    "start": 22.23,
+    "end": 22.52,
+    "id": "w42"
+  },
+  {
+    "text": "large",
+    "start": 22.52,
+    "end": 23.02,
+    "id": "w43"
+  },
+  {
+    "text": "eggs,",
+    "start": 23.02,
+    "end": 23.66,
+    "id": "w44"
+  },
+  {
+    "text": "full",
+    "start": 23.66,
+    "end": 24.02,
+    "id": "w45"
+  },
+  {
+    "text": "whole",
+    "start": 24.02,
+    "end": 24.47,
+    "id": "w46"
+  },
+  {
+    "text": "eggs.",
+    "start": 24.47,
+    "end": 24.92,
+    "id": "w47"
+  },
+  {
+    "text": "Gonna,",
+    "start": 25.12,
+    "end": 25.53,
+    "id": "w48"
+  },
+  {
+    "text": "of",
+    "start": 25.58,
+    "end": 25.64,
+    "id": "w49"
+  },
+  {
+    "text": "course,",
+    "start": 25.83,
+    "end": 26.25,
+    "id": "w50"
+  },
+  {
+    "text": "give",
+    "start": 26.25,
+    "end": 26.52,
+    "id": "w51"
+  },
+  {
+    "text": "it",
+    "start": 26.52,
+    "end": 26.65,
+    "id": "w52"
+  },
+  {
+    "text": "a",
+    "start": 26.65,
+    "end": 26.71,
+    "id": "w53"
+  },
+  {
+    "text": "dowsing",
+    "start": 26.71,
+    "end": 27.26,
+    "id": "w54"
+  },
+  {
+    "text": "of",
+    "start": 27.26,
+    "end": 27.44,
+    "id": "w55"
+  },
+  {
+    "text": "the",
+    "start": 27.44,
+    "end": 27.71,
+    "id": "w56"
+  },
+  {
+    "text": "ketchup.",
+    "start": 27.71,
+    "end": 28.36,
+    "id": "w57"
+  },
+  {
+    "text": "But",
+    "start": 28.36,
+    "end": 28.59,
+    "id": "w58"
+  },
+  {
+    "text": "yeah,",
+    "start": 28.65,
+    "end": 29.23,
+    "id": "w59"
+  },
+  {
+    "text": "this",
+    "start": 29.23,
+    "end": 29.49,
+    "id": "w60"
+  },
+  {
+    "text": "is,",
+    "start": 29.62,
+    "end": 29.96,
+    "id": "w61"
+  },
+  {
+    "text": "I",
+    "start": 30.05,
+    "end": 30.07,
+    "id": "w62"
+  },
+  {
+    "text": "think",
+    "start": 30.07,
+    "end": 30.26,
+    "id": "w63"
+  },
+  {
+    "text": "it's",
+    "start": 30.26,
+    "end": 30.33,
+    "id": "w64"
+  },
+  {
+    "text": "about",
+    "start": 30.41,
+    "end": 30.59,
+    "id": "w65"
+  },
+  {
+    "text": "1,100",
+    "start": 30.59,
+    "end": 31.12,
+    "id": "w66"
+  },
+  {
+    "text": "calories.",
+    "start": 31.12,
+    "end": 31.55,
+    "id": "w67"
+  },
+  {
+    "text": "I'm",
+    "start": 31.6,
+    "end": 31.79,
+    "id": "w68"
+  },
+  {
+    "text": "gonna",
+    "start": 31.79,
+    "end": 31.86,
+    "id": "w69"
+  },
+  {
+    "text": "put",
+    "start": 32.31,
+    "end": 32.33,
+    "id": "w70"
+  },
+  {
+    "text": "a",
+    "start": 32.33,
+    "end": 32.39,
+    "id": "w71"
+  },
+  {
+    "text": "little",
+    "start": 32.39,
+    "end": 32.73,
+    "id": "w72"
+  },
+  {
+    "text": "screenshot",
+    "start": 32.86,
+    "end": 33.52,
+    "id": "w73"
+  },
+  {
+    "text": "of",
+    "start": 33.52,
+    "end": 33.69,
+    "id": "w74"
+  },
+  {
+    "text": "the",
+    "start": 33.69,
+    "end": 33.78,
+    "id": "w75"
+  },
+  {
+    "text": "actual",
+    "start": 34.23,
+    "end": 34.45,
+    "id": "w76"
+  },
+  {
+    "text": "macros",
+    "start": 34.45,
+    "end": 34.95,
+    "id": "w77"
+  },
+  {
+    "text": "on",
+    "start": 34.95,
+    "end": 35.13,
+    "id": "w78"
+  },
+  {
+    "text": "this.",
+    "start": 35.21,
+    "end": 35.51,
+    "id": "w79"
+  },
+  {
+    "text": "But",
+    "start": 35.52,
+    "end": 35.65,
+    "id": "w80"
+  },
+  {
+    "text": "honestly,",
+    "start": 35.65,
+    "end": 36.06,
+    "id": "w81"
+  },
+  {
+    "text": "guys,",
+    "start": 36.23,
+    "end": 36.36,
+    "id": "w82"
+  },
+  {
+    "text": "if",
+    "start": 36.36,
+    "end": 36.46,
+    "id": "w83"
+  },
+  {
+    "text": "you",
+    "start": 36.46,
+    "end": 36.64,
+    "id": "w84"
+  },
+  {
+    "text": "are",
+    "start": 36.64,
+    "end": 36.81,
+    "id": "w85"
+  },
+  {
+    "text": "struggling",
+    "start": 36.81,
+    "end": 37.4,
+    "id": "w86"
+  },
+  {
+    "text": "to",
+    "start": 37.4,
+    "end": 37.49,
+    "id": "w87"
+  },
+  {
+    "text": "gain",
+    "start": 37.57,
+    "end": 37.83,
+    "id": "w88"
+  },
+  {
+    "text": "weight",
+    "start": 37.83,
+    "end": 38.28,
+    "id": "w89"
+  },
+  {
+    "text": "and",
+    "start": 38.28,
+    "end": 38.49,
+    "id": "w90"
+  },
+  {
+    "text": "you",
+    "start": 38.49,
+    "end": 38.54,
+    "id": "w91"
+  },
+  {
+    "text": "want",
+    "start": 38.54,
+    "end": 38.99,
+    "id": "w92"
+  },
+  {
+    "text": "something",
+    "start": 38.99,
+    "end": 39.64,
+    "id": "w93"
+  },
+  {
+    "text": "that",
+    "start": 39.64,
+    "end": 39.88,
+    "id": "w94"
+  },
+  {
+    "text": "digests",
+    "start": 39.97,
+    "end": 40.43,
+    "id": "w95"
+  },
+  {
+    "text": "well",
+    "start": 40.43,
+    "end": 40.76,
+    "id": "w96"
+  },
+  {
+    "text": "and",
+    "start": 40.76,
+    "end": 40.99,
+    "id": "w97"
+  },
+  {
+    "text": "is",
+    "start": 40.99,
+    "end": 41.1,
+    "id": "w98"
+  },
+  {
+    "text": "very",
+    "start": 41.47,
+    "end": 41.67,
+    "id": "w99"
+  },
+  {
+    "text": "calorie",
+    "start": 41.67,
+    "end": 42.36,
+    "id": "w100"
+  },
+  {
+    "text": "dense,",
+    "start": 42.45,
+    "end": 43.12,
+    "id": "w101"
+  },
+  {
+    "text": "this",
+    "start": 43.12,
+    "end": 43.35,
+    "id": "w102"
+  },
+  {
+    "text": "is",
+    "start": 43.35,
+    "end": 43.46,
+    "id": "w103"
+  },
+  {
+    "text": "it.",
+    "start": 43.46,
+    "end": 43.76,
+    "id": "w104"
+  },
+  {
+    "text": "There's",
+    "start": 43.76,
+    "end": 44.05,
+    "id": "w105"
+  },
+  {
+    "text": "a",
+    "start": 44.11,
+    "end": 44.15,
+    "id": "w106"
+  },
+  {
+    "text": "shit",
+    "start": 44.15,
+    "end": 44.21,
+    "id": "w107"
+  },
+  {
+    "text": "ton",
+    "start": 44.47,
+    "end": 44.51,
+    "id": "w108"
+  },
+  {
+    "text": "of",
+    "start": 44.51,
+    "end": 44.61,
+    "id": "w109"
+  },
+  {
+    "text": "protein,",
+    "start": 44.61,
+    "end": 45.08,
+    "id": "w110"
+  },
+  {
+    "text": "a",
+    "start": 45.08,
+    "end": 45.13,
+    "id": "w111"
+  },
+  {
+    "text": "shit",
+    "start": 45.13,
+    "end": 45.32,
+    "id": "w112"
+  },
+  {
+    "text": "ton",
+    "start": 45.32,
+    "end": 45.48,
+    "id": "w113"
+  },
+  {
+    "text": "of",
+    "start": 45.48,
+    "end": 45.61,
+    "id": "w114"
+  },
+  {
+    "text": "carbs,",
+    "start": 45.61,
+    "end": 46.08,
+    "id": "w115"
+  },
+  {
+    "text": "good",
+    "start": 46.08,
+    "end": 46.29,
+    "id": "w116"
+  },
+  {
+    "text": "amount",
+    "start": 46.33,
+    "end": 46.38,
+    "id": "w117"
+  },
+  {
+    "text": "of",
+    "start": 46.79,
+    "end": 46.89,
+    "id": "w118"
+  },
+  {
+    "text": "fat",
+    "start": 46.89,
+    "end": 47.09,
+    "id": "w119"
+  },
+  {
+    "text": "in",
+    "start": 47.09,
+    "end": 47.22,
+    "id": "w120"
+  },
+  {
+    "text": "this",
+    "start": 47.22,
+    "end": 47.48,
+    "id": "w121"
+  },
+  {
+    "text": "meal.",
+    "start": 47.49,
+    "end": 47.8,
+    "id": "w122"
+  },
+  {
+    "text": "And",
+    "start": 47.8,
+    "end": 47.9,
+    "id": "w123"
+  },
+  {
+    "text": "you",
+    "start": 47.9,
+    "end": 48,
+    "id": "w124"
+  },
+  {
+    "text": "know,",
+    "start": 48,
+    "end": 48.21,
+    "id": "w125"
+  },
+  {
+    "text": "like",
+    "start": 48.21,
+    "end": 48.3,
+    "id": "w126"
+  },
+  {
+    "text": "I",
+    "start": 48.34,
+    "end": 48.37,
+    "id": "w127"
+  },
+  {
+    "text": "said,",
+    "start": 48.51,
+    "end": 48.64,
+    "id": "w128"
+  },
+  {
+    "text": "if",
+    "start": 48.64,
+    "end": 48.68,
+    "id": "w129"
+  },
+  {
+    "text": "you're",
+    "start": 48.68,
+    "end": 48.79,
+    "id": "w130"
+  },
+  {
+    "text": "eating",
+    "start": 48.79,
+    "end": 48.92,
+    "id": "w131"
+  },
+  {
+    "text": "this",
+    "start": 48.92,
+    "end": 48.94,
+    "id": "w132"
+  },
+  {
+    "text": "from",
+    "start": 49.06,
+    "end": 49.13,
+    "id": "w133"
+  },
+  {
+    "text": "meal",
+    "start": 49.13,
+    "end": 49.23,
+    "id": "w134"
+  },
+  {
+    "text": "one,",
+    "start": 49.24,
+    "end": 49.56,
+    "id": "w135"
+  },
+  {
+    "text": "that's",
+    "start": 49.56,
+    "end": 49.75,
+    "id": "w136"
+  },
+  {
+    "text": "1,000",
+    "start": 49.75,
+    "end": 49.97,
+    "id": "w137"
+  },
+  {
+    "text": "calories",
+    "start": 50.27,
+    "end": 50.45,
+    "id": "w138"
+  },
+  {
+    "text": "banked",
+    "start": 50.45,
+    "end": 50.64,
+    "id": "w139"
+  },
+  {
+    "text": "straight",
+    "start": 50.64,
+    "end": 50.9,
+    "id": "w140"
+  },
+  {
+    "text": "away.",
+    "start": 50.9,
+    "end": 51.16,
+    "id": "w141"
+  },
+  {
+    "text": "So",
+    "start": 51.16,
+    "end": 51.37,
+    "id": "w142"
+  },
+  {
+    "text": "this",
+    "start": 51.87,
+    "end": 51.98,
+    "id": "w143"
+  },
+  {
+    "text": "here",
+    "start": 51.98,
+    "end": 52.53,
+    "id": "w144"
+  },
+  {
+    "text": "is",
+    "start": 52.53,
+    "end": 52.76,
+    "id": "w145"
+  },
+  {
+    "text": "a",
+    "start": 52.85,
+    "end": 52.93,
+    "id": "w146"
+  },
+  {
+    "text": "decent",
+    "start": 52.93,
+    "end": 53.75,
+    "id": "w147"
+  },
+  {
+    "text": "meal.",
+    "start": 53.75,
+    "end": 54.49,
+    "id": "w148"
+  }
+]

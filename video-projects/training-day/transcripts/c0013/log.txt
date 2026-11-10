@@ -1,0 +1,5 @@
+{"type":"progress","phase":"transcription","model":"small.en","status":"started","durationSeconds":3.117125}
+{"type":"words","model":"small.en","words":[{"text":"♪♪♪","start":0,"end":3.1}],"through":3.1}
+{"type":"words","model":"small.en","words":[],"through":3.117125}
+{"type":"progress","phase":"transcription","model":"small.en","status":"completed"}
+{"ok":true,"engine":"whisper","model":"small.en","detectedLanguage":null,"wordCount":1,"durationSeconds":3.1,"speechOnsetSeconds":null,"transcriptPath":"/Users/ashleychivers/Documents/Claude Video Studio/video-projects/training-day/transcripts/c0013/transcript.json"}

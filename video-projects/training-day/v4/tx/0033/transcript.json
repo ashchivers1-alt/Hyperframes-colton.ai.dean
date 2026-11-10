@@ -1,0 +1,866 @@
+[
+  {
+    "text": "I",
+    "start": 0,
+    "end": 0.02,
+    "id": "w0"
+  },
+  {
+    "text": "think",
+    "start": 0.02,
+    "end": 0.14,
+    "id": "w1"
+  },
+  {
+    "text": "that",
+    "start": 0.14,
+    "end": 0.24,
+    "id": "w2"
+  },
+  {
+    "text": "was",
+    "start": 0.24,
+    "end": 0.31,
+    "id": "w3"
+  },
+  {
+    "text": "just",
+    "start": 0.31,
+    "end": 0.41,
+    "id": "w4"
+  },
+  {
+    "text": "trying",
+    "start": 0.41,
+    "end": 0.56,
+    "id": "w5"
+  },
+  {
+    "text": "to",
+    "start": 0.56,
+    "end": 0.61,
+    "id": "w6"
+  },
+  {
+    "text": "hang",
+    "start": 0.61,
+    "end": 0.71,
+    "id": "w7"
+  },
+  {
+    "text": "on",
+    "start": 0.71,
+    "end": 0.76,
+    "id": "w8"
+  },
+  {
+    "text": "to",
+    "start": 0.76,
+    "end": 0.81,
+    "id": "w9"
+  },
+  {
+    "text": "car.",
+    "start": 0.81,
+    "end": 1,
+    "id": "w10"
+  },
+  {
+    "text": "Yes,",
+    "start": 1,
+    "end": 1.38,
+    "id": "w11"
+  },
+  {
+    "text": "it",
+    "start": 1.38,
+    "end": 1.53,
+    "id": "w12"
+  },
+  {
+    "text": "was.",
+    "start": 1.53,
+    "end": 2,
+    "id": "w13"
+  },
+  {
+    "text": "And",
+    "start": 2,
+    "end": 2.13,
+    "id": "w14"
+  },
+  {
+    "text": "that's",
+    "start": 2.13,
+    "end": 2.38,
+    "id": "w15"
+  },
+  {
+    "text": "it",
+    "start": 2.38,
+    "end": 2.46,
+    "id": "w16"
+  },
+  {
+    "text": "through",
+    "start": 2.46,
+    "end": 2.76,
+    "id": "w17"
+  },
+  {
+    "text": "it.",
+    "start": 2.76,
+    "end": 3,
+    "id": "w18"
+  },
+  {
+    "text": "And",
+    "start": 3,
+    "end": 3.33,
+    "id": "w19"
+  },
+  {
+    "text": "that's",
+    "start": 3.33,
+    "end": 4,
+    "id": "w20"
+  },
+  {
+    "text": "not",
+    "start": 4,
+    "end": 4,
+    "id": "w21"
+  },
+  {
+    "text": "a",
+    "start": 4,
+    "end": 4,
+    "id": "w22"
+  },
+  {
+    "text": "big",
+    "start": 4,
+    "end": 4,
+    "id": "w23"
+  },
+  {
+    "text": "deal.",
+    "start": 4,
+    "end": 4,
+    "id": "w24"
+  },
+  {
+    "text": "But",
+    "start": 4,
+    "end": 4.15,
+    "id": "w25"
+  },
+  {
+    "text": "it",
+    "start": 4.15,
+    "end": 4.25,
+    "id": "w26"
+  },
+  {
+    "text": "is",
+    "start": 4.25,
+    "end": 4.35,
+    "id": "w27"
+  },
+  {
+    "text": "into",
+    "start": 4.35,
+    "end": 4.54,
+    "id": "w28"
+  },
+  {
+    "text": "the",
+    "start": 4.54,
+    "end": 4.69,
+    "id": "w29"
+  },
+  {
+    "text": "car.",
+    "start": 4.69,
+    "end": 5,
+    "id": "w30"
+  },
+  {
+    "text": "It's",
+    "start": 5,
+    "end": 5.2,
+    "id": "w31"
+  },
+  {
+    "text": "got",
+    "start": 5.2,
+    "end": 5.35,
+    "id": "w32"
+  },
+  {
+    "text": "to",
+    "start": 5.35,
+    "end": 5.45,
+    "id": "w33"
+  },
+  {
+    "text": "be",
+    "start": 5.45,
+    "end": 5.55,
+    "id": "w34"
+  },
+  {
+    "text": "going.",
+    "start": 5.55,
+    "end": 6,
+    "id": "w35"
+  },
+  {
+    "text": "And",
+    "start": 6,
+    "end": 6.13,
+    "id": "w36"
+  },
+  {
+    "text": "it's",
+    "start": 6.13,
+    "end": 6.31,
+    "id": "w37"
+  },
+  {
+    "text": "got",
+    "start": 6.31,
+    "end": 6.44,
+    "id": "w38"
+  },
+  {
+    "text": "to",
+    "start": 6.44,
+    "end": 6.53,
+    "id": "w39"
+  },
+  {
+    "text": "be",
+    "start": 6.53,
+    "end": 6.62,
+    "id": "w40"
+  },
+  {
+    "text": "going.",
+    "start": 6.62,
+    "end": 7,
+    "id": "w41"
+  },
+  {
+    "text": "And",
+    "start": 7,
+    "end": 7.13,
+    "id": "w42"
+  },
+  {
+    "text": "it's",
+    "start": 7.13,
+    "end": 7.31,
+    "id": "w43"
+  },
+  {
+    "text": "got",
+    "start": 7.31,
+    "end": 7.44,
+    "id": "w44"
+  },
+  {
+    "text": "to",
+    "start": 7.44,
+    "end": 7.53,
+    "id": "w45"
+  },
+  {
+    "text": "be",
+    "start": 7.53,
+    "end": 7.62,
+    "id": "w46"
+  },
+  {
+    "text": "going.",
+    "start": 7.62,
+    "end": 8,
+    "id": "w47"
+  },
+  {
+    "text": "And",
+    "start": 8,
+    "end": 8.13,
+    "id": "w48"
+  },
+  {
+    "text": "it's",
+    "start": 8.13,
+    "end": 8.31,
+    "id": "w49"
+  },
+  {
+    "text": "got",
+    "start": 8.31,
+    "end": 8.44,
+    "id": "w50"
+  },
+  {
+    "text": "to",
+    "start": 8.44,
+    "end": 8.53,
+    "id": "w51"
+  },
+  {
+    "text": "be",
+    "start": 8.53,
+    "end": 8.62,
+    "id": "w52"
+  },
+  {
+    "text": "going.",
+    "start": 8.62,
+    "end": 9,
+    "id": "w53"
+  },
+  {
+    "text": "And",
+    "start": 9,
+    "end": 9.13,
+    "id": "w54"
+  },
+  {
+    "text": "it's",
+    "start": 9.13,
+    "end": 9.31,
+    "id": "w55"
+  },
+  {
+    "text": "got",
+    "start": 9.31,
+    "end": 9.44,
+    "id": "w56"
+  },
+  {
+    "text": "to",
+    "start": 9.44,
+    "end": 9.53,
+    "id": "w57"
+  },
+  {
+    "text": "be",
+    "start": 9.53,
+    "end": 9.62,
+    "id": "w58"
+  },
+  {
+    "text": "going.",
+    "start": 9.62,
+    "end": 10,
+    "id": "w59"
+  },
+  {
+    "text": "And",
+    "start": 10,
+    "end": 10.13,
+    "id": "w60"
+  },
+  {
+    "text": "it's",
+    "start": 10.13,
+    "end": 10.31,
+    "id": "w61"
+  },
+  {
+    "text": "got",
+    "start": 10.31,
+    "end": 10.44,
+    "id": "w62"
+  },
+  {
+    "text": "to",
+    "start": 10.44,
+    "end": 10.53,
+    "id": "w63"
+  },
+  {
+    "text": "be",
+    "start": 10.53,
+    "end": 10.62,
+    "id": "w64"
+  },
+  {
+    "text": "going.",
+    "start": 10.62,
+    "end": 11,
+    "id": "w65"
+  },
+  {
+    "text": "And",
+    "start": 11,
+    "end": 11.13,
+    "id": "w66"
+  },
+  {
+    "text": "it's",
+    "start": 11.13,
+    "end": 11.31,
+    "id": "w67"
+  },
+  {
+    "text": "got",
+    "start": 11.31,
+    "end": 11.44,
+    "id": "w68"
+  },
+  {
+    "text": "to",
+    "start": 11.44,
+    "end": 11.53,
+    "id": "w69"
+  },
+  {
+    "text": "be",
+    "start": 11.53,
+    "end": 11.62,
+    "id": "w70"
+  },
+  {
+    "text": "going.",
+    "start": 11.62,
+    "end": 12,
+    "id": "w71"
+  },
+  {
+    "text": "And",
+    "start": 12,
+    "end": 12.13,
+    "id": "w72"
+  },
+  {
+    "text": "it's",
+    "start": 12.13,
+    "end": 12.31,
+    "id": "w73"
+  },
+  {
+    "text": "got",
+    "start": 12.31,
+    "end": 12.44,
+    "id": "w74"
+  },
+  {
+    "text": "to",
+    "start": 12.44,
+    "end": 12.53,
+    "id": "w75"
+  },
+  {
+    "text": "be",
+    "start": 12.53,
+    "end": 12.62,
+    "id": "w76"
+  },
+  {
+    "text": "going.",
+    "start": 12.62,
+    "end": 13,
+    "id": "w77"
+  },
+  {
+    "text": "And",
+    "start": 13,
+    "end": 13.13,
+    "id": "w78"
+  },
+  {
+    "text": "it's",
+    "start": 13.13,
+    "end": 13.31,
+    "id": "w79"
+  },
+  {
+    "text": "got",
+    "start": 13.31,
+    "end": 13.44,
+    "id": "w80"
+  },
+  {
+    "text": "to",
+    "start": 13.44,
+    "end": 13.53,
+    "id": "w81"
+  },
+  {
+    "text": "be",
+    "start": 13.53,
+    "end": 13.62,
+    "id": "w82"
+  },
+  {
+    "text": "going.",
+    "start": 13.62,
+    "end": 14,
+    "id": "w83"
+  },
+  {
+    "text": "And",
+    "start": 14,
+    "end": 14.13,
+    "id": "w84"
+  },
+  {
+    "text": "it's",
+    "start": 14.13,
+    "end": 14.31,
+    "id": "w85"
+  },
+  {
+    "text": "got",
+    "start": 14.31,
+    "end": 14.44,
+    "id": "w86"
+  },
+  {
+    "text": "to",
+    "start": 14.44,
+    "end": 14.53,
+    "id": "w87"
+  },
+  {
+    "text": "be",
+    "start": 14.53,
+    "end": 14.62,
+    "id": "w88"
+  },
+  {
+    "text": "going.",
+    "start": 14.62,
+    "end": 15,
+    "id": "w89"
+  },
+  {
+    "text": "And",
+    "start": 15,
+    "end": 15.13,
+    "id": "w90"
+  },
+  {
+    "text": "it's",
+    "start": 15.13,
+    "end": 15.31,
+    "id": "w91"
+  },
+  {
+    "text": "got",
+    "start": 15.31,
+    "end": 15.44,
+    "id": "w92"
+  },
+  {
+    "text": "to",
+    "start": 15.44,
+    "end": 15.53,
+    "id": "w93"
+  },
+  {
+    "text": "be",
+    "start": 15.53,
+    "end": 15.62,
+    "id": "w94"
+  },
+  {
+    "text": "going.",
+    "start": 15.62,
+    "end": 16,
+    "id": "w95"
+  },
+  {
+    "text": "And",
+    "start": 16,
+    "end": 16.13,
+    "id": "w96"
+  },
+  {
+    "text": "it's",
+    "start": 16.13,
+    "end": 16.31,
+    "id": "w97"
+  },
+  {
+    "text": "got",
+    "start": 16.31,
+    "end": 16.44,
+    "id": "w98"
+  },
+  {
+    "text": "to",
+    "start": 16.44,
+    "end": 16.53,
+    "id": "w99"
+  },
+  {
+    "text": "be",
+    "start": 16.53,
+    "end": 16.62,
+    "id": "w100"
+  },
+  {
+    "text": "going.",
+    "start": 16.62,
+    "end": 17,
+    "id": "w101"
+  },
+  {
+    "text": "And",
+    "start": 17,
+    "end": 17.13,
+    "id": "w102"
+  },
+  {
+    "text": "it's",
+    "start": 17.13,
+    "end": 17.31,
+    "id": "w103"
+  },
+  {
+    "text": "got",
+    "start": 17.31,
+    "end": 17.44,
+    "id": "w104"
+  },
+  {
+    "text": "to",
+    "start": 17.44,
+    "end": 17.53,
+    "id": "w105"
+  },
+  {
+    "text": "be",
+    "start": 17.53,
+    "end": 17.62,
+    "id": "w106"
+  },
+  {
+    "text": "going.",
+    "start": 17.62,
+    "end": 18,
+    "id": "w107"
+  },
+  {
+    "text": "And",
+    "start": 18,
+    "end": 18.13,
+    "id": "w108"
+  },
+  {
+    "text": "it's",
+    "start": 18.13,
+    "end": 18.31,
+    "id": "w109"
+  },
+  {
+    "text": "got",
+    "start": 18.31,
+    "end": 18.44,
+    "id": "w110"
+  },
+  {
+    "text": "to",
+    "start": 18.44,
+    "end": 18.53,
+    "id": "w111"
+  },
+  {
+    "text": "be",
+    "start": 18.53,
+    "end": 18.62,
+    "id": "w112"
+  },
+  {
+    "text": "going.",
+    "start": 18.62,
+    "end": 19,
+    "id": "w113"
+  },
+  {
+    "text": "And",
+    "start": 19,
+    "end": 19.13,
+    "id": "w114"
+  },
+  {
+    "text": "it's",
+    "start": 19.13,
+    "end": 19.31,
+    "id": "w115"
+  },
+  {
+    "text": "got",
+    "start": 19.31,
+    "end": 19.44,
+    "id": "w116"
+  },
+  {
+    "text": "to",
+    "start": 19.44,
+    "end": 19.53,
+    "id": "w117"
+  },
+  {
+    "text": "be",
+    "start": 19.53,
+    "end": 19.62,
+    "id": "w118"
+  },
+  {
+    "text": "going.",
+    "start": 19.62,
+    "end": 20,
+    "id": "w119"
+  },
+  {
+    "text": "And",
+    "start": 20,
+    "end": 20.13,
+    "id": "w120"
+  },
+  {
+    "text": "it's",
+    "start": 20.13,
+    "end": 20.31,
+    "id": "w121"
+  },
+  {
+    "text": "got",
+    "start": 20.31,
+    "end": 20.44,
+    "id": "w122"
+  },
+  {
+    "text": "to",
+    "start": 20.44,
+    "end": 20.53,
+    "id": "w123"
+  },
+  {
+    "text": "be",
+    "start": 20.53,
+    "end": 20.62,
+    "id": "w124"
+  },
+  {
+    "text": "going.",
+    "start": 20.62,
+    "end": 21,
+    "id": "w125"
+  },
+  {
+    "text": "And",
+    "start": 21,
+    "end": 21.13,
+    "id": "w126"
+  },
+  {
+    "text": "it's",
+    "start": 21.13,
+    "end": 21.31,
+    "id": "w127"
+  },
+  {
+    "text": "got",
+    "start": 21.31,
+    "end": 21.44,
+    "id": "w128"
+  },
+  {
+    "text": "to",
+    "start": 21.44,
+    "end": 21.53,
+    "id": "w129"
+  },
+  {
+    "text": "be",
+    "start": 21.53,
+    "end": 21.62,
+    "id": "w130"
+  },
+  {
+    "text": "going.",
+    "start": 21.62,
+    "end": 22,
+    "id": "w131"
+  },
+  {
+    "text": "And",
+    "start": 22,
+    "end": 25.68,
+    "id": "w132"
+  },
+  {
+    "text": "it's",
+    "start": 25.68,
+    "end": 30.58,
+    "id": "w133"
+  },
+  {
+    "text": "got",
+    "start": 30.58,
+    "end": 34.26,
+    "id": "w134"
+  },
+  {
+    "text": "to",
+    "start": 34.26,
+    "end": 36.72,
+    "id": "w135"
+  },
+  {
+    "text": "be",
+    "start": 36.72,
+    "end": 39.17,
+    "id": "w136"
+  },
+  {
+    "text": "going.",
+    "start": 39.17,
+    "end": 49,
+    "id": "w137"
+  },
+  {
+    "text": "And",
+    "start": 49,
+    "end": 54,
+    "id": "w138"
+  },
+  {
+    "text": "it's",
+    "start": 54,
+    "end": 58.2,
+    "id": "w139"
+  },
+  {
+    "text": "got",
+    "start": 58.2,
+    "end": 61.36,
+    "id": "w140"
+  },
+  {
+    "text": "to",
+    "start": 61.36,
+    "end": 63.47,
+    "id": "w141"
+  },
+  {
+    "text": "be",
+    "start": 63.47,
+    "end": 65.58,
+    "id": "w142"
+  },
+  {
+    "text": "going.",
+    "start": 65.58,
+    "end": 74,
+    "id": "w143"
+  }
+]

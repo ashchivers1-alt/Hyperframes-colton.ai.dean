@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.mono { font-family:"JetBrains Mono", monospace; }
+.wash { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 80% 75% at 50% 50%, rgba(6,6,8,0.55) 0%, rgba(4,4,6,0.78) 100%); }
+
+.cap { position:absolute; left:0; right:0; bottom:118px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.k { font-family:"JetBrains Mono"; font-weight:700; font-size:26px; letter-spacing:0.3em; color:#fff; background:#d80609; padding:9px 18px 8px 22px; }
+.t { font-weight:900; font-style:italic; font-size:84px; line-height:1; letter-spacing:-0.01em; color:#fff; white-space:nowrap;
+  text-shadow:0 4px 0 rgba(0,0,0,0.55), 0 0 30px rgba(0,0,0,0.75), 0 0 2px #000; }
+.t b { color:#ff2a2d; font-weight:900; }
+.s { font-family:"JetBrains Mono"; font-weight:600; font-size:24px; letter-spacing:0.3em; color:rgba(255,255,255,0.85); text-shadow:0 2px 10px #000; }
+.vig { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse 75% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+.slo { position:absolute; left:50%; top:46px; transform:translateX(-50%); display:flex; align-items:center; gap:12px; opacity:0;
+  font-family:"JetBrains Mono"; font-weight:700; font-size:24px; letter-spacing:0.3em; color:#fff; background:rgba(10,10,12,0.7); padding:9px 18px; border-radius:30px; }
+.slo i { width:14px; height:14px; border-radius:50%; background:#d80609; box-shadow:0 0 10px #ff2a2d; }
+.bf { width:46px; height:32px; position:relative; }
+.bf::before { content:""; position:absolute; left:0; top:-4px; width:4px; height:44px; background:#ddd; }
+.bf::after { content:""; position:absolute; left:4px; top:0; width:42px; height:28px; background:#1565ff; box-shadow:0 0 12px rgba(40,110,255,0.8); }
+
+.wp { position:absolute; inset:0; background:linear-gradient(110deg, #ff5a1f 0%, #ff7a2e 60%, #f5c242 100%); }
+.wp .lg { position:absolute; left:0; right:0; top:50%; transform:translateY(-50%); text-align:center; font-weight:900; font-style:italic; font-size:220px;
+  line-height:1; color:#111; letter-spacing:-0.02em; }
+.wp .lg small { display:block; font-family:"JetBrains Mono"; font-style:normal; font-weight:700; font-size:30px; letter-spacing:0.4em; margin-top:16px; color:#1a0b00; }
+
+</style></head><body><div id="stage" data-composition-id="main" data-start="0" data-duration="1.600" data-width="3840" data-height="2160">
+<div id="root"><div class="wp" id="w"><div class="lg">HKC<small>BACK TO THE RACE</small></div></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true });
+tl.fromTo("#w", { xPercent:0 }, { xPercent:102, duration:0.5, ease:"power3.out", immediateRender:true }, 0.15);tl.set({}, {}, 1.60);
+tl.to({}, { duration:1.600 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

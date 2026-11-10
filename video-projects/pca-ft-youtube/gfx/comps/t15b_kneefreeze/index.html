@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=3840, height=2160" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:3840px; height:2160px; overflow:hidden; background:transparent; }
+#stage { position:relative; width:3840px; height:2160px; overflow:hidden; }
+#stage > #root { transform:scale(2); transform-origin:0 0; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+.card { position:absolute; background:rgba(12,12,14,0.78); border-left:6px solid #d80609; padding:22px 30px 24px;
+  box-shadow:0 18px 50px rgba(0,0,0,0.45); }
+#FZ { position:absolute; inset:0; }
+#FZ img { position:absolute; left:0; top:0; width:1920px; height:1080px; transform-origin:920px 527px; }
+#FZ .dim { position:absolute; inset:0; background:rgba(0,0,0,0.22); }
+#FL { position:absolute; inset:0; background:#fff; opacity:0; }
+#LB { position:absolute; font-family:"Bebas Neue"; font-size:44px; letter-spacing:0.04em; line-height:0.95; }
+#LB small { display:block; font-family:Montserrat; font-weight:800; font-size:18px; letter-spacing:0.2em; color:#ff5254; margin-bottom:8px; }
+#D { right:72px; top:400px; width:640px; padding:20px 24px 14px; }
+#D .k { font-size:19px; color:#ff5254; letter-spacing:0.28em; margin-bottom:6px; }
+</style></head><body>
+<div id="stage" data-composition-id="main" data-start="0" data-duration="11.823" data-width="3840" data-height="2160"><div id="root"><div id="FZ"><img src="assets/freeze.png"><div class="dim"></div><svg width="1920" height="1080" style="position:absolute; left:0; top:0;"><line id="shin" x1="920" y1="527" x2="982" y2="722" stroke="#d80609" stroke-width="9" stroke-linecap="round" stroke-dasharray="205" stroke-dashoffset="205" style="filter:drop-shadow(0 0 8px rgba(216,6,9,0.9))"/><line id="foot" x1="982" y1="722" x2="1088" y2="598" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="12 9" opacity="0"/><circle id="kd" cx="920" cy="527" r="16" fill="none" stroke="#fff" stroke-width="5"/><circle id="ad" cx="982" cy="722" r="13" fill="#d80609" stroke="#fff" stroke-width="4"/></svg><div id="LB" class="sh" style="left:560px; top:597px;"><small>WATCH THE KNEE</small>KNEE TRAVELS<br>OVER THE ANKLE</div><div id="FL"></div></div><div id="D" class="card sh"><div class="k">WHY IT HITS THE QUADS</div><svg width="590" height="350" viewBox="0 0 590 350"><defs><marker id="ar" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#ff5254"/></marker></defs><g id="pn0" transform="translate(0,46)"><line x1="146" y1="13" x2="280" y2="147" stroke="#8a8a8a" stroke-width="10" stroke-linecap="round"/><line x1="118" y1="223" x2="28" y2="167" stroke="#4a4a4a" stroke-width="12" stroke-linecap="round"/><line x1="132" y1="211" x2="46" y2="159" stroke="#bdbdbd" stroke-width="15" stroke-linecap="round"/><circle cx="22" cy="139" r="17" fill="#bdbdbd"/><line x1="151" y1="18" x2="63" y2="106" stroke="#fff" stroke-opacity="0.75" stroke-width="3" stroke-dasharray="7 6"/><polyline points="132,211 102,110 178,45 151,18" fill="none" stroke="#f2f2f2" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="132" cy="211" r="10" fill="#fff"/><circle cx="102" cy="110" r="11" fill="#fff"/><circle cx="178" cy="45" r="8" fill="#fff"/><text x="150" y="262" text-anchor="middle" font-family="Bebas Neue" font-size="40" fill="#f2f2f2">HIGH FOOT</text><text x="150" y="290" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="19" letter-spacing="3" fill="#cfcfcf">GLUTES · HAMS</text></g><g id="pn1" transform="translate(0,46)"><line x1="446" y1="13" x2="580" y2="147" stroke="#8a8a8a" stroke-width="10" stroke-linecap="round"/><line x1="418" y1="223" x2="328" y2="167" stroke="#4a4a4a" stroke-width="12" stroke-linecap="round"/><line x1="432" y1="211" x2="346" y2="159" stroke="#bdbdbd" stroke-width="15" stroke-linecap="round"/><circle cx="322" cy="139" r="17" fill="#bdbdbd"/><line x1="522" y1="89" x2="433" y2="177" stroke="#fff" stroke-opacity="0.75" stroke-width="3" stroke-dasharray="7 6"/><polyline points="432,211 449,107 549,116 522,89" fill="none" stroke="#d80609" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><circle cx="432" cy="211" r="10" fill="#fff"/><circle cx="449" cy="107" r="11" fill="#fff"/><circle cx="549" cy="116" r="8" fill="#fff"/><line class="ov" x1="476" y1="134" x2="457" y2="116" stroke="#ff5254" stroke-width="5" marker-end="url(#ar)"/><text class="ov" x="443" y="85" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="15" letter-spacing="2" fill="#ff5254">KNEES PAST TOES</text><text x="450" y="262" text-anchor="middle" font-family="Bebas Neue" font-size="40" fill="#d80609">LOW FOOT</text><text x="450" y="290" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="19" letter-spacing="3" fill="#cfcfcf">QUADS</text></g></svg></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#LB", "#kd", "#ad", "#D"], { opacity:0 });
+tl.fromTo("#FL", { opacity:0.75 }, { opacity:0, duration:0.3*K, ease:"power2.out", immediateRender:false }, 0);
+tl.fromTo("#FZ img", { scale:1 }, { scale:1.05, duration:5.00*K, ease:"none", immediateRender:false }, 0);
+tl.fromTo("#kd", { opacity:0, scale:2.2, transformOrigin:"50% 50%" }, { opacity:1, scale:1, duration:0.35*K, ease:"back.out(2)", immediateRender:false }, 0.3*K);
+tl.to("#shin", { strokeDashoffset:0, duration:0.55*K, ease:"power3.inOut" }, 0.45*K);
+tl.fromTo("#ad", { opacity:0, scale:0.3, transformOrigin:"50% 50%" }, { opacity:1, scale:1, duration:0.3*K, ease:"back.out(2.4)", immediateRender:false }, 0.95*K);
+tl.to("#foot", { opacity:0.85, duration:0.3*K }, 1.1*K);
+tl.fromTo("#LB", { opacity:0, x:-20 }, { opacity:1, x:0, duration:0.45*K, ease:"expo.out", immediateRender:false }, 1.15*K);
+tl.fromTo("#D", { opacity:0, y:24 }, { opacity:1, y:0, duration:0.5*K, ease:"power3.out", immediateRender:false }, 1.6*K);
+gsap.set(["#pn0", "#pn1"], { opacity:0 });
+tl.fromTo("#pn0", { opacity:0, x:-16 }, { opacity:1, x:0, duration:0.4*K, ease:"power2.out", immediateRender:false }, 1.9*K);
+tl.fromTo("#pn1", { opacity:0, x:16 }, { opacity:1, x:0, duration:0.4*K, ease:"power2.out", immediateRender:false }, 2.4*K);
+tl.fromTo("#pn1 .ov", { opacity:0 }, { opacity:1, duration:0.12*K, yoyo:true, repeat:4, immediateRender:false }, 2.9*K);
+tl.to("#FL", { opacity:0.6, duration:0.08*K }, 4.920*K);
+tl.set(["#FZ img", "#FZ .dim", "#FZ svg", "#LB"], { opacity:0 }, 5.000*K);
+tl.to("#FL", { opacity:0, duration:0.25*K }, 5.000*K);
+tl.to("#D", { opacity:0, x:30, duration:0.35*K, ease:"power2.in" }, 11.435*K);
+tl.to({}, { duration:11.823 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/lap-path.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #lap-wrap { position: absolute; inset: 0; }
+      #lap-video { width: 1080px; height: 1920px; object-fit: cover; }
+
+      /* Track map — outline-only, centred in the black band above the onboard footage (y 0–655).
+         Drawn in 700×417 map units, scaled up by #map-inner. */
+      #map { position: absolute; left: 160px; top: 101px; width: 760px; height: 453px; }
+      #map-inner { position: absolute; left: 0; top: 0; width: 700px; height: 417px; transform: scale(1.0857); transform-origin: 0 0; }
+      #map-svg { position: absolute; left: 0; top: 0; width: 700px; height: 417px; overflow: visible; }
+      .edge { fill: none; stroke: #fff; stroke-width: 3.5; stroke-linejoin: round; }
+      /* Snail trail: fills the track red between the outlines as the dot passes */
+      #trail { filter: drop-shadow(0 0 6px rgba(255, 26, 26, 0.7)); }
+      #trail path { fill: none; stroke: #ff1a1a; stroke-width: 19; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+      #dot { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+      #dot .ring, #dot .core, #dot .halo { position: absolute; border-radius: 50%; }
+      #dot .halo { left: -30px; top: -30px; width: 60px; height: 60px; background: radial-gradient(circle, rgba(255, 26, 26, 0.6) 0%, rgba(255, 26, 26, 0) 70%); }
+      #dot .ring { left: -13px; top: -13px; width: 26px; height: 26px; border: 4px solid #ff1a1a; }
+      #dot .core { left: -11px; top: -11px; width: 22px; height: 22px; background: #fff; border: 5px solid #ff1a1a;
+        box-shadow: 0 0 14px rgba(255, 26, 26, 0.95), 0 0 30px rgba(255, 26, 26, 0.6); }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-mo5a" id="root" data-composition-id="main" data-start="0" data-duration="88.8" data-width="1080" data-height="1920">
+      <div data-hf-id="hf-ovil" id="lap-wrap">
+        <video data-hf-id="hf-qzqw" id="lap-video" src="assets/lap.mp4" data-start="0" data-duration="88.8" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio data-hf-id="hf-g36b" id="lap-audio" src="assets/lap.mp4" data-start="0" data-duration="88.8" data-track-index="1" data-volume="1"></audio>
+
+      <div data-hf-id="hf-6h82" id="map" class="clip" data-start="0" data-duration="86" data-track-index="2">
+        <div id="map-inner">
+          <svg data-hf-id="hf-n523" id="map-svg" viewBox="0 0 700 417"><g id="trail"></g><path id="edge-a" class="edge" /><path id="edge-b" class="edge" /></svg>
+          <div data-hf-id="hf-zbza" id="dot"><div data-hf-id="hf-d1uq" class="halo"></div><div data-hf-id="hf-0qcu" class="ring"></div><div data-hf-id="hf-d5bp" class="core"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const LAP = window.LAP_PATH;
+        const pts = LAP.pts;
+        // Snail trail: ~500 short segments along the centre line, each switched on when the dot reaches it
+        const trail = document.getElementById("trail");
+        const NS = "http://www.w3.org/2000/svg";
+        const segEls = LAP.segs.map(([d]) => {
+          const el = document.createElementNS(NS, "path");
+          el.setAttribute("d", d);
+          trail.appendChild(el);
+          return el;
+        });
+        document.getElementById("edge-a").setAttribute("d", LAP.outlines[0]);
+        document.getElementById("edge-b").setAttribute("d", LAP.outlines[1]);
+
+        const tl = gsap.timeline({ paused: true });
+
+        // Start state = first sample
+        tl.set("#dot", { x: pts[0][1], y: pts[0][2] }, 0);
+
+        // Map entrance
+        tl.from("#map", { opacity: 0, y: -30, scale: 0.94, duration: 0.6, ease: "power3.out" }, 0.15);
+        tl.from("#dot .core", { scale: 0, duration: 0.5, ease: "back.out(2.5)" }, 0.4);
+
+        // Dot follows the synced lap path (10 Hz samples, linear between)
+        for (let i = 1; i < pts.length; i++) {
+          const [t, x, y, p] = pts[i];
+          const t0 = pts[i - 1][0];
+          tl.to("#dot", { x: x, y: y, duration: t - t0, ease: "none" }, t0);
+        }
+
+        // Light each trail segment at the first sample where lap progress reaches it
+        let k = 0;
+        LAP.segs.forEach(([, sp], i) => {
+          while (k < pts.length - 1 && pts[k][3] < sp) k++;
+          const a = pts[Math.max(k - 1, 0)], b = pts[k];
+          const f = b[3] > a[3] ? (sp - a[3]) / (b[3] - a[3]) : 0;
+          tl.set(segEls[i], { opacity: 1 }, Math.max(a[0] + f * (b[0] - a[0]), 0.01));
+        });
+
+        // Pulse ring + halo (finite repeats)
+        const PULSE = 1.0, END = 86;
+        tl.fromTo("#dot .ring", { scale: 1, opacity: 0.95 },
+          { scale: 3.4, opacity: 0, duration: PULSE, ease: "power2.out", repeat: Math.floor(END / PULSE) - 1 }, 0);
+        tl.fromTo("#dot .halo", { scale: 0.8 },
+          { scale: 1.25, duration: PULSE / 2, ease: "sine.inOut", yoyo: true, repeat: Math.floor(END / (PULSE / 2)) - 1 }, 0);
+
+        // Fade out as the Instagram end card comes up (~84.7s)
+        tl.to("#map", { opacity: 0, y: -20, duration: 0.6, ease: "power2.in" }, 84.4);
+
+        tl.set({}, {}, 88.8);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

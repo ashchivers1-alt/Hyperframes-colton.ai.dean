@@ -1,0 +1,170 @@
+[
+  {
+    "text": "I'm",
+    "start": 0,
+    "end": 0.54,
+    "id": "w0"
+  },
+  {
+    "text": "not",
+    "start": 0.54,
+    "end": 1.08,
+    "id": "w1"
+  },
+  {
+    "text": "being",
+    "start": 1.08,
+    "end": 2,
+    "id": "w2"
+  },
+  {
+    "text": "me",
+    "start": 2,
+    "end": 2.11,
+    "id": "w3"
+  },
+  {
+    "text": "this",
+    "start": 2.11,
+    "end": 2.33,
+    "id": "w4"
+  },
+  {
+    "text": "is",
+    "start": 2.33,
+    "end": 2.44,
+    "id": "w5"
+  },
+  {
+    "text": "this",
+    "start": 2.44,
+    "end": 2.66,
+    "id": "w6"
+  },
+  {
+    "text": "is",
+    "start": 2.66,
+    "end": 2.77,
+    "id": "w7"
+  },
+  {
+    "text": "just",
+    "start": 2.77,
+    "end": 2.99,
+    "id": "w8"
+  },
+  {
+    "text": "this",
+    "start": 2.99,
+    "end": 3.21,
+    "id": "w9"
+  },
+  {
+    "text": "is",
+    "start": 3.21,
+    "end": 3.32,
+    "id": "w10"
+  },
+  {
+    "text": "gonna",
+    "start": 3.32,
+    "end": 3.6,
+    "id": "w11"
+  },
+  {
+    "text": "be",
+    "start": 3.6,
+    "end": 3.71,
+    "id": "w12"
+  },
+  {
+    "text": "b-roll",
+    "start": 3.71,
+    "end": 4.12,
+    "id": "w13"
+  },
+  {
+    "text": "so",
+    "start": 4.12,
+    "end": 4.23,
+    "id": "w14"
+  },
+  {
+    "text": "don't",
+    "start": 4.23,
+    "end": 4.49,
+    "id": "w15"
+  },
+  {
+    "text": "worry",
+    "start": 4.51,
+    "end": 4.8,
+    "id": "w16"
+  },
+  {
+    "text": "you",
+    "start": 4.8,
+    "end": 4.92,
+    "id": "w17"
+  },
+  {
+    "text": "can",
+    "start": 4.92,
+    "end": 5,
+    "id": "w18"
+  },
+  {
+    "text": "say",
+    "start": 5,
+    "end": 5.08,
+    "id": "w19"
+  },
+  {
+    "text": "what",
+    "start": 5.08,
+    "end": 5.19,
+    "id": "w20"
+  },
+  {
+    "text": "you",
+    "start": 5.2,
+    "end": 5.28,
+    "id": "w21"
+  },
+  {
+    "text": "want",
+    "start": 5.28,
+    "end": 5.42,
+    "id": "w22"
+  },
+  {
+    "text": "The",
+    "start": 5.42,
+    "end": 8.42,
+    "id": "w23"
+  },
+  {
+    "text": "fucking",
+    "start": 8.42,
+    "end": 8.98,
+    "id": "w24"
+  },
+  {
+    "text": "jobs",
+    "start": 9.19,
+    "end": 10.42,
+    "id": "w25"
+  },
+  {
+    "text": "are",
+    "start": 10.42,
+    "end": 10.72,
+    "id": "w26"
+  },
+  {
+    "text": "coming",
+    "start": 10.72,
+    "end": 11.02,
+    "id": "w27"
+  }
+]

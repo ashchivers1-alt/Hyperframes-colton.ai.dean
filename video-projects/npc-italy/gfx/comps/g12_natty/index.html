@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+@font-face { font-family:'Apple Color Emoji'; src: local('Apple Color Emoji'); }
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.sh { text-shadow:0 3px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.7); }
+.back { position:absolute; left:-200px; bottom:-220px; width:1500px; height:760px;
+  background:radial-gradient(ellipse 55% 50% at 30% 62%, rgba(0,0,0,0.62), rgba(0,0,0,0) 70%); }
+.k { font-weight:800; font-size:22px; letter-spacing:0.3em; color:rgba(255,255,255,0.88); display:flex; align-items:center; gap:16px; }
+.k i { display:inline-block; width:40px; height:4px; background:#d80609; }
+.t { font-family:"Bebas Neue", sans-serif; line-height:0.9; letter-spacing:0.01em; white-space:nowrap; }
+.s { font-weight:600; font-size:27px; color:#d6d6d6; letter-spacing:0.02em; }
+.clip { overflow:hidden; padding-bottom:6px; }
+#N { position:absolute; left:0; right:0; bottom:120px; text-align:center; }
+#N .l1 { font-weight:800; font-size:58px; letter-spacing:-0.01em; }
+#N .l1 b { color:#d80609; }
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="13.950" data-width="1920" data-height="1080"><div class="back" style="left:260px; bottom:-300px;"></div><div id="N" class="sh"><div class="l1">Not bad for a natty retired bodybuilder, <b>lol</b></div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const K = 0.999001;
+gsap.set(["#N .l1", ".back"], { opacity:0 });
+tl.to(".back", { opacity:1, duration:0.5*K }, 0.3*K);
+tl.fromTo("#N .l1", { opacity:0, y:26, scale:0.98 }, { opacity:1, y:0, scale:1, duration:0.7*K, ease:"expo.out", immediateRender:false }, 0.4*K);
+tl.fromTo("#N .l1 b", { opacity:0 }, { opacity:1, duration:0.3*K, immediateRender:false }, 1.4*K);
+tl.to(["#N .l1", ".back"], { opacity:0, duration:0.5*K }, 13.414*K);
+tl.to({}, { duration:13.950 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>

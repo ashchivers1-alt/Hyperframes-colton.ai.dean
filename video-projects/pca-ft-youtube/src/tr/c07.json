@@ -1,0 +1,318 @@
+{
+	"systeminfo": "WHISPER : VITISAI = 0 | COREML = 0 | OPENVINO = 0 | MTL : EMBED_LIBRARY = 1 | CPU : NEON = 1 | ARM_FMA = 1 | FP16_VA = 1 | MATMUL_INT8 = 1 | DOTPROD = 1 | SME = 1 | ACCELERATE = 1 | OPENMP = 1 | REPACK = 1 | ",
+	"model": {
+		"type": "medium",
+		"multilingual": false,
+		"vocab": 51864,
+		"audio": {
+			"ctx": 1500,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"text": {
+			"ctx": 448,
+			"state": 1024,
+			"head": 16,
+			"layer": 24
+		},
+		"mels": 80,
+		"ftype": 1
+	},
+	"params": {
+		"model": "/Users/ashleychivers/.cache/hyperframes/whisper/models/ggml-medium.en.bin",
+		"language": "en",
+		"translate": false
+	},
+	"result": {
+		"language": "en"
+	},
+	"transcription": [
+		{
+			"timestamps": {
+				"from": "00:00:00,000",
+				"to": "00:00:08,120"
+			},
+			"offsets": {
+				"from": 0,
+				"to": 8120
+			},
+			"text": " Show us how to grow your boobs."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:08,120",
+				"to": "00:00:14,600"
+			},
+			"offsets": {
+				"from": 8120,
+				"to": 14600
+			},
+			"text": " Yeah. Pink, otherwise it doesn't grow."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:14,600",
+				"to": "00:00:24,120"
+			},
+			"offsets": {
+				"from": 14600,
+				"to": 24120
+			},
+			"text": " Yeah. Has to be pink. Has to be pink. That's the first rule."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:24,120",
+				"to": "00:00:39,040"
+			},
+			"offsets": {
+				"from": 24120,
+				"to": 39040
+			},
+			"text": " Oh dear. Oh my god, that hurts already."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:39,040",
+				"to": "00:00:47,760"
+			},
+			"offsets": {
+				"from": 39040,
+				"to": 47760
+			},
+			"text": " Squeeze on top. Squeeze that glutes."
+		},
+		{
+			"timestamps": {
+				"from": "00:00:47,760",
+				"to": "00:01:08,360"
+			},
+			"offsets": {
+				"from": 47760,
+				"to": 68360
+			},
+			"text": " I'm squeezing everything I've got."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:08,360",
+				"to": "00:01:20,040"
+			},
+			"offsets": {
+				"from": 68360,
+				"to": 80040
+			},
+			"text": " One more, and one more. Prep. Prep what's happening."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:20,040",
+				"to": "00:01:27,760"
+			},
+			"offsets": {
+				"from": 80040,
+				"to": 87760
+			},
+			"text": " Yeah. I think as well though, you have actually basically been prepping the whole fucking"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:27,760",
+				"to": "00:01:32,080"
+			},
+			"offsets": {
+				"from": 87760,
+				"to": 92080
+			},
+			"text": " year. Basically, yeah. I realised that yesterday,"
+		},
+		{
+			"timestamps": {
+				"from": "00:01:32,080",
+				"to": "00:01:42,880"
+			},
+			"offsets": {
+				"from": 92080,
+				"to": 102880
+			},
+			"text": " she done Lucky show, which was in like April. April, and March, March, April, and then April."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:42,880",
+				"to": "00:01:49,360"
+			},
+			"offsets": {
+				"from": 102880,
+				"to": 109360
+			},
+			"text": " Oh my god, yeah. And you want to eat a little bit after eating."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:49,360",
+				"to": "00:01:55,840"
+			},
+			"offsets": {
+				"from": 109360,
+				"to": 115840
+			},
+			"text": " And you wonder why you can eat it after eating. Oh yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:01:55,840",
+				"to": "00:02:00,080"
+			},
+			"offsets": {
+				"from": 115840,
+				"to": 120080
+			},
+			"text": " How long your body can be in the final place? Too much."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:00,080",
+				"to": "00:02:05,560"
+			},
+			"offsets": {
+				"from": 120080,
+				"to": 125560
+			},
+			"text": " Too much, yeah. I don't think I didn't realise that. Maybe, that's why I'm out. I wasn't"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:05,560",
+				"to": "00:02:12,360"
+			},
+			"offsets": {
+				"from": 125560,
+				"to": 132360
+			},
+			"text": " being supportive. It's early as well though, isn't it? So it's"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:12,360",
+				"to": "00:02:18,720"
+			},
+			"offsets": {
+				"from": 132360,
+				"to": 138720
+			},
+			"text": " easily done. Yeah, it's really hard to help my weight at"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:18,720",
+				"to": "00:02:28,000"
+			},
+			"offsets": {
+				"from": 138720,
+				"to": 148000
+			},
+			"text": " all. Yeah. Really work with the bands, yeah? So on"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:28,000",
+				"to": "00:02:35,840"
+			},
+			"offsets": {
+				"from": 148000,
+				"to": 155840
+			},
+			"text": " the way down, just think, the glute, the glute is lowering you, right?"
+		},
+		{
+			"timestamps": {
+				"from": "00:02:35,840",
+				"to": "00:02:48,720"
+			},
+			"offsets": {
+				"from": 155840,
+				"to": 168720
+			},
+			"text": " Constant tension. Yeah, up. Good. Come on. Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:02:48,720",
+				"to": "00:03:01,760"
+			},
+			"offsets": {
+				"from": 168720,
+				"to": 181760
+			},
+			"text": " Come on. Couple more. Come on. Yes, good. Yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:01,760",
+				"to": "00:03:16,080"
+			},
+			"offsets": {
+				"from": 181760,
+				"to": 196080
+			},
+			"text": " Get it. It's good. Still more there. Cardio set. Nice."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:16,080",
+				"to": "00:03:28,240"
+			},
+			"offsets": {
+				"from": 196080,
+				"to": 208240
+			},
+			"text": " Good job. Good job, mate. Mother fucker. I can't with mine."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:28,240",
+				"to": "00:03:32,880"
+			},
+			"offsets": {
+				"from": 208240,
+				"to": 212880
+			},
+			"text": " It's fucking over, it's mine. Tell me, how are you going to do this?"
+		},
+		{
+			"timestamps": {
+				"from": "00:03:32,880",
+				"to": "00:03:39,520"
+			},
+			"offsets": {
+				"from": 212880,
+				"to": 219520
+			},
+			"text": " What do you normally do with it? This one's to remind me to my injection, yeah."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:39,520",
+				"to": "00:03:43,280"
+			},
+			"offsets": {
+				"from": 219520,
+				"to": 223280
+			},
+			"text": " Heart free, but I'll just snooze that for about four hours."
+		},
+		{
+			"timestamps": {
+				"from": "00:03:43,280",
+				"to": "00:04:03,200"
+			},
+			"offsets": {
+				"from": 223280,
+				"to": 243200
+			},
+			"text": " Sorry? Yeah, yeah. Yeah. Yeah. It's that one's an alarm to remind me. So I do."
+		}
+	]
+}

@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" /><script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1920px; height:1080px; overflow:hidden; background:transparent; }
+#root { position:relative; width:1920px; height:1080px; overflow:hidden; font-family:Montserrat, sans-serif; color:#f6f6f6; }
+.shadow { text-shadow:0 4px 24px rgba(0,0,0,0.75), 0 2px 4px rgba(0,0,0,0.6); }
+/* exercise title: index numeral + name + rep chip, no box */
+.ex { position:absolute; left:52px; bottom:72px; padding:22px 160px 24px 32px; border-radius:12px; box-shadow:0 0 40px 10px rgba(0,0,0,0.25);
+  background:linear-gradient(90deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.66) 65%, rgba(0,0,0,0) 100%); }
+.ex .idx { font-family:"Bebas Neue", sans-serif; font-size:40px; letter-spacing:0.12em; color:#ff3b30; }
+.ex .idx span { color:rgba(255,255,255,0.7); }
+.ex .rule { width:120px; height:3px; background:#ff3b30; margin:8px 0 12px; transform-origin:0 50%; }
+.ex .nm { font-family:"Bebas Neue", sans-serif; font-size:104px; line-height:0.88; letter-spacing:0.01em; white-space:nowrap; }
+.ex .nmw { overflow:hidden; padding-bottom:6px; }
+.ex .chip { display:inline-block; margin-top:16px; padding:8px 16px 7px; border:2px solid rgba(255,255,255,0.85); border-radius:4px;
+  font-weight:800; font-size:28px; letter-spacing:0.24em; background:rgba(0,0,0,0.45); }
+.ex .chip b { color:#ff3b30; font-weight:800; }
+
+#pw { position:absolute; left:70px; top:60px; width:480px; height:800px; }
+#pf { position:absolute; inset:0; border-radius:14px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.6); background:#000; }
+#pf video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+#pf .vg { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+#edge { position:absolute; left:-10px; top:24px; bottom:24px; width:6px; background:#ff3b30; border-radius:3px; transform-origin:50% 0;
+  box-shadow:0 0 24px rgba(255,59,48,0.8); }
+#wp { position:absolute; inset:0; background:#ff3b30; transform-origin:50% 0%; }
+#tag { position:absolute; right:12px; top:12px; width:150px; filter:drop-shadow(0 4px 10px rgba(0,0,0,0.6)); }
+#np { position:absolute; left:52px; top:740px; padding:20px 120px 22px 30px; border-radius:12px;
+  background:linear-gradient(90deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.74) 70%, rgba(0,0,0,0) 100%); }
+#np .k { font-weight:800; font-size:18px; letter-spacing:0.4em; color:#ff3b30; }
+#np .nmw { overflow:hidden; padding-bottom:4px; }
+#np .nm { font-family:"Bebas Neue"; font-size:104px; line-height:0.88; margin-top:4px; }
+#np .rule { width:110px; height:3px; background:#ff3b30; margin:8px 0 10px; transform-origin:0 50%; }
+#np .s1 { font-weight:800; font-size:22px; letter-spacing:0.18em; white-space:nowrap; }
+#np .s2 { font-weight:600; font-size:24px; margin-top:8px; color:#e6e6e6; white-space:nowrap; }
+
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="13.8" data-width="1920" data-height="1080"><div id="pw"><div id="edge"></div><div id="pf"><video id="v" src="assets/daniela.mp4" muted playsinline data-start="0" data-duration="13.8" data-track-index="1"></video><div class="vg"></div><div id="wp"></div><img id="tag" src="assets/apexx-logo.png"/></div></div><div id="np" class="shadow"><div class="k">ATHLETE 04 / 04</div><div class="nmw"><div class="nm">DANIELA</div></div><div class="rule"></div><div class="s1">WELLNESS · NPC · USA</div></div></div>
+<script>(() => { const tl = gsap.timeline({ paused:true }); const f = (s) => Math.round(s*30)/30;
+gsap.set(["#pw","#np","#np .k","#np .s1","#np .s2","#tag"], { opacity:0 });
+tl.fromTo("#pw", { opacity:0, y:40, scale:0.96 }, { opacity:1, y:0, scale:1, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(0.05));
+tl.fromTo("#wp", { scaleY:1 }, { scaleY:0, duration:f(0.55), ease:"power3.inOut", immediateRender:false }, f(0.2));
+tl.fromTo("#pf video", { scale:1.12 }, { scale:1.0, duration:f(13.8), ease:"none", immediateRender:false }, 0);
+tl.fromTo("#edge", { scaleY:0 }, { scaleY:1, duration:f(0.5), ease:"power3.out", immediateRender:false }, f(0.3));
+tl.fromTo("#tag", { opacity:0, scale:0.6, rotation:-8 }, { opacity:1, scale:1, rotation:0, duration:f(0.4), ease:"back.out(2)", immediateRender:false }, f(0.7));
+tl.fromTo("#np", { opacity:0, x:-50 }, { opacity:1, x:0, duration:f(0.45), ease:"expo.out", immediateRender:false }, f(0.35));
+tl.fromTo("#np .k", { opacity:0, x:-16 }, { opacity:1, x:0, duration:f(0.3), ease:"power2.out", immediateRender:false }, f(0.45));
+tl.fromTo("#np .nm", { yPercent:110 }, { yPercent:0, duration:f(0.5), ease:"expo.out", immediateRender:false }, f(0.5));
+tl.fromTo("#np .rule", { scaleX:0 }, { scaleX:1, duration:f(0.35), ease:"power3.inOut", immediateRender:false }, f(0.65));
+tl.fromTo("#np .s1", { opacity:0, y:10 }, { opacity:1, y:0, duration:f(0.35), ease:"back.out(1.6)", immediateRender:false }, f(0.85));
+tl.fromTo("#np .s2", { opacity:0, y:10 }, { opacity:1, y:0, duration:f(0.35), ease:"power3.out", immediateRender:false }, f(1.1));
+tl.to("#pw", { opacity:0, y:-30, duration:f(0.4), ease:"power2.in" }, f(13.8 - 0.5));
+tl.to("#np", { opacity:0, x:-30, duration:f(0.35), ease:"power2.in" }, f(13.8 - 0.5));
+tl.to({}, { duration:13.8 }, 0); window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl; })();</script>
+</body></html>
