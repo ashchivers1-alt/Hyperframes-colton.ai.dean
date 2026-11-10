@@ -24,7 +24,10 @@ _(scene length, cuts vs. transitions, breathing room — populated by /feedback 
 
 - Don't cut or re-time Ash's edit — sync visuals to his timing. (2026-10-12)
 
+- Keep Ash's real filming location — he preferred the original car footage over an AI background swap (snowy park) on the Illness reel. Don't swap backgrounds by default; only on request. (2026-11-10)
+
 ## Captions
+- On raw phone footage with no captions: @kingketo-style ALL-CAPS 1–3 word chunks, white with yellow active word (approved on Illness reel). (2026-11-10)
 
 _(style, color, sync tightness, word-by-word vs. phrase chunks — populated by /feedback over time)_
 
