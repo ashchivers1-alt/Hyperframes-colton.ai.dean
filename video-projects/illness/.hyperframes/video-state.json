@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "f3d3be2d-1b8e-4242-b98e-005d06d9d3e4",
-  "currentRevision": null,
+  "currentRevision": "adc00560-127b-4691-800a-ce54de7d1eba",
   "pendingChanges": false,
   "files": {
     "assets/brand-tokens.css": {
@@ -57,8 +57,8 @@
       "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "bc8a9acf2d3349bad67686aa411bad2c553fe2f3e20a12c2120f95665551f777",
-      "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/bc/bc8a9acf2d3349bad67686aa411bad2c553fe2f3e20a12c2120f95665551f777"
+      "hash": "25fe5be472711b8ec77290730aca1cc5e4c43c4486be2933b9eca7dc548de1cf",
+      "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/25/25fe5be472711b8ec77290730aca1cc5e4c43c4486be2933b9eca7dc548de1cf"
     },
     "meta.json": {
       "hash": "abd90d06b72e169446a065e068ce866bc890dcafc06540235bae57d43a0c881a",
@@ -73,15 +73,35 @@
       "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/d8/d8c3989f4e232efe301d7d9609752232ad172affadb4a390a1d5de658bca2a36"
     },
     "scripts/template.html": {
-      "hash": "07e034c9ff2915a8c1c52d493210a29119d037867a49ea382f42941c820aaabb",
-      "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/07/07e034c9ff2915a8c1c52d493210a29119d037867a49ea382f42941c820aaabb"
+      "hash": "a8e9d56f47a11e907730cecb7a20cc40f118279d9347dbce87cac180e55ae0e2",
+      "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/a8/a8e9d56f47a11e907730cecb7a20cc40f118279d9347dbce87cac180e55ae0e2"
     },
     "assets/illness.mp4": {
       "hash": "b01d68d720067e13e6cf6292a14a8f1bd97a1d76131175cb000ba00b0273dae4",
       "content": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/b0/b01d68d720067e13e6cf6292a14a8f1bd97a1d76131175cb000ba00b0273dae4"
     }
   },
-  "revisions": {},
+  "revisions": {
+    "adc00560-127b-4691-800a-ce54de7d1eba": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794330676055,
+      "endedAt": 1794330676064,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/bc/bc8a9acf2d3349bad67686aa411bad2c553fe2f3e20a12c2120f95665551f777",
+          "after": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/25/25fe5be472711b8ec77290730aca1cc5e4c43c4486be2933b9eca7dc548de1cf"
+        },
+        "scripts/template.html": {
+          "before": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/07/07e034c9ff2915a8c1c52d493210a29119d037867a49ea382f42941c820aaabb",
+          "after": "/root/.cache/hyperframes/history/f3d3be2d-1b8e-4242-b98e-005d06d9d3e4/blobs/a8/a8e9d56f47a11e907730cecb7a20cc40f118279d9347dbce87cac180e55ae0e2"
+        }
+      }
+    }
+  },
   "checks": {
     "latest": null,
     "revisions": {},
@@ -91,5 +111,16 @@
     "latest": null,
     "revisions": {},
     "unversioned": []
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "396b5630-79f4-45a6-af22-7f86ef2852fe",
+      "completedAt": 1794330593534,
+      "output": "/home/user/Hyperframes-colton.ai.dean/video-projects/illness/renders/illness-v1-draft.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }

@@ -23,7 +23,7 @@
 
       /* ---------- cards ---------- */
       .card {
-        position: absolute; left: 60px; top: 90px; width: 960px; height: 540px; border-radius: 34px; overflow: hidden; opacity: 0;
+        position: absolute; left: 60px; top: 110px; width: 960px; height: 460px; border-radius: 34px; overflow: hidden; opacity: 0;
         padding: 40px 48px; box-shadow: 0 30px 70px rgba(0,0,0,0.45);
       }
       .cream { background: #F4EFE6; color: #141414; }
@@ -40,37 +40,41 @@
       .serif { font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; letter-spacing: 0; }
       .box { display: inline-block; background: var(--brand-accent); color: #fff; padding: 0 16px; border-radius: 10px; }
       .gold { color: #F2C230; }
-      .small { font: 700 26px/1.2 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; opacity: .62; white-space: nowrap; }
+      .small { font: 700 30px/1.2 Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; opacity: .62; white-space: nowrap; }
 
       /* card 1 — everyone's sick */
       #k1 .row { display: flex; gap: 26px; margin-top: 34px; }
-      .person { position: relative; width: 96px; height: 120px; }
-      .person i { position: absolute; left: 28px; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #3a3a3a; }
-      .person b { position: absolute; left: 8px; top: 46px; width: 80px; height: 74px; border-radius: 40px 40px 12px 12px; background: #3a3a3a; }
-            #k1-sub { margin-top: 26px; font-size: 40px; opacity: .85; }
+      .person { position: relative; width: 110px; height: 136px; }
+      .person i { position: absolute; left: 33px; top: 0; width: 46px; height: 46px; border-radius: 50%; background: #3a3a3a; }
+      .person b { position: absolute; left: 10px; top: 52px; width: 90px; height: 84px; border-radius: 40px 40px 12px 12px; background: #3a3a3a; }
+            #k1 { height: 380px; }
+      .person { transform-origin: 50% 100%; }
 
       /* card 2 — the question */
-      #k2 .bubble { margin-top: 34px; display: inline-block; max-width: 760px; padding: 26px 34px; border-radius: 34px 34px 34px 10px;
-        background: #E5E1DA; font: 600 46px/1.22 Inter, sans-serif; color: #141414; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+      #k2 { height: 400px; }
+      #k2 .bubble { margin-top: 34px; display: inline-block; max-width: 860px; padding: 28px 36px; border-radius: 34px 34px 34px 10px;
+        background: #E5E1DA; font: 600 54px/1.2 Inter, sans-serif; color: #141414; box-shadow: 0 6px 18px rgba(0,0,0,.08); }
       #k2 .typing { margin-top: 34px; display: inline-flex; gap: 10px; padding: 26px 30px; border-radius: 34px; background: #E5E1DA; }
       #k2 .typing i { width: 16px; height: 16px; border-radius: 50%; background: #8d8a84; }
       #k2 .meta { margin-top: 18px; }
 
       /* card 3 — two camps + me */
       #k3 .camps { display: flex; gap: 22px; margin-top: 28px; }
-      #k3 .camp { flex: 1; height: 240px; border-radius: 22px; padding: 24px 26px; background: #1f1f1f; border: 1px solid rgba(255,255,255,.1); }
-      #k3 .camp .t { font: 900 46px/1 Montserrat, sans-serif; white-space: nowrap; }
-      #k3 .camp ul { list-style: none; margin-top: 18px; font: 600 28px/1.5 Inter, sans-serif; color: #cfcfcf; }
-      #k3 .camp .serif { font-size: 30px; color: #9a9a9a; margin-top: 4px; display: block; }
-      #k3 .me { position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); height: 66px; font-size: 26px; padding: 0 26px;
+      #k3 { height: 560px; }
+      #k3 .camp { flex: 1; height: 300px; border-radius: 22px; padding: 24px 26px; background: #1f1f1f; border: 1px solid rgba(255,255,255,.1); }
+      #k3 .camp .t { font: 900 50px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k3 .camp ul { list-style: none; margin-top: 20px; font: 600 38px/1.45 Inter, sans-serif; color: #cfcfcf; }
+      #k3 .camp .serif { font-size: 40px; color: #9a9a9a; margin-top: 4px; display: block; }
+      #k3 .me { position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); height: 72px; font-size: 30px; padding: 0 26px;
         box-shadow: 0 0 34px rgba(216,6,9,.6); }
 
       /* card 4 — the simple test */
-      #k4 .q { margin-top: 20px; font: 900 50px/1.05 Montserrat, sans-serif; white-space: nowrap; }
-      #k4 .bars { display: flex; align-items: flex-end; gap: 40px; height: 180px; margin-top: 26px; padding-left: 8px; }
-      #k4 .bar { position: relative; width: 150px; height: 170px; border-radius: 14px 14px 6px 6px; background: #141414; transform-origin: 50% 100%; }
-      #k4 .bar span { position: absolute; left: 0; right: 0; top: -40px; text-align: center; font: 800 28px/1 Inter, sans-serif; color: #141414; }
-      #k4 .bar em { position: absolute; left: 0; right: 0; bottom: -36px; text-align: center; font: 700 20px/1 Inter, sans-serif; letter-spacing: .1em; color: #6b6b6b; font-style: normal; white-space: nowrap; }
+      #k4 { height: 600px; }
+      #k4 .q { margin-top: 22px; font: 900 56px/1.05 Montserrat, sans-serif; white-space: nowrap; }
+      #k4 .bars { display: flex; align-items: flex-end; gap: 50px; height: 230px; margin-top: 70px; padding-left: 8px; }
+      #k4 .bar { position: relative; width: 190px; height: 220px; border-radius: 14px 14px 6px 6px; background: #141414; transform-origin: 50% 100%; }
+      #k4 .bar span { position: absolute; left: -20px; right: -20px; top: -46px; text-align: center; font: 800 34px/1 Inter, sans-serif; color: #141414; }
+      #k4 .bar em { position: absolute; left: 0; right: 0; bottom: -40px; text-align: center; font: 700 26px/1 Inter, sans-serif; letter-spacing: .1em; color: #6b6b6b; font-style: normal; white-space: nowrap; }
       #k4 .bar.today { background: #F2C230; }
       #k4 .verdict { position: absolute; right: 52px; bottom: 70px; height: 96px; padding: 0 30px; border-radius: 16px; background: #141414; color: #F2C230;
         display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; white-space: nowrap; }
@@ -79,22 +83,24 @@
       #k5 .batt { position: absolute; right: 52px; top: 44px; width: 150px; height: 70px; border: 5px solid #fff; border-radius: 14px; padding: 6px; }
       #k5 .batt::after { content: ""; position: absolute; right: -16px; top: 20px; width: 10px; height: 22px; border-radius: 0 4px 4px 0; background: #fff; }
       #k5 .batt i { display: block; height: 100%; width: 100%; border-radius: 6px; background: #F2C230; transform-origin: left center; }
-      #k5 .lab { margin-top: 28px; }
-      #k5 .scale { position: relative; height: 30px; margin-top: 22px; border-radius: 15px; background: #2a2a2a; }
+      #k5 { height: 500px; }
+      #k5 .lab { margin-top: 60px; }
+      #k5 .scale { position: relative; height: 40px; margin-top: 90px; border-radius: 15px; background: #2a2a2a; }
       #k5 .zone { position: absolute; left: 0; top: 0; bottom: 0; width: 14%; border-radius: 15px; background: #F2C230; }
-      #k5 .ticks { display: flex; justify-content: space-between; margin-top: 12px; font: 700 22px/1 Inter, sans-serif; color: #8a8a8a; }
-      #k5 .needle { position: absolute; top: -18px; left: 7%; width: 6px; height: 66px; margin-left: -3px; border-radius: 3px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.7); }
-      #k5 .needle b { position: absolute; top: -52px; left: 50%; transform: translateX(-50%); font: 900 40px/1 Montserrat, sans-serif; white-space: nowrap; }
-      #k5 .verdict { position: absolute; right: 52px; bottom: 56px; height: 96px; padding: 0 30px; border-radius: 16px; background: var(--brand-accent); color: #fff;
+      #k5 .ticks { display: flex; justify-content: space-between; margin-top: 16px; font: 700 30px/1 Inter, sans-serif; color: #8a8a8a; }
+      #k5 .needle { position: absolute; top: -20px; left: 7%; width: 8px; height: 80px; margin-left: -3px; border-radius: 3px; background: #fff; box-shadow: 0 0 12px rgba(255,255,255,.7); }
+      #k5 .needle b { position: absolute; top: -64px; left: 50%; transform: translateX(-50%); font: 900 54px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k5 .verdict { position: absolute; right: 52px; bottom: 34px; height: 96px; padding: 0 30px; border-radius: 16px; background: var(--brand-accent); color: #fff;
         display: flex; align-items: center; font: 900 60px/1 Montserrat, sans-serif; box-shadow: 0 0 36px rgba(216,6,9,.6); white-space: nowrap; }
 
       /* card 6 — summary */
-      #k6 .rule { display: flex; align-items: center; gap: 24px; height: 120px; margin-top: 22px; padding: 0 28px; border-radius: 22px; background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.07); }
+      #k6 { height: 470px; }
+      #k6 .rule { display: flex; align-items: center; gap: 26px; height: 130px; margin-top: 22px; padding: 0 28px; border-radius: 22px; background: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.07); }
       #k6 .ic { width: 76px; height: 76px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font: 900 44px/1 Montserrat, sans-serif; color: #fff; flex: none; }
       #k6 .ic.y { background: #141414; color: #F2C230; }
       #k6 .ic.n { background: var(--brand-accent); }
-      #k6 .rt { font: 900 44px/1 Montserrat, sans-serif; white-space: nowrap; }
-      #k6 .rt span { color: #8a8a8a; font-size: 34px; }
+      #k6 .rt { font: 900 54px/1 Montserrat, sans-serif; white-space: nowrap; }
+      #k6 .rt span { color: #8a8a8a; font-size: 44px; }
 
       /* ---------- captions (kingketo) ---------- */
       .cap {
@@ -125,7 +131,7 @@
         <!-- 2 · 6.45–12.6 -->
         <div class="card cream" id="k2">
           <div class="pill" id="k2-p">Clients · this week</div>
-          <div style="position:relative;height:150px;margin-top:34px"><div class="typing" id="k2-typing" style="position:absolute;left:0;top:0;margin:0"><i></i><i></i><i></i></div><div class="bubble" id="k2-b" style="position:absolute;left:0;top:0;margin:0">“Should I <b>train</b>, Ash? I feel <b>sick</b> 🤒”</div></div>
+          <div style="position:relative;height:150px;margin-top:34px"><div class="typing" id="k2-typing" style="position:absolute;left:0;top:0;margin:0"><i></i><i></i><i></i></div><div class="bubble" id="k2-b" style="position:absolute;left:0;top:0;margin:0">“Should I <b>train</b>, Ash? I feel <b>sick</b>”</div></div>
           <div class="small meta" id="k2-m">The question I keep getting</div>
         </div>
         <!-- 3 · 12.6–27.4 -->
@@ -169,7 +175,7 @@
       </div>
 
       <!-- SFX -->
-      <audio id="x1" src="assets/sfx/pop.mp3" data-start="0.25" data-duration="0.7" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="x1" src="assets/sfx/pop.mp3" data-start="1.95" data-duration="0.7" data-track-index="10" data-volume="0.18"></audio>
       <audio id="x2" src="assets/sfx/hard-cut.mp3" data-start="2.95" data-duration="0.24" data-track-index="11" data-volume="0.26"></audio>
       <audio id="x3" src="assets/sfx/pop.mp3" data-start="6.5" data-duration="0.7" data-track-index="12" data-volume="0.18"></audio>
       <audio id="x4" src="assets/sfx/send-message.mp3" data-start="9.9" data-duration="1.0" data-track-index="10" data-volume="0.2"></audio>
@@ -199,9 +205,9 @@
         const STAMP = (s, t) => tl.fromTo(s, { scale: 1.9, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.2, ease: "power4.in" }, t);
 
         // 1 — Everyone's SICK + people turning red
-        CARD("#k1", 0.2, 6.45);
-        tl.set(["#k1-h", "#k1-row"], { opacity: 0 }, 0.2);
-        IN("#k1-h", 2.0, { y: 30 }, "expo.out");
+        CARD("#k1", 1.9, 6.45);
+        tl.set(["#k1-h", "#k1-row"], { opacity: 0 }, 1.9);
+        IN("#k1-h", 1.98, { y: 30 }, "expo.out");
         tl.fromTo("#k1-box", { scale: 0.5 }, { scale: 1, duration: 0.22, ease: "back.out(3)" }, 2.97);
         IN("#k1-row", 3.4, { y: 20 }, "power2.out");
         document.querySelectorAll("#k1 .person").forEach((p, i) => {
@@ -245,10 +251,10 @@
         CARD("#k5", 38.55, 48.6);
         tl.set(["#k5-l", "#k5-s", "#k5-t", "#k5-v"], { opacity: 0 }, 38.55);
         tl.to("#k5-bat", { scaleX: 0.12, backgroundColor: "#d80609", duration: 1.4, ease: "power2.in" }, 41.6);
-        IN("#k5-l", 43.4, { y: 12 });
-        IN("#k5-s", 43.5, { y: 12 });
-        IN("#k5-t", 43.6, { y: 12 });
-        tl.to("#k5-n", { x: 743, backgroundColor: "#d80609", duration: 0.7, ease: "power3.inOut" }, 44.85);
+        IN("#k5-l", 40.9, { y: 12 });
+        IN("#k5-s", 41.0, { y: 12 });
+        IN("#k5-t", 41.1, { y: 12 });
+        tl.to("#k5-n", { x: 739, backgroundColor: "#d80609", duration: 0.7, ease: "power3.inOut" }, 44.85);
         tl.to("#k5-n1", { opacity: 0, duration: 0.1 }, 45.15);
         tl.to("#k5-n2", { opacity: 1, duration: 0.1 }, 45.2);
         STAMP("#k5-v", 48.25);
