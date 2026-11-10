@@ -6,4 +6,5 @@ Style references studied with `/study-creator`. Say "build this like @handle" (o
 
 - **[@ash-teamapexx](ash-teamapexx/)** — *your own reels* (baseline): two-angle talking head, yellow hero-word captions, glowing cut-out stickers — 1 video studied
 - **[@aubergine-avenger](aubergine-avenger/)** — moody neon talking head; every key noun illustrated (yellow glow words, inset diagram cards, b-roll flashes) — 1 video studied
+- **[@kingketo](kingketo/)** — fitness-coach split-screen explainer: infographic panel top / face-cam bottom, light + dark grid panels, red highlight boxes, ALL-CAPS yellow-word captions on the seam, punch-ins — 1 video studied
 - **[@colton-ai-dean](colton-ai-dean/)** — clean single-shot face-cam with frosted-glass UI cards animating in the top half, numbered steps, comment-keyword CTA — 1 video studied
