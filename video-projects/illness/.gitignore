@@ -1,3 +1,5 @@
 # Source footage lives in Ash's Google Drive (shared folder, "Illness") — too large for git
 assets/illness.mp4
 renders/
+assets/illness-matte.mp4
+assets/bg/
