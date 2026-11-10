@@ -14,6 +14,7 @@ _(colors, typography, density, placement — populated by /feedback over time)_
 
 - Two approved looks — pick per video, don't default to one: **(A) Team Apexx keyword cards** below the captions (dark glass card, red `#d80609` accent bar, Bebas Neue, word-synced reveals like strike-throughs, meters, numbered 01–04, checklists) and **(B) behind-the-subject** (person matte; giant chrome/red type, brush-X, marquee rows, side words, B-roll windows sit behind Ash; background darkened + red glow). (2026-10-12)
 - Use **B** when the footage has headroom/space around Ash and decent lighting; use **A** for tight talking-head framing or explainer-heavy content. (2026-10-12)
+- **Style reference: @kingketo** (see `_reference/creator-library/kingketo/style-distilled.md`) — clean, designed explainer look: top-card listicles or split-screen, cream ↔ charcoal cards, red #N tags, italic-serif accent + red highlight-box keyword, data-proof cards (formulas, rings, cited charts, before/afters). Use it as a third approved look alongside A and B. (2026-11-10)
 - Avoid every video looking identical — vary or mix the two styles across a posting batch so it doesn't read as generic "Claude-edited". (2026-10-12)
 - Graphics illustrate the key nouns/claims Ash actually says, landing on the spoken word. (2026-10-12)
 
