@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <!--
+      CARDIO v2 — mixed style.
+      * Behind Ash (via person matte, scripts/composite.sh): giant chrome/red type in the
+        headroom + stock B-roll windows either side of his head.
+      * In front of Ash: one explainer card (100 KG vs 90 KG) below his burned-in captions.
+        composite.sh punches the card's box out of the matte while it is on screen.
+      Ash's captions live at y ≈ 1100–1350 — nothing goes there.
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #face-wrap { position: absolute; inset: 0; }
+      #face-video { width: 1080px; height: 1920px; object-fit: cover; }
+
+      #grade {
+        position: absolute; inset: 0; pointer-events: none;
+        background:
+          radial-gradient(ellipse 70% 30% at 50% 10%, rgba(216, 6, 9, 0.2), transparent 70%),
+          linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.42) 28%, rgba(0,0,0,0) 46%);
+      }
+      #glow {
+        position: absolute; left: -10%; right: -10%; top: -8%; height: 48%; pointer-events: none;
+        background: radial-gradient(ellipse 50% 45% at 50% 35%, rgba(216, 6, 9, 0.8), transparent 72%);
+        mix-blend-mode: screen; opacity: 0;
+      }
+      #grain {
+        position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+        background:
+          radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 3px 3px,
+          radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 1px 2px / 5px 5px,
+          radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px) 2px 1px / 7px 7px;
+      }
+
+      /* ---------- behind-Ash type (headroom band) ---------- */
+      .stage { position: absolute; left: 0; right: 0; top: 0; height: 760px; overflow: hidden; }
+      .giant {
+        position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap;
+        font-family: "Bebas Neue", sans-serif; font-weight: 400; line-height: 0.86; letter-spacing: 0.01em;
+      }
+      .chrome {
+        background: linear-gradient(180deg, #ffffff 0%, #ececec 45%, #9a9a9a 72%, #d8d8d8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 24px rgba(255,255,255,0.25)) drop-shadow(0 10px 36px rgba(0,0,0,0.6));
+      }
+      .redfill { color: var(--brand-accent); text-shadow: 0 0 28px rgba(216,6,9,0.75), 0 0 70px rgba(216,6,9,0.45); }
+      .kicker {
+        position: absolute; left: 0; right: 0; top: 12px; text-align: center; white-space: nowrap;
+        font-family: Inter, sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.4em;
+        color: rgba(255,255,255,0.92); text-transform: uppercase; text-shadow: 0 2px 14px rgba(0,0,0,0.8);
+      }
+      .strike-wrap { position: relative; display: inline-block; }
+      .strike { position: absolute; left: -10px; right: -10px; top: 50%; height: 14px; margin-top: -7px; background: var(--brand-accent); box-shadow: 0 0 22px rgba(216,6,9,0.8); transform-origin: left center; transform: scaleX(0); }
+
+      #s1-big { top: 60px; font-size: 220px; }
+      #s2-line { top: 62px; font-size: 170px; }
+      #s2-x5 { margin-left: 26px; display: inline-block; }
+      .swap { top: 66px; font-size: 180px; }
+      #s4-big { top: 62px; font-size: 150px; }
+      #s4-not { top: 214px; font-size: 60px; }
+      #s7-a { top: 66px; font-size: 210px; }
+      #s7-b { top: 66px; font-size: 210px; }
+
+      /* ---------- B-roll windows (behind Ash, either side of his head) ---------- */
+      .win {
+        position: absolute; top: 300px; width: 270px; height: 338px; border-radius: 20px; overflow: hidden; opacity: 0;
+        box-shadow: 0 26px 60px rgba(0,0,0,0.65), 0 0 0 2px rgba(255,255,255,0.14);
+      }
+      .win video { width: 100%; height: 100%; object-fit: cover; }
+      .win .tg {
+        position: absolute; left: 12px; bottom: 12px; padding: 5px 11px; border-radius: 8px; white-space: nowrap;
+        background: var(--brand-accent); font-family: "Bebas Neue", sans-serif; font-size: 28px; color: #fff;
+      }
+      .win.L { left: 26px; transform: rotate(-4deg); }
+      .win.R { right: 26px; transform: rotate(4deg); }
+
+      /* ---------- front explainer card (Style A) ---------- */
+      #card {
+        position: absolute; left: 110px; top: 1470px; width: 860px; height: 262px; display: flex; overflow: hidden; opacity: 0;
+        border-radius: 30px; border: 1px solid rgba(255,255,255,0.12);
+        background: linear-gradient(160deg, rgba(22,20,20,.88) 0%, rgba(10,10,10,.85) 60%, rgba(26,18,18,.88) 100%);
+        box-shadow: 0 24px 60px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.16);
+      }
+      #card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: var(--brand-accent); box-shadow: 0 0 24px var(--brand-accent-glow); }
+      #card .half { position: relative; flex: 1; padding: 26px 30px 0 48px; }
+      #card .half + .half { border-left: 1px solid rgba(255,255,255,.12); padding-left: 38px; }
+      #card .lab { font-family: Inter, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .16em; color: var(--brand-text-dim); text-transform: uppercase; white-space: nowrap; }
+      #card .kg { font-family: "Bebas Neue", sans-serif; font-size: 104px; line-height: .92; color: #fff; margin-top: 6px; transform: skewX(-8deg); display: inline-block; }
+      #card .sub { font-family: Inter, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .1em; color: #cfcfcf; margin-top: 8px; white-space: nowrap; }
+      #card .track { position: relative; margin-top: 16px; height: 22px; border-radius: 11px; background: rgba(255,255,255,.1); overflow: hidden; }
+      #card .fill { position: absolute; inset: 0; border-radius: 11px; background: #f6f6f6; box-shadow: 0 0 16px rgba(255,255,255,.45); transform-origin: left center; transform: scaleX(0); }
+      #c-less { position: absolute; right: 26px; top: 22px; height: 44px; padding: 0 14px; border-radius: 10px; display: flex; align-items: center; background: var(--brand-accent); color: #fff; font-family: "Bebas Neue", sans-serif; font-size: 34px; box-shadow: 0 0 26px var(--brand-accent-glow); opacity: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="48.43" data-width="1080" data-height="1920">
+      <div id="face-wrap">
+        <video id="face-video" src="assets/cardio.mp4" data-start="0" data-duration="48.43" data-track-index="0" muted playsinline></video>
+      </div>
+      <audio id="face-audio" src="assets/cardio.mp4" data-start="0" data-duration="48.43" data-track-index="1" data-volume="1"></audio>
+
+      <div id="grade" class="clip" data-start="0" data-duration="48.43" data-track-index="2"></div>
+      <div id="glow" class="clip" data-start="0" data-duration="48.43" data-track-index="3"></div>
+
+      <!-- S1 · 0.2–2.8 · "How should you be logging your cardio?" -->
+      <div id="s1" class="stage clip" data-start="0.2" data-duration="2.6" data-track-index="4">
+        <div class="kicker" id="s1-k">How should you log your</div>
+        <div id="s1-big" class="giant chrome">CARDIO?</div>
+      </div>
+
+      <!-- S2 · 2.9–8.3 · "set our cardio in minutes … 30 minutes, five times a week" -->
+      <div id="s2" class="stage clip" data-start="2.9" data-duration="5.4" data-track-index="4">
+        <div class="kicker" id="s2-k">The usual way</div>
+        <div class="kicker" id="s2-k2">Every single week</div>
+        <div id="s2-line" class="giant"><span id="s2-30" class="chrome" style="display:inline-block">30 MIN</span><span id="s2-x5" class="redfill">× 5</span></div>
+      </div>
+
+      <!-- S3 · 9.4–16.9 · deeper into prep: eating less, depleted, burning less -->
+      <div id="s3" class="stage clip" data-start="9.4" data-duration="7.5" data-track-index="4">
+        <div class="kicker" id="s3-k">Deep into contest prep</div>
+        <div id="s3-a" class="giant swap chrome">FOOD ↓</div>
+        <div id="s3-b" class="giant swap chrome">ENERGY ↓</div>
+        <div id="s3-c" class="giant swap redfill">BURN ↓</div>
+      </div>
+
+      <!-- S4 · 17.1–24.2 · tip: set a calorie burn target, not minutes -->
+      <div id="s4" class="stage clip" data-start="17.1" data-duration="7.1" data-track-index="4">
+        <div class="kicker" id="s4-k">What I do with my clients</div>
+        <div id="s4-big" class="giant redfill">CALORIE TARGET</div>
+        <div id="s4-not" class="giant chrome"><span class="strike-wrap">NOT MINUTES<span class="strike" id="s4-s"></span></span></div>
+      </div>
+
+      <!-- S5 · 24.9–34.8 · front card: 100 KG vs 90 KG (behind band stays quiet) -->
+      <div id="s5" class="stage clip" data-start="24.9" data-duration="9.9" data-track-index="4">
+        <div class="kicker" id="s5-k">Same 20 min · Level 7</div>
+      </div>
+
+      <!-- S6 · 35.0–42.1 · fitter → heart rate lower, less body weight → less burned -->
+      <div id="s6" class="stage clip" data-start="35.0" data-duration="7.1" data-track-index="4">
+        <div class="kicker" id="s6-k">Because you're fitter</div>
+        <div id="s6-a" class="giant swap chrome">HEART RATE ↓</div>
+        <div id="s6-b" class="giant swap chrome">BODYWEIGHT ↓</div>
+        <div id="s6-c" class="giant swap redfill">LESS BURNED</div>
+      </div>
+
+      <!-- S7 · 42.2–48.43 · a session calorie target keeps the burn the same every day -->
+      <div id="s7" class="stage clip" data-start="42.2" data-duration="6.23" data-track-index="4">
+        <div class="kicker" id="s7-k">Set a session calorie target</div>
+        <div id="s7-a" class="giant chrome">SAME BURN</div>
+        <div id="s7-b" class="giant redfill">EVERY DAY</div>
+      </div>
+
+      <!-- B-roll windows (stock: Mixkit, free licence). Plain wrappers; the <video> carries the timing. -->
+      <div id="w1" class="win L"><video id="v1" src="assets/broll/treadmill-feet.mp4" data-start="4.2" data-duration="3.6" data-track-index="5" muted playsinline></video><div class="tg">30 MIN</div></div>
+      <div id="w2" class="win L"><video id="v2" src="assets/broll/plate.mp4" data-start="11.2" data-duration="2.4" data-track-index="6" muted playsinline></video><div class="tg">EATING LESS</div></div>
+      <div id="w3" class="win R"><video id="v3" src="assets/broll/exhausted.mp4" data-start="12.35" data-duration="3.4" data-track-index="7" muted playsinline></video><div class="tg">DEPLETED</div></div>
+      <div id="w4" class="win R"><video id="v4" src="assets/broll/watch.mp4" data-start="19.4" data-duration="5.0" data-track-index="8" muted playsinline></video><div class="tg">TRACK THE BURN</div></div>
+      <div id="w5" class="win L"><video id="v5" src="assets/broll/airbike.mp4" data-start="28.2" data-duration="4.0" data-track-index="5" muted playsinline></video><div class="tg">LEVEL 7</div></div>
+      <div id="w6" class="win R"><video id="v6" src="assets/broll/heart-monitor.mp4" data-start="36.1" data-duration="4.2" data-track-index="6" muted playsinline></video><div class="tg">HEART RATE ↓</div></div>
+      <div id="w7" class="win L"><video id="v7" src="assets/broll/gym-treadmill.mp4" data-start="42.2" data-duration="6.2" data-track-index="7" muted playsinline></video><div class="tg">EVERY SESSION</div></div>
+
+      <!-- Front explainer card -->
+      <div id="card">
+        <div class="half" id="cL">
+          <div class="lab">Start of prep</div>
+          <div class="kg" id="c-100">100 KG</div>
+          <div class="sub" id="c-s1">20 MIN · LEVEL 7</div>
+          <div class="track"><div class="fill" id="cf1"></div></div>
+        </div>
+        <div class="half" id="cR">
+          <div class="lab" id="c-rl">10 kg lighter</div>
+          <div class="kg" id="c-90">90 KG</div>
+          <div class="sub" id="c-s2">20 MIN · LEVEL 7</div>
+          <div class="track" id="c-t2"><div class="fill" id="cf2"></div></div>
+          <div id="c-less">LESS BURNED</div>
+        </div>
+      </div>
+
+      <div id="grain" class="clip" data-start="0" data-duration="48.43" data-track-index="9"></div>
+
+      <!-- SFX -->
+      <audio id="x1" src="assets/sfx/whoosh.mp3" data-start="0.3" data-duration="0.57" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x2" src="assets/sfx/slam.mp3" data-start="1.95" data-duration="1.2" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x3" src="assets/sfx/swipe.mp3" data-start="4.15" data-duration="1.05" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="x4" src="assets/sfx/hard-cut.mp3" data-start="5.95" data-duration="0.24" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="x5" src="assets/sfx/pop.mp3" data-start="6.66" data-duration="0.7" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="x6" src="assets/sfx/whoosh.mp3" data-start="9.5" data-duration="0.57" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="x7" src="assets/sfx/hard-cut.mp3" data-start="11.32" data-duration="0.24" data-track-index="12" data-volume="0.28"></audio>
+      <audio id="x8" src="assets/sfx/hard-cut.mp3" data-start="12.42" data-duration="0.24" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x9" src="assets/sfx/bass-drop.mp3" data-start="14.14" data-duration="1.15" data-track-index="10" data-volume="0.32"></audio>
+      <audio id="x10" src="assets/sfx/swipe.mp3" data-start="19.35" data-duration="1.05" data-track-index="12" data-volume="0.14"></audio>
+      <audio id="x11" src="assets/sfx/slam.mp3" data-start="20.57" data-duration="1.2" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x12" src="assets/sfx/hard-cut.mp3" data-start="23.72" data-duration="0.24" data-track-index="10" data-volume="0.3"></audio>
+      <audio id="x13" src="assets/sfx/whoosh.mp3" data-start="24.95" data-duration="0.57" data-track-index="12" data-volume="0.18"></audio>
+      <audio id="x14" src="assets/sfx/pop.mp3" data-start="26.27" data-duration="0.7" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="x15" src="assets/sfx/swipe.mp3" data-start="28.15" data-duration="1.05" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="x16" src="assets/sfx/pop.mp3" data-start="30.19" data-duration="0.7" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="x17" src="assets/sfx/bass-drop.mp3" data-start="33.3" data-duration="1.15" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="x18" src="assets/sfx/hard-cut.mp3" data-start="36.39" data-duration="0.24" data-track-index="10" data-volume="0.28"></audio>
+      <audio id="x19" src="assets/sfx/hard-cut.mp3" data-start="38.32" data-duration="0.24" data-track-index="12" data-volume="0.28"></audio>
+      <audio id="x20" src="assets/sfx/slam.mp3" data-start="41.32" data-duration="1.2" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x21" src="assets/sfx/swipe.mp3" data-start="42.25" data-duration="1.05" data-track-index="10" data-volume="0.14"></audio>
+      <audio id="x22" src="assets/sfx/hard-cut.mp3" data-start="46.9" data-duration="0.24" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="x23" src="assets/sfx/slam.mp3" data-start="47.8" data-duration="0.6" data-track-index="11" data-volume="0.26"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 48.43;
+        const PULSE = (t, a = 0.9) => tl.fromTo("#glow", { opacity: a }, { opacity: 0, duration: 0.9, ease: "power2.out", immediateRender: false }, t);
+        const SHAKE = (s, t) => tl.to(s, { keyframes: [{ x: -14, duration: 0.04 }, { x: 11, duration: 0.04 }, { x: -6, duration: 0.04 }, { x: 0, duration: 0.05 }] }, t);
+        const SLAM = (s, t, from = 2.0) => tl.fromTo(s, { scale: from, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, t);
+        const KICK = (s, t) => tl.fromTo(s, { y: -16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: "power2.out" }, t);
+        const GONE = (s, t, d = 0.2) => tl.to(s, { opacity: 0, y: -40, filter: "blur(10px)", duration: d, ease: "power2.in" }, t);
+        const WIN = (s, t, end, dir) => {
+          const r = dir < 0 ? -4 : 4;
+          tl.fromTo(s, { x: dir * 360, opacity: 0, rotation: r * 3 }, { x: 0, opacity: 1, rotation: r, duration: 0.5, ease: "expo.out" }, t);
+          tl.to(s, { y: -18, duration: Math.max(0.4, end - t - 0.8), ease: "sine.inOut" }, t + 0.5);
+          tl.to(s, { opacity: 0, x: dir * 120, filter: "blur(10px)", duration: 0.28, ease: "power2.in" }, end - 0.28);
+        };
+
+        // S1 — CARDIO?
+        KICK("#s1-k", 0.35);
+        tl.fromTo("#s1-big", { scale: 0.7, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 0.2, filter: "blur(6px)", duration: 1.2, ease: "power2.out" }, 0.4);
+        tl.to("#s1-big", { opacity: 1, filter: "blur(0px)", scale: 1.04, duration: 0.18, ease: "power4.in" }, 1.88);
+        PULSE(2.04);
+        tl.to("#s1-big", { scale: 1.1, duration: 0.6, ease: "none" }, 2.06);
+        tl.to("#s1", { opacity: 0, duration: 0.18 }, 2.62);
+
+        // S2 — 30 MIN × 5 / EVERY WEEK
+        tl.set(["#s2-30", "#s2-x5", "#s2-k2"], { opacity: 0 }, 2.9);
+        KICK("#s2-k", 3.0);
+        SLAM("#s2-30", 5.88);
+                SLAM("#s2-x5", 6.62, 2.4);
+        PULSE(6.7, 0.7);
+        tl.to("#s2-k", { opacity: 0, y: -14, duration: 0.15 }, 7.05);
+        KICK("#s2-k2", 7.16);
+        tl.to("#s2", { opacity: 0, filter: "blur(12px)", duration: 0.25 }, 8.0);
+        WIN("#w1", 4.2, 7.8, -1);
+
+        // S3 — FOOD ↓ / ENERGY ↓ / BURN ↓
+        tl.set(["#s3-a", "#s3-b", "#s3-c"], { opacity: 0 }, 9.4);
+        KICK("#s3-k", 9.55);
+        SLAM("#s3-a", 11.28);
+        GONE("#s3-a", 12.22, 0.16);
+        SLAM("#s3-b", 12.38);
+        GONE("#s3-b", 13.95, 0.16);
+        SLAM("#s3-c", 14.1, 2.4);
+        PULSE(14.14, 1);
+        SHAKE("#s3", 14.32);
+        tl.to("#s3-c", { scale: 1.06, duration: 2.3, ease: "none" }, 14.35);
+        tl.to("#s3", { opacity: 0, filter: "blur(12px)", duration: 0.25 }, 16.6);
+        WIN("#w2", 11.2, 13.6, -1);
+        WIN("#w3", 12.35, 15.75, 1);
+
+        // S4 — CALORIE TARGET / NOT MINUTES
+        tl.set(["#s4-big", "#s4-not"], { opacity: 0 }, 17.1);
+        KICK("#s4-k", 17.8);
+        SLAM("#s4-big", 20.5, 2.2);
+        PULSE(20.57, 1);
+        SHAKE("#s4", 20.75);
+        tl.to("#s4-big", { scale: 1.05, duration: 2.8, ease: "none" }, 20.8);
+        tl.fromTo("#s4-not", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, 23.3);
+        tl.to("#s4-s", { scaleX: 1, duration: 0.18, ease: "power4.out" }, 23.7);
+        tl.to("#s4", { opacity: 0, filter: "blur(12px)", duration: 0.25 }, 23.92);
+        WIN("#w4", 19.4, 24.4, 1);
+
+        // S5 — front card 100 KG vs 90 KG
+        tl.set("#s5-k", { opacity: 0 }, 24.9);
+        tl.fromTo("#card", { y: 120, opacity: 0, scale: 0.92, filter: "blur(16px)" }, { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "back.out(1.3)" }, 25.0);
+        tl.set(["#c-rl", "#c-90", "#c-s2", "#c-t2", "#c-less"], { opacity: 0 }, 25.0);
+        tl.fromTo("#cL .lab", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 25.2);
+        tl.fromTo("#c-100", { scale: 1.8, opacity: 0, transformOrigin: "0% 60%" }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.in" }, 26.25);
+        tl.fromTo("#c-s1", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, 27.5);
+        tl.to("#cf1", { scaleX: 1, duration: 0.6, ease: "power3.out" }, 28.45);
+        KICK("#s5-k", 31.35);
+        tl.to("#c-rl", { opacity: 1, duration: 0.25 }, 29.8);
+        tl.to("#c-90", { opacity: 1, duration: 0.01 }, 30.17);
+        tl.fromTo("#c-90", { scale: 1.8, transformOrigin: "0% 60%" }, { scale: 1, duration: 0.22, ease: "power4.in" }, 30.18);
+        tl.to(["#c-s2", "#c-t2"], { opacity: 1, duration: 0.3 }, 31.4);
+        tl.to("#cf2", { scaleX: 1, duration: 0.5, ease: "power3.out" }, 31.7);
+        tl.to("#cf2", { scaleX: 0.55, backgroundColor: "#d80609", boxShadow: "0 0 18px rgba(216,6,9,.7)", duration: 0.5, ease: "expo.out" }, 33.3);
+        tl.to("#c-less", { opacity: 1, duration: 0.01 }, 33.85);
+        tl.fromTo("#c-less", { scale: 0.6 }, { scale: 1, duration: 0.32, ease: "back.out(2)" }, 33.86);
+        PULSE(33.3, 0.6);
+        tl.to("#card", { y: 90, opacity: 0, filter: "blur(16px)", duration: 0.3, ease: "power2.in" }, 34.5);
+        tl.set("#card", { opacity: 0 }, 34.85);
+        tl.to("#s5", { opacity: 0, duration: 0.2 }, 34.55);
+        WIN("#w5", 28.2, 32.2, -1);
+
+        // S6 — HEART RATE ↓ / BODYWEIGHT ↓ / LESS BURNED
+        tl.set(["#s6-a", "#s6-b", "#s6-c"], { opacity: 0 }, 35.0);
+        KICK("#s6-k", 35.5);
+        SLAM("#s6-a", 36.3);
+        GONE("#s6-a", 38.12, 0.16);
+        SLAM("#s6-b", 38.28);
+        GONE("#s6-b", 41.06, 0.16);
+        SLAM("#s6-c", 41.22, 2.4);
+        PULSE(41.32, 1);
+        SHAKE("#s6", 41.45);
+        tl.to("#s6", { opacity: 0, filter: "blur(12px)", duration: 0.22 }, 41.86);
+        WIN("#w6", 36.1, 40.3, 1);
+
+        // S7 — SAME BURN / EVERY DAY
+        tl.set(["#s7-a", "#s7-b"], { opacity: 0 }, 42.2);
+        KICK("#s7-k", 42.6);
+        SLAM("#s7-a", 46.84);
+        tl.to("#s7-a", { opacity: 0, y: -50, duration: 0.14, ease: "power2.in" }, 47.62);
+        SLAM("#s7-b", 47.78, 2.4);
+        PULSE(47.8, 1);
+        SHAKE("#s7", 47.98);
+        tl.to("#s7", { opacity: 0, duration: 0.15 }, 48.25);
+        WIN("#w7", 42.2, 48.4, -1);
+
+        tl.to({}, { duration: DUR }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

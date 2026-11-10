@@ -1,0 +1,5 @@
+# Source footage, matte and stock B-roll live outside git (too large)
+assets/cardio.mp4
+assets/cardio-matte.mp4
+assets/broll/
+renders/
