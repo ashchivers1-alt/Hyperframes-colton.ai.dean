@@ -114,13 +114,15 @@
   },
   "renders": {
     "latest": {
-      "id": "396b5630-79f4-45a6-af22-7f86ef2852fe",
-      "completedAt": 1794330593534,
-      "output": "/home/user/Hyperframes-colton.ai.dean/video-projects/illness/renders/illness-v1-draft.mp4",
+      "id": "9d0a5eee-2702-4e21-9695-bf305113ebf6",
+      "completedAt": 1794332051737,
+      "output": "/home/user/Hyperframes-colton.ai.dean/video-projects/illness/renders/illness-v2-draft.mp4",
       "status": "completed",
-      "revision": null
+      "revision": "adc00560-127b-4691-800a-ce54de7d1eba"
     },
-    "retainedRevisions": []
+    "retainedRevisions": [
+      "adc00560-127b-4691-800a-ce54de7d1eba"
+    ]
   },
   "pendingArtifactCleanup": []
 }
