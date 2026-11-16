@@ -1,0 +1,19 @@
+:root {
+  /* Team Apexx — derived from assets/brand/team-apexx-logo.svg
+     (red brush-stroke X + distressed silver-white wordmark) */
+  --brand-bg: #0a0a0a;            /* near-black canvas */
+  --brand-surface: #161414;       /* cards / panels */
+  --brand-surface-2: #221e1e;     /* raised panels */
+  --brand-border: #3a3333;
+  --brand-accent: #d80609;        /* logo red — the X stroke */
+  --brand-accent-glow: rgba(216, 6, 9, 0.55);
+  --brand-accent-dark: #922a2b;   /* logo red shadow side */
+  --brand-warn: #ff4d00;
+  --brand-text: #f6f6f6;          /* logo wordmark white */
+  --brand-text-dim: #a19f9f;      /* logo wordmark grit/silver */
+
+  /* Typography — bold condensed display to sit next to the brush wordmark.
+     Bundle the font file into a project's assets/ before rendering (no render-time fetches). */
+  --font-mono: ui-monospace, Menlo, monospace;
+  --font-display: "Anton", "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+}
