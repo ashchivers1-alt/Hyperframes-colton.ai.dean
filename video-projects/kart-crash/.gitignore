@@ -1,0 +1,4 @@
+# Source footage (screen recording of the SWC 2026 Day 2 stream, ~3:57:26) and renders stay out of git
+assets/*.mov
+assets/*.mp4
+renders/
