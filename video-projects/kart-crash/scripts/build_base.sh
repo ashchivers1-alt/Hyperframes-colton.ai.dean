@@ -22,19 +22,19 @@ SLOW() { echo "minterpolate=fps=$1:mi_mode=mci:mc_mode=aobmc:vsbmc=1"; }
 
 # A — build-up, pan from x=380 to x=0 over the first second
 ffmpeg -v error -y -ss 0.60 -t 1.15 -i $SRC -filter_complex "$(panel "[0:v]crop=566:708:'max(0,380-380*t/1.0)':0")" $ENC $T/A.mp4
-# B — impact slow-mo 4x
-ffmpeg -v error -y -ss 1.75 -t 0.40 -i $SRC -filter_complex "[0:v]$(SLOW 240),setpts=4*PTS[s];$(panel "[s]crop=440:550:40:20")" $ENC $T/B.mp4
+# B — impact slow-mo 0.15x
+ffmpeg -v error -y -ss 1.75 -t 0.40 -i $SRC -filter_complex "[0:v]$(SLOW 300),setpts=6.6667*PTS[s];$(panel "[s]crop=440:550:40:20")" $ENC $T/B.mp4
 # C — freeze on the launch
 ffmpeg -v error -y -ss 2.02 -i $SRC -frames:v 1 $T/freeze.png
 ffmpeg -v error -y -loop 1 -t 1.5 -i $T/freeze.png -filter_complex "$(panel "[0:v]crop=360:450:90:60")" $ENC $T/C.mp4
-# D — aftermath 2x slow
-ffmpeg -v error -y -ss 2.15 -t 0.40 -i $SRC -filter_complex "[0:v]$(SLOW 120),setpts=2*PTS[s];$(panel "[s]crop=440:550:40:20")" $ENC $T/D.mp4
-# E — replay focused on the driver Ash hits (white helmet, kart underneath Ash), very tight
-VC="crop=240:300:180:150"
-ffmpeg -v error -y -ss 1.74 -t 0.10 -i $SRC -filter_complex "[0:v]$(SLOW 400),setpts=6.67*PTS[s];$(panel "[s]$VC")" $ENC $T/E1.mp4
-ffmpeg -v error -y -ss 1.84 -i $SRC -frames:v 1 $T/victim.png
+# D — aftermath 0.33x
+ffmpeg -v error -y -ss 2.15 -t 0.40 -i $SRC -filter_complex "[0:v]$(SLOW 180),setpts=3*PTS[s];$(panel "[s]crop=440:550:40:20")" $ENC $T/D.mp4
+# E — replay focused on the driver Ash hits (YELLOW helmet, behind/left of Ash), tight
+VC="crop=260:325:80:140"
+ffmpeg -v error -y -ss 1.62 -t 0.13 -i $SRC -filter_complex "[0:v]$(SLOW 240),setpts=8*PTS[s];$(panel "[s]$VC")" $ENC $T/E1.mp4
+ffmpeg -v error -y -ss 1.75 -i $SRC -frames:v 1 $T/victim.png
 ffmpeg -v error -y -loop 1 -t 1.4 -i $T/victim.png -filter_complex "$(panel "[0:v]$VC")" $ENC $T/E2.mp4
-ffmpeg -v error -y -ss 1.84 -t 0.16 -i $SRC -filter_complex "[0:v]$(SLOW 400),setpts=6.67*PTS[s];$(panel "[s]$VC")" $ENC $T/E3.mp4
+ffmpeg -v error -y -ss 1.75 -t 0.23 -i $SRC -filter_complex "[0:v]$(SLOW 300),setpts=10*PTS[s];$(panel "[s]$VC")" $ENC $T/E3.mp4
 # F — hold last frame
 ffmpeg -v error -y -sseof -0.05 -i $T/E3.mp4 -frames:v 1 -update 1 $T/last.png
 ffmpeg -v error -y -loop 1 -t 1.0 -i $T/last.png $ENC $T/F.mp4
