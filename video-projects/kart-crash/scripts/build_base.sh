@@ -29,13 +29,17 @@ ffmpeg -v error -y -ss 2.02 -i $SRC -frames:v 1 $T/freeze.png
 ffmpeg -v error -y -loop 1 -t 1.5 -i $T/freeze.png -filter_complex "$(panel "[0:v]crop=360:450:90:60")" $ENC $T/C.mp4
 # D — aftermath 2x slow
 ffmpeg -v error -y -ss 2.15 -t 0.40 -i $SRC -filter_complex "[0:v]$(SLOW 120),setpts=2*PTS[s];$(panel "[s]crop=440:550:40:20")" $ENC $T/D.mp4
-# E — replay, tight on Ash, 5x slow
-ffmpeg -v error -y -ss 1.75 -t 0.60 -i $SRC -filter_complex "[0:v]$(SLOW 300),setpts=5*PTS[s];$(panel "[s]crop=300:375:'150-60*t/3':98")" $ENC $T/E.mp4
-# F — hold last replay frame
-ffmpeg -v error -y -sseof -0.05 -i $T/E.mp4 -frames:v 1 -update 1 $T/last.png
+# E — replay focused on the driver Ash hits (white helmet, kart underneath Ash), very tight
+VC="crop=240:300:180:150"
+ffmpeg -v error -y -ss 1.74 -t 0.10 -i $SRC -filter_complex "[0:v]$(SLOW 400),setpts=6.67*PTS[s];$(panel "[s]$VC")" $ENC $T/E1.mp4
+ffmpeg -v error -y -ss 1.84 -i $SRC -frames:v 1 $T/victim.png
+ffmpeg -v error -y -loop 1 -t 1.4 -i $T/victim.png -filter_complex "$(panel "[0:v]$VC")" $ENC $T/E2.mp4
+ffmpeg -v error -y -ss 1.84 -t 0.16 -i $SRC -filter_complex "[0:v]$(SLOW 400),setpts=6.67*PTS[s];$(panel "[s]$VC")" $ENC $T/E3.mp4
+# F — hold last frame
+ffmpeg -v error -y -sseof -0.05 -i $T/E3.mp4 -frames:v 1 -update 1 $T/last.png
 ffmpeg -v error -y -loop 1 -t 1.0 -i $T/last.png $ENC $T/F.mp4
 
-printf "file '%s'\n" A.mp4 B.mp4 C.mp4 D.mp4 E.mp4 F.mp4 > $T/list.txt
+printf "file '%s'\n" A.mp4 B.mp4 C.mp4 D.mp4 E1.mp4 E2.mp4 E3.mp4 F.mp4 > $T/list.txt
 ffmpeg -v error -y -f concat -safe 0 -i $T/list.txt -c copy assets/base.mp4
-for s in A B C D E F; do printf "%s %s\n" $s "$(ffprobe -v error -show_entries format=duration -of csv=p=0 $T/$s.mp4)"; done
+for s in A B C D E1 E2 E3 F; do printf "%s %s\n" $s "$(ffprobe -v error -show_entries format=duration -of csv=p=0 $T/$s.mp4)"; done
 ffprobe -v error -show_entries stream=width,height,r_frame_rate -show_entries format=duration -of compact assets/base.mp4
