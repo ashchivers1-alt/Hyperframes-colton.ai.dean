@@ -16,6 +16,7 @@ _(colors, typography, density, placement — populated by /feedback over time)_
 - Use **B** when the footage has headroom/space around Ash and decent lighting; use **A** for tight talking-head framing or explainer-heavy content. (2026-10-12)
 - **Style reference: @kingketo** (see `_reference/creator-library/kingketo/style-distilled.md`) — clean, designed explainer look: top-card listicles or split-screen, cream ↔ charcoal cards, red #N tags, italic-serif accent + red highlight-box keyword, data-proof cards (formulas, rings, cited charts, before/afters). Use it as a third approved look alongside A and B. (2026-11-10)
 - Avoid every video looking identical — vary or mix the two styles across a posting batch so it doesn't read as generic "Claude-edited". (2026-10-12)
+- **Instagram safe zone (1080×1920): keep ALL graphics, hooks and captions between y≈300 and y≈1600, and x≈60–960.** The top ~290px and bottom ~320px get cropped in the feed (4:5 preview) and covered by Reels UI; the right edge has the like/comment buttons. Nothing important goes up there — Ash flagged this twice (kart-crash hook, Opinions reel). (2026-11-22)
 - Graphics illustrate the key nouns/claims Ash actually says, landing on the spoken word. (2026-10-12)
 
 ## Resolution / export
@@ -59,4 +60,5 @@ _(logo treatment, hashtags, handles, brand-tokens overrides — populated by /fe
 
 _(anti-patterns to never repeat — populated by /feedback over time)_
 
+- Text or graphics in the top ~290px or bottom ~320px of a 9:16 frame — Instagram crops/covers them (2026-11-22)
 - Giant behind-the-subject words on footage where Ash fills the frame — they get hidden (MTVideo trial). (2026-10-12)
