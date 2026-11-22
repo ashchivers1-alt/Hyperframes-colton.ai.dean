@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <!--
+      OPINIONS — mixed style (B behind-subject + A/kingketo front cards).
+      This file renders the BACK layer. scripts/composite.sh pastes Ash back on top with the person matte,
+      so everything here sits BEHIND him — except the front cards (#cards-front), whose box is punched
+      out of the matte while they're on screen (times listed in composite.sh).
+      Ash's burned-in captions sit at y ≈ 1320–1450: nothing goes there.
+    -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: Inter, sans-serif; }
+      #plate { width: 1080px; height: 1920px; object-fit: cover; }
+
+      #grade { position: absolute; inset: 0; pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.32) 30%, rgba(0,0,0,0) 48%); }
+      #glow { position: absolute; left: -10%; right: -10%; top: -6%; height: 50%; pointer-events: none; opacity: 0;
+        background: radial-gradient(ellipse 50% 45% at 50% 35%, rgba(216,6,9,.8), transparent 72%); mix-blend-mode: screen; }
+
+      .stage { position: absolute; left: 0; right: 0; top: 0; height: 900px; overflow: hidden; }
+      .giant { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap;
+        font-family: "Bebas Neue", sans-serif; line-height: .86; letter-spacing: .01em; }
+      .chrome { background: linear-gradient(180deg,#fff 0%,#ececec 45%,#9a9a9a 72%,#d8d8d8 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 0 24px rgba(255,255,255,.25)) drop-shadow(0 10px 36px rgba(0,0,0,.6)); }
+      .redfill { color: var(--brand-accent); text-shadow: 0 0 28px rgba(216,6,9,.75), 0 0 70px rgba(216,6,9,.45); }
+      .outline { color: transparent; -webkit-text-stroke: 3px rgba(255,255,255,.6); }
+      .kicker { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap;
+        font: 800 30px/1 Inter, sans-serif; letter-spacing: .38em; text-transform: uppercase; color: rgba(255,255,255,.92);
+        text-shadow: 0 2px 14px rgba(0,0,0,.8); }
+
+      /* chat bubbles behind Ash */
+      .bub { position: absolute; max-width: 280px; padding: 18px 22px; border-radius: 28px; font: 700 32px/1.15 Inter, sans-serif; white-space: normal;
+        box-shadow: 0 18px 40px rgba(0,0,0,.45); opacity: 0; }
+      .bub.l { background: #2b2b2e; color: #fff; border-bottom-left-radius: 10px; }
+      .bub.r { background: #e9e9ec; color: #111; border-bottom-right-radius: 10px; }
+      .bub b { color: var(--brand-accent); }
+      .mini { position: absolute; width: 92px; height: 70px; border-radius: 24px; background: rgba(255,255,255,.92); opacity: 0;
+        display: flex; align-items: center; justify-content: center; font: 900 38px/1 Montserrat, sans-serif; color: #111; box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+      .mini.red { background: var(--brand-accent); color: #fff; }
+
+      /* profile cards (B&W section) */
+      .prof { position: absolute; width: 270px; padding: 18px 20px; border-radius: 26px; background: rgba(250,250,250,.96); color: #111; opacity: 0;
+        box-shadow: 0 24px 50px rgba(0,0,0,.55); }
+      .prof .av { width: 78px; height: 78px; border-radius: 50%; background: #cfcfcf; display: flex; align-items: center; justify-content: center;
+        font: 900 40px/1 Montserrat, sans-serif; color: #555; }
+      .prof .nm { margin-top: 12px; font: 900 38px/1 Montserrat, sans-serif; white-space: nowrap; }
+      .prof .bio { margin-top: 8px; font: 600 23px/1.25 Inter, sans-serif; color: #555; }
+      .prof .stamp { position: absolute; left: 50%; top: 44%; margin-left: -130px; width: 260px; text-align: center; padding: 8px 10px; border: 5px solid var(--brand-accent); border-radius: 10px;
+        font: 900 30px/1 Montserrat, sans-serif; color: var(--brand-accent); background: rgba(255,255,255,.92); opacity: 0; white-space: nowrap; }
+
+      /* stack words */
+      .side { position: absolute; font-family: "Bebas Neue", sans-serif; font-size: 120px; line-height: .9; white-space: nowrap; opacity: 0; }
+
+      /* big strike over OPINIONS */
+      #s7-strike { position: absolute; left: 60px; right: 60px; top: 250px; height: 26px; background: var(--brand-accent);
+        box-shadow: 0 0 30px rgba(216,6,9,.8); transform-origin: left center; }
+
+      /* vertical side words (left/right columns either side of Ash's head) */
+      .vword { position: absolute; top: 70px; height: 640px; writing-mode: vertical-rl; font-family: "Bebas Neue", sans-serif; line-height: .9; white-space: nowrap; opacity: 0; }
+      .vword.L { left: 30px; transform-origin: 50% 50%; }
+      .vword.R { right: 30px; }
+      .vword.flip { writing-mode: vertical-rl; }
+      .big1 { font: 900 150px/1 Montserrat, sans-serif; color: var(--brand-accent); }
+      /* front cards (below captions, punched out of the matte) */
+      .fcard { position: absolute; left: 90px; width: 900px; top: 1490px; height: 220px; border-radius: 30px; padding: 26px 40px; opacity: 0; overflow: hidden;
+        box-shadow: 0 24px 60px rgba(0,0,0,.55); }
+      .fcard.dark { background: linear-gradient(160deg, rgba(22,20,20,.94), rgba(10,10,10,.92)); border: 1px solid rgba(255,255,255,.12); color: #fff; }
+      .fcard.cream { background: #F4EFE6; color: #141414; }
+      .fcard::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 9px; background: var(--brand-accent); }
+      .tag { display: inline-flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 9px; background: var(--brand-accent); color: #fff;
+        font: 800 24px/1 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+      .row { display: flex; align-items: center; gap: 22px; margin-top: 18px; }
+      .tick { width: 54px; height: 54px; border-radius: 14px; background: var(--brand-accent); color: #fff; display: flex; align-items: center; justify-content: center;
+        font: 900 34px/1 Montserrat, sans-serif; flex: none; }
+      .rt { font: 900 48px/1 Montserrat, sans-serif; white-space: nowrap; }
+      .serif { font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; }
+      .rcpt { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; font: 800 36px/1 Montserrat, sans-serif; white-space: nowrap; }
+      .rcpt span:last-child { color: #2a8a3a; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="37.0" data-width="1080" data-height="1920">
+      <video id="plate" src="assets/opinions.mp4" data-start="0" data-duration="37.0" data-track-index="0" muted playsinline></video>
+      <audio id="voice" src="assets/opinions.mp4" data-start="0" data-duration="37.0" data-track-index="1" data-volume="1"></audio>
+
+      <div id="layer" class="clip" data-start="0" data-duration="37.0" data-track-index="2">
+        <div id="grade"></div>
+        <div id="glow"></div>
+
+        <!-- ===== BEHIND ASH (side columns) ===== -->
+        <!-- 1 · OPINIONS (0.1–3.4) -->
+        <div id="v1" class="vword L chrome" style="font-size:210px">OPINIONS</div>
+        <div id="s1-m1" class="mini" style="left:860px;top:120px">?</div>
+        <div id="s1-m2" class="mini red" style="left:950px;top:260px">!</div>
+        <div id="s1-m3" class="mini" style="left:830px;top:400px">…</div>
+        <div id="s1-m4" class="mini" style="left:960px;top:520px">??</div>
+        <div id="s1-m5" class="mini red" style="left:850px;top:640px">!!</div>
+
+        <!-- 2 · everyone's got an opinion — opinion chips both sides (7.4–8.8) -->
+        <div id="ch" style="position:absolute;inset:0"></div>
+
+        <!-- 3 · the questions (8.9–11.5) -->
+        <div id="b1" class="bub l" style="left:24px;top:160px">Why are you eating <b>that?</b></div>
+        <div id="b2" class="bub r" style="right:24px;top:330px">That much <b>cardio?!</b></div>
+        <div id="b3" class="bub l" style="left:24px;top:520px">You're doing it wrong bro</div>
+
+        <!-- 4 · TRUST | COACH (11.7–14.9) -->
+        <div id="v4a" class="vword L chrome" style="font-size:230px">TRUST</div>
+        <div id="v4b" class="vword R redfill" style="font-size:230px">COACH</div>
+
+        <!-- 5 · Big Dave / Sally (15.0–21.2, B&W section) -->
+        <div id="p1" class="prof" style="left:18px;top:180px">
+          <div class="av">BD</div><div class="nm">Big Dave</div><div class="bio">Down the gym.<br>Opinions: unlimited</div>
+          <div class="stamp" id="p1-s">NOT YOUR COACH</div>
+        </div>
+        <div id="p2" class="prof" style="right:18px;top:380px">
+          <div class="av">S</div><div class="nm">Sally</div><div class="bio"><b>45×</b> Mrs. Olympia<br>(in 3 years)</div>
+          <div class="stamp" id="p2-s">NOT YOUR COACH</div>
+        </div>
+
+        <!-- 9 · swarm of opinions at "mind f***" (35.0–36.9) -->
+        <div id="sw" style="position:absolute;inset:0;pointer-events:none"></div>
+
+        <!-- ===== FRONT cards (below captions; punched out of the matte in composite.sh) ===== -->
+        <div id="c2" class="fcard dark">
+          <div class="tag">Start a contest prep</div>
+          <div class="row" style="margin-top:16px"><div class="rt" style="font-size:54px">Everyone's got an <span style="color:var(--brand-accent)">opinion</span></div></div>
+          <div id="c2-n" style="position:absolute;right:40px;top:26px;font:900 26px/1 Inter;letter-spacing:.12em;color:#9a9a9a">OPINIONS: <span id="c2-c" style="color:#fff">0</span></div>
+        </div>
+        <div id="c4" class="fcard cream">
+          <div class="tag">The <span class="serif" style="text-transform:none;margin:0 8px;font-size:28px;letter-spacing:0">most</span> important thing</div>
+          <div class="row"><div class="tick">✓</div><div class="rt" id="c4-1">Trust your coach</div></div>
+          <div class="row" id="c4-r2" style="margin-top:12px"><div class="tick">✓</div><div class="rt">Follow the process</div></div>
+        </div>
+        <div id="c6" class="fcard dark">
+          <div class="tag">Your job</div>
+          <div style="display:flex;gap:18px;margin-top:22px">
+            <div class="row" id="c6-1" style="margin:0"><div class="tick">1</div><div class="rt" style="font-size:40px">Direction</div></div>
+            <div class="row" id="c6-2" style="margin:0"><div class="tick">2</div><div class="rt" style="font-size:40px">Trust</div></div>
+            <div class="row" id="c6-3" style="margin:0"><div class="tick">3</div><div class="rt" style="font-size:40px">Process</div></div>
+          </div>
+        </div>
+        <div id="c7" class="fcard cream">
+          <div><div class="tag">At the end of the day</div></div>
+          <div style="position:relative;display:inline-block;margin-top:14px"><div class="rt" style="font-size:72px">Opinions</div><div id="c7-s" style="position:absolute;left:-8px;right:-8px;top:50%;height:12px;margin-top:-6px;background:var(--brand-accent);transform-origin:left center"></div></div>
+          <div id="c7-k" style="position:absolute;right:40px;bottom:34px;font:900 64px/1 Montserrat,sans-serif;color:var(--brand-accent)">= F*** ALL</div>
+        </div>
+        <div id="c8" class="fcard dark">
+          <div style="display:flex;justify-content:space-between;align-items:center"><div class="tag">You're paying for</div><div style="font:700 22px/1 Inter;letter-spacing:.14em;color:#9a9a9a">RECEIPT</div></div>
+          <div class="rcpt" id="c8-1"><span>Coaching service</span><span>PAID ✓</span></div>
+          <div class="rcpt" id="c8-2"><span>The information</span><span>PAID ✓</span></div>
+        </div>
+        <div id="c9" class="fcard cream" style="display:flex;align-items:center;gap:30px">
+          <div class="big1" id="c9-1">1</div>
+          <div><div class="tag">Listen to</div><div class="rt" style="font-size:60px;margin-top:10px">One <span class="serif">person.</span></div></div>
+        </div>
+      </div>
+
+      <!-- SFX -->
+      <audio id="x1" src="assets/sfx/whoosh.mp3" data-start="0.05" data-duration="0.57" data-track-index="10" data-volume="0.18"></audio>
+      <audio id="x2" src="assets/sfx/pop.mp3" data-start="2.6" data-duration="0.7" data-track-index="11" data-volume="0.16"></audio>
+      <audio id="x3" src="assets/sfx/swipe.mp3" data-start="3.6" data-duration="1.05" data-track-index="12" data-volume="0.13"></audio>
+      <audio id="x4" src="assets/sfx/slam.mp3" data-start="7.4" data-duration="1.2" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x5" src="assets/sfx/notification.mp3" data-start="9.0" data-duration="0.5" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="x6" src="assets/sfx/notification.mp3" data-start="10.4" data-duration="0.5" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="x7" src="assets/sfx/slam.mp3" data-start="12.95" data-duration="1.2" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="x8" src="assets/sfx/click.wav" data-start="14.1" data-duration="0.45" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="x9" src="assets/sfx/pop.mp3" data-start="16.1" data-duration="0.7" data-track-index="10" data-volume="0.16"></audio>
+      <audio id="x10" src="assets/sfx/hard-cut.mp3" data-start="17.2" data-duration="0.24" data-track-index="11" data-volume="0.24"></audio>
+      <audio id="x11" src="assets/sfx/pop.mp3" data-start="17.9" data-duration="0.7" data-track-index="12" data-volume="0.16"></audio>
+      <audio id="x12" src="assets/sfx/hard-cut.mp3" data-start="20.1" data-duration="0.24" data-track-index="10" data-volume="0.24"></audio>
+      <audio id="x13" src="assets/sfx/whoosh.mp3" data-start="22.5" data-duration="0.57" data-track-index="11" data-volume="0.16"></audio>
+      <audio id="x14" src="assets/sfx/whoosh.mp3" data-start="23.65" data-duration="0.57" data-track-index="12" data-volume="0.16"></audio>
+      <audio id="x15" src="assets/sfx/slam.mp3" data-start="25.3" data-duration="1.2" data-track-index="10" data-volume="0.22"></audio>
+      <audio id="x16" src="assets/sfx/bass-drop.mp3" data-start="27.5" data-duration="1.15" data-track-index="11" data-volume="0.28"></audio>
+      <audio id="x17" src="assets/sfx/click.wav" data-start="30.1" data-duration="0.45" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="x18" src="assets/sfx/click.wav" data-start="31.8" data-duration="0.45" data-track-index="10" data-volume="0.2"></audio>
+      <audio id="x19" src="assets/sfx/slam.mp3" data-start="33.2" data-duration="1.2" data-track-index="11" data-volume="0.24"></audio>
+      <audio id="x20" src="assets/sfx/glitch.mp3" data-start="35.0" data-duration="1.4" data-track-index="12" data-volume="0.1"></audio>
+    </div>
+
+    <script>
+      (() => {
+        const tl = gsap.timeline({ paused: true });
+        const DUR = 37.0;
+        const PULSE = (t, a = 0.85) => tl.fromTo("#glow", { opacity: a }, { opacity: 0, duration: 0.9, ease: "power2.out", immediateRender: false }, t);
+        const SLAM = (s, t, from = 2.0) => tl.fromTo(s, { scale: from, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.in" }, t);
+        const KICK = (s, t) => tl.fromTo(s, { y: -14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power2.out" }, t);
+        const OUT = (s, t, d = 0.22) => tl.to(s, { opacity: 0, filter: "blur(10px)", duration: d, ease: "power2.in" }, t);
+        const POP = (s, t, from = { scale: 0.4, y: 30 }) => tl.fromTo(s, { ...from, opacity: 0 }, { scale: 1, x: 0, y: 0, opacity: 1, duration: 0.32, ease: "back.out(2)" }, t);
+
+        const CARD = (id, t, end) => {
+          tl.fromTo(id, { y: 60, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.4)" }, t);
+          tl.to(id, { y: 60, opacity: 0, duration: 0.22, ease: "power2.in" }, end - 0.22);
+        };
+        const VIN = (s, t, dir = -1) => tl.fromTo(s, { opacity: 0, y: dir * 140, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, t);
+
+        // 1 — OPINIONS climbs the left edge; "?" "!" bubbles pop on the right at "everyone's got one"
+        VIN("#v1", 0.12, 1);
+        tl.to("#v1", { y: -40, duration: 3.0, ease: "none" }, 0.6);
+        ["#s1-m1","#s1-m2","#s1-m3","#s1-m4","#s1-m5"].forEach((m, i) => { POP(m, 2.6 + i * 0.1); tl.to(m, { y: -24, duration: 0.7, ease: "sine.inOut" }, 2.95 + i * 0.1); });
+        PULSE(2.6, 0.6);
+        OUT(["#v1","#s1-m1","#s1-m2","#s1-m3","#s1-m4","#s1-m5"], 3.3);
+
+        // 2 — front card + opinion counter, chips flood both sides on "got an opinion"
+        CARD("#c2", 3.7, 8.8);
+        const cnt = { v: 0 };
+        tl.to(cnt, { v: 999, duration: 4.4, ease: "power2.in", onUpdate: () => { document.getElementById("c2-c").textContent = Math.round(cnt.v).toLocaleString() + (cnt.v > 998 ? "+" : ""); } }, 4.0);
+        const ch = document.getElementById("ch");
+        const cw = ["Eat more","Eat less","More cardio","No carbs","Train fasted","Bro, no","Do keto","Cut salt"];
+        cw.forEach((w, i) => {
+          const d = document.createElement("div"); d.className = "bub " + (i % 2 ? "r" : "l");
+          d.style.fontSize = "28px"; d.style.padding = "12px 18px";
+          d.style[i % 2 ? "right" : "left"] = (18 + (i % 4 > 1 ? 40 : 0)) + "px"; d.style.top = (110 + Math.floor(i / 2) * 150) + "px";
+          d.textContent = w; ch.appendChild(d);
+          tl.fromTo(d, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.5)" }, 7.4 + i * 0.06);
+        });
+        PULSE(7.8, 0.8);
+        tl.to("#ch", { opacity: 0, duration: 0.2 }, 8.65);
+
+        // 3 — the questions people ask (chat bubbles at the sides)
+        POP("#b1", 9.0, { x: -80, scale: 0.7 });
+        POP("#b2", 10.4, { x: 80, scale: 0.7 });
+        POP("#b3", 11.0, { x: -80, scale: 0.7 });
+        tl.to(["#b1","#b2","#b3"], { y: -16, duration: 1.2, ease: "sine.inOut" }, 10.0);
+        OUT(["#b1","#b2","#b3"], 11.5, 0.18);
+
+        // 4 — TRUST | COACH side words + front checklist
+        VIN("#v4a", 12.9, 1);
+        VIN("#v4b", 13.5, -1);
+        PULSE(13.55, 0.9);
+        OUT(["#v4a","#v4b"], 14.85);
+        CARD("#c4", 11.75, 15.1);
+        tl.set("#c4-r2", { opacity: 0 }, 11.75);
+        tl.fromTo("#c4-r2", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 14.1);
+
+        // 5 — Big Dave / Sally profile cards, NOT YOUR COACH stamps
+        POP("#p1", 16.1, { x: -120, scale: 0.8, rotation: -8 });
+        tl.to("#p1", { rotation: -3, duration: 0.3 }, 16.42);
+        tl.fromTo("#p1-s", { opacity: 0, scale: 2, rotation: -12 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.18, ease: "power4.in" }, 17.2);
+        POP("#p2", 17.9, { x: 120, scale: 0.8, rotation: 8 });
+        tl.to("#p2", { rotation: 3, duration: 0.3 }, 18.22);
+        tl.fromTo("#p2-s", { opacity: 0, scale: 2, rotation: 12 }, { opacity: 1, scale: 1, rotation: 12, duration: 0.18, ease: "power4.in" }, 20.1);
+        OUT(["#p1","#p2"], 21.0, 0.22);
+
+        // 6 — direction / trust / process (front)
+        CARD("#c6", 21.35, 25.75);
+        tl.set(["#c6-1","#c6-2","#c6-3"], { opacity: 0 }, 21.35);
+        POP("#c6-1", 22.5, { scale: 0.6, y: 20 });
+        POP("#c6-2", 23.65, { scale: 0.6, y: 20 });
+        POP("#c6-3", 25.3, { scale: 0.6, y: 20 });
+        PULSE(25.32, 0.6);
+
+        // 7 — OPINIONS struck → = F*** ALL (front)
+        CARD("#c7", 25.85, 28.1);
+        tl.set("#c7-k", { opacity: 0 }, 25.85);
+        tl.fromTo("#c7-s", { scaleX: 0 }, { scaleX: 1, duration: 0.2, ease: "power4.out" }, 27.25);
+        tl.fromTo("#c7-k", { opacity: 0, scale: 2 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power4.in" }, 27.5);
+        PULSE(27.52, 1);
+
+        // 8 — receipt (front)
+        CARD("#c8", 28.9, 32.55);
+        tl.set(["#c8-1","#c8-2"], { opacity: 0 }, 28.9);
+        tl.fromTo("#c8-1", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 30.1);
+        tl.fromTo("#c8-2", { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, 31.8);
+
+        // 9 — listen to ONE person (front), then the opinion swarm behind him (mind f***)
+        CARD("#c9", 32.45, 34.95);
+        tl.fromTo("#c9-1", { scale: 2.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "power4.in" }, 33.2);
+        PULSE(33.24, 1);
+        const sw = document.getElementById("sw");
+        const words = ["Do more cardio","Cut carbs","Eat clean","Train fasted","Bulk!","No sugar","More protein","Drop salt","Less cardio","Keto?"];
+        words.forEach((w, i) => {
+          const d = document.createElement("div");
+          d.className = "bub " + (i % 2 ? "r" : "l");
+          d.style.fontSize = "28px"; d.style.padding = "12px 18px";
+          d.style[i % 2 ? "right" : "left"] = (16 + (i % 4 > 1 ? 36 : 0)) + "px"; d.style.top = (90 + Math.floor(i / 2) * 135) + "px";
+          d.textContent = w; sw.appendChild(d);
+          tl.fromTo(d, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2.5)" }, 35.0 + i * 0.07);
+          tl.to(d, { x: (i % 2 ? -1 : 1) * 12, duration: 0.12, yoyo: true, repeat: 5, ease: "sine.inOut" }, 35.8 + (i % 4) * 0.03);
+        });
+        tl.to("#sw", { opacity: 0, duration: 0.25 }, 36.7);
+
+        tl.to({}, { duration: DUR }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# Source footage (Drive file 1MQg-zxD0mx9mSKo_Zr-eay4O1M38NSRK), mattes and renders stay out of git
+assets/*.mp4
+renders/
